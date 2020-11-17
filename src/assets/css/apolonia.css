@@ -1,0 +1,53 @@
+.container-all{
+  width:100%;
+  cursor: pointer;
+  float:right;
+  display:flex;
+}
+.containerr{
+  margin: 0 auto;
+  background: #E9F8FC;
+  color: #3B3D3D;
+  font-weight: lighter;
+  align-content: center;
+  font-weight: 600;
+  border-radius: 10px;
+  
+}
+
+/********* BOTONES REGISTRE *********/
+.title{
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 10px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #4d67ff;
+}
+
+.title-login{
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.registrate-contraseña{
+  text-align: center;
+}
+
+.text-footer a{
+  text-align: justify;
+  color: #ffffff;
+  padding: 5px;
+  margin-top: 50px;
+}
+
+.fecha_nacimiento {
+    display: block;
+    font: 1rem 'Fira Sans', sans-serif;
+}
+
+
+/********* FIN *********/
