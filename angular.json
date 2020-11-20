@@ -42,18 +42,21 @@
               "src/assets/js/jquery.min.js",
               "src/assets/js/plugins/steps/jquery.steps.min.js",
               "src/assets/js/plugins/validate/jquery.validate.min.js",
-              "src/assets/js/popper.min.js",
               "src/assets/tether/tether.js",
+
+              "src/assets/jquery/jquery-3.3.1.min.js",
+              "src/assets/js/popper.min.js",
               "src/assets/js/bootstrap.min.js",
+
               "src/assets/js/steps.js",
 
               "src/assets/js/main.js",
               "src/assets/datatables/datatables.min.js",
-              "src/assets/datatables/Buttons-1.5.6/js/dataTables.buttons.min.js",
-              "src/assets/datatables/JSZip-2.5.0/jszip.min.js",
-              "src/assets/datatables/pdfmake-0.1.36/pdfmake.min.js",
-              "src/assets/datatables/pdfmake-0.1.36/vfs_fonts.js",
-              "src/assets/datatables/Buttons-1.5.6/js/buttons.html5.min.js"
+              "src/assets/js/datatables/Buttons-1.5.6/js/dataTables.buttons.min.js",
+              "src/assets/js/datatables/JSZip-2.5.0/jszip.min.js",
+              "src/assets/js/datatables/pdfmake-0.1.36/pdfmake.min.js",
+              "src/assets/js/datatables/pdfmake-0.1.36/vfs_fonts.js",
+              "src/assets/js/datatables/Buttons-1.5.6/js/buttons.html5.min.js"
             ]
           },
           "configurations": {
