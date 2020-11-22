@@ -26,6 +26,7 @@
             "styles": [
               "src/custom-theme.scss",
               "src/styles.css",
+              "src/app/components/login/login.css",
               "src/assets/css/bootstrap.min.css",
               "src/assets/font-awesome/css/fontawesome-all.min.css",
               "src/assets/css/animate.css",
@@ -35,17 +36,20 @@
               "src/assets/css/jquery-ui.theme.css",
               "src/assets/css/main.css",
               "src/assets/css/style.css"
+
             ],
             "scripts": [
               "src/assets/js/jquery.min.js",
               "src/assets/js/plugins/steps/jquery.steps.min.js",
               "src/assets/js/plugins/validate/jquery.validate.min.js",
-              "src/assets/js/popper.min.js",
               "src/assets/tether/tether.js",
+              "src/assets/js/popper.min.js",
               "src/assets/js/bootstrap.min.js",
               "src/assets/js/steps.js",
 
-              "src/assets/js/main.js"
+              "src/assets/js/main.js",
+              "src/assets/datatables/datatables.min.js",
+
             ]
           },
           "configurations": {

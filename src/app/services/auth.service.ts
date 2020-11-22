@@ -60,7 +60,6 @@ export class AuthService {
     sessionRead(){
       if (sessionStorage.getItem('data')) {
       this.usuario = JSON.parse(sessionStorage.getItem('data'));
-      console.log(this.usuario.nombre);
       }
       else{
         this.usuario = new userModel;

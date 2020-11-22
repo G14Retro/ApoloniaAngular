@@ -22,6 +22,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from "@angular/material/paginator";
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +31,8 @@ import { MatPaginatorModule } from "@angular/material/paginator";
     HomeComponent,
     NavbarComponent,
     CitasComponent,
-    HeaderComponent
+    HeaderComponent,
+    
   ],
   imports: [
     BrowserModule,
