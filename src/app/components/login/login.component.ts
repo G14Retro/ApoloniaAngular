@@ -32,7 +32,6 @@ export class LoginComponent implements OnInit {
     .subscribe(resp=>{
     Swal.close();
     location.reload();
-    console.log("por ahi voy ")
     },
     (err)=>{
       Swal.fire({

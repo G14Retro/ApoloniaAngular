@@ -34,8 +34,6 @@
               "src/assets/css/jquery-ui.min.css",
               "src/assets/css/jquery-ui.theme.css",
               "src/assets/css/main.css",
-              "src/assets/datatables/datatables.min.css",
-              "src/assets/datatables/DataTables-1.10.18/css/dataTables.bootstrap4.min.css",
               "src/assets/css/style.css"
             ],
             "scripts": [
@@ -47,13 +45,7 @@
               "src/assets/js/bootstrap.min.js",
               "src/assets/js/steps.js",
 
-              "src/assets/js/main.js",
-              "src/assets/datatables/datatables.min.js",
-              "src/assets/datatables/Buttons-1.5.6/js/dataTables.buttons.min.js",
-              "src/assets/datatables/JSZip-2.5.0/jszip.min.js",
-              "src/assets/datatables/pdfmake-0.1.36/pdfmake.min.js",
-              "src/assets/datatables/pdfmake-0.1.36/vfs_fonts.js",
-              "src/assets/datatables/Buttons-1.5.6/js/buttons.html5.min.js"
+              "src/assets/js/main.js"
             ]
           },
           "configurations": {

@@ -19,6 +19,8 @@ import { MatDatepickerModule } from "@angular/material/datepicker";
 import { MatNativeDateModule, MAT_DATE_LOCALE } from "@angular/material/core";
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from "@angular/material/paginator";
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { MatInputModule } from '@angular/material/input';
     MatNativeDateModule,
     MatDatepickerModule,
     MatFormFieldModule,
-    MatInputModule   
+    MatInputModule,
+    MatTableModule,
+    MatPaginatorModule
   ],
   providers: [
     AuthService,
