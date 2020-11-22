@@ -4878,6 +4878,7 @@ code {
   margin-top: 0;
   padding: 0;
 }
+
 .ibox.collapsed .ibox-content {
   display: none;
 }
@@ -5699,11 +5700,16 @@ body.mini-navbar.fixed-sidebar .logo-element {
 .loginscreen.middle-box {
   width: 300px;
 }
+
+/********* CODIGO MODIFICADO LOGIN *********/
 .loginColumns {
-  max-width: 800px;
-  margin: 0 auto;
+  max-width: 1000px;
+  height: 700px;
+  margin: 18px auto;
   padding: 100px 20px 20px 20px;
 }
+
+
 .passwordBox {
   max-width: 460px;
   margin: 0 auto;

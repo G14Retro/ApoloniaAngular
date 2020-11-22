@@ -1,0 +1,41 @@
+.contenedor-add{ 
+  background: rgb(255, 255, 255);
+}
+
+/********* CODIGO MODIFICADO LOGIN *********/
+.login-Columns {
+  background: rgb(255, 255, 255);
+  max-width: 1000px;
+  height: 600px;
+  margin: 18px auto;
+  padding: 40px 20px 20px 20px;
+}
+
+.contenedor-add_login{
+  padding-top:70px;
+  height: 500px;
+  border-radius: 11px 0 0 11px ;
+  background:  rgb(206, 252, 255);
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.contenedor-login{
+  border-radius: 0 11px 11px 0;
+  padding-top:70px;
+  height: 500px;
+  background:  rgb(206, 252, 255);
+
+}
+
+.text-danger{
+  background: #000;
+  border-radius: 6px;
+
+}
+.ibox-content{
+background: #000;
+}

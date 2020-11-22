@@ -26,6 +26,7 @@
             "styles": [
               "src/custom-theme.scss",
               "src/styles.css",
+              "src/app/components/login/login.css",
               "src/assets/css/bootstrap.min.css",
               "src/assets/font-awesome/css/fontawesome-all.min.css",
               "src/assets/css/animate.css",
@@ -33,30 +34,31 @@
               "src/assets/js/plugins/gritter/jquery.gritter.css",
               "src/assets/css/jquery-ui.min.css",
               "src/assets/css/jquery-ui.theme.css",
-              "src/assets/css/main.css",
               "src/assets/datatables/datatables.min.css",
               "src/assets/datatables/DataTables-1.10.18/css/dataTables.bootstrap4.min.css",
-              "src/assets/css/style.css"
+
+              "src/assets/css/style.css",
+              "src/assets/css/main.css"
+              
+
             ],
             "scripts": [
               "src/assets/js/jquery.min.js",
               "src/assets/js/plugins/steps/jquery.steps.min.js",
               "src/assets/js/plugins/validate/jquery.validate.min.js",
               "src/assets/tether/tether.js",
-
-              "src/assets/jquery/jquery-3.3.1.min.js",
               "src/assets/js/popper.min.js",
               "src/assets/js/bootstrap.min.js",
-
               "src/assets/js/steps.js",
 
               "src/assets/js/main.js",
+
               "src/assets/datatables/datatables.min.js",
-              "src/assets/js/datatables/Buttons-1.5.6/js/dataTables.buttons.min.js",
-              "src/assets/js/datatables/JSZip-2.5.0/jszip.min.js",
-              "src/assets/js/datatables/pdfmake-0.1.36/pdfmake.min.js",
-              "src/assets/js/datatables/pdfmake-0.1.36/vfs_fonts.js",
-              "src/assets/js/datatables/Buttons-1.5.6/js/buttons.html5.min.js"
+              "src/assets/datatables/Buttons-1.5.6/js/dataTables.buttons.min.js",
+              "src/assets/datatables/JSZip-2.5.0/jszip.min.js",
+              "src/assets/datatables/pdfmake-0.1.36/pdfmake.min.js",
+              "src/assets/datatables/pdfmake-0.1.36/vfs_fonts.js",
+              "src/assets/datatables/Buttons-1.5.6/js/buttons.html5.min.js"
             ]
           },
           "configurations": {
