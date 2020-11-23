@@ -14,7 +14,7 @@ import { CitasService } from 'src/app/services/citas.service';
 
 export class CitasComponent implements OnInit, AfterViewInit {
   arrayDispo:dispoModel[] =[];
-  columns : string[]=['fechaIni', 'fechaFin', 'nMedico', 'aMedico', 'especialidad', 'consultorio'];
+  columns : string[]=['fechaIni', 'fechaFin', 'nMedico', 'aMedico', 'especialidad', 'consultorio','acciones'];
   dataSource = new MatTableDataSource();
   @ViewChild(MatPaginator) paginator:MatPaginator;
   constructor(private citas:CitasService){

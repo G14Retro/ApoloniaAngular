@@ -21,6 +21,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from "@angular/material/paginator";
+import { MatButtonModule } from '@angular/material/button';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { MatPaginatorModule } from "@angular/material/paginator";
     MatFormFieldModule,
     MatInputModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatButtonModule
   ],
   providers: [
     AuthService,
