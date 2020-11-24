@@ -3,43 +3,44 @@
         <div class="row">
     
             <div class="contenedor-add_login col-md-6">
-                <h2 class="font-bold">Apolonia</h2>
+                <div class="logo-apolonia">
+                    <img src="./../../../assets/img/loggoApolonia.png" alt="Logo Apolonia" width="200px">
+                </div>
+                <div class="imagen-risa">
+                    <img src="./../../../assets/img/risa.jpg" alt="" width="401px">
+                </div>
+                
             </div>
 
             <div class="contenedor-login col-md-6">
-                <div class="ibox-content bg-info">
+                <div class="ibox-content-1">
+                    <h1>Bienvenido</h1>
                     <form class="m-t" (ngSubmit)=login(form) #form="ngForm">
 
-                        <div class="form-group">
+                        <div class="form-group" >
                             <small class="text-danger" *ngIf="form.submitted && form.controls['correo'].errors">
                                 Falta ingresar un correo electronico
                             </small>
-                            <input name="correo" type="email" class="form-control" placeholder="Correo" [(ngModel)]="user.correo" required mail>
+                            <input name="correo" type="email" class="form-control-1" placeholder="Correo" [(ngModel)]="user.correo" required mail>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group-1">
                             <small class="text-danger" *ngIf="form.submitted && form.controls['password'].errors">
                                 No ha ingresado una contraseña
                             </small>
-                            <input type="password" name="password" class="form-control" placeholder="Contraseña" [(ngModel)]="user.password" required>
+                            <input type="password" name="password" class="form-control-1" placeholder="Contraseña" [(ngModel)]="user.password" required>
                         </div>
                         
-                        <button type="submit" class="btn btn-primary block full-width m-b">Iniciar Sesión</button>
+                        <button type="submit" class="btn-iniciarsesion">Iniciar Sesión</button>
     
-                        <a href="#">
+                        
+                        <a class="olvido-contraseña" href="#">
                             <small>¿Olvido su contraseña?</small>
                         </a>
     
-                        <p class="text-muted text-center">
-                            <small>¿No tienes cuenta?</small>
-                        </p>
-
-                        <a class="btn btn-sm btn-white btn-block" [routerLink]="['/register']">Crear cuenta</a>
+                        <a class="crear-cuenta" [routerLink]="['/register']">Crear cuenta</a>
                     </form>
 
-                    <p class="m-t">
-                        <small>Apolonia Software Dental &copy; 2020</small>
-                    </p>
 
                 </div>
             </div>
@@ -47,8 +48,10 @@
         <hr/>
         <div class="row">
             <div class="col-md-6">
-                Copyright Apolonia
+                Copyright Apolonia <br>
+                <a href='https://www.freepik.es/fotos/moda'>Foto de Moda creado por valuavitaly - www.freepik.es</a>
             </div>
+             
             <div class="col-md-6 text-right">
                <small>© 2020</small>
             </div>

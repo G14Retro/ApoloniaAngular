@@ -5,10 +5,10 @@ header{
 }
 
 .container{
-    background: #c0e2ff;
+    background: #ffc0c0;
     border-radius: 9px;
-    padding: 25px;
-    flex-grow: inherit;
+    padding: 40px 40px 40px 40px;
+    
 }
 
 /*estilos para la tabla*/
@@ -23,4 +23,22 @@ table>tbody>tr>td {
 /*para alinear los botones y cuadro de busqueda*/
 .btn-group, .btn-group-vertical {
     position: absolute !important;
+}
+
+.form-control_formulario{
+    display: block;
+    width: 100%;
+    border-radius: 16px;
+    background-color: transparent;
+    color: #474747;
+    font-size: 18px;
+    overflow: hidden;
+    transition: all 500ms ease;
+    border: 2px solid #20e2d7;
+    z-index: 0;
+}
+
+.contenedor-formulario{
+    margin: auto;
+    width: 100%;
 }

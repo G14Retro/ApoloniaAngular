@@ -2781,10 +2781,10 @@ select.form-control:not([size]):not([multiple]) {
 }
 .form-control,
 .single-line {
-  background-color: #FFFFFF;
+  background-color: #424242;
   background-image: none;
-  border: 1px solid #e5e6e7;
-  border-radius: 1px;
+  /*border: 1px solid #e5e6e7;*/
+  border-radius: 16px;
   color: inherit;
   display: block;
   padding: 6px 12px;
@@ -2794,6 +2794,7 @@ select.form-control:not([size]):not([multiple]) {
 .form-control:focus,
 .single-line:focus {
   border-color: #1ab394;
+
 }
 .has-success .form-control,
 .has-success .form-control:focus {
@@ -4387,7 +4388,7 @@ samp {
 body {
   font-family: "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   background-color: #2f4050;
-  font-size: 13px;
+  font-size: 15px;
   color: #676a6c;
   overflow-x: hidden;
 }
@@ -6155,6 +6156,7 @@ a.compose-mail {
 }
 .mail-body .form-group {
   margin-bottom: 5px;
+
 }
 .mail-text .note-editor .note-toolbar {
   background-color: #F9F8F8;
@@ -6338,6 +6340,7 @@ dd.project-people {
 }
 .chat-message-form .form-group {
   margin-bottom: 0;
+  background:#0000;
 }
 /* jsTree */
 .jstree-open > .jstree-anchor > .fa-folder:before {

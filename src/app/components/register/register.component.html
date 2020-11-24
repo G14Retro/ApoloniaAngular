@@ -5,59 +5,91 @@
                 <div class="ibox-title">
                     <h1>Cuenta nueva</h1>
                 </div>
+
                 <div class="ibox-content">
-                    <form (ngSubmit)=patienSave(formulario) #formulario="ngForm">
+                    <form class="contenedor-formulario" (ngSubmit)=patienSave(formulario) #formulario="ngForm">
                         <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <div class="form-group "><label class="col-form-label">Cedula</label>
-                                    <input type="text" class="form-control" name="cc" [(ngModel)]="user.cc">
+                            <!-- ********* FILA 1 ********* -->  
+                            <div class="form-group col-md-3">
+
+                                <div class="form-group">
+                                    <label class="col-form-label">Tipo Documento</label>
+                                    <select type="text" name="documento" class="form-control_formulario" [(ngModel)]="user.cc" tabindex="1" autofocus>
+                                        <option value="dni"></option>
+                                        <option value="cedula">Cedula de Ciudadania</option>
+                                        <option value="extrangera">Cedula Extrangenra</option>
+                                        <option value="pasaporte">Pasaporte</option>
+                                        <option value="targeta">Tarjeta de Identidad</option>
+                                        <i class="formulario__validacion-estado fas fa-times"></i>
+                                    </select>
                                 </div>
-                                <div class="form-group "><label class="col-form-label">Nombres</label>
-                                    <input type="text" class="form-control" name="nombre" [(ngModel)]="user.nombre">
-                                </div>
-                                <div class="form-group "><label class="col-form-label">Apellidos</label>
-                                    <input type="text" class="form-control" name="apellido" [(ngModel)]="user.apellido">
-                                </div>
-                                <div class="form-group "><label class="col-form-label">Dirección</label>
-                                    <input type="text" class="form-control" name="direccion" [(ngModel)]="user.direccion">
-                                </div>
-                                <div class="form-group "><label class="col-form-label">Telefono</label>
-                                    <input type="text" class="form-control" name="telefono" [(ngModel)]="user.telefono">
-                                </div>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <div class="form-group "><label class="col-form-label">Correo</label>
-                                    <input type="mail" class="form-control" name="correo" [(ngModel)]="user.correo">
-                                </div>
+
+                                <div class="form-group col-md-3">
+                                    <div class="form-group "><label class="col-form-label">Apellidos</label>
+                                        <input type="text" class="form-control_formulario" name="apellido" [(ngModel)]="user.apellido" tabindex="3">
+                                    </div>
+
+                                
                                 <div class="form-group ">
-                                    <label class="col-form-label">Genero</label>
-                                    <select name="genero" class="form-control" [(ngModel)]="user.genero">
+                                    <label class="col-form-label" >Genero</label>
+                                    <select  name="genero" class="form-control_formulario" [(ngModel)] ="user.genero" tabindex="4">
                                         <option value=""></option>
                                         <option value="femenino">Femenino</option>
                                         <option value="masculino">Masculino</option>
                                     </select>
                                 </div>
+
+                                <div class="form-group "><label class="col-form-label">Telefono</label>
+                                    <input type="text" class="form-control_formulario" name="telefono" [(ngModel)]="user.telefono" tabindex="7">
+                                </div>
+                                
+                                <div class="form-group "><label class="col-form-label">Contraseña</label>
+                                    <input type="password" class="form-control_formulario" name="password" [(ngModel)]="user.password" tabindex="9">
+                                </div>
+                            </div>
+
+                            <!-- ********* FILA 2 ********* -->  
+                            <div class="form-group"><label class="col-form-label">Número de Documento</label>
+                                <input type="text" class="form-control_formulario" name="cc" [(ngModel)]="user.cc" tabindex="1" autofocus>
+                            </div>
+                            
+                            <div class="form-group col-md-3">
+                                <div class="form-group "><label class="col-form-label">Nombres</label>
+                                    <input type="text" class="form-control_formulario" name="nombre" [(ngModel)]="user.nombre" tabindex="2">
+                                </div>
+
+                                <div class="form-group "><label class="col-form-label">Dirección</label>
+                                    <input type="text" class="form-control_formulario" name="direccion" [(ngModel)]="user.direccion" tabindex="5">
+                                </div>
+
+                                <div class="form-group ">
+                                    <label for="mail" class="col-form-label">Correo</label>
+                                    <input type="mail" class="form-control_formulario" name="correo" [(ngModel)]="user.correo" tabindex="8">
+                                </div>
+
+                                <div class="form-group "><label class="col-form-label">Confirme su contraseña</label>
+                                    <input type="password" class="form-control_formulario" name="password_confirmation" [(ngModel)]="user.password_confirmation" tabindex="10">
+                                </div>
+                            </div> 
+                            
+                            <!-- ********* FILA 3 ********* -->  
                                 <div class="form-group">
                                     <mat-form-field appearance="fill">
                                         <mat-label>Fecha de nacimiento</mat-label>
-                                        <input matInput [matDatepicker]="miFecha" name="fecha_nacimiento" [(ngModel)]="user.fecha_nacimiento">
+                                        <input tabindex="6" matInput [matDatepicker]="miFecha" name="fecha_nacimiento" [(ngModel)]="user.fecha_nacimiento">
                                         <mat-datepicker-toggle matSuffix [for]="miFecha"></mat-datepicker-toggle>
                                         <mat-datepicker #miFecha></mat-datepicker>
                                       </mat-form-field>
                                 </div>
-                                <div class="form-group "><label class="col-form-label">Contraseña</label>
-                                    <input type="password" class="form-control" name="password" [(ngModel)]="user.password">
-                                </div>
-                                <div class="form-group "><label class="col-form-label">Confirme su contraseña</label>
-                                    <input type="password" class="form-control" name="password_confirmation" [(ngModel)]="user.password_confirmation">
-                                </div>
-                            </div>                    
-                        </div>   
+                            </div>
+                        </div>  
+
                         <div class="hr-line-dashed"></div>
                         <div class="form-group row">
                             <div class="col-sm-4 col-sm-offset-2">
-                                <button class="btn btn-white btn-sm" type="submit" [routerLink]="['/login']">Cancelar</button>
-                                <button class="btn btn-primary btn-sm" type="submit">Guardar</button>
+                                
+                            <button class="btn btn-indigo btn-sm" type="submit">Guardar</button>
+                            <button class="btn btn-danger btn-sm" type="submit" [routerLink]="['/login']">Cancelar</button>
                             </div>
                         </div>
                     </form>

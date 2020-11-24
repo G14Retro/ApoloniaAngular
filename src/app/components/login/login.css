@@ -1,41 +1,105 @@
 .contenedor-add{ 
-  background: rgb(255, 255, 255);
+  background: #ffffff;
+}
+
+.logo-apolonia{
+  display: flex;
+  margin-top:-35px;
+  position: absolute;
+  z-index: 1;
 }
 
 /********* CODIGO MODIFICADO LOGIN *********/
 .login-Columns {
-  background: rgb(255, 255, 255);
+  background: #ffffff;
   max-width: 1000px;
-  height: 600px;
+  height: 700px;
   margin: 18px auto;
-  padding: 40px 20px 20px 20px;
+  padding: 20px 50px 20px 50px;
 }
 
 .contenedor-add_login{
   padding-top:70px;
-  height: 500px;
+  height: 600px;
   border-radius: 11px 0 0 11px ;
-  background:  rgb(206, 252, 255);
+  background:  rgb(255, 255, 255);
   position: relative;
   width: 100%;
   min-height: 1px;
   padding-right: 15px;
   padding-left: 15px;
+  
 }
 
+/********* CODIGO CONTENEDOR DERECHO *********/
 .contenedor-login{
   border-radius: 0 11px 11px 0;
   padding-top:70px;
+  height: 600px;
+  background:  #1686FA;
+}
+
+.ibox-content-1{
   height: 500px;
-  background:  rgb(206, 252, 255);
-
+  background: #1686FA;
+  color: #ffffff;
+  padding: 15px 20px 20px 20px;
+  border-width: 1px 0;
+}
+.ibox-content-1 h1{
+  padding: 25px 0 30px 0;
+  text-align: center;
+  font-size: 50px;
+  
 }
 
-.text-danger{
-  background: #000;
-  border-radius: 6px;
+/********* ESTILO CORRREO CONTRASEÑA *********/
+.form-control-1{
+  background-color: #363C44;
+  border-radius: 20px;
+  display: block;
+  padding: 9px 12px;
+  width: 100%;
+}
 
+/********* ESTILO BOTON INICIAR SESIÓN*********/
+.btn-iniciarsesion{
+  cursor: pointer;
+  background-color: #002E54;
+  color: #ffffff;
+  border-radius: 20px;
+  display: block;
+  padding: 12px 12px;
+  width: 90%;
+  margin: 30px 0 ;
+  width: 100%;
 }
-.ibox-content{
-background: #000;
+
+/********** ESTILO RECUPERAR CONTRASEÑA *********/
+.olvido-contraseña{
+  color: #535353;
+  text-decoration: none;
+  background-color: transparent;
+  font-size: 15px;
+  font-weight:900;
+  display: flex;
+  margin-top:-15px; 
 }
+
+/********* ESTILO CREAR CUENTA *********/
+.crear-cuenta{
+  display: block;
+  text-align: center;
+  background: #416E98;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 20px;
+  padding: 9px 12px;
+  width: 70%;
+  margin: 30px 60px;
+}
+
+.imagen-risa{
+ margin: -70px 0 0 60px;
+ opacity: 0.6;
+ }
