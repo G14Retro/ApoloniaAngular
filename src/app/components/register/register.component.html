@@ -5,8 +5,6 @@
                 <div class="ibox-title-formulario">
                     <h1>Cuenta nueva</h1>
                 </div>
-
-                
                     <form class="contenedor-formulario" (ngSubmit)=patienSave(form) #form="ngForm">
                         <div class="form-row">
                             <!-- ********* FILA 1 ********* -->  
@@ -15,59 +13,76 @@
                                 <div class="form-group">
                                     <label class="col-form-label">Tipo de Documento</label>
                                     <select type="text" class="form-control_formulario" name="documento"
-                                    [(ngModel)]="user.documento" tabindex="1" required pattern="(c|e|p|t)">
+                                    [(ngModel)]="user.documento" tabindex="1" required>
                                         <option value=""></option>
-                                        <option value="c">Cédula de Ciudadanía</option>
-                                        <option value="e">Cédula Extranjera</option>
-                                        <option value="p">Pasaporte</option>
-                                        <option value="t">Tarjeta de Identidad</option>
+                                        <option value="cedula">Cédula de Ciudadanía</option>
+                                        <option value="extrangera">Cédula Extranjera</option>
+                                        <option value="pasaporte">Pasaporte</option>
+                                        <option value="tidentidad">Tarjeta de Identidad</option>
                                     </select>
-                                    <small class="text-danger" *ngIf="form.submitted && form.controls['documento'].errors">Campo documento no puede ir vacío</small>
+                                    <small class="text-danger" *ngIf="form.submitted && form.controls['documento'].errors">
+                                        *Campo documento no puede ir vacío
+                                    </small>
                                 </div>
-
                                 <div class="form-group "><label class="col-form-label">Apellidos</label>
-                                    <input type="text" class="form-control_formulario" name="apellido" [(ngModel)]="user.apellido" tabindex="4" minlength="3" maxlength="40" pattern="[A-Za-z]{3,40}" required>
-                                    <small class="text-danger" *ngIf="form.submitted && form.controls['apellido'].errors">Introduzca un apellido valido</small>
+                                    <input type="text" class="form-control_formulario" name="apellido" [(ngModel)]="user.apellido" 
+                                    tabindex="4" minlength="3" maxlength="40" required>
+                                    <small class="text-danger" *ngIf="form.submitted && form.controls['apellido'].errors">
+                                        *Este campo no puede ir vacío
+                                    </small>
                                 </div>
-
                                 <div class="form-group "><label class="col-form-label">Teléfono</label>
-                                    <input type="text" class="form-control_formulario" name="telefono" [(ngModel)]="user.telefono" tabindex="7" minlength="7" maxlength="10" pattern="[0-9]{7,10}" required>
-                                    <small class="text-danger" *ngIf="form.submitted && form.controls['telefono'].errors">Introduzca un número de teléfono valido</small> 
-                                </div>
-                                
+                                    <input type="text" class="form-control_formulario" name="telefono" [(ngModel)]="user.telefono" 
+                                    tabindex="7" minlength="7" maxlength="10" required>
+                                    <small class="text-danger" *ngIf="form.submitted && form.controls['telefono'].errors">
+                                        *Este campo no puede ir vacío
+                                    </small> 
+                                </div>                           
                                 <div class="form-group "><label class="col-form-label">Contraseña</label>
-                                    <input type="password" class="form-control_formulario" name="password" [(ngModel)]="user.password" tabindex="10" minlength="6" maxlength="20" pattern="[0-9]{1,20}[A-Za-z]{1,20}">
-                                    <small class="text-danger" *ngIf="form.submitted && form.controls['password'].errors">Introduzca una contraseña valida que tenga un minimo de 6 y un maximo de 20 caracteres entre letras y números</small>
+                                    <input type="password" class="form-control_formulario" name="password" [(ngModel)]="user.password" 
+                                    tabindex="10" minlength="6" maxlength="20" required>
+                                    <small class="text-danger" *ngIf="form.submitted && form.controls['password'].errors">
+                                        *Este campo no puede ir vacío
+                                    </small>
                                 </div>
                             </div>
-
                             <!-- ********* FILA 2 ********* -->  
                             <div class="form-group col-md-4">
-
                                 <div class="form-group"><label class="col-form-label">Número de Documento</label>
-                                    <input  type="text" class="form-control_formulario" name="cc" [(ngModel)]="user.cc" tabindex="2" minlength="6" maxlength="20" pattern="[A-Za-z0-9]+" required>
-                                    <small class="text-danger" *ngIf="form.submitted && form.controls['cc'].errors">Introduzca un número de documento valido</small>
+                                    <input  type="text" class="form-control_formulario" name="cc" [(ngModel)]="user.cc" 
+                                    tabindex="2" minlength="6" maxlength="20" required>
+                                    <small class="text-danger" *ngIf="form.submitted && form.controls['cc'].errors">
+                                        *Este campo no puede ir vacío
+                                    </small>
                                 </div>
-
                                 <div class="form-group ">
                                     <label class="col-form-label" >Género</label>
-                                    <select  name="genero" class="form-control_formulario" [(ngModel)] ="user.genero" tabindex="5" type="text" name="genero" required pattern="(f|m|o)">
+                                    <select  name="genero" class="form-control_formulario" [(ngModel)] ="user.genero" 
+                                    tabindex="5" type="text" name="genero" required>
                                         <option value=""></option>
-                                        <option value="f">Femenino</option>
-                                        <option value="m">Masculino</option>
-                                        <option value="o">Otro</option>
+                                        <option value="femenino">Femenino</option>
+                                        <option value="masculino">Masculino</option>
+                                        <option value="otro">Otro</option>
                                     </select>
-                                    <small class="text-danger" *ngIf="form.submitted && form.controls['genero'].errors">Campo género no puede ir vacío</small>
+                                    <small class="text-danger" *ngIf="form.submitted && form.controls['genero'].errors">
+                                        *Este campo no puede ir vacío
+                                    </small>
                                 </div>
 
                                 <div class="form-group "><label class="col-form-label">Dirección</label>
-                                    <input type="text" class="form-control_formulario" name="direccion" [(ngModel)]="user.direccion" tabindex="8" minlength="3" maxlength="40" pattern="[A-Za-z0-9_\-\ ]+" required>
-                                    <small class="text-danger" *ngIf="form.submitted && form.controls['direccion'].errors">Introduzca una dirección valida</small>
+                                    <input type="text" class="form-control_formulario" name="direccion" [(ngModel)]="user.direccion" 
+                                    tabindex="8" minlength="3" maxlength="40" required>
+                                    <small class="text-danger" *ngIf="form.submitted && form.controls['direccion'].errors">
+                                        *Este campo no puede ir vacío
+                                    </small>
                                 </div>
 
                                 <div class="form-group "><label class="col-form-label">Confirme su contraseña</label>
-                                    <input type="password" class="form-control_formulario" name="password_confirmation" [(ngModel)]="user.password_confirmation" tabindex="11"  minlength="6" maxlength="20" pattern="[0-9]{8}[A-Za-z]{1}"> 
-                                    <small class="text-danger" *ngIf="confir"> Las contraseñas no coinciden</small>
+                                    <input type="password" class="form-control_formulario" name="password_confirmation" [(ngModel)]="user.password_confirmation" 
+                                    tabindex="11"  minlength="6" maxlength="20" required> 
+                                    <small class="text-danger" *ngIf="confir">
+                                        Las contraseñas no coinciden
+                                    </small>
                                 </div>
                             </div> 
                             
@@ -75,8 +90,11 @@
                             <div class="form-group col-md-4">
 
                                 <div class="form-group "><label class="col-form-label">Nombres</label>
-                                    <input type="text" class="form-control_formulario" name="nombre" [(ngModel)]="user.nombre" tabindex="3"  minlength="3" maxlength="40" pattern="[A-Za-z]{3,40}" required>
-                                    <small class="text-danger" *ngIf="form.submitted && form.controls['nombre'].errors">Introduzca un nombre valido</small>
+                                    <input type="text" class="form-control_formulario" name="nombre" [(ngModel)]="user.nombre" 
+                                    tabindex="3"  minlength="3" maxlength="40"required>
+                                    <small class="text-danger" *ngIf="form.submitted && form.controls['nombre'].errors">
+                                        *Este campo no puede ir vacío
+                                    </small>
                                 </div>
 
                                 <div class="form-group">
@@ -95,8 +113,11 @@
                                 <div class="form-group">
                                     <label for="mail" class="col-form-label">Correo</label>
                                     <input type="mail" class="form-control_formulario" name="correo"
-                                    [(ngModel)]="user.correo" tabindex="9" minlength="10" maxlength="60"  pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}" required>
-                                    <small class="text-danger" *ngIf="form.submitted && form.controls['correo'].errors">Introduzca un correo valido</small>
+                                    [(ngModel)]="user.correo" tabindex="9" minlength="10" maxlength="60"  
+                                    required>
+                                    <small class="text-danger" *ngIf="form.submitted && form.controls['correo'].errors">
+                                        *Este campo no puede ir vacío
+                                    </small>
                                 </div>
                             </div>
                         </div>  

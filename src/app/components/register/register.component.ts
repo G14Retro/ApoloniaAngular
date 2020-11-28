@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import * as moment from 'moment';
 import { userModel } from 'src/app/models/user.model';
 import { AuthService } from 'src/app/services/auth.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-register',
@@ -20,22 +21,29 @@ export class RegisterComponent implements OnInit {
     this.user = new userModel;
   }
   
-  patienSave(form:NgForm){
+  patienSave(form:NgForm){  
     if(this.user.password != this.user.password_confirmation){
       this.confir=true;
       return;
     }else{
       this.confir=false;
     }
-    
     if (form.invalid) {
       return;
     }
     this.user.fecha_nacimiento = moment(this.user.fecha_nacimiento).format("YYYY-MM-DD");
-    console.log(this.user);
+    Swal.fire({
+      allowOutsideClick: false,
+      icon:'info',
+      title: 'Espere por favor...'
+    });
+    Swal.showLoading();
     this.auth.patienSave(this.user)
-    .subscribe(resp=>
-      this.route.navigateByUrl('/login'),
+    .subscribe(resp=>{
+      Swal.close();
+      Swal.fire ('Guardado', '', 'success');
+      this.route.navigateByUrl('/login');
+    }, 
     (err=>console.log(err)));
   }
 }
