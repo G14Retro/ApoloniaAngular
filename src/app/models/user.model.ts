@@ -2,6 +2,7 @@
 export class userModel
 {
     id?:string;
+    documento:string;
     cc:string;
     nombre:string;
     apellido:string;
