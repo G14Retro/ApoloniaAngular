@@ -44,6 +44,11 @@ export class RegisterComponent implements OnInit {
       Swal.fire ('Guardado', '', 'success');
       this.route.navigateByUrl('/login');
     }, 
-    (err=>console.log(err)));
+    (err)=>{
+      Swal.fire({
+        icon: 'error',
+        title: 'Error de autenticación',
+        text: err.error.message
+      })});
   }
 }
