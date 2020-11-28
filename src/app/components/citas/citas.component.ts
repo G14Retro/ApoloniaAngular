@@ -13,7 +13,7 @@ import { CitasService } from 'src/app/services/citas.service';
 })
 
 export class CitasComponent implements OnInit, AfterViewInit {
-  arrayDispo:dispoModel[] =[];
+  arrayDispo:dispoModel;
   columns : string[]=['fechaIni', 'fechaFin', 'nMedico', 'aMedico', 'especialidad', 'consultorio','acciones'];
   dataSource = new MatTableDataSource();
   @ViewChild(MatPaginator) paginator:MatPaginator;
@@ -26,7 +26,8 @@ export class CitasComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.citas.getDispo().subscribe((resp:any)=>{
       this.dataSource.data = resp;
-      console.log(this.dataSource.data);
+      this.arrayDispo = resp;
+      console.log(this.arrayDispo.nMedico);
       });
   }
 }
