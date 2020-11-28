@@ -22,6 +22,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from "@angular/material/paginator";
 import { MatButtonModule } from '@angular/material/button';
+import { ConfirmacionComponent } from './components/citas/confirmacion/confirmacion.component';
+import {MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
@@ -33,6 +35,8 @@ import { MatButtonModule } from '@angular/material/button';
     NavbarComponent,
     CitasComponent,
     HeaderComponent,
+    ConfirmacionComponent,
+        
     
   ],
   imports: [
@@ -48,7 +52,8 @@ import { MatButtonModule } from '@angular/material/button';
     MatInputModule,
     MatTableModule,
     MatPaginatorModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDialogModule
   ],
   providers: [
     AuthService,
