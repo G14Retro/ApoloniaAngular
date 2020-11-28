@@ -20,5 +20,18 @@ export class CitasService {
     return this.http.get(this.url+'dispoHorario',{headers})
 
   }
+  agendarCita(id:string){
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'X-Requested-With': 'XMLHttpRequest',
+      'Authorization': 'Bearer '+ this.auth.usuario.token
+    });
+    const data = ({
+      'disponibilidad': id.toString(),
+      'id_paciente': this.auth.usuario.id.toString(),
+    });
+    console.log (data);
+    return this.http.post(this.url+'agendaCita', data, {headers});
+  }
 
 }
