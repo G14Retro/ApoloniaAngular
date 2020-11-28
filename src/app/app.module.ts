@@ -22,9 +22,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from "@angular/material/paginator";
 import { MatButtonModule } from '@angular/material/button';
-import {MatGridListModule} from '@angular/material/grid-list';
 
-
+import { ConfirmacionComponent } from './components/citas/confirmacion/confirmacion.component';
+import {MatDialogModule } from '@angular/material/dialog';
 
 
 
@@ -37,7 +37,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
     NavbarComponent,
     CitasComponent,
     HeaderComponent,
-    HomeComponent
+    ConfirmacionComponent     
   ],
   imports: [
     BrowserModule,
@@ -53,8 +53,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
     MatTableModule,
     MatPaginatorModule,
     MatButtonModule,
-    MatGridListModule,
-   
+    MatDialogModule
+
   ],
   
   providers: [

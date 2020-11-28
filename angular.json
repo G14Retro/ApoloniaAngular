@@ -45,10 +45,8 @@
               "src/assets/js/popper.min.js",
               "src/assets/js/bootstrap.min.js",
               "src/assets/js/steps.js",
-
               "src/assets/js/main.js",
               "src/assets/datatables/datatables.min.js"
-
             ]
           },
           "configurations": {
@@ -145,5 +143,8 @@
       }
     }
   },
-  "defaultProject": "ApoloniaView"
+  "defaultProject": "ApoloniaView",
+  "cli": {
+    "analytics": false
+  }
 }
