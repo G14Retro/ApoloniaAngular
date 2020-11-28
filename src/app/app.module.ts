@@ -22,6 +22,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from "@angular/material/paginator";
 import { MatButtonModule } from '@angular/material/button';
+import {MatGridListModule} from '@angular/material/grid-list';
+
+
+
 
 
 @NgModule({
@@ -33,7 +37,7 @@ import { MatButtonModule } from '@angular/material/button';
     NavbarComponent,
     CitasComponent,
     HeaderComponent,
-    
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -48,8 +52,11 @@ import { MatButtonModule } from '@angular/material/button';
     MatInputModule,
     MatTableModule,
     MatPaginatorModule,
-    MatButtonModule
+    MatButtonModule,
+    MatGridListModule,
+   
   ],
+  
   providers: [
     AuthService,
     {provide: MAT_DATE_LOCALE,

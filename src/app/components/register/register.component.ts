@@ -13,13 +13,21 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class RegisterComponent implements OnInit {
   user:userModel;
+  confir:Boolean=false;
   constructor(private auth:AuthService, private route:Router) { }
 
   ngOnInit(): void {
     this.user = new userModel;
   }
-
+  
   patienSave(form:NgForm){
+    if(this.user.password != this.user.password_confirmation){
+      this.confir=true;
+      return;
+    }else{
+      this.confir=false;
+    }
+    
     if (form.invalid) {
       return;
     }

@@ -1,5 +1,15 @@
-.contenedor-add{ 
-  background: #ffffff;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.contenedor-add{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  position: relative;
 }
 
 .logo-apolonia{
@@ -11,11 +21,10 @@
 
 /********* CODIGO MODIFICADO LOGIN *********/
 .login-Columns {
-  background: #ffffff;
   max-width: 1000px;
   height: 700px;
   margin: 18px auto;
-  padding: 20px 50px 20px 50px;
+  padding: 5px 50px 5px 50px;
 }
 
 .contenedor-add_login{
@@ -28,7 +37,6 @@
   min-height: 1px;
   padding-right: 15px;
   padding-left: 15px;
-  
 }
 
 /********* CODIGO CONTENEDOR DERECHO *********/
@@ -36,54 +44,62 @@
   border-radius: 0 11px 11px 0;
   padding-top:70px;
   height: 600px;
-  background:  #1686FA;
+  background:  #E9F8FC;
 }
 
 .ibox-content-1{
   height: 500px;
-  background: #1686FA;
-  color: #ffffff;
+  background: #E9F8FC;
+  color: #0092FF;
   padding: 15px 20px 20px 20px;
   border-width: 1px 0;
+  font-weight: 900;
 }
 .ibox-content-1 h1{
   padding: 25px 0 30px 0;
   text-align: center;
-  font-size: 50px;
-  
+  font-size: 60px;
+  font-weight: 900;
 }
 
 /********* ESTILO CORRREO CONTRASEÑA *********/
 .form-control-1{
-  background-color: #363C44;
-  border-radius: 20px;
+  background-color: #002E54;
+  color: #ffffff;
+  border-radius: 16px;
   display: block;
-  padding: 9px 12px;
+  padding: 6px 12px;
   width: 100%;
 }
 
 /********* ESTILO BOTON INICIAR SESIÓN*********/
 .btn-iniciarsesion{
   cursor: pointer;
-  background-color: #002E54;
+  background-color: #1686FA;
   color: #ffffff;
-  border-radius: 20px;
+  border-radius: 16px;
   display: block;
-  padding: 12px 12px;
-  width: 90%;
-  margin: 30px 0 ;
+  padding: 6px 12px;
+  margin: 30px  0;
   width: 100%;
 }
 
 /********** ESTILO RECUPERAR CONTRASEÑA *********/
 .olvido-contraseña{
-  color: #535353;
+  color: #002E54;
   text-decoration: none;
-  background-color: transparent;
-  font-size: 15px;
-  font-weight:900;
+  margin-top:-10px; 
+  margin-left: 100px;
+}
+
+.olvido-contraseña_1:hover{
+  text-align: center;
+  color: #008cff;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight:400;
   display: flex;
-  margin-top:-15px; 
+  
 }
 
 /********* ESTILO CREAR CUENTA *********/
@@ -91,7 +107,7 @@
   display: block;
   text-align: center;
   background: #416E98;
-  color: #ffffff;
+  color: #ffffff !important;
   text-decoration: none;
   border-radius: 20px;
   padding: 9px 12px;
@@ -100,6 +116,71 @@
 }
 
 .imagen-risa{
- margin: -70px 0 0 60px;
- opacity: 0.6;
- }
+   margin: -70px 0 0 60px;
+   opacity: 0.6;
+}
+
+
+/********* ESTILO RESPONSI LOGIN DERECHO *********/
+@media (max-width:414px){
+  .contenedor-add{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+  .contenedor-add_login{
+    height:593px;
+    display: block;
+    position: relative;
+    background:  rgb(255, 255, 255);
+    border-radius: 0 0 0 0;
+  }
+  .login-Columns{
+    background: #ffffff;
+    height: 598px;
+    margin: auto;
+  }
+  .imagen-risa{
+    margin: -76px 0 0 -37px;
+    width:100%;
+    opacity: 0.6;
+  }
+  .logo-apolonia{
+    display: flex;
+    margin-top:-60px;
+    margin-left:-40px;
+    position: absolute;
+    z-index: 5;
+  }
+}
+
+/********* ESTILO RESPONSI LOGIN IZQUIERDO *********/
+@media (max-width:414px){
+  .contenedor-add{
+    margin: 0;
+    padding: 0;
+    background: #E9F8FC !important;
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+  .contenedor-login{
+    height: 600px;
+    border-radius:0;
+    padding-top:70px;
+    background: #E9F8FC !important;
+  }
+  .crear-cuenta{
+    display: block;
+    margin: 30px auto;
+  }
+
+  .olvido-contraseña{
+    margin-top:-10px; 
+    margin-left: 30px;
+  }
+}
+ 
+

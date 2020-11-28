@@ -36,7 +36,6 @@
               "src/assets/css/jquery-ui.theme.css",
               "src/assets/css/main.css",
               "src/assets/css/style.css"
-
             ],
             "scripts": [
               "src/assets/js/jquery.min.js",
@@ -48,7 +47,7 @@
               "src/assets/js/steps.js",
 
               "src/assets/js/main.js",
-              "src/assets/datatables/datatables.min.js",
+              "src/assets/datatables/datatables.min.js"
 
             ]
           },
