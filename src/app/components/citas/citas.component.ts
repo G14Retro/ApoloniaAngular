@@ -31,8 +31,7 @@ export class CitasComponent implements OnInit, AfterViewInit {
       this.arrayDispo = resp;
       });
   }
-  agendar (id_dispo:string){
-    console.log(id_dispo);    
+  agendar (id_dispo:string){    
     Swal.fire({
       title:'Confirma agendar la cita', 
       showCancelButton:true, 

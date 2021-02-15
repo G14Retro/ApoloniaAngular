@@ -25,6 +25,8 @@ import { MatButtonModule } from '@angular/material/button';
 
 import { ConfirmacionComponent } from './components/citas/confirmacion/confirmacion.component';
 import {MatDialogModule } from '@angular/material/dialog';
+import { HistorialComponent } from './pages/historial/historial.component';
+import { UsuarioComponent } from './pages/usuario/usuario.component';
 
 
 
@@ -37,7 +39,9 @@ import {MatDialogModule } from '@angular/material/dialog';
     NavbarComponent,
     CitasComponent,
     HeaderComponent,
-    ConfirmacionComponent     
+    ConfirmacionComponent,
+    HistorialComponent,
+    UsuarioComponent     
   ],
   imports: [
     BrowserModule,

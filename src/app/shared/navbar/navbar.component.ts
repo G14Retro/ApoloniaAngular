@@ -17,6 +17,14 @@ export class NavbarComponent implements OnInit {
   }
   
   ngOnInit(): void {
+    console.log("Ngonit");
+    if (this.rol == 'administrador') {
+      this.opciones = true;
+      console.log(this.opciones);
+    } else {
+      this.opciones = false;
+      console.log(this.opciones);
+    }
   }
 
   logout(){

@@ -1,6 +1,6 @@
-<body [ngClass]="{'pace-done': expander, 'pace-done mini-navbar': !expander}">
+<body>
     <router-outlet *ngIf="activo"></router-outlet>
-    <div id="wrapper" *ngIf="!activo">    
+    <div id="wrapper" *ngIf="!activo" class="animated fadeInDown">    
     <app-navbar></app-navbar>
      <div id="page-wrapper" class="gray-bg dashbard-1">
              <app-header></app-header>

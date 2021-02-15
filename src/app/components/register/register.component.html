@@ -13,12 +13,12 @@
                                 <div class="form-group">
                                     <label class="col-form-label">Tipo de Documento</label>
                                     <select type="text" class="form-control_formulario" name="documento"
-                                    [(ngModel)]="user.documento" tabindex="1" required>
+                                    [(ngModel)]="user.tipo_documento" tabindex="1" required>
                                         <option value=""></option>
-                                        <option value="cedula">Cédula de Ciudadanía</option>
-                                        <option value="extrangera">Cédula Extranjera</option>
-                                        <option value="pasaporte">Pasaporte</option>
-                                        <option value="tidentidad">Tarjeta de Identidad</option>
+                                        <option value="cc">Cédula de Ciudadanía</option>
+                                        <option value="ce">Cédula Extranjera</option>
+                                        <option value="pp">Pasaporte</option>
+                                        <option value="ti">Tarjeta de Identidad</option>
                                     </select>
                                     <small class="text-danger" *ngIf="form.submitted && form.controls['documento'].errors">
                                         *Campo documento no puede ir vacío
@@ -49,7 +49,7 @@
                             <!-- ********* FILA 2 ********* -->  
                             <div class="form-group col-md-4">
                                 <div class="form-group"><label class="col-form-label">Número de Documento</label>
-                                    <input  type="text" class="form-control_formulario" name="cc" [(ngModel)]="user.cc" 
+                                    <input  type="text" class="form-control_formulario" name="cc" [(ngModel)]="user.numero_documento" 
                                     tabindex="2" minlength="6" maxlength="20" required>
                                     <small class="text-danger" *ngIf="form.submitted && form.controls['cc'].errors">
                                         *Este campo no puede ir vacío

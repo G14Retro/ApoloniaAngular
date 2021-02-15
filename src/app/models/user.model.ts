@@ -2,8 +2,8 @@
 export class userModel
 {
     id?:string;
-    documento:string;
-    cc:string;
+    tipo_documento:string;
+    numero_documento:string;
     nombre:string;
     apellido:string;
     direccion:string;
