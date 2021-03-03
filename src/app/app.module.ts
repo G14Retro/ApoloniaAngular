@@ -27,6 +27,7 @@ import { ConfirmacionComponent } from './components/citas/confirmacion/confirmac
 import {MatDialogModule } from '@angular/material/dialog';
 import { HistorialComponent } from './pages/historial/historial.component';
 import { UsuarioComponent } from './pages/usuario/usuario.component';
+import { CitasMedicoComponent } from './pages/citas-medico/citas-medico.component';
 
 
 
@@ -41,7 +42,8 @@ import { UsuarioComponent } from './pages/usuario/usuario.component';
     HeaderComponent,
     ConfirmacionComponent,
     HistorialComponent,
-    UsuarioComponent     
+    UsuarioComponent,
+    CitasMedicoComponent     
   ],
   imports: [
     BrowserModule,

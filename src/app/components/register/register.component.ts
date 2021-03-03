@@ -9,8 +9,7 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styles: [
-  ]
+  styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
   user:userModel;

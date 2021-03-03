@@ -5,7 +5,9 @@ import { LoginComponent } from 'src/app/components/login/login.component';
 import { RegisterComponent } from 'src/app/components/register/register.component';
 import { AccessGuard } from 'src/app/guards/access.guard';
 import { AdminGuard } from "src/app/guards/admin.guard";
+import { DoctorGuard } from "src/app/guards/doctor.guard";
 import { LoginGuard } from 'src/app/guards/login.guard';
+import { CitasMedicoComponent } from "src/app/pages/citas-medico/citas-medico.component";
 import { HistorialComponent } from "src/app/pages/historial/historial.component";
 import { UsuarioComponent } from "src/app/pages/usuario/usuario.component";
 
@@ -15,7 +17,8 @@ export const ROUTES:Routes = [
     {path: 'login', component:LoginComponent, canActivate: [LoginGuard]},
     {path: 'citas', component:CitasComponent,canActivate:[AccessGuard]},
     {path: 'historiaClinica', component:HistorialComponent,canActivate:[AccessGuard]},
-    {path: 'admin/usuarios', component:UsuarioComponent,canActivate:[AdminGuard]},
+    {path: 'admin/usuarios', component:UsuarioComponent,canActivate:[AccessGuard,AdminGuard]},
+    {path: 'doctor/agenda', component:CitasMedicoComponent,canActivate:[AccessGuard,DoctorGuard]},
     {path: '', pathMatch: 'full', redirectTo: 'login'},
     {path: '**', pathMatch: 'full', redirectTo: 'login'},
 ];

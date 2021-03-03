@@ -10,20 +10,24 @@ import { AuthService } from 'src/app/services/auth.service';
 export class NavbarComponent implements OnInit {
   nombre:string;
   rol:string;
-  opciones:boolean = true;
+  admin:boolean = true;
+  doctoropc:boolean = true;
   constructor(private auth:AuthService) { 
     this.nombre = auth.usuario.nombre + " " + auth.usuario.apellido;
     this.rol = auth.usuario.tipoUsuario;
   }
   
   ngOnInit(): void {
-    console.log("Ngonit");
     if (this.rol == 'administrador') {
-      this.opciones = true;
-      console.log(this.opciones);
+      this.admin = true;
     } else {
-      this.opciones = false;
-      console.log(this.opciones);
+      this.admin = false;
+    }
+
+    if (this.rol == 'doctor') {
+      this.doctoropc = true;
+    } else {
+      this.doctoropc = false;
     }
   }
 

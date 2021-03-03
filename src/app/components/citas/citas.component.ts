@@ -15,7 +15,6 @@ import Swal from 'sweetalert2';
 })
 
 export class CitasComponent implements OnInit, AfterViewInit {
-  arrayDispo:dispoModel[] =[];
   columns : string[]=['fechaIni', 'fechaFin', 'nMedico', 'aMedico', 'especialidad', 'consultorio','Id'];
   dataSource = new MatTableDataSource();
   @ViewChild(MatPaginator) paginator:MatPaginator;
@@ -28,7 +27,6 @@ export class CitasComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.citas.getDispo().subscribe((resp:any)=>{
       this.dataSource.data = resp;
-      this.arrayDispo = resp;
       });
   }
   agendar (id_dispo:string){    
