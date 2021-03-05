@@ -7,6 +7,7 @@ export class userModel
     nombre:string;
     apellido:string;
     direccion:string;
+    ciudad:string;
     telefono:string;
     correo:string;
     genero:string;

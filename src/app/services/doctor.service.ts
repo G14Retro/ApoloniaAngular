@@ -23,4 +23,16 @@ export class DoctorService {
    });
    return this.http.post(this.url+'pacienteMedico',dato,{headers});
   }
+
+  obtenerAntecedente(id:String){
+    const  headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'X-Requested-With': 'XMLHttpRequest',
+      'Authorization': 'Bearer ' + this.auth.usuario.token
+     });
+     const dato = ({
+      'id_paciente':id.toString()
+   });
+   return this.http.post(this.url+'verAntecedentes',dato,{headers});
+  }
 }

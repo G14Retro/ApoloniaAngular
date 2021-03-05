@@ -10,7 +10,7 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { CitasComponent } from './components/citas/citas.component';
 import { RouterModule } from '@angular/router';
 import { ROUTES } from 'src/routes/app.routes';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from "@angular/common/http";
 import { AuthService } from './services/auth.service';
 import { HeaderComponent } from './shared/header/header.component';
@@ -22,12 +22,15 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from "@angular/material/paginator";
 import { MatButtonModule } from '@angular/material/button';
+import { MatStepperModule } from '@angular/material/stepper';
+import {MatSelectModule} from '@angular/material/select';
 
 import { ConfirmacionComponent } from './components/citas/confirmacion/confirmacion.component';
 import {MatDialogModule } from '@angular/material/dialog';
 import { HistorialComponent } from './pages/historial/historial.component';
 import { UsuarioComponent } from './pages/usuario/usuario.component';
 import { CitasMedicoComponent } from './pages/citas-medico/citas-medico.component';
+import { AntecedenteComponent } from './pages/antecedente/antecedente.component';
 
 
 
@@ -43,11 +46,13 @@ import { CitasMedicoComponent } from './pages/citas-medico/citas-medico.componen
     ConfirmacionComponent,
     HistorialComponent,
     UsuarioComponent,
-    CitasMedicoComponent     
+    CitasMedicoComponent,
+    AntecedenteComponent     
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
     RouterModule.forRoot(ROUTES, {useHash:false}),
@@ -59,8 +64,9 @@ import { CitasMedicoComponent } from './pages/citas-medico/citas-medico.componen
     MatTableModule,
     MatPaginatorModule,
     MatButtonModule,
-    MatDialogModule
-
+    MatDialogModule,
+    MatStepperModule,
+    MatSelectModule
   ],
   
   providers: [

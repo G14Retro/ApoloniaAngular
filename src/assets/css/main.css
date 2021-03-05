@@ -10,39 +10,6 @@
     position: absolute !important;
 }
 
-.form-control_formulario{
-    display: block;
-    width: 100%;
-    border-radius: 16px;
-    background-color: transparent;
-    color: #474747;
-    font-size: 18px;
-    overflow: hidden;
-    transition: all 500ms ease;
-    border: 2px solid #20e2d7;   
-}
-
-.ibox-title-formulario{
-    border-color: #e7eaec;
-    border-image: none;
-    color: inherit;
-    margin-bottom: 0;
-    padding:auto;
-    min-height: 48px;
-    position: relative;
-    clear: both;
-    width: 100%;
-    font-weight: 900;
-}
-.ibox-title-formulario h1{
-    background: #1686FA;
-    text-align: center;
-    color: #ffffff;
-    font-size: 50px;
-    padding: 15px 15px;
-    border-radius:0 0 9px 9px;
-    width: 100%;
-}
 
 .btn-guardar{
     width:60%;

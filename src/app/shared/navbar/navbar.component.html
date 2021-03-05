@@ -21,19 +21,22 @@
                         </ul>
             </li>
             <li routerLinkActive='active'>
-                <a class="nav-link" [routerLink]="['/home']"><i class="fa fa-home"></i> <span class="nav-label">Inicio</span></a>
+                <a class="nav-link" [routerLink]="['/home']"><i class="fa fa-home"></i> <span class="nav-label"> Inicio</span></a>
             </li>
             <li routerLinkActive='active' *ngIf="!doctoropc">
-                <a class="nav-link" [routerLink]="['/citas']"><i class="fa fa-calendar"></i> <span class="nav-label">Citas</span></a>
+                <a class="nav-link" [routerLink]="['/citas']"><i class="fa fa-calendar"></i> <span class="nav-label"> Citas</span></a>
             </li>
             <li routerLinkActive='active' *ngIf="doctoropc">
-                <a class="nav-link" [routerLink]="['/doctor/agenda']"><i class="fa fa-calendar"></i> <span class="nav-label">Citas Asignadas</span></a>
+                <a class="nav-link" [routerLink]="['/doctor/agenda']"><i class="fas fa-calendar-alt"></i> <span class="nav-label"> Citas Asignadas</span></a>
+            </li>
+            <li routerLinkActive='active' *ngIf="doctoropc">
+                <a class="nav-link" [routerLink]="['/doctor/odontograma']"><i class="fa fa-tooth"></i> <span class="nav-label"> Odontograma</span></a>
             </li>
             <li routerLinkActive='active' *ngIf="!doctoropc">
-                <a class="nav-link" [routerLink]="['/historiaClinica']"><i class="fa fa-book"></i> <span class="nav-label">Historial clinico</span></a>
+                <a class="nav-link" [routerLink]="['/historiaClinica']"><i class="fa fa-book"></i> <span class="nav-label"> Historial clinico</span></a>
             </li>
             <li routerLinkActive='active'>
-                <a (click)="logout()" href="#"><i class="fa fa-power-off"></i> <span class="nav-label">Cerrar Sesión</span></a>
+                <a (click)="logout()" href="#"><i class="fa fa-power-off"></i> <span class="nav-label"> Cerrar Sesión</span></a>
             </li>
         </ul>
 

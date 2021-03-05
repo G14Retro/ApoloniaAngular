@@ -1,142 +1,134 @@
-<div class="container">
-    <div class="row animated fadeInDown">
-        <div class="col-lg-12">
-            <div class="ibox">
-                <div class="ibox-title-formulario">
-                    <h1>Cuenta nueva</h1>
-                </div>
-                    <form class="contenedor-formulario" (ngSubmit)=patienSave(form) #form="ngForm">
-                        <div class="form-row">
-                            <!-- ********* FILA 1 ********* -->  
-                            <div class="form-group col-md-4">
-
-                                <div class="form-group">
-                                    <label class="col-form-label">Tipo de Documento</label>
-                                    <select type="text" class="form-control_formulario" name="documento"
-                                    [(ngModel)]="user.tipo_documento" tabindex="1" required>
-                                        <option value=""></option>
-                                        <option value="cc">Cédula de Ciudadanía</option>
-                                        <option value="ce">Cédula Extranjera</option>
-                                        <option value="pp">Pasaporte</option>
-                                        <option value="ti">Tarjeta de Identidad</option>
-                                    </select>
-                                    <small class="text-danger" *ngIf="form.submitted && form.controls['documento'].errors">
-                                        *Campo documento no puede ir vacío
-                                    </small>
-                                </div>
-                                <div class="form-group "><label class="col-form-label">Apellidos</label>
-                                    <input type="text" class="form-control_formulario" name="apellido" [(ngModel)]="user.apellido" 
-                                    tabindex="4" minlength="3" maxlength="40" required>
-                                    <small class="text-danger" *ngIf="form.submitted && form.controls['apellido'].errors">
-                                        *Este campo no puede ir vacío
-                                    </small>
-                                </div>
-                                <div class="form-group "><label class="col-form-label">Teléfono</label>
-                                    <input type="text" class="form-control_formulario" name="telefono" [(ngModel)]="user.telefono" 
-                                    tabindex="7" minlength="7" maxlength="10" required>
-                                    <small class="text-danger" *ngIf="form.submitted && form.controls['telefono'].errors">
-                                        *Este campo no puede ir vacío
-                                    </small> 
-                                </div>                           
-                                <div class="form-group "><label class="col-form-label">Contraseña</label>
-                                    <input type="password" class="form-control_formulario" name="password" [(ngModel)]="user.password" 
-                                    tabindex="10" minlength="6" maxlength="20" required>
-                                    <small class="text-danger" *ngIf="form.submitted && form.controls['password'].errors">
-                                        *Este campo no puede ir vacío
-                                    </small>
-                                </div>
-                            </div>
-                            <!-- ********* FILA 2 ********* -->  
-                            <div class="form-group col-md-4">
-                                <div class="form-group"><label class="col-form-label">Número de Documento</label>
-                                    <input  type="text" class="form-control_formulario" name="cc" [(ngModel)]="user.numero_documento" 
-                                    tabindex="2" minlength="6" maxlength="20" required>
-                                    <small class="text-danger" *ngIf="form.submitted && form.controls['cc'].errors">
-                                        *Este campo no puede ir vacío
-                                    </small>
-                                </div>
-                                <div class="form-group ">
-                                    <label class="col-form-label" >Género</label>
-                                    <select  name="genero" class="form-control_formulario" [(ngModel)] ="user.genero" 
-                                    tabindex="5" type="text" name="genero" required>
-                                        <option value=""></option>
-                                        <option value="femenino">Femenino</option>
-                                        <option value="masculino">Masculino</option>
-                                        <option value="otro">Otro</option>
-                                    </select>
-                                    <small class="text-danger" *ngIf="form.submitted && form.controls['genero'].errors">
-                                        *Este campo no puede ir vacío
-                                    </small>
-                                </div>
-
-                                <div class="form-group "><label class="col-form-label">Dirección</label>
-                                    <input type="text" class="form-control_formulario" name="direccion" [(ngModel)]="user.direccion" 
-                                    tabindex="8" minlength="3" maxlength="40" required>
-                                    <small class="text-danger" *ngIf="form.submitted && form.controls['direccion'].errors">
-                                        *Este campo no puede ir vacío
-                                    </small>
-                                </div>
-
-                                <div class="form-group "><label class="col-form-label">Confirme su contraseña</label>
-                                    <input type="password" class="form-control_formulario" name="password_confirmation" [(ngModel)]="user.password_confirmation" 
-                                    tabindex="11"  minlength="6" maxlength="20" required> 
-                                    <small class="text-danger" *ngIf="confir">
-                                        Las contraseñas no coinciden
-                                    </small>
-                                </div>
-                            </div> 
-                            
-                            <!-- ********* FILA 3 ********* -->  
-                            <div class="form-group col-md-4">
-
-                                <div class="form-group "><label class="col-form-label">Nombres</label>
-                                    <input type="text" class="form-control_formulario" name="nombre" [(ngModel)]="user.nombre" 
-                                    tabindex="3"  minlength="3" maxlength="40"required>
-                                    <small class="text-danger" *ngIf="form.submitted && form.controls['nombre'].errors">
-                                        *Este campo no puede ir vacío
-                                    </small>
-                                </div>
-
-                                <div class="form-group">
-                                    <mat-form-field appearance="fill">
-                                        <mat-label>Fecha de nacimiento</mat-label>
-                                        <input tabindex="6" matInput [matDatepicker]="miFecha" name="fecha_nacimiento"
-
-                                        required
-
-                                        [(ngModel)]="user.fecha_nacimiento">
-                                        <mat-datepicker-toggle matSuffix [for]="miFecha"></mat-datepicker-toggle>
-                                        <mat-datepicker #miFecha></mat-datepicker>
-                                      </mat-form-field>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="mail" class="col-form-label">Correo</label>
-                                    <input type="mail" class="form-control_formulario" name="correo"
-                                    [(ngModel)]="user.correo" tabindex="9" minlength="10" maxlength="60"  
-                                    required>
-                                    <small class="text-danger" *ngIf="form.submitted && form.controls['correo'].errors">
-                                        *Este campo no puede ir vacío
-                                    </small>
-                                </div>
-                            </div>
-                        </div>  
-
-                       
-
-                       <!-- CODIGO BOTONES ENVIAR CANCELAR -->
-                        <div class="row">
-                            <div class="col-lg-6"> 
-                            <button class="btn-guardar btn btn-success" style="border-radius:16px;" type="submit">Guardar</button>
-                            </div>
-
-                            <div class="col-lg-6">
-                                <button class="btn-cancelar btn btn-danger"
-                                style="border-radius:16px;" type="submit" [routerLink]="['/login']">Cancelar</button>
-                            </div>
+<body style="background-color: #e4edf2;">
+    <div class="container animeted fadeInDown">
+        <main class="m-5">
+            <div id="form_container">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div id="left_form">
+                            <figure><img src="../../../favicon.ico" alt="" width="150px" height="140px" viewBox="0 0 150 150" enable-background="new 0 0 150 150" xml:space="preserve"></figure>
+                            <h2>Registro</h2>
+                            <p>Apolonia es un software especializado para la
+                                administración de consultorios odontológicos
+                                que buscan alto rendimiento.</p>
+                            <a href="#0" id="more_info" data-toggle="modal" data-target="#more-info"><i class="fa fa-sign-out"></i></a>
                         </div>
-                    </form>
+                    </div>
+                    <div class="col-lg-7">
+                        <form>
+                            <mat-horizontal-stepper labelPosition="bottom" linear>
+                                <mat-step [stepControl]="personalFormGroup">
+                                    <form [formGroup]='personalFormGroup'>
+                                            <ng-template matStepLabel>Información Personal</ng-template>
+                                                <mat-form-field class="width-45">
+                                                    <mat-label>Tipo de documento</mat-label>
+                                                    <mat-select [formControl]="tipoDocumentoControl" required>
+                                                    <mat-option>-----</mat-option>
+                                                    <mat-option *ngFor="let tipo of tipoDocumento" [value]="tipo">
+                                                        {{tipo.nombre}}
+                                                    </mat-option>
+                                                    </mat-select>
+                                                    <mat-error *ngIf="tipoDocumentoControl.hasError('required')">Por favor seleccione una opción</mat-error>
+                                                </mat-form-field>
+                                                <mat-form-field class="width-45">
+                                                    <mat-label>Número de Documento*</mat-label>
+                                                    <input matInput placeholder="Ingrese su Número de Identificación" formControlName='documento'>
+                                                    <mat-error *ngIf="personalFormGroup.get('documento').hasError('required')">Por favor ingrese un número de identificación</mat-error>
+                                                </mat-form-field>
+                                                <mat-form-field class="width-45">
+                                                    <mat-label>Nombre*</mat-label>
+                                                    <input matInput placeholder="Ingrese sus Nombres*" formControlName='nombre'>
+                                                    <mat-error *ngIf="personalFormGroup.get('nombre').hasError('required')">Por favor ingrese su nombre</mat-error>
+                                                </mat-form-field>
+                                                <mat-form-field class="width-45">
+                                                    <mat-label>Apellido*</mat-label>
+                                                    <input matInput placeholder="Ingrese sus Apellidos*" formControlName='apellido'>
+                                                    <mat-error *ngIf="personalFormGroup.get('apellido').hasError('required')">Por favor ingrese su apellido</mat-error>
+                                                </mat-form-field>
+                                                <mat-form-field class="width-45">
+                                                    <mat-label>Género</mat-label>
+                                                    <mat-select formControlName="genero">
+                                                    <mat-option>-----</mat-option>
+                                                    <mat-option *ngFor="let gen of genero" [value]="gen">
+                                                        {{gen.nombre}}
+                                                    </mat-option>
+                                                    </mat-select>
+                                                    <mat-error *ngIf="personalFormGroup.get('genero').hasError('required')">Por favor seleccione una opción</mat-error>
+                                                </mat-form-field>
+                                                <mat-form-field class="width-45">
+                                                    <mat-label>Fecha de nacimiento</mat-label>
+                                                    <input matInput [matDatepicker]="picker" formControlName='fecha_nacimiento'>
+                                                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                                    <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+                                                    <mat-error *ngIf="personalFormGroup.get('fecha_nacimiento').hasError('required')">Por favor ingrese una fecha</mat-error>
+                                                  </mat-form-field>
+                                        <div>
+                                            <br>
+                                            <br>
+                                            <button mat-button class="btn-primary mr-3" [routerLink]="['/login']">Iniciar Sesión</button>
+                                            
+                                            <button mat-button matStepperNext class="btn-color">Siguiente</button>
+                                        </div>
+                                    </form>
+                                </mat-step>
+                                <mat-step [stepControl]='contactFormGroup'>
+                                    <form [formGroup]='contactFormGroup'>                                        
+                                        <ng-template matStepLabel>Información de contacto</ng-template>
+                                        <mat-form-field class="width-45">
+                                            <mat-label>Dirección de residencia*</mat-label>
+                                            <input matInput placeholder="Ingrese su dirección de residencia" formControlName='direccion'>
+                                            <mat-error *ngIf="contactFormGroup.get('direccion').hasError('required')">Por favor ingrese una dirección</mat-error>
+                                        </mat-form-field>
+                                        <mat-form-field class="width-45">
+                                            <mat-label>Teléfono*</mat-label>
+                                            <input matInput placeholder="Ingrese su teléfono de contacto" formControlName='telefono'>
+                                            <mat-error *ngIf="contactFormGroup.get('telefono').hasError('required')">Por favor ingrese un teléfono de contacto</mat-error>
+                                        </mat-form-field>
+                                        <mat-form-field class="width-45">
+                                            <mat-label>Ciudad*</mat-label>
+                                            <input matInput placeholder="Ingrese su ciudad de residencia" formControlName='ciudad'>
+                                            <mat-error *ngIf="contactFormGroup.get('ciudad').hasError('required')">Por favor ingrese una ciudad</mat-error>
+                                        </mat-form-field>
+    
+                                        <div>
+                                            <button mat-button matStepperPrevious class="btn-danger mr-3">Regresar</button>
+                                            <button mat-button matStepperNext class="btn-color">Siguiente</button>
+                                        </div>
+                                    </form>
+                                </mat-step>
+                                <mat-step [stepControl]='loginFormGroup'>
+                                    <form [formGroup]='loginFormGroup'>
+                                        <ng-template matStepLabel>Inicio de Sesión</ng-template>
+                                        <mat-form-field class="width-45">
+                                            <mat-label>Correo Electrónico</mat-label>
+                                            <input matInput placeholder="Ingrese su correo electrónico" formControlName='correo'>
+                                            <mat-error *ngIf="loginFormGroup.get('correo').hasError('required')">Por favor ingrese un correo</mat-error>
+                                            <mat-error *ngIf="loginFormGroup.get('correo').hasError('email')">Debe ingresear un correo valido</mat-error>
+                                        </mat-form-field>
+                                        <mat-form-field class="width-45">
+                                            <mat-label>Confirme su Correo Electrónico</mat-label>
+                                            <input matInput placeholder="Ingrese de Nuevo su Correo" formControlName='confirmacion_correo'>
+                                        </mat-form-field>
+                                        <mat-form-field class="width-45">
+                                            <mat-label>Contraseña</mat-label>
+                                            <input matInput type="password" placeholder="Ingrese una Contraseña" formControlName='password'>
+                                        </mat-form-field>
+                                        <mat-form-field class="width-45">
+                                            <mat-label>Confirme su Contraseña</mat-label>
+                                            <input matInput type="password" placeholder="Repita la misma contraseña" formControlName='password_confirmation'>
+                                        </mat-form-field>
+                                        <div>
+                                            <br>
+                                            <br>
+                                            <button mat-button matStepperPrevious class="btn-danger mr-3">Regresar</button>
+                                            <button mat-button matStepper class="btn-primary">Confirmar</button>
+                                        </div>
+                                    </form>
+                                </mat-step>
+                            </mat-horizontal-stepper>
+                        </form>
+                    </div>
+                </div>
             </div>
-        </div>
+        </main>
     </div>
-</div>
+</body>

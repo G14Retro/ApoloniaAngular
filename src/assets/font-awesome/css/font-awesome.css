@@ -201,6 +201,8 @@
 .fa-star-o:before {
   content: "\f006";
 }
+.fa-tooth:before {
+  content: "\f5c9"; }
 .fa-user:before {
   content: "\f007";
 }
