@@ -29,9 +29,6 @@ export class RegisterComponent implements OnInit {
   personalFormGroup: FormGroup;
   contactFormGroup: FormGroup;
   loginFormGroup: FormGroup;
-  tipoDocumentoControl = new FormControl('',Validators.required);
-  selectDocumento = new FormControl('',Validators.required);
-  selectGenero = new FormControl('',Validators.required);
   tipoDocumento: tipoDocumento[] =[
     {nombre:'Cedula de Ciudadanía',abreviacion:'cc'},
     {nombre:'Tarjeta de Identidad',abreviacion:'ti'},
@@ -48,6 +45,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
     this.user = new userModel;
     this.personalFormGroup = this.fb.group({
+      tipo_documento: ['',Validators.required],
       documento: ['',[Validators.required,Validators.minLength(8)]],
       nombre: ['',Validators.required],
       apellido: ['',Validators.required],
@@ -67,17 +65,20 @@ export class RegisterComponent implements OnInit {
     });
   }
   
-  patienSave(form:NgForm){  
-    if(this.user.password != this.user.password_confirmation){
-      this.confir=true;
-      return;
-    }else{
-      this.confir=false;
-    }
-    if (form.invalid) {
-      return;
-    }
-    this.user.fecha_nacimiento = moment(this.user.fecha_nacimiento).format("YYYY-MM-DD");
+  patienSave(){  
+    this.user.tipo_documento = this.personalFormGroup.value.tipo_documento.abreviacion;
+    this.user.numero_documento = this.personalFormGroup.value.documento;
+    this.user.nombre = this.personalFormGroup.value.nombre;
+    this.user.apellido = this.personalFormGroup.value.apellido;
+    this.user.genero = this.personalFormGroup.value.genero.valor;
+    this.user.fecha_nacimiento = moment(this.personalFormGroup.value.fecha_nacimiento).format("YYYY-MM-DD");
+    this.user.direccion = this.contactFormGroup.value.direccion;
+    this.user.ciudad = this.contactFormGroup.value.ciudad;
+    this.user.telefono = this.contactFormGroup.value.telefono;
+    this.user.correo = this.loginFormGroup.value.correo;
+    this.user.password = this.loginFormGroup.value.password;
+    this.user.password_confirmation = this.loginFormGroup.value.password_confirmation;
+    console.log(this.user);
     Swal.fire({
       allowOutsideClick: false,
       icon:'info',

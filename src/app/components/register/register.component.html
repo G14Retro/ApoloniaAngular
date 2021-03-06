@@ -21,13 +21,13 @@
                                             <ng-template matStepLabel>Información Personal</ng-template>
                                                 <mat-form-field class="width-45">
                                                     <mat-label>Tipo de documento</mat-label>
-                                                    <mat-select [formControl]="tipoDocumentoControl" required>
+                                                    <mat-select formControlName="tipo_documento" required>
                                                     <mat-option>-----</mat-option>
                                                     <mat-option *ngFor="let tipo of tipoDocumento" [value]="tipo">
                                                         {{tipo.nombre}}
                                                     </mat-option>
                                                     </mat-select>
-                                                    <mat-error *ngIf="tipoDocumentoControl.hasError('required')">Por favor seleccione una opción</mat-error>
+                                                    <mat-error *ngIf="personalFormGroup.get('tipo_documento').hasError('required')">Por favor seleccione una opción</mat-error>
                                                 </mat-form-field>
                                                 <mat-form-field class="width-45">
                                                     <mat-label>Número de Documento*</mat-label>
@@ -120,7 +120,7 @@
                                             <br>
                                             <br>
                                             <button mat-button matStepperPrevious class="btn-danger mr-3">Regresar</button>
-                                            <button mat-button matStepper class="btn-primary">Confirmar</button>
+                                            <button mat-button matStepper class="btn-primary" (click)="patienSave()">Confirmar</button>
                                         </div>
                                     </form>
                                 </mat-step>
