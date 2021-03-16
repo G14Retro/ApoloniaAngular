@@ -25,15 +25,4 @@ export class CitasMedicoComponent implements OnInit,AfterViewInit {
     });
   }
 
-  verAntecedente(id_paciente:String){
-    this.doctorService.obtenerAntecedente(id_paciente).subscribe((resp:Object)=>{
-      console.log(resp);
-      if (resp.valueOf.length==0) {
-        console.log("Se debe crear el antecedente");
-        this.router.navigateByUrl('/doctor/antecedente/'+id_paciente);
-      }else{
-        console.log("Cargue los datos");
-      }
-    });
-  }
 }

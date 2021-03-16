@@ -63,10 +63,11 @@
                                                   </mat-form-field>
                                         <div>
                                             <br>
-                                            <br>
-                                            <button mat-button class="btn-primary mr-3" [routerLink]="['/login']">Iniciar Sesión</button>
-                                            
                                             <button mat-button matStepperNext class="btn-color">Siguiente</button>
+                                        </div>
+                                        <div>
+                                            <small><a class="stretched-link mr-3">¿Ya tienes cuenta?</a></small>
+                                            <button mat-button class="btn-outline-color" [routerLink]="['/login']" >Inicia Sesión</button>
                                         </div>
                                     </form>
                                 </mat-step>
@@ -115,6 +116,7 @@
                                         <mat-form-field class="width-45">
                                             <mat-label>Confirme su Contraseña</mat-label>
                                             <input matInput type="password" placeholder="Repita la misma contraseña" formControlName='password_confirmation'>
+                                            <mat-error *ngIf="!validPassword">Las contraseñas no coinciden</mat-error>
                                         </mat-form-field>
                                         <div>
                                             <br>

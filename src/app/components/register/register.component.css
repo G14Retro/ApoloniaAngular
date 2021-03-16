@@ -185,6 +185,13 @@
 	  border-color: #33C8FA;
   }
 
+  .btn-outline-color {
+    color: #33C8FA;
+    background-color: transparent;
+    background-image: none;
+    border-color: #33C8FA;
+}
+
   .width-45 {
 	width: 45%;
 	margin-right: 12px;

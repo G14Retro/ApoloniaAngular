@@ -42,6 +42,16 @@ export class RegisterComponent implements OnInit {
   startDate = new Date(1990, 0, 1);
   constructor(private auth:AuthService, private route:Router, private fb:FormBuilder) { }
 
+  get validPassword(){
+     if (this.loginFormGroup.controls['password'].touched && this.loginFormGroup.controls['password_confirmation']) {
+      if (this.loginFormGroup.value.password == this.loginFormGroup.value.password_confirmation) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  }
+
   ngOnInit(): void {
     this.user = new userModel;
     this.personalFormGroup = this.fb.group({
@@ -61,7 +71,7 @@ export class RegisterComponent implements OnInit {
       correo:['',[Validators.required,Validators.email]],
       confirmacion_correo:['',[Validators.required,Validators.email]],
       password:['',Validators.required],
-      password_confirmation:['',Validators.required],
+      password_confirmation:['',[Validators.required,]],
     });
   }
   
@@ -92,10 +102,11 @@ export class RegisterComponent implements OnInit {
       this.route.navigateByUrl('/login');
     }, 
     (err)=>{
+      console.log(err);
       Swal.fire({
         icon: 'error',
-        title: 'Error de autenticación',
-        text: err.error.message
+        title: 'Error alregistrarse',
+        text: err.error.errors.correo + ', '+ err.error.errors.numero_documento,
       })});
   }
 }

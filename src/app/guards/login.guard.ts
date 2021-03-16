@@ -10,7 +10,6 @@ export class LoginGuard implements CanActivate {
   constructor (private auth:AuthService, private router:Router) {}
   canActivate():boolean{
     if (!this.auth.authentication()) {
-      console.log("Login Guard " + this.auth.authentication())
       this.router.navigateByUrl('/home');
     } else {
       return true;
