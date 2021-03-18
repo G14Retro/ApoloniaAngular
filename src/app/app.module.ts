@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { TitleCasePipe } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -31,6 +32,8 @@ import { HistorialComponent } from './pages/historial/historial.component';
 import { UsuarioComponent } from './pages/usuario/usuario.component';
 import { CitasMedicoComponent } from './pages/citas-medico/citas-medico.component';
 import { AntecedenteComponent } from './pages/antecedente/antecedente.component';
+import { LoadingComponent } from './components/loading/loading.component';
+import { OdontogramaComponent } from './pages/odontograma/odontograma.component';
 
 
 
@@ -47,7 +50,9 @@ import { AntecedenteComponent } from './pages/antecedente/antecedente.component'
     HistorialComponent,
     UsuarioComponent,
     CitasMedicoComponent,
-    AntecedenteComponent     
+    AntecedenteComponent,
+    LoadingComponent,
+    OdontogramaComponent     
   ],
   imports: [
     BrowserModule,
@@ -70,10 +75,12 @@ import { AntecedenteComponent } from './pages/antecedente/antecedente.component'
   ],
   
   providers: [
+    TitleCasePipe,
     AuthService,
     {provide: MAT_DATE_LOCALE,
     useValue: 'es-CO'}
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  
 })
 export class AppModule { }

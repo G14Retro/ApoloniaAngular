@@ -56,7 +56,7 @@
                                                 </mat-form-field>
                                                 <mat-form-field class="width-45">
                                                     <mat-label>Fecha de nacimiento</mat-label>
-                                                    <input matInput [matDatepicker]="picker" formControlName='fecha_nacimiento'>
+                                                    <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" formControlName='fecha_nacimiento'>
                                                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                                                     <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
                                                     <mat-error *ngIf="personalFormGroup.get('fecha_nacimiento').hasError('required')">Por favor ingrese una fecha</mat-error>
@@ -85,9 +85,14 @@
                                             <mat-error *ngIf="contactFormGroup.get('telefono').hasError('required')">Por favor ingrese un teléfono de contacto</mat-error>
                                         </mat-form-field>
                                         <mat-form-field class="width-45">
-                                            <mat-label>Ciudad*</mat-label>
-                                            <input matInput placeholder="Ingrese su ciudad de residencia" formControlName='ciudad'>
-                                            <mat-error *ngIf="contactFormGroup.get('ciudad').hasError('required')">Por favor ingrese una ciudad</mat-error>
+                                            <mat-label>Ciudad</mat-label>
+                                            <mat-select formControlName="ciudad" required>
+                                                <mat-option>-----</mat-option>
+                                                <mat-option *ngFor="let ciudad of ciudades" [value]="ciudad">
+                                                    {{ciudad.city}}
+                                                </mat-option>
+                                                </mat-select>
+                                            <mat-error *ngIf="contactFormGroup.get('ciudad').hasError('required')">Por favor seleccione una ciudad</mat-error>
                                         </mat-form-field>
     
                                         <div>
@@ -116,7 +121,7 @@
                                         <mat-form-field class="width-45">
                                             <mat-label>Confirme su Contraseña</mat-label>
                                             <input matInput type="password" placeholder="Repita la misma contraseña" formControlName='password_confirmation'>
-                                            <mat-error *ngIf="!validPassword">Las contraseñas no coinciden</mat-error>
+                                            <mat-error *ngIf="validPassword">Las contraseñas no coinciden</mat-error>
                                         </mat-form-field>
                                         <div>
                                             <br>

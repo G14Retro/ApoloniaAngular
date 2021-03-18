@@ -10,6 +10,7 @@ import { LoginGuard } from 'src/app/guards/login.guard';
 import { AntecedenteComponent } from "src/app/pages/antecedente/antecedente.component";
 import { CitasMedicoComponent } from "src/app/pages/citas-medico/citas-medico.component";
 import { HistorialComponent } from "src/app/pages/historial/historial.component";
+import { OdontogramaComponent } from "src/app/pages/odontograma/odontograma.component";
 import { UsuarioComponent } from "src/app/pages/usuario/usuario.component";
 
 export const ROUTES:Routes = [
@@ -21,6 +22,8 @@ export const ROUTES:Routes = [
     {path: 'admin/usuarios', component:UsuarioComponent,canActivate:[AccessGuard,AdminGuard]},
     {path: 'doctor/agenda', component:CitasMedicoComponent,canActivate:[AccessGuard,DoctorGuard]},
     {path: 'doctor/antecedente/:id', component:AntecedenteComponent,canActivate:[AccessGuard,DoctorGuard]},
+    {path: 'doctor/odontograma', component:OdontogramaComponent,canActivate:[AccessGuard,DoctorGuard]},
+    {path: 'doctor/odontograma/:id', component:OdontogramaComponent,canActivate:[AccessGuard,DoctorGuard]},
     {path: '', pathMatch: 'full', redirectTo: 'login'},
     {path: '**', pathMatch: 'full', redirectTo: 'login'},
 ];
