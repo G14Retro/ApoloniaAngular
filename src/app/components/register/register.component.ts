@@ -7,6 +7,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import Swal from 'sweetalert2';
 import { FormGroup,FormBuilder,Validators } from "@angular/forms";
 import ciudadesJSON from '../../shared/city/cities.json';
+import {CITIES} from '../../shared/city/cities.interface';
 
 interface tipoDocumento {
   nombre: string;
@@ -45,23 +46,22 @@ export class RegisterComponent implements OnInit {
   ];
   startDate = new Date(1990, 0, 1);
   constructor(private auth:AuthService, private route:Router, private fb:FormBuilder) { 
-    this.ciudades = ciudadesJSON;
+    this.ciudades = CITIES;
     const currentYear = new Date().getFullYear();
     const currentMonth = new Date().getMonth();
     this.minDate = new Date(currentYear-31,0,1)
     this.maxDate = new Date(currentYear-1,11,31)
   }
 
-  get validPassword(){
-     if (this.loginFormGroup.controls['password'].touched && this.loginFormGroup.controls['password_confirmation'].touched) {
-      if (this.loginFormGroup.value.password != this.loginFormGroup.value.password_confirmation) {
-        console.log(this.loginFormGroup.value.password);
-        console.log(this.loginFormGroup.value.password_confirmation);
-        return true;
-      } else {
-        return false;
-      }
-    }
+   validPassword():boolean
+   {
+     if (this.loginFormGroup.get('password_confirmation').touched && this.loginFormGroup.get('password_confirmation').valueChanges) {
+       if (this.loginFormGroup.value.password_confirmation != this.loginFormGroup.value.password) {
+         return true
+       }
+     } else {
+       return false
+     }
   }
 
   ngOnInit(): void {
@@ -82,8 +82,8 @@ export class RegisterComponent implements OnInit {
     this.loginFormGroup = this.fb.group({
       correo:['',[Validators.required,Validators.email]],
       confirmacion_correo:['',[Validators.required,Validators.email]],
-      password:['',Validators.required],
-      password_confirmation:['',[Validators.required,]],
+      password:['',[Validators.required,Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&+-_])[A-Za-z\d$@$!%*?&+-_].{8,}')]],
+      password_confirmation:['',[Validators.required,Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&+-_])[A-Za-z\d$@$!%*?&+-_].{8,}')]],
     });
   }
   patienSave(){  

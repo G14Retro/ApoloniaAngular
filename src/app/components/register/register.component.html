@@ -112,16 +112,23 @@
                                         </mat-form-field>
                                         <mat-form-field class="width-45">
                                             <mat-label>Confirme su Correo Electrónico</mat-label>
-                                            <input matInput placeholder="Ingrese de Nuevo su Correo" formControlName='confirmacion_correo'>
+                                            <input matInput placeholder="Ingrese de Nuevo su Correo" formControlName='confirmacion_correo' appCopyPaste>
+                                            <mat-error *ngIf="loginFormGroup.get('correo').hasError('required')">Por favor ingrese un correo</mat-error>
+                                            <mat-error *ngIf="loginFormGroup.get('correo').hasError('email')">Debe ingresear un correo valido</mat-error>
                                         </mat-form-field>
                                         <mat-form-field class="width-45">
                                             <mat-label>Contraseña</mat-label>
                                             <input matInput type="password" placeholder="Ingrese una Contraseña" formControlName='password'>
+                                            <mat-error *ngIf="loginFormGroup.get('password').hasError('pattern')">
+                                                La contraseña debe tener mínimo 8 caracteres, un dígito, una letra minúscula, 
+                                                una letra mayúscula y un caracter no alfanumérico.
+                                            </mat-error>
                                         </mat-form-field>
                                         <mat-form-field class="width-45">
                                             <mat-label>Confirme su Contraseña</mat-label>
-                                            <input matInput type="password" placeholder="Repita la misma contraseña" formControlName='password_confirmation'>
-                                            <mat-error *ngIf="validPassword">Las contraseñas no coinciden</mat-error>
+                                            <input matInput type="password" placeholder="Repita la misma contraseña" formControlName='password_confirmation'
+                                            appCopyPaste>
+                                            <mat-error *ngIf="validPassword()">Las contraseñas no coinciden</mat-error>
                                         </mat-form-field>
                                         <div>
                                             <br>
