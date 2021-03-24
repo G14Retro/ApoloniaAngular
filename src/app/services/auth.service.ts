@@ -11,7 +11,7 @@ export class AuthService {
   url:string = 'http://127.0.0.1:8000/api/apolonia/';
   constructor(private http:HttpClient) {
     this.sessionRead();
-   }
+  }
 
   patienSave(user:userModel){
     const headers = new HttpHeaders({

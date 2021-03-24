@@ -12,6 +12,7 @@ export class NavbarComponent implements OnInit {
   rol:string;
   admin:boolean = true;
   doctoropc:boolean = true;
+  recepcionistapc: boolean = true;
   constructor(private auth:AuthService) { 
     this.nombre = auth.usuario.nombre + " " + auth.usuario.apellido;
     this.rol = auth.usuario.tipoUsuario;
@@ -29,6 +30,13 @@ export class NavbarComponent implements OnInit {
     } else {
       this.doctoropc = false;
     }
+
+    if(this.rol == 'recepcionista'){
+      this.recepcionistapc = true;
+    }else{
+      this.recepcionistapc = false;
+    }
+
   }
 
   logout(){

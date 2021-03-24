@@ -1,27 +1,20 @@
-<body class="contenedor-add">
-    <div class="login-Columns animated fadeInDown">
-        <div class="row mt-400 mt-xs-20">
-    
-            <div class="contenedor-add_login col-md-6">
-                <div class="logo-apolonia">
-                    <img src="./../../../assets/img/loggoApolonia.png" alt="Logo Apolonia" width="200px">
-                </div>
-                <div class="imagen-risa">
-                    <img src="./../../../assets/img/risa.jpg" alt="" width="401px">
-                </div>
-                
-            </div>
-
-            <div class="contenedor-login col-md-6">
+<body class="contenedor-login">
+    <div class="logotipo">
+        <img src="../../../assets/img/loggoApolonia.png"
+        alt="Logo Apolonia">
+        </div>
+    <div class="row1 justify-content-center">
+        <div class="col-md-6 col-lg-4">
+            <div class="login-wrap p-0">    
                 <div class="ibox-content-1">
-                    <h1>Bienvenido</h1>
+                    <h1 class="heading-section">Bienvenido</h1>
                     <form class="m-t" (ngSubmit)=login(form) #form="ngForm">
 
-                        <div class="form-group" >
+                        <div class="form-group-1" >
                             <small class="text-danger" *ngIf="form.submitted && form.controls['correo'].errors">
                                 Falta ingresar un correo electronico
                             </small>
-                            <a>Correo</a>
+                            <br>
                             <input name="correo" type="email" class="form-control-1" placeholder="Ingrese un correo electrónico" [(ngModel)]="user.correo" required mail>
                         </div>
 
@@ -29,33 +22,26 @@
                             <small class="text-danger" *ngIf="form.submitted && form.controls['password'].errors">
                                 No ha ingresado una contraseña
                             </small>
-                            <a>Contraseña</a>
-                            <input type="password" name="password" class="form-control-1" placeholder="Ingrese su contraseña" [(ngModel)]="user.password" required>
+                            <br>
+                            <input matInput type="password"  name="password" class="form-control-1" placeholder="Ingrese su contraseña" [(ngModel)]="user.password" required>
+                            
                         </div>
                         
                         <button type="submit" class="btn-iniciarsesion">Iniciar Sesión</button>
     
-                        
-                        <a class="olvido-contraseña" href="#">
-                            <small >¿Has olvidado tu Olvido su contraseña?</small>
-                        </a>
+                        <div class="form-group d-md-flex">
+                            <div class="w-50">
+                                <label class="checkbox-wrap checkbox-primary">
+                                <input class="checkbox" type="checkbox" checked="">Remember Me</label>
+                            </div>
+                                <div class="w-50 text-md-right">
+                                    <a class="checkbox-wrap" href="#" >Forgot Password</a>
+                                </div>
+                        </div>
     
                         <a class="crear-cuenta" [routerLink]="['/register']">Crear cuenta nueva</a>
                     </form>
-
-
                 </div>
-            </div>
-        </div>
-        <hr/>
-        <div class="row">
-            <div class="col-md-6">
-                Copyright Apolonia <br>
-                <a href='https://www.freepik.es/fotos/moda'>Foto de Moda creado por valuavitaly - www.freepik.es</a>
-            </div>
-             
-            <div class="col-md-6 text-right">
-               <small>© 2020</small>
             </div>
         </div>
     </div>

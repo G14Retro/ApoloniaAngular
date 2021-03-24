@@ -20,10 +20,10 @@ export class CitasComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator) paginator:MatPaginator;
   constructor(private citas:CitasService){
 
-   }
+  }
    ngAfterViewInit(){
     this.dataSource.paginator = this.paginator;
-   }
+  }
   ngOnInit() {
     this.citas.getDispo().subscribe((resp:any)=>{
       this.dataSource.data = resp;

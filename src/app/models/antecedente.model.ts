@@ -7,7 +7,7 @@ export class antecedenteModel {
         }
     ;
     antecedente:
-     {  id:String,
+    {  id:String,
         alergias:String,
         enfermedades:String,
         enfermedades_familiares:String,

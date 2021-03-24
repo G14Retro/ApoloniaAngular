@@ -14,15 +14,15 @@ export class DoctorService {
 
 
   obtenerAgenda(){
-   const  headers = new HttpHeaders({
+  const  headers = new HttpHeaders({
     'Content-Type': 'application/json',
     'X-Requested-With': 'XMLHttpRequest',
     'Authorization': 'Bearer ' + this.auth.usuario.token
-   });
-   const dato = ({
+  });
+  const dato = ({
       'id_medico':this.auth.usuario.id.toString()
-   });
-   return this.http.post(this.url+'pacienteMedico',dato,{headers});
+  });
+  return this.http.post(this.url+'pacienteMedico',dato,{headers});
   }
 
   obtenerAntecedente(id:String){
@@ -30,11 +30,11 @@ export class DoctorService {
       'Content-Type': 'application/json',
       'X-Requested-With': 'XMLHttpRequest',
       'Authorization': 'Bearer ' + this.auth.usuario.token
-     });
-     const dato = ({
+    });
+    const dato = ({
       'id_paciente':id.toString()
-   });
-   return this.http.post(this.url+'verAntecedentes',dato,{headers});
+  });
+  return this.http.post(this.url+'verAntecedentes',dato,{headers});
   }
 
   guardarAntecedente(data:FormGroup){
@@ -42,12 +42,12 @@ export class DoctorService {
       'Content-Type': 'application/json',
       'X-Requested-With': 'XMLHttpRequest',
       'Authorization': 'Bearer ' + this.auth.usuario.token
-     });
+    });
 
-     const datos =({
-       ...data.value
-     });
-     console.log(datos);
-     return this.http.post(this.url+'guardarAntecedente',datos,{headers})
+    const datos =({
+    ...data.value
+    });
+    console.log(datos);
+    return this.http.post(this.url+'guardarAntecedente',datos,{headers})
   }
 }

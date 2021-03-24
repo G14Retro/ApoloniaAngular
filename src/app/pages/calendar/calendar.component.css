@@ -1,0 +1,12 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: crimson;
+}
+
+h1{
+    color: black;
+    font-size: 23px;
+    font-family: 'Courier New', Courier, monospace;
+}

@@ -36,6 +36,8 @@ import { LoadingComponent } from './components/loading/loading.component';
 import { OdontogramaComponent } from './pages/odontograma/odontograma.component';
 import { CopyPasteDirective } from './directives/copy-paste.directive';
 
+/*import {ScheduleModule, AgendaService, DayService, DragAndDropService, ResizeService, WeekService, WorkWeekService, MonthService } from '@syncfusion/ej2-angular-schedule/'; /**LINEA JUAND */
+
 
 
 @NgModule({
@@ -73,10 +75,12 @@ import { CopyPasteDirective } from './directives/copy-paste.directive';
     MatButtonModule,
     MatDialogModule,
     MatStepperModule,
-    MatSelectModule
+    MatSelectModule,
+    /** ScheduleModule LINEA JUAND */
   ],
   
   providers: [
+    /**AgendaService, DayService, WeekService, WorkWeekService, MonthService, DragAndDropService, ResizeService,  LINEA JUAND */
     TitleCasePipe,
     AuthService,
     {provide: MAT_DATE_LOCALE,

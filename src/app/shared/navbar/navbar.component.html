@@ -10,7 +10,7 @@
                     </a>
                 </div>
                 <div class="logo-element">
-                   <img src="../../../favicon.ico" width="50" height="50" alt="image" class="rounded-circle">
+                <img src="../../../favicon.ico" width="50" height="50" alt="image" class="rounded-circle">
                 </div>
             </li>
             <li class='' routerLinkActive="active" *ngIf="admin">
@@ -23,12 +23,21 @@
             <li routerLinkActive='active'>
                 <a class="nav-link" [routerLink]="['/home']"><i class="fa fa-home"></i> <span class="nav-label"> Inicio</span></a>
             </li>
+            
             <li routerLinkActive='active' *ngIf="!doctoropc">
                 <a class="nav-link" [routerLink]="['/citas']"><i class="fa fa-calendar"></i> <span class="nav-label"> Citas</span></a>
             </li>
+            
+            <!--CÓDIGO JD-->
+            <li routerLinkActive='active' *ngIf="!doctoropc">
+                <a class="nav-link" [routerLink]="['/calendar']"><i class="fas fa-calendar-alt"></i> <span class="nav-label"> Calendario</span></a>
+            </li>
+            <!-- END CÓDIGO JD-->
+
             <li routerLinkActive='active' *ngIf="doctoropc">
                 <a class="nav-link" [routerLink]="['/doctor/agenda']"><i class="fas fa-calendar-alt"></i> <span class="nav-label"> Citas Asignadas</span></a>
             </li>
+
             <li routerLinkActive='active' *ngIf="doctoropc">
                 <a class="nav-link" [routerLink]="['/doctor/odontograma']"><i class="fa fa-tooth"></i> <span class="nav-label"> Odontograma</span></a>
             </li>

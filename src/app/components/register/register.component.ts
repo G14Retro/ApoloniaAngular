@@ -53,15 +53,15 @@ export class RegisterComponent implements OnInit {
     this.maxDate = new Date(currentYear-1,11,31)
   }
 
-   validPassword():boolean
-   {
-     if (this.loginFormGroup.get('password_confirmation').touched && this.loginFormGroup.get('password_confirmation').valueChanges) {
-       if (this.loginFormGroup.value.password_confirmation != this.loginFormGroup.value.password) {
-         return true
-       }
-     } else {
-       return false
-     }
+  validPassword():boolean
+  {
+      if (this.loginFormGroup.get('password_confirmation').touched && this.loginFormGroup.get('password_confirmation').valueChanges) {
+        if (this.loginFormGroup.value.password_confirmation != this.loginFormGroup.value.password) {
+          return true
+        }
+      } else {
+        return false
+      }
   }
 
   ngOnInit(): void {
@@ -94,11 +94,11 @@ export class RegisterComponent implements OnInit {
     this.user.genero = this.personalFormGroup.value.genero.valor;
     this.user.fecha_nacimiento = moment(this.personalFormGroup.value.fecha_nacimiento).format("YYYY-MM-DD");
     this.user.direccion = this.contactFormGroup.value.direccion;
-    this.user.ciudad = this.contactFormGroup.value.ciudad;
+    this.user.ciudad = this.contactFormGroup.value.ciudad['city'];
     this.user.telefono = this.contactFormGroup.value.telefono;
     this.user.correo = this.loginFormGroup.value.correo;
     this.user.password = this.loginFormGroup.value.password;
-    this.user.password_confirmation = this.loginFormGroup.value.password_confirmation;
+    this.user.password_confirmation = this.loginFormGroup.value.password_confirmation; 
     Swal.fire({
       allowOutsideClick: false,
       icon:'info',

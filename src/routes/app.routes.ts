@@ -12,6 +12,10 @@ import { CitasMedicoComponent } from "src/app/pages/citas-medico/citas-medico.co
 import { HistorialComponent } from "src/app/pages/historial/historial.component";
 import { OdontogramaComponent } from "src/app/pages/odontograma/odontograma.component";
 import { UsuarioComponent } from "src/app/pages/usuario/usuario.component";
+import { CalendarComponent } from "src/app/pages/calendar/calendar.component";
+
+
+
 
 export const ROUTES:Routes = [
     {path:'home',component: HomeComponent,canActivate:[AccessGuard]},
@@ -24,6 +28,9 @@ export const ROUTES:Routes = [
     {path: 'doctor/antecedente/:id', component:AntecedenteComponent,canActivate:[AccessGuard,DoctorGuard]},
     {path: 'doctor/odontograma', component:OdontogramaComponent,canActivate:[AccessGuard,DoctorGuard]},
     {path: 'doctor/odontograma/:id', component:OdontogramaComponent,canActivate:[AccessGuard,DoctorGuard]},
+    {path: 'calendar', component:CalendarComponent,canActivate:[AccessGuard]},
+
+
     {path: '', pathMatch: 'full', redirectTo: 'login'},
     {path: '**', pathMatch: 'full', redirectTo: 'login'},
 ];

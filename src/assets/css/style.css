@@ -851,10 +851,12 @@ h5 {
   font-weight: 600;
 }
 .nav > li > a {
-  color: #a7b1c2;
+  /*color: #a7b1c2;*/
+  color: #293846; /********* CÓDIGO APOLONIA *********/
   font-weight: 600;
   padding: 14px 20px 14px 25px;
   display: block;
+  font-size:14px; /********* CÓDIGO APOLONIA *********/
 }
 .nav.metismenu > li {
   display: block;
@@ -869,7 +871,8 @@ h5 {
   color: #999c9e;
 }
 .nav > li.active > a {
-  color: #ffffff;
+  /*color: #ffffff;*/
+  color: #A7B1C2; /********* CÓDIGO APOLONIA *********/
 }
 .navbar-default .nav > li > a:hover,
 .navbar-default .nav > li > a:focus {
@@ -997,7 +1000,6 @@ h5 {
 }
 .nav-header {
   padding: 33px 25px;
-  background-color: #2f4050;
   background-image: url("patterns/header-profile.png");
 }
 .caret {
@@ -1020,7 +1022,7 @@ ul.nav-second-level {
   background: #293846;
 }
 .nav > li.active {
-  border-left: 4px solid #19aa8d;
+  border-left: 4px solid #33C8FA;
   background: #293846;
 }
 .nav.nav-second-level > li.active {
@@ -1078,8 +1080,8 @@ ul.nav-second-level {
   line-height: 12px;
   padding: 2px 5px;
   position: absolute;
-  right: 6px;
-  top: 12px;
+  right: 2px;
+  top: 9px;
 }
 .arrow {
   float: right;
@@ -1564,14 +1566,14 @@ button:focus {
 }
 .btn-primary {
   color: #fff;
-  background-color: #1ab394;
-  border-color: #1ab394;
+  background-color: #33C8FA; /********* CÓDIGO APOLONIA *********/
+  border-color: #33C8FA; /********* CÓDIGO APOLONIA *********/
 }
 .btn-primary:hover,
 .btn-primary:focus,
 .btn-primary.focus {
-  background-color: #18a689;
-  border-color: #18a689;
+  background-color: #33C8FA; /********* CÓDIGO APOLONIA *********/
+  border-color: #33C8FA; /********* CÓDIGO APOLONIA *********/
   color: #FFFFFF;
 }
 .btn-primary.disabled,
@@ -1942,7 +1944,7 @@ button.dim:active:before {
 }
 .nav .label,
 .ibox .label {
-  font-size: 10px;
+  font-size: 9px;
 }
 .badge {
   background-color: #d1dade;
@@ -1958,7 +1960,7 @@ button.dim:active:before {
 }
 .label-primary,
 .badge-primary {
-  background-color: #1ab394;
+  background-color:#33C8FA; /*CÓDIGO APOLONIA*/
   color: #FFFFFF;
 }
 .label-success,
@@ -4387,7 +4389,8 @@ samp {
 }
 body {
   font-family: "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background-color: #2f4050;
+  /*background-color: #2f4050;*/
+  background-color: #ffffff; /********* CÓDIGO APOLONIA *********/
   font-size: 15px;
   color: #676a6c;
   overflow-x: hidden;
@@ -5381,6 +5384,7 @@ a.close-canvas-menu:hover {
 }
 .m-t-xs {
   margin-top: 5px;
+  color:#293846;
 }
 .m-t-sm {
   margin-top: 10px;
@@ -8791,7 +8795,8 @@ body.rtls.top-navigation .footer.fixed {
 .ultra-skin {
   padding: 20px 10px;
   font-weight: 600;
-  background: url("patterns/3.png") repeat scroll 0 0;
+  /*background: url("patterns/3.png") repeat scroll 0 0;*/
+  background: crimson; /********* CÓDIGO APOLONIA *********/
 }
 .ultra-skin:hover {
   background: url("patterns/4.png") repeat scroll 0 0;
