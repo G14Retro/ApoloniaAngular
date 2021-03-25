@@ -23,6 +23,7 @@
     "@angular/platform-browser-dynamic": "~10.2.0",
     "@angular/router": "~10.2.0",
     "@exalif/ngx-breadcrumbs": "^9.1.0",
+    "@syncfusion/ej2-angular-schedule": "^18.4.49",
     "bootstrap": "^4.5.3",
     "jquery": "^3.5.1",
     "moment": "^2.29.1",
@@ -31,7 +32,8 @@
     "rxjs": "~6.6.0",
     "sweetalert2": "^10.9.0",
     "tslib": "^2.0.0",
-    "zone.js": "~0.10.2"
+    "zone.js": "~0.10.2",
+    "@syncfusion/ej2-material-theme": "~18.4.48"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.1002.3",

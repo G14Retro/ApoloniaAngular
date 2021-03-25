@@ -12,7 +12,8 @@ import { CitasMedicoComponent } from "src/app/pages/citas-medico/citas-medico.co
 import { HistorialComponent } from "src/app/pages/historial/historial.component";
 import { OdontogramaComponent } from "src/app/pages/odontograma/odontograma.component";
 import { UsuarioComponent } from "src/app/pages/usuario/usuario.component";
-import { CalendarComponent } from "src/app/pages/calendar/calendar.component";
+
+import { CalendarComponent } from "src/app/components/calendar/calendar.component";
 
 
 

@@ -8,7 +8,10 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
+
 import { CitasComponent } from './components/citas/citas.component';
+import { CalendarComponent } from './components/calendar/calendar.component';
+
 import { RouterModule } from '@angular/router';
 import { ROUTES } from 'src/routes/app.routes';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -36,6 +39,7 @@ import { LoadingComponent } from './components/loading/loading.component';
 import { OdontogramaComponent } from './pages/odontograma/odontograma.component';
 import { CopyPasteDirective } from './directives/copy-paste.directive';
 import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
+import { ScheduleModule, RecurrenceEditorModule } from '@syncfusion/ej2-angular-schedule';
 
 /*import {ScheduleModule, AgendaService, DayService, DragAndDropService, ResizeService, WeekService, WorkWeekService, MonthService } from '@syncfusion/ej2-angular-schedule/'; /**LINEA JUAND */
 
@@ -57,6 +61,9 @@ import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.componen
     AntecedenteComponent,
     LoadingComponent,
     OdontogramaComponent,
+    
+    CalendarComponent,
+
     CopyPasteDirective,
     BreadcrumbComponent     
   ],
@@ -78,6 +85,7 @@ import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.componen
     MatDialogModule,
     MatStepperModule,
     MatSelectModule,
+    ScheduleModule, RecurrenceEditorModule,
     /** ScheduleModule LINEA JUAND */
   ],
   
