@@ -35,6 +35,7 @@ import { AntecedenteComponent } from './pages/antecedente/antecedente.component'
 import { LoadingComponent } from './components/loading/loading.component';
 import { OdontogramaComponent } from './pages/odontograma/odontograma.component';
 import { CopyPasteDirective } from './directives/copy-paste.directive';
+import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
 
 /*import {ScheduleModule, AgendaService, DayService, DragAndDropService, ResizeService, WeekService, WorkWeekService, MonthService } from '@syncfusion/ej2-angular-schedule/'; /**LINEA JUAND */
 
@@ -56,7 +57,8 @@ import { CopyPasteDirective } from './directives/copy-paste.directive';
     AntecedenteComponent,
     LoadingComponent,
     OdontogramaComponent,
-    CopyPasteDirective     
+    CopyPasteDirective,
+    BreadcrumbComponent     
   ],
   imports: [
     BrowserModule,

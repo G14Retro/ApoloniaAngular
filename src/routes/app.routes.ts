@@ -18,14 +18,16 @@ import { CalendarComponent } from "src/app/pages/calendar/calendar.component";
 
 
 export const ROUTES:Routes = [
-    {path:'home',component: HomeComponent,canActivate:[AccessGuard]},
+    {path:'home',component: HomeComponent,canActivate:[AccessGuard],data:{breadcrumbs: 'Home'}},
     {path: 'register', component: RegisterComponent, canActivate: [LoginGuard]},
     {path: 'login', component:LoginComponent, canActivate: [LoginGuard]},
     {path: 'citas', component:CitasComponent,canActivate:[AccessGuard]},
     {path: 'historiaClinica', component:HistorialComponent,canActivate:[AccessGuard]},
     {path: 'admin/usuarios', component:UsuarioComponent,canActivate:[AccessGuard,AdminGuard]},
-    {path: 'doctor/agenda', component:CitasMedicoComponent,canActivate:[AccessGuard,DoctorGuard]},
-    {path: 'doctor/antecedente/:id', component:AntecedenteComponent,canActivate:[AccessGuard,DoctorGuard]},
+    {path: 'doctor',children:[
+        {path: 'agenda', component:CitasMedicoComponent,canActivate:[AccessGuard,DoctorGuard]},
+        {path: 'antecedente/:id', component:AntecedenteComponent,canActivate:[AccessGuard,DoctorGuard]},
+    ]},
     {path: 'doctor/odontograma', component:OdontogramaComponent,canActivate:[AccessGuard,DoctorGuard]},
     {path: 'doctor/odontograma/:id', component:OdontogramaComponent,canActivate:[AccessGuard,DoctorGuard]},
     {path: 'calendar', component:CalendarComponent,canActivate:[AccessGuard]},

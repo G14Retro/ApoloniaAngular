@@ -24,12 +24,12 @@
                 <a class="nav-link" [routerLink]="['/home']"><i class="fa fa-home"></i> <span class="nav-label"> Inicio</span></a>
             </li>
             
-            <li routerLinkActive='active' *ngIf="!doctoropc">
+            <li routerLinkActive='active' *ngIf="paciente">
                 <a class="nav-link" [routerLink]="['/citas']"><i class="fa fa-calendar"></i> <span class="nav-label"> Citas</span></a>
             </li>
             
             <!--CÓDIGO JD-->
-            <li routerLinkActive='active' *ngIf="!doctoropc">
+            <li routerLinkActive='active' *ngIf="recepcionistapc">
                 <a class="nav-link" [routerLink]="['/calendar']"><i class="fas fa-calendar-alt"></i> <span class="nav-label"> Calendario</span></a>
             </li>
             <!-- END CÓDIGO JD-->
@@ -41,7 +41,7 @@
             <li routerLinkActive='active' *ngIf="doctoropc">
                 <a class="nav-link" [routerLink]="['/doctor/odontograma']"><i class="fa fa-tooth"></i> <span class="nav-label"> Odontograma</span></a>
             </li>
-            <li routerLinkActive='active' *ngIf="!doctoropc">
+            <li routerLinkActive='active' *ngIf="paciente">
                 <a class="nav-link" [routerLink]="['/historiaClinica']"><i class="fa fa-book"></i> <span class="nav-label"> Historial clinico</span></a>
             </li>
             <li routerLinkActive='active'>

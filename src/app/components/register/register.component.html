@@ -89,7 +89,7 @@
                                             <mat-select formControlName="ciudad" required>
                                                 <mat-option>-----</mat-option>
                                                 <mat-option *ngFor="let ciudad of ciudades" [value]="ciudad">
-                                                    {{ciudad.city}}
+                                                    {{ciudad.ciudad}}
                                                 </mat-option>
                                                 </mat-select>
                                             <mat-error *ngIf="contactFormGroup.get('ciudad').hasError('required')">Por favor seleccione una ciudad</mat-error>
@@ -115,6 +115,7 @@
                                             <input matInput placeholder="Ingrese de Nuevo su Correo" formControlName='confirmacion_correo' appCopyPaste>
                                             <mat-error *ngIf="loginFormGroup.get('correo').hasError('required')">Por favor ingrese un correo</mat-error>
                                             <mat-error *ngIf="loginFormGroup.get('correo').hasError('email')">Debe ingresear un correo valido</mat-error>
+                                            <mat-error *ngIf="!validMail()">El correo ingresado no es igual</mat-error>
                                         </mat-form-field>
                                         <mat-form-field class="width-45">
                                             <mat-label>Contraseña</mat-label>
@@ -123,12 +124,13 @@
                                                 La contraseña debe tener mínimo 8 caracteres, un dígito, una letra minúscula, 
                                                 una letra mayúscula y un caracter no alfanumérico.
                                             </mat-error>
+                                            <mat-error *ngIf="loginFormGroup.get('correo').hasError('required')">Este campo no debe estar vacio</mat-error>
                                         </mat-form-field>
                                         <mat-form-field class="width-45">
                                             <mat-label>Confirme su Contraseña</mat-label>
                                             <input matInput type="password" placeholder="Repita la misma contraseña" formControlName='password_confirmation'
                                             appCopyPaste>
-                                            <mat-error *ngIf="validPassword()">Las contraseñas no coinciden</mat-error>
+                                            <mat-error *ngIf="!validPassword()">Las contraseñas no coinciden</mat-error>
                                         </mat-form-field>
                                         <div>
                                             <br>

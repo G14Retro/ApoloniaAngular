@@ -22,7 +22,7 @@
     "@angular/platform-browser": "~10.2.0",
     "@angular/platform-browser-dynamic": "~10.2.0",
     "@angular/router": "~10.2.0",
-
+    "@exalif/ngx-breadcrumbs": "^9.1.0",
     "bootstrap": "^4.5.3",
     "jquery": "^3.5.1",
     "moment": "^2.29.1",
@@ -33,7 +33,6 @@
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
   },
-  
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.1002.3",
     "@angular/cli": "~10.2.0",
@@ -53,6 +52,5 @@
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
     "typescript": "~4.0.2"
-
   }
 }

@@ -26,6 +26,7 @@ interface genero{
 })
 export class RegisterComponent implements OnInit {
   user:userModel;
+  mensaje:String='';
   confir:Boolean=false;
   isLinear = true;
   personalFormGroup: FormGroup;
@@ -48,7 +49,6 @@ export class RegisterComponent implements OnInit {
   constructor(private auth:AuthService, private route:Router, private fb:FormBuilder) { 
     this.ciudades = CITIES;
     const currentYear = new Date().getFullYear();
-    const currentMonth = new Date().getMonth();
     this.minDate = new Date(currentYear-31,0,1)
     this.maxDate = new Date(currentYear-1,11,31)
   }
@@ -56,12 +56,22 @@ export class RegisterComponent implements OnInit {
   validPassword():boolean
   {
       if (this.loginFormGroup.get('password_confirmation').touched && this.loginFormGroup.get('password_confirmation').valueChanges) {
-        if (this.loginFormGroup.value.password_confirmation != this.loginFormGroup.value.password) {
-          return true
+        if (this.loginFormGroup.value.password_confirmation == this.loginFormGroup.value.password) {
+          return false
         }
       } else {
-        return false
+        return true
       }
+  }
+
+  validMail():boolean{
+    if (this.loginFormGroup.get('confirmacion_correo').touched && this.loginFormGroup.get('confirmacion_correo').valueChanges) {
+      if (this.loginFormGroup.value.confirmacion_correo == this.loginFormGroup.value.correo) {
+        return false
+      } else {
+        return true
+      }
+    }
   }
 
   ngOnInit(): void {
@@ -94,11 +104,14 @@ export class RegisterComponent implements OnInit {
     this.user.genero = this.personalFormGroup.value.genero.valor;
     this.user.fecha_nacimiento = moment(this.personalFormGroup.value.fecha_nacimiento).format("YYYY-MM-DD");
     this.user.direccion = this.contactFormGroup.value.direccion;
-    this.user.ciudad = this.contactFormGroup.value.ciudad['city'];
+    this.user.ciudad = this.contactFormGroup.value.ciudad['ciudad'];
     this.user.telefono = this.contactFormGroup.value.telefono;
     this.user.correo = this.loginFormGroup.value.correo;
     this.user.password = this.loginFormGroup.value.password;
     this.user.password_confirmation = this.loginFormGroup.value.password_confirmation; 
+    if (this.loginFormGroup.invalid) {
+      return
+    }
     Swal.fire({
       allowOutsideClick: false,
       icon:'info',
@@ -113,10 +126,28 @@ export class RegisterComponent implements OnInit {
     }, 
     (err)=>{
       console.log(err);
-      Swal.fire({
-        icon: 'error',
-        title: 'Error alregistrarse',
-        text: err.error.errors.correo + ', '+ err.error.errors.numero_documento,
-      })});
+      if (err.error.errors.numero_documento == null) {
+        console.log("Error");
+        Swal.fire({
+          icon: 'error',
+          title: 'Error alregistrarse',
+          text: err.error.errors.correo,
+        })
+      }
+      if (err.error.errors.correo == null) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error alregistrarse',
+          text: err.error.errors.numero_documento,
+        })
+      }
+      if (err.error.errors.correo && err.error.errors.numero_documento) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error alregistrarse',
+          text: err.error.errors.correo + ', '+ err.error.errors.numero_documento,
+        })
+      }
+      });
   }
 }
