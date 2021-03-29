@@ -30,8 +30,19 @@ export class CitasService {
       'disponibilidad': id.toString(),
       'id_paciente': this.auth.usuario.id.toString(),
     });
-    console.log (data);
     return this.http.post(this.url+'agendaCita', data, {headers});
+  }
+
+  getHistorial(id:String){
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'X-Requested-With': 'XMLHttpRequest',
+      'Authorization': 'Bearer '+ this.auth.usuario.token
+    });
+    const data=({
+      'id_paciente': id
+    });
+    return this.http.post(this.url+'historial',data,{headers});
   }
 
 }

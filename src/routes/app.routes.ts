@@ -14,6 +14,7 @@ import { OdontogramaComponent } from "src/app/pages/odontograma/odontograma.comp
 import { UsuarioComponent } from "src/app/pages/usuario/usuario.component";
 
 import { CalendarComponent } from "src/app/components/calendar/calendar.component";
+import { RecepcionGuard } from "src/app/guards/recepcion.guard";
 
 
 
@@ -31,7 +32,7 @@ export const ROUTES:Routes = [
     ]},
     {path: 'doctor/odontograma', component:OdontogramaComponent,canActivate:[AccessGuard,DoctorGuard]},
     {path: 'doctor/odontograma/:id', component:OdontogramaComponent,canActivate:[AccessGuard,DoctorGuard]},
-    {path: 'calendar', component:CalendarComponent,canActivate:[AccessGuard]},
+    {path: 'calendar', component:CalendarComponent,canActivate:[AccessGuard,RecepcionGuard]},
 
 
     {path: '', pathMatch: 'full', redirectTo: 'login'},

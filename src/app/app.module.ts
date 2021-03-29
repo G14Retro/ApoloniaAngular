@@ -41,6 +41,8 @@ import { CopyPasteDirective } from './directives/copy-paste.directive';
 import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
 import { ScheduleModule, RecurrenceEditorModule } from '@syncfusion/ej2-angular-schedule';
 
+
+
 /*import {ScheduleModule, AgendaService, DayService, DragAndDropService, ResizeService, WeekService, WorkWeekService, MonthService } from '@syncfusion/ej2-angular-schedule/'; /**LINEA JUAND */
 
 
@@ -61,9 +63,7 @@ import { ScheduleModule, RecurrenceEditorModule } from '@syncfusion/ej2-angular-
     AntecedenteComponent,
     LoadingComponent,
     OdontogramaComponent,
-    
     CalendarComponent,
-
     CopyPasteDirective,
     BreadcrumbComponent     
   ],
@@ -85,7 +85,8 @@ import { ScheduleModule, RecurrenceEditorModule } from '@syncfusion/ej2-angular-
     MatDialogModule,
     MatStepperModule,
     MatSelectModule,
-    ScheduleModule, RecurrenceEditorModule,
+    ScheduleModule,
+    RecurrenceEditorModule,
     /** ScheduleModule LINEA JUAND */
   ],
   
