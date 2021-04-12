@@ -28,7 +28,7 @@ import { MatPaginatorModule } from "@angular/material/paginator";
 import { MatButtonModule } from '@angular/material/button';
 import { MatStepperModule } from '@angular/material/stepper';
 import {MatSelectModule} from '@angular/material/select';
-
+import { DayService, WeekService, WorkWeekService, MonthService, AgendaService, MonthAgendaService } from '@syncfusion/ej2-angular-schedule';
 import { ConfirmacionComponent } from './components/citas/confirmacion/confirmacion.component';
 import {MatDialogModule } from '@angular/material/dialog';
 import { HistorialComponent } from './pages/historial/historial.component';
@@ -91,7 +91,7 @@ import { ScheduleModule, RecurrenceEditorModule } from '@syncfusion/ej2-angular-
   ],
   
   providers: [
-    /**AgendaService, DayService, WeekService, WorkWeekService, MonthService, DragAndDropService, ResizeService,  LINEA JUAND */
+    AgendaService, DayService, WeekService, WorkWeekService, MonthService, MonthAgendaService,
     TitleCasePipe,
     AuthService,
     {provide: MAT_DATE_LOCALE,

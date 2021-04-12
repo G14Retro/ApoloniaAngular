@@ -1,4 +1,4 @@
-<body style="background-color: #e4edf2;">
+<body style="background-color: #e9f8fc;">
     <div class="container animeted fadeInDown">
         <main class="m-5">
             <div id="form_container">
@@ -10,7 +10,7 @@
                             <p>Apolonia es un software especializado para la
                                 administración de consultorios odontológicos
                                 que buscan alto rendimiento.</p>
-                            <a href="#0" id="more_info" data-toggle="modal" data-target="#more-info"><i class="fa fa-sign-out"></i></a>
+                            <a href="#0" id="more_info" data-toggle="modal" data-target="#more-info"><i class="fb fa-sign-out"></i></a>
                         </div>
                     </div>
                     <div class="col-lg-7">
@@ -60,14 +60,14 @@
                                                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                                                     <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
                                                     <mat-error *ngIf="personalFormGroup.get('fecha_nacimiento').hasError('required')">Por favor ingrese una fecha</mat-error>
-                                                  </mat-form-field>
-                                        <div>
-                                            <br>
-                                            <button mat-button matStepperNext class="btn-color">Siguiente</button>
+                                                </mat-form-field>
+                                                <br><br>
+                                        <div class="contenedor-botones1">
+                                            <button mat-button class="btn-outline-color" [routerLink]="['/login']" >Inicia Sesión</button>
+                                            <button mat-button matStepperNext class="btn-color  mr-3">Siguiente</button> 
                                         </div>
                                         <div>
-                                            <small><a class="stretched-link mr-3">¿Ya tienes cuenta?</a></small>
-                                            <button mat-button class="btn-outline-color" [routerLink]="['/login']" >Inicia Sesión</button>
+                                            <small><a class="stretched-link">¿Ya tienes cuenta?</a></small>
                                         </div>
                                     </form>
                                 </mat-step>
@@ -100,6 +100,7 @@
                                             <button mat-button matStepperNext class="btn-color">Siguiente</button>
                                         </div>
                                     </form>
+                                    
                                 </mat-step>
                                 <mat-step [stepControl]='loginFormGroup'>
                                     <form [formGroup]='loginFormGroup'>
