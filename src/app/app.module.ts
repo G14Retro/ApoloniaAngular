@@ -28,6 +28,8 @@ import { MatPaginatorModule } from "@angular/material/paginator";
 import { MatButtonModule } from '@angular/material/button';
 import { MatStepperModule } from '@angular/material/stepper';
 import {MatSelectModule} from '@angular/material/select';
+import { BreadcrumbModule } from "angular-crumbs";
+import { ScheduleModule, RecurrenceEditorModule } from '@syncfusion/ej2-angular-schedule';
 
 import { ConfirmacionComponent } from './components/citas/confirmacion/confirmacion.component';
 import {MatDialogModule } from '@angular/material/dialog';
@@ -39,7 +41,7 @@ import { LoadingComponent } from './components/loading/loading.component';
 import { OdontogramaComponent } from './pages/odontograma/odontograma.component';
 import { CopyPasteDirective } from './directives/copy-paste.directive';
 import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
-import { ScheduleModule, RecurrenceEditorModule } from '@syncfusion/ej2-angular-schedule';
+import { CanvasOdontogramaComponent } from './components/canvas-odontograma/canvas-odontograma.component';
 
 
 
@@ -65,7 +67,8 @@ import { ScheduleModule, RecurrenceEditorModule } from '@syncfusion/ej2-angular-
     OdontogramaComponent,
     CalendarComponent,
     CopyPasteDirective,
-    BreadcrumbComponent     
+    BreadcrumbComponent,
+    CanvasOdontogramaComponent     
   ],
   imports: [
     BrowserModule,
@@ -85,8 +88,9 @@ import { ScheduleModule, RecurrenceEditorModule } from '@syncfusion/ej2-angular-
     MatDialogModule,
     MatStepperModule,
     MatSelectModule,
+    BreadcrumbModule,
     ScheduleModule,
-    RecurrenceEditorModule,
+    RecurrenceEditorModule
     /** ScheduleModule LINEA JUAND */
   ],
   

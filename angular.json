@@ -28,7 +28,6 @@
               "src/styles.css",
               "src/app/components/login/login.css",
               "src/assets/css/bootstrap.min.css",
-              "src/assets/css/main.css",
               "src/assets/css/all.css",
               "src/assets/css/plugins/toastr/toastr.min.css",
               "src/assets/js/plugins/gritter/jquery.gritter.css",
