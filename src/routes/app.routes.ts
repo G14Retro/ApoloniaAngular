@@ -15,7 +15,7 @@ import { UsuarioComponent } from "src/app/pages/usuario/usuario.component";
 
 import { CalendarComponent } from "src/app/components/calendar/calendar.component";
 import { RecepcionGuard } from "src/app/guards/recepcion.guard";
-
+import {AdministratorComponent} from "src/app/components/administrator/administrator.component";
 
 
 
@@ -25,7 +25,7 @@ export const ROUTES:Routes = [
     {path: 'login', component:LoginComponent, canActivate: [LoginGuard]},
     {path: 'citas', component:CitasComponent,canActivate:[AccessGuard]},
     {path: 'historiaClinica', component:HistorialComponent,canActivate:[AccessGuard]},
-    {path: 'admin/usuarios', component:UsuarioComponent,canActivate:[AccessGuard,AdminGuard]},
+    {path: 'admin/usuarios', component:AdministratorComponent,canActivate:[AccessGuard,AdminGuard]},
     {path: 'doctor',children:[
         {path: 'agenda', component:CitasMedicoComponent,canActivate:[AccessGuard,DoctorGuard]},
         {path: 'antecedente/:id', component:AntecedenteComponent,canActivate:[AccessGuard,DoctorGuard]},

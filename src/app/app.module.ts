@@ -40,6 +40,8 @@ import { OdontogramaComponent } from './pages/odontograma/odontograma.component'
 import { CopyPasteDirective } from './directives/copy-paste.directive';
 import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
 import { ScheduleModule, RecurrenceEditorModule } from '@syncfusion/ej2-angular-schedule';
+import { AdministratorComponent } from './components/administrator/administrator.component';
+
 
 
 
@@ -65,7 +67,9 @@ import { ScheduleModule, RecurrenceEditorModule } from '@syncfusion/ej2-angular-
     OdontogramaComponent,
     CalendarComponent,
     CopyPasteDirective,
-    BreadcrumbComponent     
+    BreadcrumbComponent,
+    AdministratorComponent
+         
   ],
   imports: [
     BrowserModule,

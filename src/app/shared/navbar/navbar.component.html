@@ -13,12 +13,11 @@
                 <img src="../../../favicon.ico" width="50" height="50" alt="image" class="rounded-circle">
                 </div>
             </li>
-            <li class='' routerLinkActive="active" *ngIf="admin">
-                <a href="#"><i class="fa fa-sliders"></i> <span class="nav-label">Administrador</span> <span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li routerLinkActive="active"><a [routerLink]="['/admin/usuarios']" ><i class="fa fa-user-o"></i>Usuarios</a></li>
-                            <li routerLinkActive="active"><a [routerLink]="['/admin/agenda']"><i class="fa fa-book"></i>Agenda</a></li>
-                        </ul>
+            <li routerLinkActive="active" *ngIf="admin">
+                <a [routerLink]="['/admin/usuarios']" ><i class="fa fa-user-o"></i>Usuarios</a>
+            </li>
+            <li routerLinkActive="active" *ngIf="admin">
+                <a [routerLink]="['/admin/agenda']"><i class="fa fa-book"></i>Agenda</a>
             </li>
             <li routerLinkActive='active'>
                 <a class="nav-link" [routerLink]="['/home']"><i class="fa fa-home"></i> <span class="nav-label"> Inicio</span></a>
