@@ -14,7 +14,7 @@ export class CitasMedicoComponent implements OnInit,AfterViewInit {
   dataSource = new MatTableDataSource();
   loading:boolean;
   @ViewChild(MatPaginator) paginator:MatPaginator;
-  constructor(private doctorService:DoctorService, private router:Router) { }
+  constructor(private administratorService:DoctorService, private router:Router) { }
 
   ngAfterViewInit(){
     this.dataSource.paginator = this.paginator;
@@ -22,7 +22,7 @@ export class CitasMedicoComponent implements OnInit,AfterViewInit {
 
   ngOnInit(): void {
     this.loading = true;
-    this.doctorService.obtenerAgenda().subscribe((resp:any)=>{
+    this.administratorService.obtenerAgenda().subscribe((resp:any)=>{
       this.dataSource = resp;
       this.loading = false;
     });

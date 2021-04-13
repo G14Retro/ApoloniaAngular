@@ -61,7 +61,7 @@ import { ScheduleModule,RecurrenceEditorModule } from "@syncfusion/ej2-angular-s
     CalendarComponent,
     CopyPasteDirective,
     BreadcrumbComponent,
-    CanvasOdontogramaComponent     
+
   ],
   imports: [
     BrowserModule,
