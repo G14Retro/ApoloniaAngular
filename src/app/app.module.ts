@@ -42,12 +42,6 @@ import {MatDialogModule } from '@angular/material/dialog';
 import { CopyPasteDirective } from './directives/copy-paste.directive';
 import { ScheduleModule,RecurrenceEditorModule } from "@syncfusion/ej2-angular-schedule";
 
-
-
-
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
