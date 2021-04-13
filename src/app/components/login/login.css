@@ -29,7 +29,6 @@ body .contenedor{
   margin-left: auto;
 }
 .logotipo{
-  
   display: flex;
   margin-top:-45px;
   margin-left: 15px;
@@ -37,17 +36,18 @@ body .contenedor{
   z-index: 1;
 }
 .heading-section {
+  /*background: url(../../../assets/img/loggoApolonia.png);*/
   font-size: 28px;
   color:#33C8FA;
 }
 
 /********* AQUI TENEMOS LA CAJA DEL LOGIN *********/
 .col-md-6.col-lg-4 {
-  /*background: #33c8fa0c;*/
+  background: #ffffff;
   /**border:  solid #33C8FA !important;*/
   box-shadow: 5px 10px 10px 0#88888859;
   /**margin-right: 300px;*/
-  margin-top: -30px;
+  /**margin-top: -30px;*/
   border-radius: 19px;
 }
 /********* AQUI TERMINA EL CODIGO DEL LOGIN *********/
@@ -161,14 +161,11 @@ body .contenedor{
   width: 70%;
   margin: 30px 60px;
   padding: 9px 12px;
-  border-radius: 19px;
   display: block;
   text-align: center;
   cursor: pointer;
-  background: #4141417c;
-  color: #ffffff !important;
+  color: #008cff !important;
   text-decoration: none;
-  color: #ffffff;
   border: none;
   font-size: 16px;
   font-weight: 600;

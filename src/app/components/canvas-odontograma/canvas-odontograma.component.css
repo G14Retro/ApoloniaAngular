@@ -1,0 +1,16 @@
+.corona
+		{
+			fill:none;
+			opacity: 0;
+		}
+.endodoncia
+		{
+			fill:none;
+			opacity: 0;
+		}
+
+.diente{
+    fill-opacity:0;
+    stroke:black;
+    stroke-width:1px;
+}

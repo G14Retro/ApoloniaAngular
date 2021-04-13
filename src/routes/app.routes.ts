@@ -20,19 +20,21 @@ import {AdministratorComponent} from "src/app/components/administrator/administr
 
 
 export const ROUTES:Routes = [
-    {path:'home',component: HomeComponent,canActivate:[AccessGuard],data:{breadcrumbs: 'Home'}},
+    {path:'home',component: HomeComponent,canActivate:[AccessGuard],data:{breadcrumb: 'Home'}},
     {path: 'register', component: RegisterComponent, canActivate: [LoginGuard]},
     {path: 'login', component:LoginComponent, canActivate: [LoginGuard]},
+
     {path: 'citas', component:CitasComponent,canActivate:[AccessGuard]},
     {path: 'historiaClinica', component:HistorialComponent,canActivate:[AccessGuard]},
     {path: 'admin/usuarios', component:AdministratorComponent,canActivate:[AccessGuard,AdminGuard]},
+
     {path: 'doctor',children:[
-        {path: 'agenda', component:CitasMedicoComponent,canActivate:[AccessGuard,DoctorGuard]},
-        {path: 'antecedente/:id', component:AntecedenteComponent,canActivate:[AccessGuard,DoctorGuard]},
+        {path: 'agenda', component:CitasMedicoComponent,canActivate:[AccessGuard,DoctorGuard],data:{breadcrumb: 'Agenda'}},
+        {path: 'antecedente/:id', component:AntecedenteComponent,canActivate:[AccessGuard,DoctorGuard],data:{breadcrumb: 'Antecedente'}},
     ]},
-    {path: 'doctor/odontograma', component:OdontogramaComponent,canActivate:[AccessGuard,DoctorGuard]},
-    {path: 'doctor/odontograma/:id', component:OdontogramaComponent,canActivate:[AccessGuard,DoctorGuard]},
-    {path: 'calendar', component:CalendarComponent,canActivate:[AccessGuard,RecepcionGuard]},
+    {path: 'doctor/odontograma', component:OdontogramaComponent,canActivate:[AccessGuard,DoctorGuard],data:{breadcrumb: 'Odontograma'}},
+    {path: 'doctor/odontograma/:id', component:OdontogramaComponent,canActivate:[AccessGuard,DoctorGuard],data:{breadcrumb: 'Odontograma'}},
+    {path: 'calendar', component:CalendarComponent,canActivate:[AccessGuard,RecepcionGuard],data:{breadcrumb: 'Calendario'}},
 
 
     {path: '', pathMatch: 'full', redirectTo: 'login'},

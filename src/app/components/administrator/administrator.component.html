@@ -1,39 +1,15 @@
 <div class="mat-elevation-z8 animated fadeInDown">
+    <table mat-table [dataSource]="dataSource">
+        <ng-container matColumnDef="tipo_documento">
+            <th mat-header-cell *matHeaderCellDef> Tipo de documento </th>
+            <td mat-cell *matCellDef="let element"> {{element.tipo_documento}} </td>
+        </ng-container>
 
-<h3>Lista de usuario</h3>
+        <tr mat-header-row *matHeaderRowDef="columns"></tr>
+        <tr mat-row *matRowDef="let row; columns: columns;"></tr>
 
-<table class= "table table-light">
-<thead>
-<tr>
-<th>Tipo documento</th>
-<th>Numero de documento</th>
-<th>Nombres</th>
-<th>Apellidos</th>
-<th>Direccion</th>
-<th>Ciudad</th>
-<th>Telefono</th>
-<th>Correo</th>
-<th>Genero</th>
-<th>Fecha de nacimiento</th>
-<th>Tipo usuario</th>
-<th>Estado</th>
-<th>Acciones</th>
-</tr>
-</thead>
-<tbody>
-    <tr *ngFor="let item of administrator">
-<td>{{ item.tipo_documento }}</td>
-<td>{{ item.numero_documento }}</td>
-<td>{{ item.nombre }}</td>
-<td>{{ item.apellido }}</td>
-<td>{{ item.direccion }}</td>
-<td>{{ item.ciudad }}</td>
-<td>{{ item.telefono }}</td>
-<td>{{ item.correo }}</td>
-<td>{{ item.genero }}</td>
-<td>{{ item.fecha_nacimiento }}</td>
-<td>{{ item.tipo_usuario }}</td>
-<td>{{ item.estado }}</td>
-    </tr>
-</tbody>
-</table>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>
+    
+   

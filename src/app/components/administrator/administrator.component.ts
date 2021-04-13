@@ -12,16 +12,22 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./administrator.component.css']
 })
 export class AdministratorComponent implements OnInit {
-  public administrator: any;
+  columns:string[]=['tipo_documento'];
+  dataSource = new MatTableDataSource();
+  loading:boolean;
+    @ViewChild(MatPaginator) paginator:MatPaginator;
 
   constructor(private administratorService: AdministratorService) { }
 
   ngOnInit(): void {
-    this.administratorService.query()
-    .subscribe(res=> {
-      console.log("En ADMINISRTATOR LIST",res);
-      this.administrator = res;
-    })
+    this.loading = true;
+    this.administratorService.query().subscribe((resp:any)=>{
+      this.dataSource = resp;
+      this.loading = false
+    });
+  }
+  ngAfterViewInit(){
+    this.dataSource.paginator = this.paginator;
   }
 
 }

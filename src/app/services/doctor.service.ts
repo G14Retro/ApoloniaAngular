@@ -14,7 +14,7 @@ export class DoctorService {
 
 
   obtenerAgenda(){
-  const  headers = new HttpHeaders({
+  const headers = new HttpHeaders({
     'Content-Type': 'application/json',
     'X-Requested-With': 'XMLHttpRequest',
     'Authorization': 'Bearer ' + this.auth.usuario.token
