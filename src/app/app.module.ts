@@ -20,6 +20,7 @@ import { AntecedenteComponent } from './pages/antecedente/antecedente.component'
 import { LoadingComponent } from './components/loading/loading.component';
 import { OdontogramaComponent } from './pages/odontograma/odontograma.component';
 import { CanvasOdontogramaComponent } from './components/canvas-odontograma/canvas-odontograma.component';
+import { AdministratorComponent } from './components/administrator/administrator.component';
 
 import { RouterModule } from '@angular/router';
 import { ROUTES } from 'src/routes/app.routes';
@@ -61,6 +62,7 @@ import { ScheduleModule,RecurrenceEditorModule } from "@syncfusion/ej2-angular-s
     CalendarComponent,
     CopyPasteDirective,
     BreadcrumbComponent,
+    AdministratorComponent
 
   ],
   imports: [
