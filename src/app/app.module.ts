@@ -41,11 +41,8 @@ import { DayService, WeekService, WorkWeekService, MonthService, AgendaService }
 import {MatDialogModule } from '@angular/material/dialog';
 import { CopyPasteDirective } from './directives/copy-paste.directive';
 import { ScheduleModule,RecurrenceEditorModule } from "@syncfusion/ej2-angular-schedule";
-
-
-
-
-
+import { DisponibilidadComponent } from './pages/disponibilidad/disponibilidad.component';
+import { TablaDispoComponent } from './components/tabla-dispo/tabla-dispo.component';
 
 
 @NgModule({
@@ -67,7 +64,9 @@ import { ScheduleModule,RecurrenceEditorModule } from "@syncfusion/ej2-angular-s
     CalendarComponent,
     CopyPasteDirective,
     BreadcrumbComponent,
-    CanvasOdontogramaComponent     
+    CanvasOdontogramaComponent,
+    DisponibilidadComponent,
+    TablaDispoComponent     
   ],
   imports: [
     BrowserModule,
