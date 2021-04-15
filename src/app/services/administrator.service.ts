@@ -16,7 +16,7 @@ export class AdministratorService {
       'Content-Type': 'application/json',
       'X-Requested-With': 'XMLHttpRequest',
     })
-    return this.http.get<any>(environment.apiEndpoint+'api/apolonia/listarPacientes',{headers});
+    return this.http.get<any>(environment.apiEndpoint+'listarPacientes',{headers});
     
   }
 }

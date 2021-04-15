@@ -45,6 +45,7 @@ import {MatDialogModule } from '@angular/material/dialog';
 import { CopyPasteDirective } from './directives/copy-paste.directive';
 import { ScheduleModule,RecurrenceEditorModule } from "@syncfusion/ej2-angular-schedule";
 import { EditDialogComponent } from './components/edit-dialog/edit-dialog.component';
+import { UserCreateComponent } from './components/administrator/user-create/user-create.component';
 
 
 @NgModule({
@@ -70,7 +71,8 @@ import { EditDialogComponent } from './components/edit-dialog/edit-dialog.compon
     DisponibilidadComponent,
     TablaDispoComponent,
     AdministratorComponent,
-    EditDialogComponent  
+    EditDialogComponent,
+    UserCreateComponent  
   ],
   imports: [
     BrowserModule,

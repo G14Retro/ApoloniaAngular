@@ -18,6 +18,7 @@ import { CalendarComponent } from "src/app/components/calendar/calendar.componen
 import { RecepcionGuard } from "src/app/guards/recepcion.guard";
 import {AdministratorComponent} from "src/app/components/administrator/administrator.component";
 import { DisponibilidadComponent } from "src/app/pages/disponibilidad/disponibilidad.component";
+import { UserCreateComponent } from "src/app/components/administrator/user-create/user-create.component";
 
 export const ROUTES:Routes = [
     {path:'home',component: HomeComponent,canActivate:[AccessGuard],data:{breadcrumb: 'Home'}},
@@ -27,6 +28,7 @@ export const ROUTES:Routes = [
     {path: 'citas', component:CitasComponent,canActivate:[AccessGuard]},
     {path: 'historiaClinica', component:HistorialComponent,canActivate:[AccessGuard]},
     {path: 'admin/usuarios', component:AdministratorComponent,canActivate:[AccessGuard,AdminGuard]},
+    {path: 'admin/crear', component:UserCreateComponent,canActivate:[AccessGuard,AdminGuard]},
 
     {path: 'doctor',children:[
         {path: 'agenda', component:CitasMedicoComponent,canActivate:[AccessGuard,DoctorGuard],data:{breadcrumb: 'Agenda'}},

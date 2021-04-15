@@ -1,0 +1,56 @@
+<h2>Crear medico</h2>
+
+<form [formGroup]="userForm" ]>
+    <div class="row">
+        <div class="col">
+            <input type="text" class="form-control" placeholder="Tipo documento">
+        </div>
+        <div class="col">
+            <input type="text" class="form-control" placeholder="Número Documento">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <input type="text" class="form-control" placeholder="Nombres">
+        </div>
+        <div class="col">
+            <input type="text" class="form-control" placeholder="Apellidos">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <input type="text" class="form-control" placeholder="Dirección">
+        </div>
+        <div class="col">
+            <input type="text" class="form-control" placeholder="Ciudad">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <input type="text" class="form-control" placeholder="Número de teléfono">
+        </div>
+        <div class="col">
+            <input type="text" class="form-control" placeholder="Correo electronico">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <input type="text" class="form-control" placeholder="Genero">
+        </div>
+        <div class="col">
+            <input type="text" class="form-control" placeholder="Fecha de nacimiento">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <input type="text" class="form-control" placeholder="Estado">
+        </div>
+        <div class="col">
+            <input type="text" class="form-control" placeholder="Tipo de usuario">
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-success" (click)="crearUsuario()">Guardar</button>
+</form>
