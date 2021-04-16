@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { TitleCasePipe } from '@angular/common';
 
-
+//Componentes
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -23,7 +23,10 @@ import { CanvasOdontogramaComponent } from './components/canvas-odontograma/canv
 import { AdministratorComponent } from './components/administrator/administrator.component';
 import { DisponibilidadComponent } from './pages/disponibilidad/disponibilidad.component';
 import { TablaDispoComponent } from './components/tabla-dispo/tabla-dispo.component';
+import { EditDialogComponent } from './components/edit-dialog/edit-dialog.component';
+import { UserCreateComponent } from './components/administrator/user-create/user-create.component';
 
+// Modulos
 import { RouterModule } from '@angular/router';
 import { ROUTES } from 'src/routes/app.routes';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -44,8 +47,12 @@ import { DayService, WeekService, WorkWeekService, MonthService, AgendaService }
 import {MatDialogModule } from '@angular/material/dialog';
 import { CopyPasteDirective } from './directives/copy-paste.directive';
 import { ScheduleModule,RecurrenceEditorModule } from "@syncfusion/ej2-angular-schedule";
+<<<<<<< HEAD
 import { EditDialogComponent } from './components/edit-dialog/edit-dialog.component';
 import { AddDialogComponent } from './components/add-dialog/add-dialog.component';
+=======
+import { NgxMatDatetimePickerModule, NgxMatNativeDateModule, NgxMatTimepickerModule  } from "@angular-material-components/datetime-picker";
+>>>>>>> d7b991500a1d938a6be1c2990a678d987e8a2980
 
 
 @NgModule({
@@ -72,7 +79,11 @@ import { AddDialogComponent } from './components/add-dialog/add-dialog.component
     TablaDispoComponent,
     AdministratorComponent,
     EditDialogComponent,
+<<<<<<< HEAD
     AddDialogComponent  
+=======
+    UserCreateComponent  
+>>>>>>> d7b991500a1d938a6be1c2990a678d987e8a2980
   ],
   imports: [
     BrowserModule,
@@ -93,7 +104,10 @@ import { AddDialogComponent } from './components/add-dialog/add-dialog.component
     MatStepperModule,
     MatSelectModule,
     ScheduleModule,
-    RecurrenceEditorModule
+    RecurrenceEditorModule,
+    NgxMatDatetimePickerModule,
+    NgxMatTimepickerModule,
+    NgxMatNativeDateModule,
   ],
   
   providers: [

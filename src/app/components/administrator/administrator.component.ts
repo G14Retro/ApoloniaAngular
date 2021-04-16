@@ -1,11 +1,7 @@
 import {AdministratorService} from 'src/app/services/administrator.service';
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
+import { Component, OnInit, ViewChild,AfterViewInit } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
-
-
-
-
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-administrator',
@@ -13,18 +9,17 @@ import { MatPaginator } from '@angular/material/paginator';
   styleUrls: ['./administrator.component.css']
 })
 export class AdministratorComponent implements OnInit,AfterViewInit {
-  columns:string[]=['tipo_documento'];
+  columns:string[]=['tipo_documento', 'numero_documento','nombre','apellido','direccion','ciudad',
+  'telefono','correo','genero','fecha_nacimiento','tipo_usuario','estado','Acciones'];
   dataSource = new MatTableDataSource();
   loading:boolean;
-    @ViewChild(MatPaginator) paginator:MatPaginator;
-
+  @ViewChild(MatPaginator) paginator:MatPaginator;
   constructor(private administratorService: AdministratorService) { }
 
   ngOnInit(): void {
     this.loading = true;
     this.administratorService.query().subscribe((resp:any)=>{
       this.dataSource = resp;
-      console.log(this.dataSource);
       this.loading = false
     });
   }

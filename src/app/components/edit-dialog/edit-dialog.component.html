@@ -21,10 +21,25 @@
 
         <mat-form-field class="p-2">
             <mat-label>Hora final</mat-label>
-            <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" formControlName='horaFinal'>
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+            <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker1" formControlName='horaFinal'>
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1 startView="year" [startAt]="startDate"></mat-datepicker>
         </mat-form-field>
+        <mat-form-field>
+            <mat-label>Hora de prueba</mat-label>
+            <input matInput [ngxMatDatetimePicker]="picker2" [formControl]="dateControl"
+              [min]="minDate" [max]="maxDate"formControlName="pruebaHora">
+            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+            <ngx-mat-datetime-picker #picker2 [showSpinners]="showSpinners" [showSeconds]="showSeconds" [stepHour]="stepHour"
+              [stepMinute]="stepMinute" [stepSecond]="stepSecond" [touchUi]="touchUi" [color]="color"
+              [enableMeridian]="enableMeridian">
+              <!-- Custom icon or text of Apply icon -->
+              <ng-template>
+                <!-- <mat-icon>star</mat-icon> -->
+                <span>OK</span>
+              </ng-template>
+            </ngx-mat-datetime-picker>
+          </mat-form-field>
     </form>
 </div>
 <div mat-dialog-actions>
