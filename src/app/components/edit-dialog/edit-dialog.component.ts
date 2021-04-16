@@ -1,8 +1,10 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { now } from 'moment';
 import { RecepcionistaService } from 'src/app/services/recepcionista.service';
+import * as moment from 'moment';
+import { ThemePalette } from '@angular/material/core';
 
 @Component({
   selector: 'app-edit-dialog',
@@ -12,14 +14,26 @@ import { RecepcionistaService } from 'src/app/services/recepcionista.service';
 export class EditDialogComponent implements OnInit {
   dispoGroup: FormGroup;
   medicos:[]=[];
+  //DateTime Picker
+  public date: moment.Moment;
+  public disabled = false;
+  public showSpinners = true;
+  public showSeconds = true;
+  public touchUi = false;
+  public enableMeridian = false;
   minDate:Date;
   maxDate:Date;
+  public stepHour = 1;
+  public stepMinute = 1;
+  public stepSecond = 1;
+  public color: ThemePalette = 'primary';
   startDate = new Date(now());
+  public dateControl = new FormControl(new Date(2021,9,4,5,6,7));
+  public dateControlMinMax = new FormControl(new Date());
   constructor(private fb:FormBuilder,public dialogRef:MatDialogRef<EditDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data:any, private recepcionista:RecepcionistaService) { 
     
       const currentYear = new Date().getFullYear();
-      console.log(currentYear);
       this.minDate = new Date(now())
       this.maxDate = new Date(currentYear+1,11,31)
     }
@@ -49,6 +63,7 @@ export class EditDialogComponent implements OnInit {
       medico:['',Validators.required],
       horaInicio:['',Validators.required],
       horaFinal:['',Validators.required],
+      pruebaHora:['',Validators.required]
     })
   }
 }

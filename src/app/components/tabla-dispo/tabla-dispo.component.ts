@@ -31,7 +31,12 @@ export class TablaDispoComponent implements OnInit, AfterViewInit {
 
   cargarTabla(){
     this.recepcionista.listarDispo().subscribe((resp:any)=>{
-      this.dataSource = resp;
+      if (resp.message) {
+        this.dataSource = new MatTableDataSource();
+      }else{
+        this.dataSource = resp;
+      }
+      
     })
   }
 
