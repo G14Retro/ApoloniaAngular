@@ -1,56 +1,72 @@
 <h2>Crear medico</h2>
 
-<form [formGroup]="userForm" ]>
+<form [formGroup]="userForm">
     <div class="row">
         <div class="col">
-            <input type="text" class="form-control" placeholder="Tipo documento">
+            <select class="form-control" placeholder="Tipo documento" formControlName="tipo_documento">
+            <option>CC</option>
+            <option>CE</option>
+            <option>PP</option>
+            <option>TI</option>
+            </select>
         </div>
         <div class="col">
-            <input type="text" class="form-control" placeholder="Número Documento">
+            <input type="text" class="form-control" placeholder="Número Documento" formControlName="numero_documento">
         </div>
     </div>
 
     <div class="row">
         <div class="col">
-            <input type="text" class="form-control" placeholder="Nombres">
+            <input type="text" class="form-control" placeholder="Nombres" formControlName="nombre">
         </div>
         <div class="col">
-            <input type="text" class="form-control" placeholder="Apellidos">
-        </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <input type="text" class="form-control" placeholder="Dirección">
-        </div>
-        <div class="col">
-            <input type="text" class="form-control" placeholder="Ciudad">
+            <input type="text" class="form-control" placeholder="Apellidos" formControlName="apellido">
         </div>
     </div>
     <div class="row">
         <div class="col">
-            <input type="text" class="form-control" placeholder="Número de teléfono">
+            <input type="text" class="form-control" placeholder="Dirección" formControlName="direccion">
         </div>
         <div class="col">
-            <input type="text" class="form-control" placeholder="Correo electronico">
+            <input type="text" class="form-control" placeholder="Ciudad" formControlName="ciudad">
         </div>
     </div>
     <div class="row">
         <div class="col">
-            <input type="text" class="form-control" placeholder="Genero">
+            <input type="text" class="form-control" placeholder="Número de teléfono" formControlName="telefono">
         </div>
         <div class="col">
-            <input type="text" class="form-control" placeholder="Fecha de nacimiento">
+            <input type="text" class="form-control" placeholder="Correo electronico" formControlName="correo">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <select type="text" class="form-control" placeholder="Genero" formControlName="genero">
+             <option>masculino</option>
+            <option>femenino</option>
+            </select>
+        </div>
+        <div class="col">
+            <input type="text" class="form-control" placeholder="Fecha de nacimiento" formControlName="fecha_nacimiento">
         </div>
     </div>
 
     <div class="row">
         <div class="col">
-            <input type="text" class="form-control" placeholder="Estado">
+            <select class="form-control" placeholder="Estado" formControlName="estado">
+            <option>activo</option>
+            <option>inactivo</option>
+            
+        </select>
         </div>
         <div class="col">
-            <input type="text" class="form-control" placeholder="Tipo de usuario">
+            <select class="form-control" placeholder="Tipo de usuario" formControlName="tipo_usuario">
+            <option>administrador</option>
+            <option>paciente</option>
+            <option>doctor</option>
+            <option>adminrecepcion</option>
+        </select>
         </div>
     </div>
-
     <button type="submit" class="btn btn-success" (click)="crearUsuario()">Guardar</button>
 </form>

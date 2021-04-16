@@ -23,7 +23,7 @@ userForm: any;
       ciudad: '',
       telefono: '',
       correo: '',
-      Genero: '',
+      genero: '',
       fecha_nacimiento: '',
       estado: '',
       tipo_usuario: ''
@@ -32,5 +32,8 @@ userForm: any;
 
   ngOnInit(): void {
   }
-crearUsuario (){}
+crearUsuario (){
+  this.administratorService.crearUsuario(this.userForm.value);
+  return "Usuario creado correctamente";
+}
 }

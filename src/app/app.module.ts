@@ -47,12 +47,8 @@ import { DayService, WeekService, WorkWeekService, MonthService, AgendaService }
 import {MatDialogModule } from '@angular/material/dialog';
 import { CopyPasteDirective } from './directives/copy-paste.directive';
 import { ScheduleModule,RecurrenceEditorModule } from "@syncfusion/ej2-angular-schedule";
-<<<<<<< HEAD
-import { EditDialogComponent } from './components/edit-dialog/edit-dialog.component';
-import { AddDialogComponent } from './components/add-dialog/add-dialog.component';
-=======
 import { NgxMatDatetimePickerModule, NgxMatNativeDateModule, NgxMatTimepickerModule  } from "@angular-material-components/datetime-picker";
->>>>>>> d7b991500a1d938a6be1c2990a678d987e8a2980
+import { AddDialogComponent } from './components/add-dialog/add-dialog.component';
 
 
 @NgModule({
@@ -79,11 +75,8 @@ import { NgxMatDatetimePickerModule, NgxMatNativeDateModule, NgxMatTimepickerMod
     TablaDispoComponent,
     AdministratorComponent,
     EditDialogComponent,
-<<<<<<< HEAD
-    AddDialogComponent  
-=======
+    AddDialogComponent,
     UserCreateComponent  
->>>>>>> d7b991500a1d938a6be1c2990a678d987e8a2980
   ],
   imports: [
     BrowserModule,
