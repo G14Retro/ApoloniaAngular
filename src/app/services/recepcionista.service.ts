@@ -20,5 +20,23 @@ export class RecepcionistaService {
     return this.http.get(environment.apiEndpoint+'verDispo',{headers});
     
   }
+
+  public listarMedicos(){
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'X-Requested-With': 'XMLHttpRequest',
+      'Authorization': 'Bearer '+ this.auth.usuario.token
+    });
+    return this.http.get(environment.apiEndpoint+'verMedicos',{headers});
+  }
+
+  public listarConsultorios(){
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'X-Requested-With': 'XMLHttpRequest',
+      'Authorization': 'Bearer '+ this.auth.usuario.token
+    });
+    return this.http.get(environment.apiEndpoint+'verConsultorios',{headers});
+  }
 }
 

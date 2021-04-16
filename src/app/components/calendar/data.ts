@@ -5,7 +5,7 @@
  export let scheduleData: Object[] = [
     {
         Id: 1,
-        Subject: 'Explosion of Betelgeuse Star',
+        Subject: '',
         Location: 'Space Centre USA',
         StartTime: new Date(2019, 0, 6, 9, 30),
         EndTime: new Date(2019, 0, 6, 11, 0),

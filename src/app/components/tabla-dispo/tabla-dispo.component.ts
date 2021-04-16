@@ -2,6 +2,9 @@ import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { RecepcionistaService } from 'src/app/services/recepcionista.service';
+import { MatDialog } from '@angular/material/dialog';
+import { EditDialogComponent } from '../edit-dialog/edit-dialog.component';
+import { AddDialogComponent } from '../add-dialog/add-dialog.component';
 
 @Component({
   selector: 'app-tabla-dispo',
@@ -9,12 +12,12 @@ import { RecepcionistaService } from 'src/app/services/recepcionista.service';
   styleUrls: ['./tabla-dispo.component.css']
 })
 export class TablaDispoComponent implements OnInit, AfterViewInit {
-  displayedColumns: string[]= ['nombre_medico', 'apellido_medico', 'hora_inicio', 'hora_fin', 'consulta', 'consultorio', 'disponibilidad', 'acciones'];
+  displayedColumns: string[]= ['medico', 'hora_inicio', 'hora_fin', 'consulta', 'consultorio', 'disponibilidad', 'acciones'];
   dataSource = new MatTableDataSource ();
   
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor(private recepcionista:RecepcionistaService){}
+  constructor(private recepcionista:RecepcionistaService, private dialogo:MatDialog){}
 
   ngOnInit(): void {
     this.cargarTabla();
@@ -30,6 +33,18 @@ export class TablaDispoComponent implements OnInit, AfterViewInit {
   cargarTabla(){
     this.recepcionista.listarDispo().subscribe((resp:any)=>{
       this.dataSource = resp;
+    })
+  }
+
+  dialog(){
+    this.dialogo.open( EditDialogComponent,{
+      width:'500px',
+    })
+  }
+
+  Adddialog(){
+    this.dialogo.open(AddDialogComponent,{
+      width:'500px',
     })
   }
 

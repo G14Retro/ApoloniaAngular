@@ -1,0 +1,54 @@
+<div mat-dialog-title>Disponibilidad</div>
+
+<div mat-dialog-content>
+    <form [formGroup]="dispoGroup">
+        <mat-form-field class="p-2">
+            <mat-label>Especialista</mat-label>
+            <mat-select formControlName="medico" required>
+                <mat-option>-----</mat-option>
+                <mat-option *ngFor="let medico of medicos" [value]="medico.id">
+                    {{medico.nombre+" "+medico.apellido | titlecase}}
+                </mat-option>
+                </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="p-2">
+            <mat-label>Hora de inicio</mat-label>
+            <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" formControlName='horaInicio'>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field class="p-2">
+            <mat-label>Hora final</mat-label>
+            <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker1" formControlName='horaFinal'>
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1 startView="year" [startAt]="startDate"></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field class="p-2">
+            <mat-label>Consulta</mat-label>
+            <input type="text" matInput   formControlName="consulta">
+        </mat-form-field>
+        
+        <mat-form-field class="p-2">
+            <mat-label>Consultorios</mat-label>
+            <mat-select formControlName="consultorio" required>
+                <mat-option>-----</mat-option>
+                <mat-option *ngFor="let consultorio of consultorio" [value]="consultorio.id_consultorio">
+                    {{consultorio.nombre_consultorio | titlecase}}
+                </mat-option>
+                </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="p-2">
+            <mat-label>Disponibilidad</mat-label>
+            <input type="text" matInput   formControlName="disponibilidad">
+        </mat-form-field>
+
+    </form>
+</div>
+<div mat-dialog-actions>
+    <button mat-button class="btn-danger" (click)="cerrar()">Cancelar</button>
+    <button mat-button class="btn-primary" (click)="guardar()">Guardar</button>
+</div>

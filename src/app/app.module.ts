@@ -20,6 +20,9 @@ import { AntecedenteComponent } from './pages/antecedente/antecedente.component'
 import { LoadingComponent } from './components/loading/loading.component';
 import { OdontogramaComponent } from './pages/odontograma/odontograma.component';
 import { CanvasOdontogramaComponent } from './components/canvas-odontograma/canvas-odontograma.component';
+import { AdministratorComponent } from './components/administrator/administrator.component';
+import { DisponibilidadComponent } from './pages/disponibilidad/disponibilidad.component';
+import { TablaDispoComponent } from './components/tabla-dispo/tabla-dispo.component';
 
 import { RouterModule } from '@angular/router';
 import { ROUTES } from 'src/routes/app.routes';
@@ -41,8 +44,8 @@ import { DayService, WeekService, WorkWeekService, MonthService, AgendaService }
 import {MatDialogModule } from '@angular/material/dialog';
 import { CopyPasteDirective } from './directives/copy-paste.directive';
 import { ScheduleModule,RecurrenceEditorModule } from "@syncfusion/ej2-angular-schedule";
-import { DisponibilidadComponent } from './pages/disponibilidad/disponibilidad.component';
-import { TablaDispoComponent } from './components/tabla-dispo/tabla-dispo.component';
+import { EditDialogComponent } from './components/edit-dialog/edit-dialog.component';
+import { AddDialogComponent } from './components/add-dialog/add-dialog.component';
 
 
 @NgModule({
@@ -66,7 +69,10 @@ import { TablaDispoComponent } from './components/tabla-dispo/tabla-dispo.compon
     BreadcrumbComponent,
     CanvasOdontogramaComponent,
     DisponibilidadComponent,
-    TablaDispoComponent     
+    TablaDispoComponent,
+    AdministratorComponent,
+    EditDialogComponent,
+    AddDialogComponent  
   ],
   imports: [
     BrowserModule,
