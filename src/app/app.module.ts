@@ -51,7 +51,6 @@ import { ScheduleModule,RecurrenceEditorModule } from "@syncfusion/ej2-angular-s
 import { NgxMatDatetimePickerModule, NgxMatNativeDateModule, NgxMatTimepickerModule  } from "@angular-material-components/datetime-picker";
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
