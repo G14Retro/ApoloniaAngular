@@ -1,6 +1,6 @@
 <div class="row p-4">
   <button class="btn btn-success" (click)="Adddialog()">
-    <i class="far fa-calendar-plus"></i> Nueva Dispo</button>
+    <i class="far fa-calendar-plus"></i> Crear Disponibilidad</button>
 </div>
 <div class="mat-elevation-z8 animated fadeInDown">
 <mat-form-field class="p-3">
@@ -48,7 +48,7 @@
   <ng-container matColumnDef="acciones">
     <th mat-header-cell *matHeaderCellDef> Aciones </th>
     <td mat-cell *matCellDef="let element">
-        <button mat-raised-button style="margin-right:2%" class="btn-primary" (click)="Adddialog()" focusable="false">Editar</button>
+        <button mat-raised-button style="margin-right:2%" class="btn-primary" (click)="dialog()" focusable="false">Editar</button>
         <button mat-raised-button style="margin-left:1%" class="btn-danger" focusable="false">Eliminar</button>
     </td>
     </ng-container>

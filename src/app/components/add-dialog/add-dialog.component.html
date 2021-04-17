@@ -1,7 +1,7 @@
-<div mat-dialog-title>Disponibilidad</div>
+<div mat-dialog-title>Crear Disponibilidad</div>
 
 <div mat-dialog-content>
-    <form [formGroup]="dispoGroup">
+    <form [formGroup]="dispoGroup"> 
         <mat-form-field class="p-2">
             <mat-label>Especialista</mat-label>
             <mat-select formControlName="medico" required>
@@ -13,17 +13,35 @@
         </mat-form-field>
 
         <mat-form-field class="p-2">
-            <mat-label>Hora de inicio</mat-label>
-            <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" formControlName='horaInicio'>
+            <mat-label>Hora de Inicio</mat-label>
+            <input matInput [ngxMatDatetimePicker]="picker"
+                [min]="minDate" [max]="maxDate" formControlName="horaInicio">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+            <ngx-mat-datetime-picker #picker [showSpinners]="showSpinners" [showSeconds]="showSeconds" [stepHour]="stepHour"
+                [stepMinute]="stepMinute" [stepSecond]="stepSecond" [touchUi]="touchUi" [color]="color"
+                [enableMeridian]="enableMeridian">
+                <!-- Custom icon or text of Apply icon -->
+            <ng-template>
+                <!-- <mat-icon>star</mat-icon> -->
+                <span>OK</span>
+            </ng-template>
+            </ngx-mat-datetime-picker>
         </mat-form-field>
 
         <mat-form-field class="p-2">
-            <mat-label>Hora final</mat-label>
-            <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker1" formControlName='horaFinal'>
-            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-            <mat-datepicker #picker1 startView="year" [startAt]="startDate"></mat-datepicker>
+            <mat-label>Hora Fin</mat-label>
+            <input matInput [ngxMatDatetimePicker]="picker2"
+                [min]="minDate" [max]="maxDate" formControlName="horaFin">
+            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+            <ngx-mat-datetime-picker #picker2 [showSpinners]="showSpinners" [showSeconds]="showSeconds" [stepHour]="stepHour"
+                [stepMinute]="stepMinute" [stepSecond]="stepSecond" [touchUi]="touchUi" [color]="color"
+                [enableMeridian]="enableMeridian">
+            <!-- Custom icon or text of Apply icon -->
+            <ng-template>
+                <!-- <mat-icon>star</mat-icon> -->
+                <span>OK</span>
+            </ng-template>
+            </ngx-mat-datetime-picker>
         </mat-form-field>
 
         <mat-form-field class="p-2">

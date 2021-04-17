@@ -21,7 +21,7 @@ export class CitasComponent implements OnInit, AfterViewInit {
   constructor(private citas:CitasService){
 
   }
-   ngAfterViewInit(){
+  ngAfterViewInit(){
     this.dataSource.paginator = this.paginator;
   }
   ngOnInit() {

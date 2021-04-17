@@ -25,6 +25,7 @@ import { DisponibilidadComponent } from './pages/disponibilidad/disponibilidad.c
 import { TablaDispoComponent } from './components/tabla-dispo/tabla-dispo.component';
 import { EditDialogComponent } from './components/edit-dialog/edit-dialog.component';
 import { UserCreateComponent } from './components/administrator/user-create/user-create.component';
+import { AddDialogComponent } from './components/add-dialog/add-dialog.component';
 
 // Modulos
 import { RouterModule } from '@angular/router';
@@ -42,17 +43,13 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from "@angular/material/paginator";
 import { MatButtonModule } from '@angular/material/button';
 import { MatStepperModule } from '@angular/material/stepper';
-import {MatSelectModule} from '@angular/material/select';
+import { MatSelectModule} from '@angular/material/select';
 import { DayService, WeekService, WorkWeekService, MonthService, AgendaService } from '@syncfusion/ej2-angular-schedule';
-import {MatDialogModule } from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { CopyPasteDirective } from './directives/copy-paste.directive';
 import { ScheduleModule,RecurrenceEditorModule } from "@syncfusion/ej2-angular-schedule";
-<<<<<<< HEAD
-import { EditDialogComponent } from './components/edit-dialog/edit-dialog.component';
-import { AddDialogComponent } from './components/add-dialog/add-dialog.component';
-=======
 import { NgxMatDatetimePickerModule, NgxMatNativeDateModule, NgxMatTimepickerModule  } from "@angular-material-components/datetime-picker";
->>>>>>> d7b991500a1d938a6be1c2990a678d987e8a2980
+
 
 
 @NgModule({
@@ -79,11 +76,8 @@ import { NgxMatDatetimePickerModule, NgxMatNativeDateModule, NgxMatTimepickerMod
     TablaDispoComponent,
     AdministratorComponent,
     EditDialogComponent,
-<<<<<<< HEAD
-    AddDialogComponent  
-=======
-    UserCreateComponent  
->>>>>>> d7b991500a1d938a6be1c2990a678d987e8a2980
+    UserCreateComponent,
+    AddDialogComponent
   ],
   imports: [
     BrowserModule,

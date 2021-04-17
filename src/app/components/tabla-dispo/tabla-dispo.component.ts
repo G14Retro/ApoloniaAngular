@@ -42,7 +42,7 @@ export class TablaDispoComponent implements OnInit, AfterViewInit {
   }
 
   dialog(){
-    this.dialogo.open( EditDialogComponent,{
+    this.dialogo.open(EditDialogComponent ,{
       width:'500px',
     })
   }

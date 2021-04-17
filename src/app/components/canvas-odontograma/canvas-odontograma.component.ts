@@ -13,7 +13,7 @@ export class CanvasOdontogramaComponent implements OnInit,AfterViewInit,OnChange
   @ViewChild('odontograma') odontograma;
   constructor() {
 
-   }
+  }
 
   ngOnInit(): void {
     
