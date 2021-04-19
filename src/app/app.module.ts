@@ -25,6 +25,7 @@ import { DisponibilidadComponent } from './pages/disponibilidad/disponibilidad.c
 import { TablaDispoComponent } from './components/tabla-dispo/tabla-dispo.component';
 import { EditDialogComponent } from './components/edit-dialog/edit-dialog.component';
 import { UserCreateComponent } from './components/administrator/user-create/user-create.component';
+import { UserUpdateComponent } from './components/administrator/user-update/user-update.component';
 
 // Modulos
 import { RouterModule } from '@angular/router';
@@ -49,6 +50,7 @@ import { CopyPasteDirective } from './directives/copy-paste.directive';
 import { ScheduleModule,RecurrenceEditorModule } from "@syncfusion/ej2-angular-schedule";
 import { NgxMatDatetimePickerModule, NgxMatNativeDateModule, NgxMatTimepickerModule  } from "@angular-material-components/datetime-picker";
 import { AddDialogComponent } from './components/add-dialog/add-dialog.component';
+
 
 
 @NgModule({
@@ -76,7 +78,8 @@ import { AddDialogComponent } from './components/add-dialog/add-dialog.component
     AdministratorComponent,
     EditDialogComponent,
     AddDialogComponent,
-    UserCreateComponent  
+    UserCreateComponent,
+    UserUpdateComponent  
   ],
   imports: [
     BrowserModule,
