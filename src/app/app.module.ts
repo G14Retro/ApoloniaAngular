@@ -26,6 +26,7 @@ import { TablaDispoComponent } from './components/tabla-dispo/tabla-dispo.compon
 import { EditDialogComponent } from './components/edit-dialog/edit-dialog.component';
 import { UserCreateComponent } from './components/administrator/user-create/user-create.component';
 import { UserUpdateComponent } from './components/administrator/user-update/user-update.component';
+import { AddDialogComponent } from './components/add-dialog/add-dialog.component';
 
 // Modulos
 import { RouterModule } from '@angular/router';
@@ -43,13 +44,12 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from "@angular/material/paginator";
 import { MatButtonModule } from '@angular/material/button';
 import { MatStepperModule } from '@angular/material/stepper';
-import {MatSelectModule} from '@angular/material/select';
+import { MatSelectModule} from '@angular/material/select';
 import { DayService, WeekService, WorkWeekService, MonthService, AgendaService } from '@syncfusion/ej2-angular-schedule';
-import {MatDialogModule } from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { CopyPasteDirective } from './directives/copy-paste.directive';
 import { ScheduleModule,RecurrenceEditorModule } from "@syncfusion/ej2-angular-schedule";
 import { NgxMatDatetimePickerModule, NgxMatNativeDateModule, NgxMatTimepickerModule  } from "@angular-material-components/datetime-picker";
-import { AddDialogComponent } from './components/add-dialog/add-dialog.component';
 
 
 
@@ -79,7 +79,8 @@ import { AddDialogComponent } from './components/add-dialog/add-dialog.component
     EditDialogComponent,
     AddDialogComponent,
     UserCreateComponent,
-    UserUpdateComponent  
+    UserUpdateComponent,  
+    AddDialogComponent
   ],
   imports: [
     BrowserModule,

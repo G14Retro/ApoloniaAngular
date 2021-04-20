@@ -14,6 +14,7 @@ import { ThemePalette } from '@angular/material/core';
 export class EditDialogComponent implements OnInit {
   dispoGroup: FormGroup;
   medicos:[]=[];
+  consultorio:[]=[];
   //DateTime Picker
   public date: moment.Moment;
   public disabled = false;
@@ -28,7 +29,6 @@ export class EditDialogComponent implements OnInit {
   public stepSecond = 1;
   public color: ThemePalette = 'primary';
   startDate = new Date(now());
-  public dateControl = new FormControl(new Date(2021,9,4,5,6,7));
   public dateControlMinMax = new FormControl(new Date());
   constructor(private fb:FormBuilder,public dialogRef:MatDialogRef<EditDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data:any, private recepcionista:RecepcionistaService) { 
@@ -41,6 +41,7 @@ export class EditDialogComponent implements OnInit {
   ngOnInit(): void {
     this.formDispo();
     this.verMedicos();
+    this.verConsultorios();
   }
 
   cerrar():void{
@@ -49,7 +50,6 @@ export class EditDialogComponent implements OnInit {
   }
 
   guardar(){
-
   }
 
   verMedicos(){
@@ -58,12 +58,17 @@ export class EditDialogComponent implements OnInit {
     })
   }
 
+  verConsultorios(){
+    this.recepcionista.listarConsultorios().subscribe((resp:any)=>{
+      this.consultorio = resp;
+    })
+  }
+
   formDispo(){
     this.dispoGroup = this.fb.group({
       medico:['',Validators.required],
       horaInicio:['',Validators.required],
-      horaFinal:['',Validators.required],
-      pruebaHora:['',Validators.required]
+      horaFinal:['',Validators.required]
     })
   }
 }

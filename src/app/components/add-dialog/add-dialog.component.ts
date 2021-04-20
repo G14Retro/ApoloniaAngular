@@ -1,8 +1,10 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { now } from 'moment';
 import { RecepcionistaService } from 'src/app/services/recepcionista.service';
+import * as moment from 'moment';
+import { ThemePalette } from '@angular/material/core';
 
 @Component({
   selector: 'app-add-dialog',
@@ -13,14 +15,25 @@ export class AddDialogComponent implements OnInit {
   dispoGroup: FormGroup;
   medicos:[]=[];
   consultorio:[]=[];
+  //DateTime Picker
+  public date: moment.Moment;
+  public disabled = false;
+  public showSpinners = true;
+  public showSeconds = true;
+  public touchUi = false;
+  public enableMeridian = false;
   minDate:Date;
   maxDate:Date;
+  public stepHour = 1;
+  public stepMinute = 1;
+  public stepSecond = 1;
+  public color: ThemePalette = 'primary';
   startDate = new Date(now());
+  public dateControlMinMax = new FormControl(new Date());
   constructor(private fb:FormBuilder,public AdddialogRef:MatDialogRef<AddDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data:any, private recepcionista:RecepcionistaService) { 
     
       const currentYear = new Date().getFullYear();
-      console.log(currentYear);
       this.minDate = new Date(now())
       this.maxDate = new Date(currentYear+1,11,31)
     }
@@ -37,7 +50,6 @@ export class AddDialogComponent implements OnInit {
   }
 
   guardar(){
-
   }
 
   verMedicos(){
