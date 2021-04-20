@@ -5,5 +5,13 @@ table {
   
   .mat-form-field {
     font-size: 14px;
-    width: 100%;
+    width: 19%;
   }
+  .mat-row:hover {
+    background-color:#6c757d;
+  }
+
+.colums{
+  padding-left: 5%;
+ 
+}

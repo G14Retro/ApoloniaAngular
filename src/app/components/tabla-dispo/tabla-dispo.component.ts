@@ -25,6 +25,7 @@ export class TablaDispoComponent implements OnInit, AfterViewInit {
   
   ngAfterViewInit(){
     this.dataSource.paginator = this.paginator;
+    console.log('cargando After');
   }
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -37,20 +38,19 @@ export class TablaDispoComponent implements OnInit, AfterViewInit {
       }else{
         this.dataSource = resp;
       }
-      
     })
   }
 
-  dialog(){
+  dialog(id:string){
     this.dialogo.open(EditDialogComponent ,{
       width:'500px',
+      data:{id}
     })
   }
 
   Adddialog(){
-    this.dialogo.open(AddDialogComponent,{
+    const dialogoRef = this.dialogo.open(AddDialogComponent,{
       width:'500px',
     })
   }
-
 }

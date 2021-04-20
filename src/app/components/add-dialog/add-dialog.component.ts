@@ -5,6 +5,7 @@ import { now } from 'moment';
 import { RecepcionistaService } from 'src/app/services/recepcionista.service';
 import * as moment from 'moment';
 import { ThemePalette } from '@angular/material/core';
+import { TablaDispoComponent } from '../tabla-dispo/tabla-dispo.component';
 
 @Component({
   selector: 'app-add-dialog',
@@ -15,6 +16,8 @@ export class AddDialogComponent implements OnInit {
   dispoGroup: FormGroup;
   medicos:[]=[];
   consultorio:[]=[];
+  consultas:[]=[];
+  disponibilidades:[]=[];
   //DateTime Picker
   public date: moment.Moment;
   public disabled = false;
@@ -31,7 +34,7 @@ export class AddDialogComponent implements OnInit {
   startDate = new Date(now());
   public dateControlMinMax = new FormControl(new Date());
   constructor(private fb:FormBuilder,public AdddialogRef:MatDialogRef<AddDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data:any, private recepcionista:RecepcionistaService) { 
+    @Inject(MAT_DIALOG_DATA) public data:any, private recepcionista:RecepcionistaService,){ 
     
       const currentYear = new Date().getFullYear();
       this.minDate = new Date(now())
@@ -42,14 +45,23 @@ export class AddDialogComponent implements OnInit {
     this.formDispo();
     this.verMedicos();
     this.verConsultorios();
+    this.verConsultas();
+    this.verDisponibilidades();
   }
 
   cerrar():void{
-    console.log("Clickeado");
     this.AdddialogRef.close();
   }
 
   guardar(){
+  this.dispoGroup.value.horaInicio = moment(this.dispoGroup.value.horaInicio).format("YYYY-MM-DD,hh:mm:ss");
+  this.dispoGroup.value.horaFinal = moment(this.dispoGroup.value.horaFinal).format("YYYY-MM-DD,hh:mm:ss");
+  this.AdddialogRef.close(this.recepcionista.crearDisponibilidad(this.dispoGroup.value).subscribe((resp:any)=>{
+    console.log(resp);
+  }
+  ,err=>{
+    console.log(err);
+  }));
   }
 
   verMedicos(){
@@ -64,11 +76,26 @@ export class AddDialogComponent implements OnInit {
     })
   }
 
+  verConsultas(){
+    this.recepcionista.listarConsultas().subscribe((resp:any)=>{
+      this.consultas = resp;
+    })
+  }
+
+  verDisponibilidades(){
+    this.recepcionista.listarDisponibilidades().subscribe((resp:any)=>{
+      this.disponibilidades = resp;
+    })
+  }
+
   formDispo(){
     this.dispoGroup = this.fb.group({
-      medico:['',Validators.required],
+      id_persona:['',Validators.required],
       horaInicio:['',Validators.required],
       horaFinal:['',Validators.required],
+      estado:['',Validators.required],
+      tipo_consulta:['',Validators.required],
+      consultorio:['',Validators.required],
     })
   }
 }

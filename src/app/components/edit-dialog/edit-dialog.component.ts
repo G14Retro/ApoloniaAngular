@@ -6,6 +6,7 @@ import { RecepcionistaService } from 'src/app/services/recepcionista.service';
 import * as moment from 'moment';
 import { ThemePalette } from '@angular/material/core';
 
+
 @Component({
   selector: 'app-edit-dialog',
   templateUrl: './edit-dialog.component.html',
@@ -15,6 +16,9 @@ export class EditDialogComponent implements OnInit {
   dispoGroup: FormGroup;
   medicos:[]=[];
   consultorio:[]=[];
+  consultas:[]=[];
+  disponibilidades:[]=[];
+  estadoDispo:[]=[];
   //DateTime Picker
   public date: moment.Moment;
   public disabled = false;
@@ -42,6 +46,9 @@ export class EditDialogComponent implements OnInit {
     this.formDispo();
     this.verMedicos();
     this.verConsultorios();
+    this.verConsultas();
+    this.verDisponibilidades();
+    this.buscarDispo();
   }
 
   cerrar():void{
@@ -50,6 +57,13 @@ export class EditDialogComponent implements OnInit {
   }
 
   guardar(){
+    this.dispoGroup.value.horaInicio = moment(this.dispoGroup.value.horaInicio).format("YYYY-MM-DD,hh:mm:ss");
+    this.dispoGroup.value.horaFinal = moment(this.dispoGroup.value.horaFinal).format("YYYY-MM-DD,hh:mm:ss");
+    this.dialogRef.close( 
+      this.recepcionista.editDispo(this.data.id,this.dispoGroup.value).subscribe((resp:any)=>{
+        console.log(resp);
+      })
+    )
   }
 
   verMedicos(){
@@ -64,11 +78,40 @@ export class EditDialogComponent implements OnInit {
     })
   }
 
+  verConsultas(){
+    this.recepcionista.listarConsultas().subscribe((resp:any)=>{
+      this.consultas = resp;
+    })
+  }
+
+  verDisponibilidades(){
+    this.recepcionista.listarDisponibilidades().subscribe((resp:any)=>{
+      this.disponibilidades = resp;
+    })
+  }
+
+  buscarDispo(){
+    this.recepcionista.dispo(this.data.id).subscribe((resp:any)=>{
+      console.log(resp['0'].id_persona);
+      this.dispoGroup.setValue({
+        id_persona: resp['0'].id_persona,
+        horaInicio: moment(resp['0'].horaInicio).format(),
+        horaFinal:moment(resp['0'].horaFinal).format(),
+        estado:resp['0'].estado,
+        tipo_consulta:resp['0'].tipo_consulta,
+        consultorio:resp['0'].consultorio,
+      })
+    })
+  }
+
   formDispo(){
     this.dispoGroup = this.fb.group({
-      medico:['',Validators.required],
+      id_persona:['',Validators.required],
       horaInicio:['',Validators.required],
-      horaFinal:['',Validators.required]
+      horaFinal:['',Validators.required],
+      estado:['',Validators.required],
+      tipo_consulta:['',Validators.required],
+      consultorio:['',Validators.required],
     })
   }
 }

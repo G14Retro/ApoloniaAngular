@@ -1,14 +1,13 @@
 <div class="row p-4">
-  <button class="btn btn-success" (click)="Adddialog()">
-    <i class="far fa-calendar-plus"></i> Crear Disponibilidad</button>
+  <button class="btn btn-primary" (click)="Adddialog()">
+    <i class="fas fa-calendar-plus"></i> Crear Disponibilidad</button>
 </div>
 <div class="mat-elevation-z8 animated fadeInDown">
 <mat-form-field class="p-3">
-  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Buscardor">
 </mat-form-field>
 
-<table mat-table [dataSource]="dataSource">
-
+<table mat-table [dataSource]="dataSource" style="align-content: center;">
   <!-- Position Column -->
   <ng-container matColumnDef="medico">
     <th mat-header-cell *matHeaderCellDef> Especialista</th>
@@ -35,26 +34,27 @@
 
   <!-- Symbol Column -->
   <ng-container matColumnDef="consultorio">
-    <th mat-header-cell *matHeaderCellDef> Consultorio</th>
+    <th class="colum" mat-header-cell *matHeaderCellDef> Consultorio</th>
     <td mat-cell *matCellDef="let element"> {{element.consultorio}} </td>
   </ng-container>
 
   <!-- Symbol Column -->
   <ng-container matColumnDef="disponibilidad">
-    <th mat-header-cell *matHeaderCellDef> Disponibilidad</th>
+    <th class="colum"  mat-header-cell *matHeaderCellDef> Disponibilidad</th>
     <td mat-cell *matCellDef="let element"> {{element.disponibilidad}} </td>
   </ng-container>
 
   <ng-container matColumnDef="acciones">
-    <th mat-header-cell *matHeaderCellDef> Aciones </th>
+    <th class="colums" mat-header-cell *matHeaderCellDef > Aciones</th>
     <td mat-cell *matCellDef="let element">
-        <button mat-raised-button style="margin-right:2%" class="btn-primary" (click)="dialog()" focusable="false">Editar</button>
-        <button mat-raised-button style="margin-left:1%" class="btn-danger" focusable="false">Eliminar</button>
+      <button mat-raised-button style="margin-right:2%" class="btn-danger" focusable="false"><i class="fas fa-trash-alt"></i></button>
+      <button  mat-raised-button style="margin-left:5%" class="btn-primary" (click)="dialog(element.id)" focusable="false"><i class="fas fa-pen-alt"></i></button>
     </td>
     </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+
 <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
 </div>

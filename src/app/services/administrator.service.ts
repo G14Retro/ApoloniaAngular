@@ -23,7 +23,6 @@ export class AdministratorService {
       'X-Requested-With': 'XMLHttpRequest',
       })
       return this.http.post(environment.apiEndpoint+'crearUsuario',data,{headers});
-    
   }
 }
 

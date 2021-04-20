@@ -4,7 +4,7 @@
     <form [formGroup]="dispoGroup"> 
         <mat-form-field class="p-2">
             <mat-label>Especialista</mat-label>
-            <mat-select formControlName="medico" required>
+            <mat-select formControlName="id_persona" required>
                 <mat-option>-----</mat-option>
                 <mat-option *ngFor="let medico of medicos" [value]="medico.id">
                     {{medico.nombre+" "+medico.apellido | titlecase}}
@@ -31,7 +31,7 @@
         <mat-form-field class="p-2">
             <mat-label>Hora Fin</mat-label>
             <input matInput [ngxMatDatetimePicker]="picker2"
-                [min]="minDate" [max]="maxDate" formControlName="horaFin">
+                [min]="minDate" [max]="maxDate" formControlName="horaFinal">
             <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
             <ngx-mat-datetime-picker #picker2 [showSpinners]="showSpinners" [showSeconds]="showSeconds" [stepHour]="stepHour"
                 [stepMinute]="stepMinute" [stepSecond]="stepSecond" [touchUi]="touchUi" [color]="color"
@@ -46,9 +46,14 @@
 
         <mat-form-field class="p-2">
             <mat-label>Consulta</mat-label>
-            <input type="text" matInput   formControlName="consulta">
+            <mat-select formControlName="tipo_consulta" required>
+                <mat-option>-----</mat-option>
+                <mat-option *ngFor="let consulta of consultas" [value]="consulta.id_consulta">
+                    {{consulta.nombre_consulta | titlecase}}
+                </mat-option>
+                </mat-select>
         </mat-form-field>
-        
+
         <mat-form-field class="p-2">
             <mat-label>Consultorios</mat-label>
             <mat-select formControlName="consultorio" required>
@@ -61,9 +66,13 @@
 
         <mat-form-field class="p-2">
             <mat-label>Disponibilidad</mat-label>
-            <input type="text" matInput   formControlName="disponibilidad">
+            <mat-select formControlName="estado" required>
+                <mat-option>-----</mat-option>
+                <mat-option *ngFor="let disponibilidad of disponibilidades" [value]="disponibilidad.idEstado">
+                    {{disponibilidad.nombreEstado | titlecase}}
+                </mat-option>
+                </mat-select>
         </mat-form-field>
-
     </form>
 </div>
 <div mat-dialog-actions>
