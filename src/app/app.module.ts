@@ -25,6 +25,7 @@ import { DisponibilidadComponent } from './pages/disponibilidad/disponibilidad.c
 import { TablaDispoComponent } from './components/tabla-dispo/tabla-dispo.component';
 import { EditDialogComponent } from './components/edit-dialog/edit-dialog.component';
 import { UserCreateComponent } from './components/administrator/user-create/user-create.component';
+import { UserUpdateComponent } from './components/administrator/user-update/user-update.component';
 import { AddDialogComponent } from './components/add-dialog/add-dialog.component';
 
 // Modulos
@@ -51,6 +52,7 @@ import { ScheduleModule,RecurrenceEditorModule } from "@syncfusion/ej2-angular-s
 import { NgxMatDatetimePickerModule, NgxMatNativeDateModule, NgxMatTimepickerModule  } from "@angular-material-components/datetime-picker";
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -75,7 +77,9 @@ import { NgxMatDatetimePickerModule, NgxMatNativeDateModule, NgxMatTimepickerMod
     TablaDispoComponent,
     AdministratorComponent,
     EditDialogComponent,
+    AddDialogComponent,
     UserCreateComponent,
+    UserUpdateComponent,  
     AddDialogComponent
   ],
   imports: [

@@ -1,4 +1,4 @@
-<div mat-dialog-title>Crear Usuario</div>
+<div mat-dialog-title>Actuallizar usuario</div>
 
 <div mat-dialog-content>
     <form [formGroup]="userForm">
@@ -77,86 +77,8 @@
 
 
     </form>
-    <button type="submit" class="btn btn-success" (click)="crearUsuario()">Guardar</button>
+
     <button [routerLink]="['admin/usuarios']" class="btn-danger mr-3">Reresar</button>
+    <button type="submit" class="btn btn-success" (click)="updateUser()">Guardar</button>
 
 </div>
-
-
-
-
-
-
-
-<!--<h2>Crear medico</h2>
-
-<form [formGroup]="userForm">
-    <div class="row">
-        <div class="col">
-            <select class="form-control" placeholder="Tipo documento" formControlName="tipo_documento" *ngFor="let tipo_documento of tipo_documento" [value]="tipo_documento">
-            <option></option>
-
-            </select>
-        </div>
-        <div class="col">
-            <input type="text" class="form-control" placeholder="Número Documento" formControlName="numero_documento">
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col">
-            <input type="text" class="form-control" placeholder="Nombres" formControlName="nombre">
-        </div>
-        <div class="col">
-            <input type="text" class="form-control" placeholder="Apellidos" formControlName="apellido">
-        </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <input type="text" class="form-control" placeholder="Dirección" formControlName="direccion">
-        </div>
-        <div class="col">
-            <input type="text" class="form-control" placeholder="Ciudad" formControlName="ciudad">
-        </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <input type="text" class="form-control" placeholder="Número de teléfono" formControlName="telefono">
-        </div>
-        <div class="col">
-            <input type="text" class="form-control" placeholder="Correo electronico" formControlName="correo">
-        </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <select type="text" class="form-control" placeholder="Genero" formControlName="genero" *ngFor="let genero of genero" [value]="genero.id">
-             <option>masculino</option>
-            <option>femenino</option>
-            </select>
-        </div>
-        <div class="col">
-            <input type="text" class="form-control" placeholder="Fecha de nacimiento" formControlName="fecha_nacimiento">
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col">
-            <select class="form-control" placeholder="Estado" formControlName="estado">
-            <option>activo</option>
-            <option>inactivo</option>
-            
-        </select>
-        </div>
-        <div class="col">
-            <select class="form-control" placeholder="Tipo de usuario" formControlName="tipo_usuario">
-            <option>administrador</option>
-            <option>paciente</option>
-            <option>doctor</option>
-            <option>adminrecepcion</option>
-        </select>
-        </div>
-    </div>
-
-    <button type="submit" class="btn btn-success" (click)="crearUsuario()">Guardar</button>
-</form>
-</!-->
