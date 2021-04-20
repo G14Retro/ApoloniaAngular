@@ -127,10 +127,9 @@ export class RegisterComponent implements OnInit {
     (err)=>{
       console.log(err);
       if (err.error.errors.numero_documento == null) {
-        console.log("Error");
         Swal.fire({
           icon: 'error',
-          title: 'Error alregistrarse',
+          title: 'Error al registrarse',
           text: err.error.errors.correo,
         })
       }

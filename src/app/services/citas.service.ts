@@ -45,4 +45,25 @@ export class CitasService {
     return this.http.post(this.url+'historial',data,{headers});
   }
 
+  getDispoID(id:String){
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'X-Requested-With': 'XMLHttpRequest',
+      'Authorization': 'Bearer '+ this.auth.usuario.token
+    });
+    const data=({
+      'id': id
+    });
+    return this.http.post(this.url+'dispoID',data,{headers})
+  }
+
+  cancelarCita(id:string){
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'X-Requested-With': 'XMLHttpRequest',
+      'Authorization': 'Bearer '+ this.auth.usuario.token
+    });
+    return this.http.put(this.url+'cancelarCita/'+id,null,{headers})
+  }
+
 }
