@@ -55,8 +55,9 @@
         <ng-container matColumnDef="Acciones">
             <th mat-header-cell *matHeaderCellDef> Acciones </th>
             <td mat-cell *matCellDef="let element">
-                <button mat-raised-button style="margin-left:2%" class="btn-primary" focusable="false">Acualizar
+                <button mat-raised-button style="margin-left:2%" class="btn-primary" [routerLink]="['/admin/update/'+element.id]">Acualizar
                 </button>
+
             </td>
         </ng-container>
         <tr mat-header-row *matHeaderRowDef="columns"></tr>

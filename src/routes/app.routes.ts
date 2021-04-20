@@ -30,7 +30,7 @@ export const ROUTES:Routes = [
     {path: 'historiaClinica', component:HistorialComponent,canActivate:[AccessGuard]},
     {path: 'admin/usuarios', component:AdministratorComponent,canActivate:[AccessGuard,AdminGuard]},
     {path: 'admin/crear', component:UserCreateComponent,canActivate:[AccessGuard,AdminGuard]},
-    {path: 'admin/update/id', component:UserUpdateComponent,canActivate:[AccessGuard,AdminGuard]},
+    {path: 'admin/update/:id', component:UserUpdateComponent,canActivate:[AccessGuard,AdminGuard]},
 
     {path: 'doctor',children:[
         {path: 'agenda', component:CitasMedicoComponent,canActivate:[AccessGuard,DoctorGuard],data:{breadcrumb: 'Agenda'}},

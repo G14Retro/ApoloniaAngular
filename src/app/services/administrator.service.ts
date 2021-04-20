@@ -54,6 +54,23 @@ export class AdministratorService {
     });
     return this.http.get(environment.apiEndpoint+'verTusuario',{headers});
   }
+  public buscarUser(id:string){
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'X-Requested-With': 'XMLHttpRequest',
+      'Authorization': 'Bearer '+ this.auth.usuario.token
+    });
+    return this.http.post(environment.apiEndpoint+'buscarUsuario',id,{headers});
+  }
+  public updateUser(id:string, data:any){
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'X-Requested-With': 'XMLHttpRequest',
+      'Authorization': 'Bearer '+ this.auth.usuario.token
+    });
+    return this.http.put(environment.apiEndpoint+'actualizarUsuario/'+id,data,{headers});
+  }
+
 
 }
 

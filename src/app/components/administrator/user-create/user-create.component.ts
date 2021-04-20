@@ -5,6 +5,7 @@ import {AdministratorService } from 'src/app/services/administrator.service';
 import Swal from 'sweetalert2';
 
 
+
 @Component({
   selector: 'app-user-create',
   templateUrl: './user-create.component.html',
@@ -18,6 +19,7 @@ export class UserCreateComponent implements OnInit {
   tipo_usuario: []=[];
   userForm: FormGroup;
   datos: userModel;
+  ciudades:any[] = [];
 
   constructor(
     private formBuilder: FormBuilder,
