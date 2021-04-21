@@ -27,6 +27,7 @@ import { EditDialogComponent } from './components/edit-dialog/edit-dialog.compon
 import { UserCreateComponent } from './components/administrator/user-create/user-create.component';
 import { UserUpdateComponent } from './components/administrator/user-update/user-update.component';
 import { AddDialogComponent } from './components/add-dialog/add-dialog.component';
+import { DetalleHistorialComponent } from './pages/historial/detalle-historial/detalle-historial.component';
 
 // Modulos
 import { RouterModule } from '@angular/router';
@@ -80,7 +81,7 @@ import { NgxMatDatetimePickerModule, NgxMatNativeDateModule, NgxMatTimepickerMod
     AddDialogComponent,
     UserCreateComponent,
     UserUpdateComponent,  
-    AddDialogComponent
+    AddDialogComponent, DetalleHistorialComponent
   ],
   imports: [
     BrowserModule,

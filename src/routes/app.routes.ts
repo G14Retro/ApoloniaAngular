@@ -20,6 +20,7 @@ import {AdministratorComponent} from "src/app/components/administrator/administr
 import { DisponibilidadComponent } from "src/app/pages/disponibilidad/disponibilidad.component";
 import { UserCreateComponent } from "src/app/components/administrator/user-create/user-create.component";
 import { UserUpdateComponent } from "src/app/components/administrator/user-update/user-update.component";
+import { DetalleHistorialComponent } from "src/app/pages/historial/detalle-historial/detalle-historial.component";
 
 export const ROUTES:Routes = [
     {path:'home',component: HomeComponent,canActivate:[AccessGuard],data:{breadcrumb: 'Home'}},
@@ -27,7 +28,8 @@ export const ROUTES:Routes = [
     {path: 'login', component:LoginComponent, canActivate: [LoginGuard]},
 
     {path: 'citas', component:CitasComponent,canActivate:[AccessGuard]},
-    {path: 'historiaClinica', component:HistorialComponent,canActivate:[AccessGuard]},
+    {path: 'historial', component:HistorialComponent,canActivate:[AccessGuard]},
+    {path: 'historial/detalle/:id', component:DetalleHistorialComponent,canActivate:[AccessGuard]},
     {path: 'admin/usuarios', component:AdministratorComponent,canActivate:[AccessGuard,AdminGuard]},
     {path: 'admin/crear', component:UserCreateComponent,canActivate:[AccessGuard,AdminGuard]},
     {path: 'admin/update/:id', component:UserUpdateComponent,canActivate:[AccessGuard,AdminGuard]},

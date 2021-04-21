@@ -11,20 +11,28 @@ import { CitasService } from 'src/app/services/citas.service';
   ]
 })
 export class HistorialComponent implements OnInit, AfterViewInit {
-  columns:string[]=['fecha_inicio','fecha_fin','estado','fecha_asignacion'];
+  columns:string[]=['fecha_inicio','fecha_fin','estado','fecha_asignacion','acciones'];
   dataSoruce = new MatTableDataSource();
   loading:boolean;
   @ViewChild(MatPaginator) paginator:MatPaginator;
   constructor(private cita:CitasService,private auth:AuthService) { }
 
   ngOnInit(): void {
-    this.loading = true;
-    this.cita.getHistorial(this.auth.usuario.id).subscribe((resp:any)=>{
-      this.dataSoruce = resp;
-      this.loading = false
-    });
+    this.verHistorial()
   }
   ngAfterViewInit(){
     this.dataSoruce.paginator = this.paginator;
+  }
+
+  verHistorial(){
+    this.loading = true;
+    this.cita.getHistorial(this.auth.usuario.id).subscribe((resp:any)=>{
+      if (resp.Message) {
+        this.dataSoruce = new MatTableDataSource();
+      } else {
+        this.dataSoruce = resp;
+      }
+      this.loading = false
+    });
   }
 }
