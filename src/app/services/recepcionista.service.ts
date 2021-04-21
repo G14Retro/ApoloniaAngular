@@ -83,4 +83,13 @@ export class RecepcionistaService {
       })
       return this.http.put(environment.apiEndpoint+'editDispo/'+id,data,{headers});
   }
+
+  public eliminarDispo(id:string){
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'X-Requested-With': 'XMLHttpRequest',
+      'Authorization': 'Bearer '+ this.auth.usuario.token
+      })
+      return this.http.delete(environment.apiEndpoint+'destroy/'+id,{headers});
+  }
 }
