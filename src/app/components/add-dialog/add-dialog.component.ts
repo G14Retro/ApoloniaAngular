@@ -90,12 +90,12 @@ export class AddDialogComponent implements OnInit {
 
   formDispo(){
     this.dispoGroup = this.fb.group({
-      id_persona:['',Validators.required],
-      horaInicio:['',Validators.required],
-      horaFinal:['',Validators.required],
-      estado:['',Validators.required],
-      tipo_consulta:['',Validators.required],
-      consultorio:['',Validators.required],
-    })
+      id_persona:['',[Validators.required]],
+      horaInicio:['',[Validators.requiredTrue]],
+      horaFinal:['',[Validators.required]],
+      estado:['',[Validators.required]],
+      tipo_consulta:['',[Validators.required]],
+      consultorio:['',[Validators.required]],
+    });
   }
 }

@@ -25,13 +25,12 @@ export class CitasComponent implements OnInit, AfterViewInit {
     this.dataSource.paginator = this.paginator;
   }
   ngOnInit() {
-    this.citas.getDispo().subscribe((resp:any)=>{
-      this.dataSource.data = resp;
-      });
+    this.verDispo();
   }
   agendar (id_dispo:string){    
     Swal.fire({
-      title:'Confirma agendar la cita', 
+      title:'¿Desea confirmar esta cita?',
+      icon:'info',
       showCancelButton:true, 
       confirmButtonText: `Confirmar`,
       cancelButtonText: `Cancelar`,
@@ -40,13 +39,20 @@ export class CitasComponent implements OnInit, AfterViewInit {
       if (result.isConfirmed) {
         this.citas.agendarCita(id_dispo).subscribe(resp=>{
           Swal.fire ('Guardado', '', 'success');
-          this.ngOnInit();
-          
+          this.ngOnInit();         
         })
         
       }
       
     })
-
+  }
+  verDispo(){
+    this.citas.getDispo().subscribe((resp:any)=>{
+      if (resp.Message) {
+        this.dataSource.data = [];
+      }else{
+        this.dataSource.data = resp;
+      }      
+      });
   }
 }

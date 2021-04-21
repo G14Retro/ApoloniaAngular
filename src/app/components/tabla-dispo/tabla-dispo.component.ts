@@ -5,6 +5,8 @@ import { RecepcionistaService } from 'src/app/services/recepcionista.service';
 import { MatDialog } from '@angular/material/dialog';
 import { EditDialogComponent } from '../edit-dialog/edit-dialog.component';
 import { AddDialogComponent } from '../add-dialog/add-dialog.component';
+import { stringify } from '@angular/compiler/src/util';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-tabla-dispo',
@@ -58,4 +60,23 @@ export class TablaDispoComponent implements OnInit, AfterViewInit {
       this.cargarTabla();
     })
   }
+
+  destroy(id:string){
+    Swal.fire({
+      title:'¿Desea eliminar esta disponibilidad?',
+      icon: 'warning',
+      showCancelButton:true, 
+      confirmButtonText: `Confirmar`,
+      cancelButtonText: `Cancelar`,
+    }).then((result)=>{
+      if (result.isConfirmed) {
+        this.recepcionista.eliminarDispo(id).subscribe((resp:any)=>{
+          Swal.fire('Realizado',resp,'success');
+          this.ngOnInit();
+        })
+      }
+    })
+  }
+
+
 }
