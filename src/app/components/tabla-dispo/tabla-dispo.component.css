@@ -13,5 +13,9 @@ table {
 
 .colums{
   padding-left: 5%;
- 
+}
+
+.btn-destroy{
+  background-color: #dc3545;
+    color: #fff;
 }
