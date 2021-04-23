@@ -11,14 +11,23 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-tabla-dispo',
   templateUrl: './tabla-dispo.component.html',
-  styleUrls: ['./tabla-dispo.component.css']
+  styleUrls: ['./tabla-dispo.component.css'],
 })
 export class TablaDispoComponent implements OnInit, AfterViewInit {
-  displayedColumns: string[]= ['medico', 'hora_inicio', 'hora_fin', 'consulta', 'consultorio', 'disponibilidad', 'acciones'];
-  dataSource = new MatTableDataSource ();
-  
-  @ViewChild(MatPaginator) paginator: MatPaginator;
+  displayedColumns: string[] = 
+  [
+    'medico',
+    'hora_inicio',
+    'hora_fin', 
+    'consulta', 
+    'consultorio',
+    'disponibilidad', 
+    'acciones'
+  ];
 
+  dataSource = new MatTableDataSource();
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  
   constructor(private recepcionista:RecepcionistaService, private dialogo:MatDialog){}
 
   ngOnInit(): void {
@@ -77,6 +86,4 @@ export class TablaDispoComponent implements OnInit, AfterViewInit {
       }
     })
   }
-
-
 }

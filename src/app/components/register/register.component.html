@@ -63,7 +63,7 @@
                                                 </mat-form-field>
                                                 <br><br>
                                         <div class="contenedor-botones1">
-                                            <button mat-button class="btn-outline-color" [routerLink]="['/login']" >Inicia Sesión</button>
+                                            <button mat-button class="btn-secondary mr-3" [routerLink]="['/login']" >Inicia Sesión</button>
                                             <button mat-button matStepperNext class="btn-color  mr-3">Siguiente</button> 
                                         </div>
                                         <div>
@@ -71,6 +71,8 @@
                                         </div>
                                     </form>
                                 </mat-step>
+
+
                                 <mat-step [stepControl]='contactFormGroup'>
                                     <form [formGroup]='contactFormGroup'>                                        
                                         <ng-template matStepLabel>Información de contacto</ng-template>
@@ -96,11 +98,12 @@
                                         </mat-form-field>
     
                                         <div>
-                                            <button mat-button matStepperPrevious class="btn-danger mr-3">Regresar</button>
+                                            <button mat-button matStepperPrevious class="btn-secondary mr-3">Regresar</button>
                                             <button mat-button matStepperNext class="btn-color">Siguiente</button>
                                         </div>
                                     </form>
                                     
+
                                 </mat-step>
                                 <mat-step [stepControl]='loginFormGroup'>
                                     <form [formGroup]='loginFormGroup'>
@@ -136,7 +139,7 @@
                                         <div>
                                             <br>
                                             <br>
-                                            <button mat-button matStepperPrevious class="btn-danger mr-3">Regresar</button>
+                                            <button mat-button matStepperPrevious class="btn-secondary mr-3">Regresar</button>
                                             <button mat-button matStepper class="btn-primary" (click)="patienSave()">Confirmar</button>
                                         </div>
                                     </form>
