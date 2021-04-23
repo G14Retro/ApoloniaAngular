@@ -61,21 +61,14 @@
                                         </mat-form-field>
                                         <br><br>
                                         <div class="contenedor-botones1">
-<<<<<<< HEAD
-                                            <button mat-button class="btn-secondary mr-3" [routerLink]="['/login']" >Inicia Sesión</button>
-                                            <button mat-button matStepperNext class="btn-color  mr-3">Siguiente</button> 
-=======
-                                            <button mat-button class="btn-outline-color" [routerLink]="['/login']">Inicia Sesión</button>
+                                            <button mat-button class="btn-secondary mr-3" [routerLink]="['/login']">Inicia Sesión</button>
                                             <button mat-button matStepperNext class="btn-color  mr-3">Siguiente</button>
->>>>>>> b3356daa9a6e9efa1bc848f8a890f46d4a5feea9
                                         </div>
                                         <div>
                                             <small><a class="stretched-link">¿Ya tienes cuenta?</a></small>
                                         </div>
                                     </form>
                                 </mat-step>
-
-
                                 <mat-step [stepControl]='contactFormGroup'>
                                     <form [formGroup]='contactFormGroup'>
                                         <ng-template matStepLabel>Información de contacto</ng-template>
@@ -105,8 +98,6 @@
                                             <button mat-button matStepperNext class="btn-color">Siguiente</button>
                                         </div>
                                     </form>
-                                    
-
                                 </mat-step>
                                 <mat-step [stepControl]='loginFormGroup'>
                                     <form [formGroup]='loginFormGroup'>
