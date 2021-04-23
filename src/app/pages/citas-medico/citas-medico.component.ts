@@ -18,12 +18,17 @@ export class CitasMedicoComponent implements OnInit,AfterViewInit {
 
   ngAfterViewInit(){
     this.dataSource.paginator = this.paginator;
+    this.paginator._intl.itemsPerPageLabel="Registros por página";
   }
 
   ngOnInit(): void {
     this.loading = true;
     this.administratorService.obtenerAgenda().subscribe((resp:any)=>{
-      this.dataSource = resp;
+      if (resp.message) {
+        this.dataSource = new MatTableDataSource();
+      } else {
+        this.dataSource.data = resp;
+      }
       this.loading = false;
     });
   }
