@@ -7,30 +7,30 @@
         <div class="col-md-6 col-lg-4">
             <div class="login-wrap p-0">    
                 <div class="ibox-content-1">
-                    <h1 class="heading-section"><img src="../../../assets/img/loggoApolonia2.png" alt=""></h1>
+                    <h1 class="heading-section" style="margin-top:-3%;">
+                        <img src="../../../assets/img/loggoApolonia2.png" alt=""></h1>
                     <form class="m-t" (ngSubmit)=login(form) #form="ngForm">
 
-                        <div class="form-group-1" >
+                        <div class="form-group-1 " >
                             <small class="text-danger" *ngIf="form.submitted && form.controls['correo'].errors">
                                 Falta ingresar un correo electronico
                             </small>
                             <br>
-                            <h2 class="font-weight-bold ml-3">Usuario</h2>
-                            <input name="correo" type="email" class="form-control-1" placeholder="Ingrese su usuario" [(ngModel)]="user.correo" required mail>
+                            <h2 class="font-weight-bold ml-3" style="margin-top:3%;">Usuario</h2>
+                            <input name="correo" type="email" class="form-control-1" matInput placeholder="Ingrese su usuario" [(ngModel)]="user.correo" required mail>
                         </div>
 
-                        <div class="form-group-1">
+                        <div class="form-group-1 ">
                             <small class="text-danger" *ngIf="form.submitted && form.controls['password'].errors">
                                 No ha ingresado una contraseña
                             </small>
                             <br>
-                            <h2 class="font-weight-bold ml-3">Contraseña</h2>
-                            <input matInput type="password"  name="password" class="form-control-1" placeholder="Ingrese su contraseña" [(ngModel)]="user.password" required>
-                            
+                            <h2 class="font-weight-bold ml-3" style="margin-top:1%;">Contraseña</h2>
+                            <input  type="password"  name="password" class="form-control-1" matInput placeholder="Ingrese su contraseña" [(ngModel)]="user.password" required>
                         </div>
                         
                         <button type="submit" class="btn-iniciarsesion">Ingresar</button>
-<!--     
+                        <!--     
                         <div class="form-group d-md-flex">
                             <div class="w-50">
                                 <label class="checkbox-wrap checkbox-primary">
@@ -40,7 +40,7 @@
                                     <a class="checkbox-wrap" href="#" >Forgot Password</a>
                                 </div>
                         </div>
-     -->
+                        -->
                         <a class="crear-cuenta" [routerLink]="['/register']">Crear cuenta</a>
                     </form>
                 </div>
