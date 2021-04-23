@@ -12,7 +12,7 @@ import { CitasService } from 'src/app/services/citas.service';
 })
 export class HistorialComponent implements OnInit, AfterViewInit {
   columns:string[]=['fecha_inicio','fecha_fin','estado','fecha_asignacion','acciones'];
-  dataSoruce = new MatTableDataSource();
+  dataSource = new MatTableDataSource();
   loading:boolean;
   @ViewChild(MatPaginator) paginator:MatPaginator;
   constructor(private cita:CitasService,private auth:AuthService) { }
@@ -21,16 +21,17 @@ export class HistorialComponent implements OnInit, AfterViewInit {
     this.verHistorial()
   }
   ngAfterViewInit(){
-    this.dataSoruce.paginator = this.paginator;
+    this.dataSource.paginator = this.paginator;
+    this.paginator._intl.itemsPerPageLabel="Registros por página";
   }
 
   verHistorial(){
     this.loading = true;
     this.cita.getHistorial(this.auth.usuario.id).subscribe((resp:any)=>{
       if (resp.Message) {
-        this.dataSoruce = new MatTableDataSource();
+        this.dataSource = new MatTableDataSource();
       } else {
-        this.dataSoruce = resp;
+        this.dataSource.data = resp;
       }
       this.loading = false
     });

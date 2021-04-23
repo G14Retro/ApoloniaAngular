@@ -7,9 +7,7 @@
                         <div id="left_form">
                             <figure><img src="../../../favicon.ico" alt="" width="150px" height="140px" viewBox="0 0 150 150" enable-background="new 0 0 150 150" xml:space="preserve"></figure>
                             <h2>Registro</h2>
-                            <p>Apolonia es un software especializado para la
-                                administración de consultorios odontológicos
-                                que buscan alto rendimiento.</p>
+                            <p>Apolonia es un software especializado para la administración de consultorios odontológicos que buscan alto rendimiento.</p>
                             <a href="#0" id="more_info" data-toggle="modal" data-target="#more-info"><i class="fb fa-sign-out"></i></a>
                         </div>
                     </div>
@@ -18,53 +16,58 @@
                             <mat-horizontal-stepper labelPosition="bottom" linear>
                                 <mat-step [stepControl]="personalFormGroup">
                                     <form [formGroup]='personalFormGroup'>
-                                            <ng-template matStepLabel>Información Personal</ng-template>
-                                                <mat-form-field class="width-45">
-                                                    <mat-label>Tipo de documento</mat-label>
-                                                    <mat-select formControlName="tipo_documento" required>
-                                                    <mat-option>-----</mat-option>
-                                                    <mat-option *ngFor="let tipo of tipoDocumento" [value]="tipo">
-                                                        {{tipo.nombre}}
-                                                    </mat-option>
-                                                    </mat-select>
-                                                    <mat-error *ngIf="personalFormGroup.get('tipo_documento').hasError('required')">Por favor seleccione una opción</mat-error>
-                                                </mat-form-field>
-                                                <mat-form-field class="width-45">
-                                                    <mat-label>Número de Documento*</mat-label>
-                                                    <input matInput placeholder="Ingrese su Número de Identificación" formControlName='documento'>
-                                                    <mat-error *ngIf="personalFormGroup.get('documento').hasError('required')">Por favor ingrese un número de identificación</mat-error>
-                                                </mat-form-field>
-                                                <mat-form-field class="width-45">
-                                                    <mat-label>Nombre*</mat-label>
-                                                    <input matInput placeholder="Ingrese sus Nombres*" formControlName='nombre'>
-                                                    <mat-error *ngIf="personalFormGroup.get('nombre').hasError('required')">Por favor ingrese su nombre</mat-error>
-                                                </mat-form-field>
-                                                <mat-form-field class="width-45">
-                                                    <mat-label>Apellido*</mat-label>
-                                                    <input matInput placeholder="Ingrese sus Apellidos*" formControlName='apellido'>
-                                                    <mat-error *ngIf="personalFormGroup.get('apellido').hasError('required')">Por favor ingrese su apellido</mat-error>
-                                                </mat-form-field>
-                                                <mat-form-field class="width-45">
-                                                    <mat-label>Género</mat-label>
-                                                    <mat-select formControlName="genero">
-                                                    <mat-option>-----</mat-option>
-                                                    <mat-option *ngFor="let gen of genero" [value]="gen">
-                                                        {{gen.nombre}}
-                                                    </mat-option>
-                                                    </mat-select>
-                                                    <mat-error *ngIf="personalFormGroup.get('genero').hasError('required')">Por favor seleccione una opción</mat-error>
-                                                </mat-form-field>
-                                                <mat-form-field class="width-45">
-                                                    <mat-label>Fecha de nacimiento</mat-label>
-                                                    <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" formControlName='fecha_nacimiento'>
-                                                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                                                    <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
-                                                    <mat-error *ngIf="personalFormGroup.get('fecha_nacimiento').hasError('required')">Por favor ingrese una fecha</mat-error>
-                                                </mat-form-field>
-                                                <br><br>
+                                        <ng-template matStepLabel>Información Personal</ng-template>
+                                        <mat-form-field class="width-45">
+                                            <mat-label>Tipo de documento</mat-label>
+                                            <mat-select formControlName="tipo_documento" required>
+                                                <mat-option>-----</mat-option>
+                                                <mat-option *ngFor="let tipo of tipoDocumento" [value]="tipo">
+                                                    {{tipo.nombre}}
+                                                </mat-option>
+                                            </mat-select>
+                                            <mat-error *ngIf="personalFormGroup.get('tipo_documento').hasError('required')">Por favor seleccione una opción</mat-error>
+                                        </mat-form-field>
+                                        <mat-form-field class="width-45">
+                                            <mat-label>Número de Documento*</mat-label>
+                                            <input matInput placeholder="Ingrese su Número de Identificación" formControlName='documento'>
+                                            <mat-error *ngIf="personalFormGroup.get('documento').hasError('required')">Por favor ingrese un número de identificación</mat-error>
+                                        </mat-form-field>
+                                        <mat-form-field class="width-45">
+                                            <mat-label>Nombre*</mat-label>
+                                            <input matInput placeholder="Ingrese sus Nombres*" formControlName='nombre'>
+                                            <mat-error *ngIf="personalFormGroup.get('nombre').hasError('required')">Por favor ingrese su nombre</mat-error>
+                                        </mat-form-field>
+                                        <mat-form-field class="width-45">
+                                            <mat-label>Apellido*</mat-label>
+                                            <input matInput placeholder="Ingrese sus Apellidos*" formControlName='apellido'>
+                                            <mat-error *ngIf="personalFormGroup.get('apellido').hasError('required')">Por favor ingrese su apellido</mat-error>
+                                        </mat-form-field>
+                                        <mat-form-field class="width-45">
+                                            <mat-label>Género</mat-label>
+                                            <mat-select formControlName="genero">
+                                                <mat-option>-----</mat-option>
+                                                <mat-option *ngFor="let gen of genero" [value]="gen">
+                                                    {{gen.nombre}}
+                                                </mat-option>
+                                            </mat-select>
+                                            <mat-error *ngIf="personalFormGroup.get('genero').hasError('required')">Por favor seleccione una opción</mat-error>
+                                        </mat-form-field>
+                                        <mat-form-field class="width-45">
+                                            <mat-label>Fecha de nacimiento</mat-label>
+                                            <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" formControlName='fecha_nacimiento'>
+                                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                            <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+                                            <mat-error *ngIf="personalFormGroup.get('fecha_nacimiento').hasError('required')">Por favor ingrese una fecha</mat-error>
+                                        </mat-form-field>
+                                        <br><br>
                                         <div class="contenedor-botones1">
+<<<<<<< HEAD
                                             <button mat-button class="btn-secondary mr-3" [routerLink]="['/login']" >Inicia Sesión</button>
                                             <button mat-button matStepperNext class="btn-color  mr-3">Siguiente</button> 
+=======
+                                            <button mat-button class="btn-outline-color" [routerLink]="['/login']">Inicia Sesión</button>
+                                            <button mat-button matStepperNext class="btn-color  mr-3">Siguiente</button>
+>>>>>>> b3356daa9a6e9efa1bc848f8a890f46d4a5feea9
                                         </div>
                                         <div>
                                             <small><a class="stretched-link">¿Ya tienes cuenta?</a></small>
@@ -74,7 +77,7 @@
 
 
                                 <mat-step [stepControl]='contactFormGroup'>
-                                    <form [formGroup]='contactFormGroup'>                                        
+                                    <form [formGroup]='contactFormGroup'>
                                         <ng-template matStepLabel>Información de contacto</ng-template>
                                         <mat-form-field class="width-45">
                                             <mat-label>Dirección de residencia*</mat-label>
@@ -93,10 +96,10 @@
                                                 <mat-option *ngFor="let ciudad of ciudades" [value]="ciudad">
                                                     {{ciudad.ciudad}}
                                                 </mat-option>
-                                                </mat-select>
+                                            </mat-select>
                                             <mat-error *ngIf="contactFormGroup.get('ciudad').hasError('required')">Por favor seleccione una ciudad</mat-error>
                                         </mat-form-field>
-    
+
                                         <div>
                                             <button mat-button matStepperPrevious class="btn-secondary mr-3">Regresar</button>
                                             <button mat-button matStepperNext class="btn-color">Siguiente</button>
@@ -125,15 +128,13 @@
                                             <mat-label>Contraseña</mat-label>
                                             <input matInput type="password" placeholder="Ingrese una Contraseña" formControlName='password'>
                                             <mat-error *ngIf="loginFormGroup.get('password').hasError('pattern')">
-                                                La contraseña debe tener mínimo 8 caracteres, un dígito, una letra minúscula, 
-                                                una letra mayúscula y un caracter no alfanumérico.
+                                                La contraseña debe tener mínimo 8 caracteres, un dígito, una letra minúscula, una letra mayúscula y un caracter no alfanumérico.
                                             </mat-error>
                                             <mat-error *ngIf="loginFormGroup.get('correo').hasError('required')">Este campo no debe estar vacio</mat-error>
                                         </mat-form-field>
                                         <mat-form-field class="width-45">
                                             <mat-label>Confirme su Contraseña</mat-label>
-                                            <input matInput type="password" placeholder="Repita la misma contraseña" formControlName='password_confirmation'
-                                            appCopyPaste>
+                                            <input matInput type="password" placeholder="Repita la misma contraseña" formControlName='password_confirmation' appCopyPaste>
                                             <mat-error *ngIf="!validPassword()">Las contraseñas no coinciden</mat-error>
                                         </mat-form-field>
                                         <div>

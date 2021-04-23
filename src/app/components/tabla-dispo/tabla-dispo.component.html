@@ -47,8 +47,8 @@
   <ng-container matColumnDef="acciones">
     <th class="colums" mat-header-cell *matHeaderCellDef> Aciones</th>
     <td mat-cell *matCellDef="let element">
-      <button mat-raised-button style="margin-right:2%" class="btn-danger" (click)="destroy(element.id)"  focusable="false"><i class="fas fa-trash-alt"></i></button>
-      <button  mat-raised-button style="margin-left:5%" class="btn-primary" (click)="dialog(element.id)" focusable="false"><i class="fas fa-pen-alt"></i></button>
+      <button mat-raised-button  class="btn-destroy" (click)="destroy(element.id)"  focusable="false"><i class="fas fa-trash-alt"></i></button>
+      <button  mat-raised-button  class="btn-primary" (click)="dialog(element.id)" focusable="false"><i class="fas fa-pen-alt"></i></button>
     </td>
     </ng-container>
 
