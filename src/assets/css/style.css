@@ -1728,9 +1728,9 @@ fieldset[disabled] .btn-default.active {
   box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
 }
 .btn-danger {
-  color:#33C8FA;
-  background-color: rgba(160, 160, 160, 0.386);
-  border-color: rgba(160, 160, 160, 0.386);
+  color: #fff;
+  background-color: #ed5565;
+  border-color: #ed5565;
 }
 .btn-danger:hover,
 .btn-danger:focus,

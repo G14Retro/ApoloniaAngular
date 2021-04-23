@@ -1,5 +1,5 @@
 <div>
-  <div #odontograma>
+  <ng-template #odontograma>
       <div>
         <svg height="50" width="50" id="p18" #p18>
           <polygon points="10,15 15,10 50,45 45,50" fill="white" stroke="black" (click)="changeColor(p18l1)" id="l1" #p18l1/>
@@ -28,7 +28,7 @@
           <polygon points="20,20 40,20 40,40 20,40" fill="white" stroke="black" (click)="changeColor(p19l10)" id="l10" #p19l10/>
         </svg>
       </div>
-    </div>
+    </ng-template>
 <div>
   <button class="btn btn-warning" (click)="amarillo()">Amarillo</button>
 </div>

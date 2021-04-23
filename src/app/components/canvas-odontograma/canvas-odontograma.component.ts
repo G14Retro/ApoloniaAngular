@@ -1,16 +1,17 @@
-import { AfterViewInit, Component, OnChanges, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, TemplateRef, ViewChild, ViewContainerRef } from '@angular/core';
 
 @Component({
   selector: 'app-canvas-odontograma',
   templateUrl: './canvas-odontograma.component.html',
   styleUrls: ['./canvas-odontograma.component.css']
 })
-export class CanvasOdontogramaComponent implements OnInit,AfterViewInit,OnChanges {
+export class CanvasOdontogramaComponent implements OnInit,AfterViewInit {
   fillColor:String = 'white';
   fill;
   htmlString:string;
   nativo:any;
-  @ViewChild('odontograma') odontograma;
+  @ViewChild(TemplateRef,{static:true}) odontoTemplate:TemplateRef<any>;
+  @ViewChild(TemplateRef,{static:true, read:ViewContainerRef}) odontoContainer:ViewContainerRef;
   constructor() {
 
   }
@@ -20,16 +21,10 @@ export class CanvasOdontogramaComponent implements OnInit,AfterViewInit,OnChange
   }
   
   ngAfterViewInit(){
-
-  }
-
-  ngOnChanges(){
-    console.log("Cambios");
-    console.log(this.nativo);
+    this.odontoContainer.createEmbeddedView(this.odontoTemplate);
   }
 
   changeColor(lado:SVGElement) {
-    console.log("Cambiando");
     this.fill = this.fillColor
     lado.attributes.setNamedItem(lado.attributes.getNamedItem('fill')).value = this.fill;
   }
@@ -44,12 +39,12 @@ export class CanvasOdontogramaComponent implements OnInit,AfterViewInit,OnChange
 
   guardarOdonto(){
     // this.htmlString = odonto.innerHTML;
-    this.nativo = this.odontograma.nativeElement;
+    this.nativo = this.odontoContainer;
+    console.log(this.nativo);
     localStorage.setItem('html',this.nativo.toString())
   }
   cargarOdonto(){
-    this.odontograma.nativeElement = this.nativo;
-    console.log(this.nativo);
+    this.odontoTemplate = this.nativo;
   }
 
 }
