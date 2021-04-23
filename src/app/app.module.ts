@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { TitleCasePipe } from '@angular/common';
+import { NgModule, LOCALE_ID } from '@angular/core';
+import { registerLocaleData, TitleCasePipe } from '@angular/common';
 
 //Componentes
 import { AppComponent } from './app.component';
@@ -52,7 +52,9 @@ import { CopyPasteDirective } from './directives/copy-paste.directive';
 import { ScheduleModule,RecurrenceEditorModule } from "@syncfusion/ej2-angular-schedule";
 import { NgxMatDatetimePickerModule, NgxMatNativeDateModule, NgxMatTimepickerModule  } from "@angular-material-components/datetime-picker";
 
-
+//Provaiders
+import localeEsCO from "@angular/common/locales/es-CO";
+registerLocaleData(localeEsCO,'es-CO')
 
 @NgModule({
   declarations: [
@@ -113,6 +115,8 @@ import { NgxMatDatetimePickerModule, NgxMatNativeDateModule, NgxMatTimepickerMod
     TitleCasePipe,
     AuthService,
     {provide: MAT_DATE_LOCALE,
+    useValue: 'es-CO'},
+    {provide: LOCALE_ID,
     useValue: 'es-CO'}
   ],
   bootstrap: [AppComponent],

@@ -15,7 +15,8 @@
                                 Falta ingresar un correo electronico
                             </small>
                             <br>
-                            <input name="correo" type="email" class="form-control-1" placeholder="Ingrese un correo electrónico" [(ngModel)]="user.correo" required mail>
+                            <h2 class="font-weight-bold ml-3">Usuario</h2>
+                            <input name="correo" type="email" class="form-control-1" placeholder="Ingrese su usuario" [(ngModel)]="user.correo" required mail>
                         </div>
 
                         <div class="form-group-1">
@@ -23,23 +24,24 @@
                                 No ha ingresado una contraseña
                             </small>
                             <br>
+                            <h2 class="font-weight-bold ml-3">Contraseña</h2>
                             <input matInput type="password"  name="password" class="form-control-1" placeholder="Ingrese su contraseña" [(ngModel)]="user.password" required>
                             
                         </div>
                         
                         <button type="submit" class="btn-iniciarsesion">Ingresar</button>
-    
+<!--     
                         <div class="form-group d-md-flex">
-                            <!-- <div class="w-50">
+                            <div class="w-50">
                                 <label class="checkbox-wrap checkbox-primary">
                                 <input class="checkbox" type="checkbox" checked="">Remember Me</label>
-                            </div> -->
-                                <!-- <div class="w-50 text-md-right">
+                            </div>
+                                <div class="w-50 text-md-right">
                                     <a class="checkbox-wrap" href="#" >Forgot Password</a>
-                                </div> -->
+                                </div>
                         </div>
-    
-                        <a class="crear-cuenta" [routerLink]="['/register']">Crear cuenta nueva</a>
+     -->
+                        <a class="crear-cuenta" [routerLink]="['/register']">Crear cuenta</a>
                     </form>
                 </div>
             </div>

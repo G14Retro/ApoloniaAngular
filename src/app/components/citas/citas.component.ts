@@ -6,6 +6,7 @@ import { CitasService } from 'src/app/services/citas.service';
 import Swal from 'sweetalert2';
 
 
+
 @Component({
   selector: 'app-citas',
   templateUrl: './citas.component.html',
@@ -15,7 +16,7 @@ import Swal from 'sweetalert2';
 })
 
 export class CitasComponent implements OnInit, AfterViewInit {
-  columns : string[]=['fechaIni', 'fechaFin', 'nMedico', 'aMedico', 'especialidad', 'consultorio','Id'];
+  columns : string[]=['fechaIni', 'fechaFin', 'medico', 'especialidad', 'consultorio','Id'];
   dataSource = new MatTableDataSource();
   @ViewChild(MatPaginator) paginator:MatPaginator;
   constructor(private citas:CitasService){
@@ -23,6 +24,7 @@ export class CitasComponent implements OnInit, AfterViewInit {
   }
   ngAfterViewInit(){
     this.dataSource.paginator = this.paginator;
+    this.paginator._intl.itemsPerPageLabel="Registros por página";
   }
   ngOnInit() {
     this.verDispo();
@@ -54,5 +56,8 @@ export class CitasComponent implements OnInit, AfterViewInit {
         this.dataSource.data = resp;
       }      
       });
+  }
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 }

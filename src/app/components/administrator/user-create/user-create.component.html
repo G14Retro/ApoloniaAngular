@@ -90,14 +90,14 @@
         </mat-form-field>
         <mat-form-field class="p-2">
             <mat-label>Contraseña</mat-label>
-            <input type="text" matInput formControlName="password" required>
+            <input type="password" matInput formControlName="password" required>
             <mat-error *ngIf="userForm.get('password').hasError('required')">Por favor seleccione una opción</mat-error>
         </mat-form-field>
 
 
     </form>
     <button type="submit" class="btn btn-success" (click)="crearUsuario()">Guardar</button>
-    <button [routerLink]="['admin/usuarios']" class="btn-danger mr-3">Reresar</button>
+    <button [routerLink]="['admin/usuarios']" class="btn btn-danger mr-3">Reresar</button>
 
 </div>
 

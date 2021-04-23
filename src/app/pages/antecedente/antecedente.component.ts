@@ -52,7 +52,7 @@ export class AntecedenteComponent implements OnInit {
       cirugias:['',Validators.required],
       medicamentos:['',Validators.required],
       otros:['',Validators.required],
-      paciente:['']
+      cita:['']
     })
    }
 
@@ -64,7 +64,7 @@ export class AntecedenteComponent implements OnInit {
     });
     Swal.showLoading();
     this.ruta.params.subscribe(params=>{
-      this.antecedenteForm.controls['paciente'].setValue(params['id']);
+      this.antecedenteForm.controls['cita'].setValue(params['id']);
      this.doctorService.guardarAntecedente(this.antecedenteForm).subscribe(resp=>{
        Swal.close();
        Swal.fire (resp['message'], '', 'success');
