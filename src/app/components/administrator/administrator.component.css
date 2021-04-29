@@ -1,1 +1,15 @@
-table {width:100%;}
+table {
+    width:100%;
+}
+th{
+  font-size: 13px;
+}
+td{
+  font-size: 11px;
+  text-align: center;
+}
+.mat-row:hover {
+  background-color:#6c757d15;
+}
+
+

@@ -1,8 +1,7 @@
-
 <div class="mat-elevation-z8 animated fadeInDown">
     <mat-form-field class="p-3">
         <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Buscador">
-      </mat-form-field>
+    </mat-form-field>
     <table mat-table [dataSource]="dataSource">
 
         <ng-container matColumnDef="fechaIni">
@@ -38,7 +37,7 @@
                 </button>
             </td>
         </ng-container>
-        
+
         <tr mat-header-row *matHeaderRowDef="columns"></tr>
         <tr mat-row *matRowDef="let row; columns: columns;"></tr>
 

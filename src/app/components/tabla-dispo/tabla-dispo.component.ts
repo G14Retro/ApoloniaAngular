@@ -1,6 +1,6 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
-import { MatTable, MatTableDataSource } from '@angular/material/table';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
 import { RecepcionistaService } from 'src/app/services/recepcionista.service';
 import { MatDialog } from '@angular/material/dialog';
 import { EditDialogComponent } from '../edit-dialog/edit-dialog.component';
@@ -11,70 +11,41 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-tabla-dispo',
   templateUrl: './tabla-dispo.component.html',
-  styleUrls: ['./tabla-dispo.component.css'],
+  styleUrls: ['./tabla-dispo.component.css']
 })
 export class TablaDispoComponent implements OnInit, AfterViewInit {
-  displayedColumns: string[] = 
+  displayedColumns: string[] =
   [
     'medico',
     'hora_inicio',
-    'hora_fin', 
-    'consulta', 
+    'hora_fin',
+    'consulta',
     'consultorio',
-    'disponibilidad', 
+    'disponibilidad',
     'acciones'
   ];
 
   dataSource = new MatTableDataSource();
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  
-  constructor(private recepcionista:RecepcionistaService, private dialogo:MatDialog){}
 
-  ngOnInit(): void {
-    this.cargarTabla();
+  constructor(private recepcionista:RecepcionistaService, private dialogo:MatDialog){
+
   }
-  
+
   ngAfterViewInit(){
     this.dataSource.paginator = this.paginator;
-  }
-  applyFilter(filterValue: string) {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+    this.paginator._intl.itemsPerPageLabel="Registros por página";
   }
 
-  cargarTabla(){
-    this.recepcionista.listarDispo().subscribe((resp:any)=>{
-      if (resp.message) {
-        this.dataSource = new MatTableDataSource();
-      }else{
-        this.dataSource = resp;
-      }
-    })
-  }
-
-  dialog(id:string){
-    const dialogoRef = this.dialogo.open(EditDialogComponent ,{
-      width:'500px',
-      data:{id}
-    })
-    dialogoRef.afterClosed().subscribe(result =>{
-      this.cargarTabla();
-    })
-  }
-
-  Adddialog(){
-    const dialogoRef = this.dialogo.open(AddDialogComponent,{
-      width:'500px',
-    })
-    dialogoRef.afterClosed().subscribe(result =>{
-      this.cargarTabla();
-    })
+  ngOnInit(){
+    this.cargarTabla();
   }
 
   destroy(id:string){
     Swal.fire({
       title:'¿Desea eliminar esta disponibilidad?',
       icon: 'warning',
-      showCancelButton:true, 
+      showCancelButton:true,
       confirmButtonText: `Confirmar`,
       cancelButtonText: `Cancelar`,
     }).then((result)=>{
@@ -85,5 +56,35 @@ export class TablaDispoComponent implements OnInit, AfterViewInit {
         })
       }
     })
+  }
+
+  cargarTabla(){
+    this.recepcionista.listarDispo().subscribe((resp:any)=>{
+      if (resp.message) {
+        this.dataSource = new MatTableDataSource();
+      }else{
+        this.dataSource.data = resp;
+      }
+    });
+  }
+  dialog(id:string){
+    const dialogoRef = this.dialogo.open(EditDialogComponent ,{
+      width:'500px',
+      data:{id}
+    })
+    dialogoRef.afterClosed().subscribe(result =>{
+      this.cargarTabla();
+    })
+  }
+  Adddialog(){
+    const dialogoRef = this.dialogo.open(AddDialogComponent,{
+      width:'500px',
+    })
+    dialogoRef.afterClosed().subscribe(result =>{
+      this.cargarTabla();
+    })
+  }
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 }

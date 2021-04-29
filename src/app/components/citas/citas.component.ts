@@ -26,35 +26,35 @@ export class CitasComponent implements OnInit, AfterViewInit {
     this.dataSource.paginator = this.paginator;
     this.paginator._intl.itemsPerPageLabel="Registros por página";
   }
+
   ngOnInit() {
     this.verDispo();
   }
-  agendar (id_dispo:string){    
+
+  agendar (id_dispo:string){
     Swal.fire({
       title:'¿Desea confirmar esta cita?',
       icon:'info',
-      showCancelButton:true, 
+      showCancelButton:true,
       confirmButtonText: `Confirmar`,
       cancelButtonText: `Cancelar`,
     }).then ((result)=>{
-      
       if (result.isConfirmed) {
         this.citas.agendarCita(id_dispo).subscribe(resp=>{
           Swal.fire ('Guardado', '', 'success');
-          this.ngOnInit();         
+          this.ngOnInit();
         })
-        
       }
-      
     })
   }
+
   verDispo(){
     this.citas.getDispo().subscribe((resp:any)=>{
       if (resp.Message) {
         this.dataSource.data = [];
       }else{
         this.dataSource.data = resp;
-      }      
+      }
       });
   }
   applyFilter(filterValue: string) {

@@ -2,6 +2,7 @@
   <button class="btn btn-primary" (click)="Adddialog()">
     <i class="fas fa-calendar-plus"></i> Crear Disponibilidad</button>
 </div>
+
 <div class="mat-elevation-z8 animated fadeInDown">
 <mat-form-field class="p-3">
   <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Buscador">
@@ -46,14 +47,14 @@
 
   <ng-container matColumnDef="acciones">
     <th class="colums" mat-header-cell *matHeaderCellDef> Aciones</th>
-    <td mat-cell *matCellDef="let element">
-      <button mat-raised-button  class="btn-destroy" (click)="destroy(element.id)"  focusable="false"><i class="fas fa-trash-alt"></i></button>
-      <button  mat-raised-button  class="btn-primary" (click)="dialog(element.id)" focusable="false"><i class="fas fa-pen-alt"></i></button>
+    <td class="contenedorBtn" mat-cell *matCellDef="let element">
+      <button mat-icon-button   class="destroy" (click)="destroy(element.id)"  focusable="false"><i class="fas fa-trash-alt"></i></button>
+      <button  mat-icon-button   class="edit" (click)="dialog(element.id)" focusable="false"><i class="fas fa-pen-alt"></i></button>
     </td>
     </ng-container>
 
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
 
 <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>

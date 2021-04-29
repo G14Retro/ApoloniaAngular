@@ -29,6 +29,7 @@ import { UserUpdateComponent } from './components/administrator/user-update/user
 import { AddDialogComponent } from './components/add-dialog/add-dialog.component';
 import { DetalleHistorialComponent } from './pages/historial/detalle-historial/detalle-historial.component';
 
+
 // Modulos
 import { RouterModule } from '@angular/router';
 import { ROUTES } from 'src/routes/app.routes';
@@ -82,7 +83,7 @@ registerLocaleData(localeEsCO,'es-CO')
     EditDialogComponent,
     AddDialogComponent,
     UserCreateComponent,
-    UserUpdateComponent,  
+    UserUpdateComponent,
     AddDialogComponent, DetalleHistorialComponent
   ],
   imports: [
@@ -109,7 +110,7 @@ registerLocaleData(localeEsCO,'es-CO')
     NgxMatTimepickerModule,
     NgxMatNativeDateModule,
   ],
-  
+
   providers: [
     AgendaService, DayService, WeekService, WorkWeekService, MonthService,
     TitleCasePipe,
@@ -120,6 +121,6 @@ registerLocaleData(localeEsCO,'es-CO')
     useValue: 'es-CO'}
   ],
   bootstrap: [AppComponent],
-  
+
 })
 export class AppModule { }
