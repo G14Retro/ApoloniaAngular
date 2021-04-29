@@ -13,20 +13,21 @@
                 <img src="../../../favicon.ico" width="50" height="50" alt="image" class="rounded-circle">
                 </div>
             </li>
-            <li routerLinkActive="active" *ngIf="admin">
-                <a [routerLink]="['/admin/usuarios']" ><i class="fa fa-user-o"></i>Usuarios</a>
-            </li>
-            <li routerLinkActive="active" *ngIf="admin">
-                <a [routerLink]="['/admin/agenda']"><i class="fa fa-book"></i>Agenda</a>
-            </li>
             <li routerLinkActive='active'>
-                <a class="nav-link" [routerLink]="['/home']"><i class="fa fa-home"></i> <span class="nav-label"> Inicio</span></a>
+              <a class="nav-link" [routerLink]="['/home']"><i class="fa fa-home"></i> <span class="nav-label"> Inicio</span></a>
+          </li>
+
+            <li routerLinkActive="active" *ngIf="admin">
+                <a [routerLink]="['/admin/usuarios']"><i class="fas fa-user"></i> <span class="nav-label"> Usuarios</span></a>
             </li>
-            
+            <li routerLinkActive="active" *ngIf="admin">
+                <a [routerLink]="['/admin/agenda']"><i class="fa fa-book"></i> <span class="nav-label"> Agenda</span></a>
+            </li>
+
             <li routerLinkActive='active' *ngIf="paciente">
                 <a class="nav-link" [routerLink]="['/citas']"><i class="fa fa-calendar"></i> <span class="nav-label"> Citas</span></a>
             </li>
-            
+
             <!--CÓDIGO JD-->
             <li routerLinkActive='active' *ngIf="recepcionistapc">
                 <a class="nav-link" [routerLink]="['/calendar']"><i class="fas fa-calendar-alt"></i> <span class="nav-label"> Calendario</span></a>

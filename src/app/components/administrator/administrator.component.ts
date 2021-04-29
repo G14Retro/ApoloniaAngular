@@ -19,12 +19,16 @@ export class AdministratorComponent implements OnInit,AfterViewInit {
   ngOnInit(): void {
     this.loading = true;
     this.administratorService.query().subscribe((resp:any)=>{
-      this.dataSource = resp;
+      this.dataSource.data = resp;
       this.loading = false
     });
   }
   ngAfterViewInit(){
     this.dataSource.paginator = this.paginator;
+  }
+
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
 }
