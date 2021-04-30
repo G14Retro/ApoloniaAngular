@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit, TemplateRef, ViewChild, ViewContainerRef } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-canvas-odontograma',
@@ -10,8 +10,14 @@ export class CanvasOdontogramaComponent implements OnInit,AfterViewInit {
   fill;
   htmlString:string;
   nativo:any;
-  @ViewChild(TemplateRef,{static:true}) odontoTemplate:TemplateRef<any>;
-  @ViewChild(TemplateRef,{static:true, read:ViewContainerRef}) odontoContainer:ViewContainerRef;
+  @ViewChild('odontograma') odonto:ElementRef<HTMLCanvasElement>;
+  @HostListener('document:click',['$event']) 
+  mouseClick = (e:any)=>{
+    if (e.target.id=== 'odontograma') {
+      console.log(e);
+    }
+  }
+  public context:CanvasRenderingContext2D;
   constructor() {
 
   }
@@ -20,8 +26,9 @@ export class CanvasOdontogramaComponent implements OnInit,AfterViewInit {
     
   }
   
-  ngAfterViewInit(){
-    this.odontoContainer.createEmbeddedView(this.odontoTemplate);
+  ngAfterViewInit():void{
+    this.context = this.odonto.nativeElement.getContext('2d');
+    console.log(this.context);
   }
 
   changeColor(lado:SVGElement) {
@@ -38,13 +45,12 @@ export class CanvasOdontogramaComponent implements OnInit,AfterViewInit {
   }
 
   guardarOdonto(){
-    // this.htmlString = odonto.innerHTML;
-    this.nativo = this.odontoContainer;
+
     console.log(this.nativo);
-    localStorage.setItem('html',this.nativo.toString())
+    localStorage.setItem('html',this.nativo)
   }
   cargarOdonto(){
-    this.odontoTemplate = this.nativo;
+    
   }
 
 }

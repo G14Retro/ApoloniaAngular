@@ -1,34 +1,4 @@
-<div>
-  <ng-template #odontograma>
-      <div>
-        <svg height="50" width="50" id="p18" #p18>
-          <polygon points="10,15 15,10 50,45 45,50" fill="white" stroke="black" (click)="changeColor(p18l1)" id="l1" #p18l1/>
-          <polygon points="45,10 50,15 15,50 10,45" fill="white" stroke="black" (click)="changeColor(p18l2)" id="l2" #p18l2/>
-          <circle cx="30" cy="30" r="16" fill="white" stroke="black" (click)="changeColor(p18l3)" id="l3" #p18l3/>
-          <circle cx="30" cy="30" r="20" fill="white" stroke="black" (click)="changeColor(p18l4)" id="l4" #p18l4/>
-          <polygon points="50,10 40,10 10,26 10,32 46,32 10,50 20,50 50,36 50,28 14,28" fill="white" stroke="black" (click)="changeColor(p18l5)" id="l5" #p18l5/>
-          <polygon points="10,10 50,10 40,20 20,20" fill="white" stroke="black" (click)="changeColor(p18l6)" id="l6" #p18l6/>
-          <polygon points="50,10 50,50 40,40 40,20" fill="white" stroke="black" (click)="changeColor(p18l7)" id="l7" #p18l7/>
-          <polygon points="50,50 10,50 20,40 40,40" fill="white" stroke="black" (click)="changeColor(p18l8)" id="l8" #p18l8/>
-          <polygon points="10,50 20,40 20,20 10,10" fill="white" stroke="black" (click)="changeColor(p18l9)" id="l9" #p18l9/>
-          <polygon points="20,20 40,20 40,40 20,40" fill="white" stroke="black" (click)="changeColor(p18l10)" id="l10" #p18l10/>
-        </svg>
-      </div>
-      <div>
-        <svg height="50" width="50" id="p19" #p19>
-          <polygon points="10,15 15,10 50,45 45,50" fill="white" stroke="black" (click)="changeColor(p19l1)" id="l1" #p19l1/>
-          <polygon points="45,10 50,15 15,50 10,45" fill="white" stroke="black" (click)="changeColor(p19l2)" id="l2" #p19l2/>
-          <circle cx="30" cy="30" r="16" fill="white" stroke="black" (click)="changeColor(p19l3)" id="l3" #p19l3/>
-          <circle cx="30" cy="30" r="20" fill="white" stroke="black" (click)="changeColor(p19l4)" id="l4" #p19l4/>
-          <polygon points="50,10 40,10 10,26 10,32 46,32 10,50 20,50 50,36 50,28 14,28" fill="white" stroke="black" (click)="changeColor(p19l5)" id="l5" #p19l5/>
-          <polygon points="10,10 50,10 40,20 20,20" fill="white" stroke="black" (click)="changeColor(p19l6)" id="l6" #p19l6/>
-          <polygon points="50,10 50,50 40,40 40,20" fill="white" stroke="black" (click)="changeColor(p19l7)" id="l7" #p19l7/>
-          <polygon points="50,50 10,50 20,40 40,40" fill="white" stroke="black" (click)="changeColor(p19l8)" id="l8" #p19l8/>
-          <polygon points="10,50 20,40 20,20 10,10" fill="white" stroke="black" (click)="changeColor(p19l9)" id="l9" #p19l9/>
-          <polygon points="20,20 40,20 40,40 20,40" fill="white" stroke="black" (click)="changeColor(p19l10)" id="l10" #p19l10/>
-        </svg>
-      </div>
-    </ng-template>
+  <canvas id="odontograma" #odontograma width="1024" height="520"></canvas>
 <div>
   <button class="btn btn-warning" (click)="amarillo()">Amarillo</button>
 </div>
