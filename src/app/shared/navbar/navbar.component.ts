@@ -14,11 +14,11 @@ export class NavbarComponent implements OnInit {
   doctoropc:boolean = true;
   recepcionistapc: boolean = true;
   paciente:boolean = true;
-  constructor(private auth:AuthService) { 
+  constructor(private auth:AuthService) {
     this.nombre = auth.usuario.nombre + " " + auth.usuario.apellido;
     this.rol = auth.usuario.tipoUsuario;
   }
-  
+
   ngOnInit(): void {
     if (this.rol == 'administrador') {
       this.admin = true;

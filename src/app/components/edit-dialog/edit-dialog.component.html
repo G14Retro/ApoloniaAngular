@@ -1,6 +1,6 @@
-<div mat-dialog-title> Editar Disponibilidad</div>
+<div mat-dialog-title style="color: #888888; font-weight: 600;"> Editar Disponibilidad</div>
 <div mat-dialog-content>
-    
+
     <form [formGroup]="dispoGroup">
         <mat-form-field class="p-2">
             <mat-label>Especialista</mat-label>
@@ -53,7 +53,7 @@
               </mat-option>
               </mat-select>
         </mat-form-field>
-      
+
       <mat-form-field class="p-2">
           <mat-label>Consultorios</mat-label>
           <mat-select formControlName="consultorio" required>
@@ -77,6 +77,7 @@
     </form>
 </div>
 <div mat-dialog-actions>
-    <button mat-button class="btn-cancelar" (click)="cerrar()">Cancelar</button>
-    <button mat-button class="btn-primary"(click)="guardar()">Guardar</button>
+  <button mat-button class="btn btn-primary mr-2" (click)="guardar()">Guardar</button>
+  <button mat-button class="btn btn-secondary" (click)="cerrar()">Cancelar</button>
+
 </div>

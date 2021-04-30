@@ -47,8 +47,8 @@ body .contenedor{
   /**border:  solid #33C8FA !important;*/
   box-shadow: 5px 10px 10px 0#88888859;
   /**margin-right: 300px;*/
-  /**margin-top: -30px;*/
-  border-radius: 19px;
+  margin-top: -30px;
+  border-radius: 16px;
 }
 /********* AQUI TERMINA EL CODIGO DEL LOGIN *********/
 
@@ -114,7 +114,7 @@ body .contenedor{
   color: #444444 !important;
   border: 1px solid #33C8FA !important;
   background: rgba(255, 255, 255, 0.08);
-  border-radius: 40px;
+  border-radius: 16px;
   padding-left: 20px;
   padding-right: 20px;
   -webkit-transition: 0.3s;
@@ -128,7 +128,7 @@ body .contenedor{
   cursor: pointer;
   background-color: #1686FA;
   color: #ffffff;
-  border-radius: 19px;
+  border-radius:13px;
   border: none;
   font-size: 20px;
   font-weight: 900;
@@ -142,7 +142,7 @@ body .contenedor{
 .olvido-contraseña{
   color: #002E54;
   text-decoration: none;
-  margin-top:-10px; 
+  margin-top:-10px;
   margin-left: 100px;
 }
 
@@ -153,7 +153,7 @@ body .contenedor{
   font-size: 12px;
   font-weight:400;
   display: flex;
-  
+
 }
 
 /********* ESTILO CREAR CUENTA *********/
@@ -170,7 +170,7 @@ body .contenedor{
   font-size: 19px;
   font-weight: 600;
   display: block;
-  
+
 }
 
 .w-50 {
@@ -304,7 +304,7 @@ fa-eye:before {
   }
 
   .olvido-contraseña{
-    margin-top:-10px; 
+    margin-top:-10px;
     margin-left: 30px;
   }
 }

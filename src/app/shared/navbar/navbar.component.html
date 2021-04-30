@@ -3,14 +3,15 @@
         <ul class="nav metismenu" id="side-menu">
             <li class="nav-header">
                 <div class="dropdown profile-element">
-                    <img alt="image" class="rounded-circle" src="/assets/img/small-profile.jpg">
-                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                    <img alt="image" height="45" style="margin:-25px 0 0 -10px;  padding-bottom: 5px;"
+                    src="/assets/img/small-profile2.png" [routerLink]="['/home']">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#" >
                         <span class="block m-t-xs font-bold">{{nombre | titlecase}}</span>
                         <span class="text-muted text-xs block">{{rol | titlecase}} </span>
                     </a>
                 </div>
                 <div class="logo-element">
-                <img src="../../../favicon.ico" width="50" height="50" alt="image" class="rounded-circle">
+                <img src="../../../favicon.ico" width="50" height="45" alt="image" class="rounded-circle">
                 </div>
             </li>
             <li routerLinkActive='active'>
