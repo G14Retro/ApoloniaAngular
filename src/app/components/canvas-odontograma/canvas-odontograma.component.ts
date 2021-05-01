@@ -13,8 +13,8 @@ export class CanvasOdontogramaComponent implements OnInit,AfterViewInit {
   @ViewChild('odontograma') odonto:ElementRef<HTMLCanvasElement>;
   @HostListener('document:click',['$event']) 
   mouseClick = (e:any)=>{
-    if (e.target.id=== 'odontograma') {
-      console.log(e);
+    if (e.target.parentNode.nodeName === 'svg') {
+      this.changeColor(e.toElement);
     }
   }
   public context:CanvasRenderingContext2D;
@@ -23,12 +23,11 @@ export class CanvasOdontogramaComponent implements OnInit,AfterViewInit {
   }
 
   ngOnInit(): void {
-    
+
   }
   
   ngAfterViewInit():void{
-    this.context = this.odonto.nativeElement.getContext('2d');
-    console.log(this.context);
+    
   }
 
   changeColor(lado:SVGElement) {
@@ -46,11 +45,11 @@ export class CanvasOdontogramaComponent implements OnInit,AfterViewInit {
 
   guardarOdonto(){
 
-    console.log(this.nativo);
-    localStorage.setItem('html',this.nativo)
+    console.log(this.odonto);
+    localStorage.setItem('html',this.odonto.nativeElement.innerHTML)
   }
   cargarOdonto(){
-    
+    this.odonto.nativeElement.innerHTML = localStorage.getItem('html');
   }
 
 }

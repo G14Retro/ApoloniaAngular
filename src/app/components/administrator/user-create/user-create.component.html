@@ -34,9 +34,10 @@
         </mat-form-field>
         <mat-form-field class="p-2">
             <mat-label>Ciudad</mat-label>
-            <mat-select formControlName="ciudad" required>
-                <mat-option *ngFor="let ciudad of ciudades" [value]="ciudad">
-                    <input type="text" matInput formControlName="ciudad" required> {{ciudad.ciudad}}
+                <mat-select formControlName="ciudad" required>
+                    <mat-option>-----</mat-option>
+                    <mat-option *ngFor="let ciudad of ciudades" [value]="ciudad">
+                        {{ciudad.ciudad}}
                 </mat-option>
             </mat-select>
             <mat-error *ngIf="userForm.get('ciudad').hasError('required')">Por favor seleccione una opción</mat-error>
@@ -96,7 +97,7 @@
 
     </form>
     <button type="submit" class="btn btn-primary mr-3" (click)="crearUsuario()">Guardar</button>
-    <button [routerLink]="['admin/usuarios']" class="btn btn-secondary mr-3">Regresar</button>
+    <button [routerLink]="['/admin/usuarios']" class="btn btn-secondary mr-3">Regresar</button>
 
 </div>
 
