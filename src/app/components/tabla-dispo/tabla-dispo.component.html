@@ -1,6 +1,7 @@
 <div class="row p-4">
-  <button class="btn btn-primary" (click)="Adddialog()">
-    <i class="fas fa-calendar-plus"></i> Crear Disponibilidad</button>
+  <button class="btn btn-primary" style="font-weight: 600;"(click)="Adddialog()">
+    <i class="fas fa-calendar-plus"></i>&nbsp;Crear Disponibilidad
+  </button>
 </div>
 
 <div class="mat-elevation-z8 animated fadeInDown">
@@ -8,7 +9,7 @@
   <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Buscador">
 </mat-form-field>
 
-<table mat-table [dataSource]="dataSource" style="align-content: center;">
+<table mat-table [dataSource]="dataSource" >
   <!-- Position Column -->
   <ng-container matColumnDef="medico">
     <th mat-header-cell *matHeaderCellDef> Especialista</th>
