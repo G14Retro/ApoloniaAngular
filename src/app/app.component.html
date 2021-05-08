@@ -1,10 +1,9 @@
 <body>
     <router-outlet *ngIf="activo"></router-outlet>
-    <div id="wrapper" *ngIf="!activo" class="animated fadeInDown">    
+    <div id="wrapper" *ngIf="!activo" class="animated fadeInDown">
     <app-navbar></app-navbar>
     <div id="page-wrapper" class="gray-bg dashbard-1">
             <app-header></app-header>
-            
         <div class="border-bottom white-bg dashboard-header">
             <breadcrumb #parent>
                 <ol class="breadcrumb">
@@ -20,6 +19,6 @@
             </breadcrumb>
             <router-outlet></router-outlet>
         </div>
-    </div>         
+    </div>
 </div>
 </body>

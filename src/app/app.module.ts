@@ -55,6 +55,7 @@ import { NgxMatDatetimePickerModule, NgxMatNativeDateModule, NgxMatTimepickerMod
 
 //Provaiders
 import localeEsCO from "@angular/common/locales/es-CO";
+import { DashboardPipe } from './pages/dashboard.pipe';
 registerLocaleData(localeEsCO,'es-CO')
 
 @NgModule({
@@ -84,7 +85,7 @@ registerLocaleData(localeEsCO,'es-CO')
     AddDialogComponent,
     UserCreateComponent,
     UserUpdateComponent,
-    AddDialogComponent, DetalleHistorialComponent
+    AddDialogComponent, DetalleHistorialComponent, DashboardPipe
   ],
   imports: [
     BrowserModule,

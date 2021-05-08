@@ -1,6 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+//import { create } from 'node:domain';
 import { environment } from 'src/environments/environment';
+import { createDispoModel } from '../models/createDispo.model';
+import { dispoModel } from '../models/dispo.model';
 import { AuthService } from './auth.service';
 
 
@@ -18,7 +21,7 @@ export class RecepcionistaService {
       'Authorization': 'Bearer '+ this.auth.usuario.token
     });
     return this.http.get(environment.apiEndpoint+'verDispo',{headers});
-    
+
   }
 
   public listarMedicos(){
@@ -57,12 +60,15 @@ export class RecepcionistaService {
     return this.http.get(environment.apiEndpoint+'verDisponibilidades',{headers});
   }
 
-  public crearDisponibilidad(data:any){
+  crearDisponibilidad(create:createDispoModel){
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'X-Requested-With': 'XMLHttpRequest',
       'Authorization': 'Bearer '+ this.auth.usuario.token
-      })
+      });
+      const data = {
+        ...create
+      };
       return this.http.post(environment.apiEndpoint+'createDispo',data,{headers});
   }
 

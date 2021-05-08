@@ -1,12 +1,16 @@
-<div class="row p-4">
-  <button class="btn btn-primary" style="font-weight: 600;"(click)="Adddialog()">
-    <i class="fas fa-calendar-plus"></i>&nbsp;Crear Disponibilidad
+<div class="row p-3">
+  <h2>
+    <small class="text-muted">&nbsp;Disponibilidad</small>
+  </h2>
+  <button class="btn btn-primary" style="font-weight: 600; margin-left:81%;"(click)="Adddialog()">
+    <i class="fas fa-calendar-plus"></i>&nbsp;Crear Disponibilida
   </button>
 </div>
 
 <div class="mat-elevation-z8 animated fadeInDown">
-<mat-form-field class="p-3">
-  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Buscador">
+<mat-form-field class="p-3" style="font-weight: 600; margin-left:81%; font-size:13px;">
+  <input matInput (keyup)="applyFilter($event.target.value)"
+  placeholder="Buscador">
 </mat-form-field>
 
 <table mat-table [dataSource]="dataSource" >

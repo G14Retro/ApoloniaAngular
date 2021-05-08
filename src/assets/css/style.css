@@ -876,7 +876,7 @@ h5 {
 }
 .navbar-default .nav > li > a:hover,
 .navbar-default .nav > li > a:focus {
-  background-color: #293846;
+  background-color: #33C8FA;
   color: white;
 }
 .nav .open > a,
@@ -1019,11 +1019,11 @@ h5 {
   transition: all 0.4s;
 }
 ul.nav-second-level {
-  background: #293846;
+  background: #33C8FA;
 }
 .nav > li.active {
   border-left: 4px solid #33C8FA;
-  background: #293846;
+  background: #fff;
 }
 .nav.nav-second-level > li.active {
   border: none;
@@ -1536,7 +1536,7 @@ button:focus {
   min-width: 120px;
 }
 .btn-primary.btn-outline {
-  color: #1ab394;
+  color: #33C8FA;
 }
 .btn-success.btn-outline {
   color: #1c84c6;
@@ -1579,15 +1579,15 @@ button:focus {
 .btn-primary.disabled,
 .btn-primary:disabled {
   color: #fff;
-  background-color: #18a689;
-  border-color: #18a689;
+  background-color: #33C8FA;
+  border-color: #33C8FA;
 }
 .btn-primary:not(:disabled):not(.disabled):active,
 .btn-primary:not(:disabled):not(.disabled).active,
 .show > .btn-primary.dropdown-toggle {
   color: #fff;
-  background-color: #18a689;
-  border-color: #18a689;
+  background-color: #33C8FA;
+  border-color: #33C8FA;
 }
 .btn-primary:not(:disabled):not(.disabled):active:focus,
 .btn-primary:not(:disabled):not(.disabled).active:focus,
@@ -4919,7 +4919,7 @@ code {
   background-color: #ffffff;
   color: inherit;
   align-items: flex-start;
-  
+
   border-color: #e7eaec;
   border-image: none;
   border-style: solid solid none;

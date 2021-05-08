@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import * as moment from 'moment';
+
 import { userModel } from 'src/app/models/user.model';
 import { AuthService } from 'src/app/services/auth.service';
-import Swal from 'sweetalert2';
 import { FormGroup,FormBuilder,Validators } from "@angular/forms";
 import ciudadesJSON from '../../shared/city/cities.json';
 import {CITIES} from '../../shared/city/cities.interface';
+
+import * as moment from 'moment';
+import Swal from 'sweetalert2';
 
 interface tipoDocumento {
   nombre: string;
@@ -46,7 +48,7 @@ export class RegisterComponent implements OnInit {
     {nombre:'Femenino',valor:'femenino'},
   ];
   startDate = new Date(1990, 0, 1);
-  constructor(private auth:AuthService, private route:Router, private fb:FormBuilder) { 
+  constructor(private auth:AuthService, private route:Router, private fb:FormBuilder) {
     this.ciudades = CITIES;
     const currentYear = new Date().getFullYear();
     this.minDate = new Date(currentYear-31,0,1)
@@ -96,7 +98,7 @@ export class RegisterComponent implements OnInit {
       password_confirmation:['',[Validators.required,Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&+-_])[A-Za-z\d$@$!%*?&+-_].{8,}')]],
     });
   }
-  patienSave(){  
+  patienSave(){
     this.user.tipo_documento = this.personalFormGroup.value.tipo_documento.abreviacion;
     this.user.numero_documento = this.personalFormGroup.value.documento;
     this.user.nombre = this.personalFormGroup.value.nombre;
@@ -108,7 +110,7 @@ export class RegisterComponent implements OnInit {
     this.user.telefono = this.contactFormGroup.value.telefono;
     this.user.correo = this.loginFormGroup.value.correo;
     this.user.password = this.loginFormGroup.value.password;
-    this.user.password_confirmation = this.loginFormGroup.value.password_confirmation; 
+    this.user.password_confirmation = this.loginFormGroup.value.password_confirmation;
     if (this.loginFormGroup.invalid) {
       return
     }
@@ -123,7 +125,7 @@ export class RegisterComponent implements OnInit {
       Swal.close();
       Swal.fire ('Guardado', '', 'success');
       this.route.navigateByUrl('/login');
-    }, 
+    },
     (err)=>{
       console.log(err);
       if (err.error.errors.numero_documento == null) {

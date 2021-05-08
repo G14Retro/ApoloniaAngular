@@ -16,7 +16,7 @@ import { UsuarioComponent } from "src/app/pages/usuario/usuario.component";
 import { CalendarComponent } from "src/app/components/calendar/calendar.component";
 
 import { RecepcionGuard } from "src/app/guards/recepcion.guard";
-import {AdministratorComponent} from "src/app/components/administrator/administrator.component";
+import { AdministratorComponent } from "src/app/components/administrator/administrator.component";
 import { DisponibilidadComponent } from "src/app/pages/disponibilidad/disponibilidad.component";
 import { UserCreateComponent } from "src/app/components/administrator/user-create/user-create.component";
 import { UserUpdateComponent } from "src/app/components/administrator/user-update/user-update.component";

@@ -1,10 +1,16 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { now } from 'moment';
-import { RecepcionistaService } from 'src/app/services/recepcionista.service';
-import * as moment from 'moment';
 import { ThemePalette } from '@angular/material/core';
+import { Router } from '@angular/router';
+
+
+import { RecepcionistaService } from 'src/app/services/recepcionista.service';
+import { now } from 'moment';
+import * as moment from 'moment';
+
+import Swal from 'sweetalert2';
+
 
 
 @Component({
@@ -35,8 +41,8 @@ export class EditDialogComponent implements OnInit {
   startDate = new Date(now());
   public dateControlMinMax = new FormControl(new Date());
   constructor(private fb:FormBuilder,public dialogRef:MatDialogRef<EditDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data:any, private recepcionista:RecepcionistaService) { 
-    
+    @Inject(MAT_DIALOG_DATA) public data:any, private recepcionista:RecepcionistaService) {
+
       const currentYear = new Date().getFullYear();
       this.minDate = new Date(now())
       this.maxDate = new Date(currentYear+1,11,31)
@@ -59,9 +65,11 @@ export class EditDialogComponent implements OnInit {
   guardar(){
     this.dispoGroup.value.horaInicio = moment(this.dispoGroup.value.horaInicio).format("YYYY-MM-DD,hh:mm:ss");
     this.dispoGroup.value.horaFinal = moment(this.dispoGroup.value.horaFinal).format("YYYY-MM-DD,hh:mm:ss");
-    this.dialogRef.close( 
+    this.dialogRef.close(
       this.recepcionista.editDispo(this.data.id,this.dispoGroup.value).subscribe((resp:any)=>{
-        console.log(resp);
+      Swal.fire();
+        Swal.close();
+        Swal.fire ('Disponibilidad', 'Actualizada Correctamente', 'success');
       })
     )
   }
