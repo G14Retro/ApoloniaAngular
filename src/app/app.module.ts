@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { registerLocaleData, TitleCasePipe } from '@angular/common';
+import {MatTableExporterModule} from 'mat-table-exporter';
+
 
 //Componentes
 import { AppComponent } from './app.component';
@@ -110,6 +112,8 @@ registerLocaleData(localeEsCO,'es-CO')
     NgxMatDatetimePickerModule,
     NgxMatTimepickerModule,
     NgxMatNativeDateModule,
+    MatTableExporterModule
+    
   ],
 
   providers: [

@@ -1,11 +1,14 @@
 <app-loading *ngIf="loading"></app-loading>
-<button [routerLink]="['/admin/crear']" class="btn btn-primary" style="margin-bottom: 16px;" ><i class="fas fa-user"></i> Crear Usuario</button>
+<button [routerLink]="['/admin/crear']" class="btn btn-primary" style="margin-bottom: 16px;"><i class="fas fa-user"></i> Crear Usuario</button>
+<button class="btn btn-outline-info" style="margin-bottom: 16px;"   (click)="exporter.exportTable('csv')"><i class="fas fa-user"></i> Exportar a CSV</button>
+
+
 
 <div class="mat-elevation-z8 animated fadeInDown">
-  <mat-form-field class="p-3">
-    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Buscador">
-  </mat-form-field>
-    <table mat-table [dataSource]="dataSource"  class="table table-bordered table-responsive">
+    <mat-form-field class="p-3">
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Buscador">
+    </mat-form-field>
+    <table mat-table [dataSource]="dataSource" class="table table-bordered table-responsive" matTableExporter  #exporter="matTableExporter">
 
         <ng-container matColumnDef="tipo_documento">
             <th mat-header-cell *matHeaderCellDef> Tipo de documento </th>
