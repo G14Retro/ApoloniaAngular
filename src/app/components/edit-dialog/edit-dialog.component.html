@@ -10,6 +10,9 @@
                     {{medico.nombre+" "+medico.apellido | titlecase}}
                 </mat-option>
                 </mat-select>
+                <mat-error *ngIf="dispoGroup.get('id_persona').hasError('required')">
+                  Por favor seleccione un
+                </mat-error>
         </mat-form-field>
 
         <mat-form-field class="p-2">
@@ -26,6 +29,9 @@
               <span>OK</span>
             </ng-template>
           </ngx-mat-datetime-picker>
+          <mat-error *ngIf="dispoGroup.get('horaInicio').hasError('required')">
+            Por favor revise la hora de inicio
+          </mat-error>
         </mat-form-field>
 
         <mat-form-field class="p-2">
@@ -42,6 +48,9 @@
               <span>OK</span>
             </ng-template>
           </ngx-mat-datetime-picker>
+          <mat-error *ngIf="dispoGroup.get('horaFinal').hasError('required')">
+            Por favor revise la hora de final
+          </mat-error>
         </mat-form-field>
 
         <mat-form-field class="p-2">
@@ -52,6 +61,9 @@
                   {{consulta.nombre_consulta | titlecase}}
               </mat-option>
               </mat-select>
+              <mat-error *ngIf="dispoGroup.get('tipo_consulta').hasError('required')">
+                Por favor seleccione una consulta
+              </mat-error>
         </mat-form-field>
 
       <mat-form-field class="p-2">
@@ -62,6 +74,9 @@
                   {{consultorio.nombre_consultorio | titlecase}}
               </mat-option>
               </mat-select>
+              <mat-error *ngIf="dispoGroup.get('consultorio').hasError('required')">
+                Por favor seleccione un consultorio
+              </mat-error>
       </mat-form-field>
 
       <mat-form-field class="p-2">
@@ -72,12 +87,14 @@
                 {{disponibilidad.nombreEstado | titlecase}}
             </mat-option>
             </mat-select>
+            <mat-error *ngIf="dispoGroup.get('estado').hasError('required')">
+              Por favor seleccione un estado
+          </mat-error>
       </mat-form-field>
-
     </form>
+
 </div>
 <div mat-dialog-actions>
-  <button mat-button class="btn btn-primary mr-2" (click)="guardar()">Guardar</button>
   <button mat-button class="btn btn-secondary" (click)="cerrar()">Cancelar</button>
-
+  <button [disabled]="!dispoGroup.valid" mat-button class="btn btn-primary mr-2" (click)="guardar()">Guardar</button>
 </div>

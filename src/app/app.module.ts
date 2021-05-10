@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { registerLocaleData, TitleCasePipe } from '@angular/common';
+import {MatTableExporterModule} from 'mat-table-exporter';
+
 
 //Componentes
 import { AppComponent } from './app.component';
@@ -30,6 +32,9 @@ import { AddDialogComponent } from './components/add-dialog/add-dialog.component
 import { DetalleHistorialComponent } from './pages/historial/detalle-historial/detalle-historial.component';
 import { TablaPacientesComponent } from './components/tabla-pacientes/tabla-pacientes.component';
 import { PacientesComponent } from './pages/pacientes/pacientes.component';
+import { DetallePacienteComponent } from './pages/pacientes/detalle-paciente/detalle-paciente.component';
+import { TablaOdontogramaComponent } from './components/tabla-odontograma/tabla-odontograma.component';
+import { DiagnosticoComponent } from './pages/diagnostico/diagnostico.component';
 
 
 // Modulos
@@ -58,9 +63,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 //Provaiders
 import localeEsCO from "@angular/common/locales/es-CO";
-import { DetallePacienteComponent } from './pages/pacientes/detalle-paciente/detalle-paciente.component';
-import { TablaOdontogramaComponent } from './components/tabla-odontograma/tabla-odontograma.component';
-import { DiagnosticoComponent } from './pages/diagnostico/diagnostico.component';
+import { DashboardPipe } from './pages/dashboard.pipe';
 registerLocaleData(localeEsCO,'es-CO')
 
 @NgModule({
@@ -93,7 +96,12 @@ registerLocaleData(localeEsCO,'es-CO')
     AddDialogComponent, 
     DetalleHistorialComponent, 
     TablaPacientesComponent, 
-    PacientesComponent, DetallePacienteComponent, TablaOdontogramaComponent, DiagnosticoComponent,
+    PacientesComponent, 
+    DetallePacienteComponent, 
+    TablaOdontogramaComponent, 
+    DiagnosticoComponent,
+    DetalleHistorialComponent, 
+    DashboardPipe
 
   ],
   imports: [
@@ -119,8 +127,13 @@ registerLocaleData(localeEsCO,'es-CO')
     NgxMatDatetimePickerModule,
     NgxMatTimepickerModule,
     NgxMatNativeDateModule,
+<<<<<<< HEAD
     MatButtonToggleModule,
 
+=======
+    MatTableExporterModule
+    
+>>>>>>> cdda81e84dec4c0bc7d4ab0d3bdc91b07f5ab68d
   ],
 
   providers: [
