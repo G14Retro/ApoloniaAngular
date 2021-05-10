@@ -10,8 +10,6 @@ import { LoginGuard } from 'src/app/guards/login.guard';
 import { AntecedenteComponent } from "src/app/pages/antecedente/antecedente.component";
 import { CitasMedicoComponent } from "src/app/pages/citas-medico/citas-medico.component";
 import { HistorialComponent } from "src/app/pages/historial/historial.component";
-import { OdontogramaComponent } from "src/app/pages/odontograma/odontograma.component";
-import { UsuarioComponent } from "src/app/pages/usuario/usuario.component";
 
 import { CalendarComponent } from "src/app/components/calendar/calendar.component";
 
@@ -21,6 +19,10 @@ import { DisponibilidadComponent } from "src/app/pages/disponibilidad/disponibil
 import { UserCreateComponent } from "src/app/components/administrator/user-create/user-create.component";
 import { UserUpdateComponent } from "src/app/components/administrator/user-update/user-update.component";
 import { DetalleHistorialComponent } from "src/app/pages/historial/detalle-historial/detalle-historial.component";
+import { PacientesComponent } from "src/app/pages/pacientes/pacientes.component";
+import { CanvasOdontogramaComponent } from "src/app/components/canvas-odontograma/canvas-odontograma.component";
+import { DetallePacienteComponent } from "src/app/pages/pacientes/detalle-paciente/detalle-paciente.component";
+import { DiagnosticoComponent } from "src/app/pages/diagnostico/diagnostico.component";
 
 export const ROUTES:Routes = [
     {path:'home',component: HomeComponent,canActivate:[AccessGuard],data:{breadcrumb: 'Home'}},
@@ -36,10 +38,14 @@ export const ROUTES:Routes = [
 
     {path: 'doctor',children:[
         {path: 'agenda', component:CitasMedicoComponent,canActivate:[AccessGuard,DoctorGuard],data:{breadcrumb: 'Agenda'}},
+        {path: 'pacientes',children:[
+            {path: '', component:PacientesComponent,canActivate:[AccessGuard,DoctorGuard],data:{breadcrumb: 'Pacientes'}},
+            {path: 'odontograma/:id', component:CanvasOdontogramaComponent,canActivate:[AccessGuard,DoctorGuard],data:{breadcrumb: 'Odontograma'}},
+            {path: 'detalle-paciente/:id', component:DetallePacienteComponent,canActivate:[AccessGuard,DoctorGuard],data:{breadcrumb: 'Detalle'}},
+            {path: 'diagnostico/:id', component:DiagnosticoComponent,canActivate:[AccessGuard,DoctorGuard],data:{breadcrumb: 'Detalle'}},
+        ]},
         {path: 'antecedente/:id', component:AntecedenteComponent,canActivate:[AccessGuard,DoctorGuard],data:{breadcrumb: 'Antecedente'}},
     ]},
-    {path: 'doctor/odontograma', component:OdontogramaComponent,canActivate:[AccessGuard,DoctorGuard],data:{breadcrumb: 'Odontograma'}},
-    {path: 'doctor/odontograma/:id', component:OdontogramaComponent,canActivate:[AccessGuard,DoctorGuard],data:{breadcrumb: 'Odontograma'}},
     {path: 'calendar', component:CalendarComponent,canActivate:[AccessGuard,RecepcionGuard],data:{breadcrumb: 'Calendario'}},
     {path: 'dispo', component:DisponibilidadComponent ,canActivate:[AccessGuard,RecepcionGuard],data:{breadcrumb: ' Disponibilidad'}},
 

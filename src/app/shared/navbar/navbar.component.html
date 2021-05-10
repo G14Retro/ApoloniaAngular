@@ -41,9 +41,8 @@
             <li routerLinkActive='active' *ngIf="doctoropc">
                 <a class="nav-link" [routerLink]="['/doctor/agenda']"><i class="fas fa-calendar-alt"></i> <span class="nav-label"> Citas Asignadas</span></a>
             </li>
-
             <li routerLinkActive='active' *ngIf="doctoropc">
-                <a class="nav-link" [routerLink]="['/doctor/odontograma']"><i class="fa fa-tooth"></i> <span class="nav-label"> Odontograma</span></a>
+                <a class="nav-link" [routerLink]="['/doctor/pacientes']"><i class="fas fa-hospital-user"></i><span class="nav-label"> Pacientes</span></a>
             </li>
             <li routerLinkActive='active' *ngIf="paciente">
                 <a class="nav-link" [routerLink]="['/historial']"><i class="fa fa-book"></i> <span class="nav-label"> Historial clinico</span></a>

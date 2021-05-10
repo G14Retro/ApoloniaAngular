@@ -1736,21 +1736,21 @@ fieldset[disabled] .btn-default.active {
 .btn-danger:focus,
 .btn-danger.focus {
   color: #fff;
-  background-color: rgba(160, 160, 160, 0.386);
-  border-color: rgba(160, 160, 160, 0.386);
+  background-color: #ec4758;
+  border-color: #ec4758;
 }
 .btn-danger.disabled,
 .btn-danger:disabled {
   color: #fff;
-  background-color: rgba(160, 160, 160, 0.386);
-  border-color: rgba(160, 160, 160, 0.386);
+  background-color: #ec4758;
+  border-color: #ec4758;
 }
 .btn-danger:not(:disabled):not(.disabled):active,
 .btn-danger:not(:disabled):not(.disabled).active,
 .show > .btn-danger.dropdown-toggle {
   color: #fff;
-  background-color: rgba(160, 160, 160, 0.386);
-  border-color: rgba(160, 160, 160, 0.386);
+  background-color: #ec4758;
+  border-color: #ec4758;
 }
 .btn-danger:not(:disabled):not(.disabled):active:focus,
 .btn-danger:not(:disabled):not(.disabled).active:focus,

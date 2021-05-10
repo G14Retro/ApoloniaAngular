@@ -28,6 +28,8 @@ import { UserCreateComponent } from './components/administrator/user-create/user
 import { UserUpdateComponent } from './components/administrator/user-update/user-update.component';
 import { AddDialogComponent } from './components/add-dialog/add-dialog.component';
 import { DetalleHistorialComponent } from './pages/historial/detalle-historial/detalle-historial.component';
+import { TablaPacientesComponent } from './components/tabla-pacientes/tabla-pacientes.component';
+import { PacientesComponent } from './pages/pacientes/pacientes.component';
 
 
 // Modulos
@@ -52,9 +54,13 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { CopyPasteDirective } from './directives/copy-paste.directive';
 import { ScheduleModule,RecurrenceEditorModule } from "@syncfusion/ej2-angular-schedule";
 import { NgxMatDatetimePickerModule, NgxMatNativeDateModule, NgxMatTimepickerModule  } from "@angular-material-components/datetime-picker";
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 //Provaiders
 import localeEsCO from "@angular/common/locales/es-CO";
+import { DetallePacienteComponent } from './pages/pacientes/detalle-paciente/detalle-paciente.component';
+import { TablaOdontogramaComponent } from './components/tabla-odontograma/tabla-odontograma.component';
+import { DiagnosticoComponent } from './pages/diagnostico/diagnostico.component';
 registerLocaleData(localeEsCO,'es-CO')
 
 @NgModule({
@@ -84,7 +90,11 @@ registerLocaleData(localeEsCO,'es-CO')
     AddDialogComponent,
     UserCreateComponent,
     UserUpdateComponent,
-    AddDialogComponent, DetalleHistorialComponent
+    AddDialogComponent, 
+    DetalleHistorialComponent, 
+    TablaPacientesComponent, 
+    PacientesComponent, DetallePacienteComponent, TablaOdontogramaComponent, DiagnosticoComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -109,6 +119,8 @@ registerLocaleData(localeEsCO,'es-CO')
     NgxMatDatetimePickerModule,
     NgxMatTimepickerModule,
     NgxMatNativeDateModule,
+    MatButtonToggleModule,
+
   ],
 
   providers: [
