@@ -60,10 +60,11 @@ import { CopyPasteDirective } from './directives/copy-paste.directive';
 import { ScheduleModule,RecurrenceEditorModule } from "@syncfusion/ej2-angular-schedule";
 import { NgxMatDatetimePickerModule, NgxMatNativeDateModule, NgxMatTimepickerModule  } from "@angular-material-components/datetime-picker";
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { NgxCrumbsModule } from "ngx-crumbs";
 
 //Provaiders
 import localeEsCO from "@angular/common/locales/es-CO";
-import { DashboardPipe } from './pages/dashboard.pipe';
+
 registerLocaleData(localeEsCO,'es-CO')
 
 @NgModule({
@@ -100,9 +101,7 @@ registerLocaleData(localeEsCO,'es-CO')
     DetallePacienteComponent, 
     TablaOdontogramaComponent, 
     DiagnosticoComponent,
-    DetalleHistorialComponent, 
-    DashboardPipe
-
+    DetalleHistorialComponent
   ],
   imports: [
     BrowserModule,
@@ -127,13 +126,9 @@ registerLocaleData(localeEsCO,'es-CO')
     NgxMatDatetimePickerModule,
     NgxMatTimepickerModule,
     NgxMatNativeDateModule,
-<<<<<<< HEAD
     MatButtonToggleModule,
-
-=======
-    MatTableExporterModule
-    
->>>>>>> cdda81e84dec4c0bc7d4ab0d3bdc91b07f5ab68d
+    MatTableExporterModule,
+    NgxCrumbsModule,
   ],
 
   providers: [

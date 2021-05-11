@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
@@ -10,7 +10,7 @@ import { DoctorService } from 'src/app/services/doctor.service';
   templateUrl: './tabla-odontograma.component.html',
   styleUrls: ['./tabla-odontograma.component.css']
 })
-export class TablaOdontogramaComponent implements OnInit {
+export class TablaOdontogramaComponent implements OnInit,AfterViewInit {
   loading:boolean = false;
   columns:string[]=['id','ficha','fecha_creacion','acciones'];
   dataSource = new MatTableDataSource();
@@ -20,6 +20,10 @@ export class TablaOdontogramaComponent implements OnInit {
 
   ngOnInit(): void {
     this.llenarTabla();
+  }
+
+  ngAfterViewInit(){
+    this.dataSource.paginator = this.paginator;
   }
 
   llenarTabla(){
