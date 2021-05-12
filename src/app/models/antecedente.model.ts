@@ -15,6 +15,6 @@ export class antecedenteModel {
         medicamentos:String,
         otros:String,
         paciente:String,
-        cita:String
+        cita?:String
     }
 }

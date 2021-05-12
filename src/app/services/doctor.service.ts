@@ -110,4 +110,24 @@ export class DoctorService {
     });
     return this.http.get(this.url+'obtenerOdonto/'+id,{headers});
   }
+
+  getAntecedenteId(id:String){
+    const  headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'X-Requested-With': 'XMLHttpRequest',
+      'Authorization': 'Bearer ' + this.auth.usuario.token
+    });
+    return this.http.get(this.url+'verAntecedenteID/'+id,{headers});
+  }
+  guardarAtecedenteId(datos:FormGroup){
+    const  headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'X-Requested-With': 'XMLHttpRequest',
+      'Authorization': 'Bearer ' + this.auth.usuario.token
+    });
+    const data = ({
+      ...datos.value
+    });
+    return this.http.post(this.url+'guardarAntecedenteId',data,{headers});
+  }
 }

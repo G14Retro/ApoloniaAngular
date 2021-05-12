@@ -35,6 +35,7 @@ import { PacientesComponent } from './pages/pacientes/pacientes.component';
 import { DetallePacienteComponent } from './pages/pacientes/detalle-paciente/detalle-paciente.component';
 import { TablaOdontogramaComponent } from './components/tabla-odontograma/tabla-odontograma.component';
 import { DiagnosticoComponent } from './pages/diagnostico/diagnostico.component';
+import { PacienteAntecedenteComponent } from './pages/pacientes/paciente-antecedente/paciente-antecedente.component';
 
 
 // Modulos
@@ -101,7 +102,8 @@ registerLocaleData(localeEsCO,'es-CO')
     DetallePacienteComponent, 
     TablaOdontogramaComponent, 
     DiagnosticoComponent,
-    DetalleHistorialComponent
+    DetalleHistorialComponent,
+    PacienteAntecedenteComponent
   ],
   imports: [
     BrowserModule,

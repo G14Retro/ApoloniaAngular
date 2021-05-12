@@ -7,16 +7,20 @@ import { AntecedenteComponent } from 'src/app/pages/antecedente/antecedente.comp
 import { CitasMedicoComponent } from 'src/app/pages/citas-medico/citas-medico.component';
 import { DiagnosticoComponent } from 'src/app/pages/diagnostico/diagnostico.component';
 import { DetallePacienteComponent } from 'src/app/pages/pacientes/detalle-paciente/detalle-paciente.component';
+import { PacienteAntecedenteComponent } from 'src/app/pages/pacientes/paciente-antecedente/paciente-antecedente.component';
 import { PacientesComponent } from 'src/app/pages/pacientes/pacientes.component';
 
 export const MEDICO_ROUTES: Routes = [
     {path:'',component: HomeComponent,canActivate:[AccessGuard]},
-    {path: 'agenda', component:CitasMedicoComponent,canActivate:[AccessGuard,DoctorGuard],data:{crumb: 'Agenda'}},
+    {path: 'agenda',data:{crumb: 'Agenda'},children:[
+        {path:'', component:CitasMedicoComponent,canActivate:[AccessGuard,DoctorGuard]},
+        {path: 'antecedente/:id', component:AntecedenteComponent,canActivate:[AccessGuard,DoctorGuard],data:{crumb: 'Antecedentes'}},
+    ]},
     {path: 'pacientes',data:{crumb: 'Pacientes'},children:[
         {path: '', component:PacientesComponent,canActivate:[AccessGuard,DoctorGuard]},
         {path: 'odontograma/:id', component:CanvasOdontogramaComponent,canActivate:[AccessGuard,DoctorGuard],data:{crumb: 'Odontograma'}},
         {path: 'detalle-paciente/:id', component:DetallePacienteComponent,canActivate:[AccessGuard,DoctorGuard],data:{crumb: 'Detalle'}},
         {path: 'diagnostico/:id', component:DiagnosticoComponent,canActivate:[AccessGuard,DoctorGuard],data:{crumb: 'Diagnostico'}},
+        {path: 'antecedente/:id', component:PacienteAntecedenteComponent,canActivate:[AccessGuard,DoctorGuard],data:{crumb: 'Antecedente'}},
     ]},
-    {path: 'antecedente/:id', component:AntecedenteComponent,canActivate:[AccessGuard,DoctorGuard],data:{crumb: 'Antecedente'}},
 ]
