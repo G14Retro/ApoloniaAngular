@@ -32,15 +32,15 @@
             </li>
 
             <li routerLinkActive='active' *ngIf="paciente">
-                <a class="nav-link" [routerLink]="['/citas']"><i class="fa fa-calendar"></i> <span class="nav-label"> Citas</span></a>
+                <a class="nav-link" [routerLink]="['/paciente/citas']"><i class="fa fa-calendar"></i> <span class="nav-label"> Citas</span></a>
             </li>
 
             <!--CÓDIGO JD-->
             <li routerLinkActive='active' *ngIf="recepcionistapc">
-                <a class="nav-link" [routerLink]="['/calendar']"><i class="fas fa-calendar-alt"></i> <span class="nav-label"> Calendario</span></a>
+                <a class="nav-link" [routerLink]="['/recepcion/calendar']"><i class="fas fa-calendar-alt"></i> <span class="nav-label"> Calendario</span></a>
             </li>
             <li routerLinkActive='active' *ngIf="recepcionistapc">
-                <a class="nav-link" [routerLink]="['/dispo']"><i class="fas fa-clock"></i> <span class="nav-label"> Disponibilidad</span></a>
+                <a class="nav-link" [routerLink]="['/recepcion/dispo']"><i class="fas fa-clock"></i> <span class="nav-label"> Disponibilidad</span></a>
             </li>
             <!-- END CÓDIGO JD-->
 
@@ -51,7 +51,7 @@
                 <a class="nav-link" [routerLink]="['/doctor/pacientes']"><i class="fas fa-hospital-user"></i><span class="nav-label"> Pacientes</span></a>
             </li>
             <li routerLinkActive='active' *ngIf="paciente">
-                <a class="nav-link" [routerLink]="['/historial']"><i class="fa fa-book"></i> <span class="nav-label"> Historial clinico</span></a>
+                <a class="nav-link" [routerLink]="['/paciente/historial']"><i class="fa fa-book"></i> <span class="nav-label"> Historial clinico</span></a>
             </li>
             <li routerLinkActive='active'>
                 <a (click)="logout()" href="#"><i class="fa fa-power-off"></i> <span class="nav-label"> Cerrar Sesión</span></a>

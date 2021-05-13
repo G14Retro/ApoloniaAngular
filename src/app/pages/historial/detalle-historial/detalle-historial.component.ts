@@ -71,7 +71,7 @@ export class DetalleHistorialComponent implements OnInit {
         this.citas.cancelarCita(this.id_cita).subscribe((resp:any)=>{
           Swal.close();
           Swal.fire ('Guardado', resp.message, 'success');
-          this.router.navigateByUrl('/historial');
+          this.router.navigateByUrl('/paciente/historial');
         },err=>{
           Swal.fire({
             icon: 'error',

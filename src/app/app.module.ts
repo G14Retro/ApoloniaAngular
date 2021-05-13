@@ -36,6 +36,7 @@ import { PacientesComponent } from './pages/pacientes/pacientes.component';
 import { DetallePacienteComponent } from './pages/pacientes/detalle-paciente/detalle-paciente.component';
 import { TablaOdontogramaComponent } from './components/tabla-odontograma/tabla-odontograma.component';
 import { DiagnosticoComponent } from './pages/diagnostico/diagnostico.component';
+import { PacienteAntecedenteComponent } from './pages/pacientes/paciente-antecedente/paciente-antecedente.component';
 
 
 // Modulos
@@ -61,14 +62,19 @@ import { CopyPasteDirective } from './directives/copy-paste.directive';
 import { ScheduleModule,RecurrenceEditorModule } from "@syncfusion/ej2-angular-schedule";
 import { NgxMatDatetimePickerModule, NgxMatNativeDateModule, NgxMatTimepickerModule  } from "@angular-material-components/datetime-picker";
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { NgxCrumbsModule } from "ngx-crumbs";
 
 //Provaiders
 import localeEsCO from "@angular/common/locales/es-CO";
+<<<<<<< HEAD
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { LayoutModule } from '@angular/cdk/layout';
+=======
+
+>>>>>>> 75e0399ae551f52db810f84da9c82ef819f5769d
 registerLocaleData(localeEsCO,'es-CO')
 
 @NgModule({
@@ -106,7 +112,11 @@ registerLocaleData(localeEsCO,'es-CO')
     TablaOdontogramaComponent,
     DiagnosticoComponent,
     DetalleHistorialComponent,
+<<<<<<< HEAD
     DashboardComponent
+=======
+    PacienteAntecedenteComponent
+>>>>>>> 75e0399ae551f52db810f84da9c82ef819f5769d
   ],
   imports: [
     BrowserModule,
@@ -133,11 +143,15 @@ registerLocaleData(localeEsCO,'es-CO')
     NgxMatNativeDateModule,
     MatButtonToggleModule,
     MatTableExporterModule,
+<<<<<<< HEAD
     MatGridListModule,
     MatCardModule,
     MatMenuModule,
     MatIconModule,
     LayoutModule
+=======
+    NgxCrumbsModule,
+>>>>>>> 75e0399ae551f52db810f84da9c82ef819f5769d
   ],
 
   providers: [

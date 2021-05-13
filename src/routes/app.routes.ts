@@ -1,31 +1,17 @@
 import { Routes } from "@angular/router";
-import { CitasComponent } from 'src/app/components/citas/citas.component';
 import { HomeComponent } from 'src/app/components/home/home.component';
 import { DashboardComponent } from 'src/app/components/dashboard/dashboard.component';
 import { LoginComponent } from 'src/app/components/login/login.component';
 import { RegisterComponent } from 'src/app/components/register/register.component';
 import { AccessGuard } from 'src/app/guards/access.guard';
-import { AdminGuard } from "src/app/guards/admin.guard";
-import { DoctorGuard } from "src/app/guards/doctor.guard";
 import { LoginGuard } from 'src/app/guards/login.guard';
-import { AntecedenteComponent } from "src/app/pages/antecedente/antecedente.component";
-import { CitasMedicoComponent } from "src/app/pages/citas-medico/citas-medico.component";
-import { HistorialComponent } from "src/app/pages/historial/historial.component";
-
-import { CalendarComponent } from "src/app/components/calendar/calendar.component";
-
-import { RecepcionGuard } from "src/app/guards/recepcion.guard";
-import { AdministratorComponent } from "src/app/components/administrator/administrator.component";
-import { DisponibilidadComponent } from "src/app/pages/disponibilidad/disponibilidad.component";
-import { UserCreateComponent } from "src/app/components/administrator/user-create/user-create.component";
-import { UserUpdateComponent } from "src/app/components/administrator/user-update/user-update.component";
-import { DetalleHistorialComponent } from "src/app/pages/historial/detalle-historial/detalle-historial.component";
-import { PacientesComponent } from "src/app/pages/pacientes/pacientes.component";
-import { CanvasOdontogramaComponent } from "src/app/components/canvas-odontograma/canvas-odontograma.component";
-import { DetallePacienteComponent } from "src/app/pages/pacientes/detalle-paciente/detalle-paciente.component";
-import { DiagnosticoComponent } from "src/app/pages/diagnostico/diagnostico.component";
+import { MEDICO_ROUTES } from "./medico.routes";
+import { PACIENTE_ROUTES } from "./paciente.routes";
+import { ADMIN_ROUTES } from "./administrador.routes";
+import { RECEPCION_ROUTES } from "./recepcion.routes";
 
 export const ROUTES:Routes = [
+<<<<<<< HEAD
     {path:'dashboard',component: DashboardComponent,canActivate:[AccessGuard],data:{breadcrumb: 'dashboard'}},
     {path:'home',component: HomeComponent,canActivate:[AccessGuard],data:{breadcrumb: 'Home'}},
     {path: 'register', component: RegisterComponent, canActivate: [LoginGuard]},
@@ -47,10 +33,18 @@ export const ROUTES:Routes = [
             {path: 'diagnostico/:id', component:DiagnosticoComponent,canActivate:[AccessGuard,DoctorGuard],data:{breadcrumb: 'Detalle'}},
         ]},
         {path: 'antecedente/:id', component:AntecedenteComponent,canActivate:[AccessGuard,DoctorGuard],data:{breadcrumb: 'Antecedente'}},
+=======
+    {path:'home',data:{crumb: 'Inicio'},children:[
+        {path:'',component: HomeComponent,canActivate:[AccessGuard]},
+>>>>>>> 75e0399ae551f52db810f84da9c82ef819f5769d
     ]},
-    {path: 'calendar', component:CalendarComponent,canActivate:[AccessGuard,RecepcionGuard],data:{breadcrumb: 'Calendario'}},
-    {path: 'dispo', component:DisponibilidadComponent ,canActivate:[AccessGuard,RecepcionGuard],data:{breadcrumb: ' Disponibilidad'}},
+    {path: 'doctor',children: MEDICO_ROUTES,data:{crumb: 'Inicio'}},
+    {path: 'paciente',children:PACIENTE_ROUTES,data:{crumb:'Inicio'}},
+    {path: 'admin',children:ADMIN_ROUTES,data:{crumb:'Inicio'}},
+    {path: 'recepcion',children:RECEPCION_ROUTES,data:{crumb:'Inicio'}},
 
+    {path: 'register', component: RegisterComponent, canActivate: [LoginGuard]},
+    {path: 'login', component:LoginComponent, canActivate: [LoginGuard]},
 
     {path: '', pathMatch: 'full', redirectTo: 'login'},
     {path: '**', pathMatch: 'full', redirectTo: 'login'},

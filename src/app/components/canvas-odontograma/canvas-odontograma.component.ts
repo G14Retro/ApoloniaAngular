@@ -22,7 +22,7 @@ export class CanvasOdontogramaComponent implements OnInit,AfterViewInit {
   temporal3:number[] =[];
   temporal4:number[] =[];
   temporales:boolean = false;
-  @ViewChild('odontograma') odonto:ElementRef<HTMLCanvasElement>;
+  @ViewChild('odontograma') odonto:ElementRef<HTMLElement>;
   @ViewChild('comentario') comentario:ElementRef<HTMLTextAreaElement>;
   @HostListener('document:click',['$event']) 
   mouseClick = (e:any)=>{
@@ -42,7 +42,8 @@ export class CanvasOdontogramaComponent implements OnInit,AfterViewInit {
   
   ngAfterViewInit():void{
     sessionStorage.setItem('html',this.odonto.nativeElement.innerHTML);
-    this.cargarOdonto();
+    console.log(this.odonto);
+    this.odonto.nativeElement.children.namedItem('arcada1').children.item(0).children.namedItem('18').children.namedItem('ausente').attributes.getNamedItem('stroke').value="black";
   }
 
   changeColor(lado:SVGElement) {
@@ -60,6 +61,10 @@ export class CanvasOdontogramaComponent implements OnInit,AfterViewInit {
 
   blanco(){
     this.fillColor ='white'
+  }
+
+  ausente(){
+
   }
 
   borrarTodo(){
@@ -87,10 +92,10 @@ export class CanvasOdontogramaComponent implements OnInit,AfterViewInit {
       this.arcada2.push(i)
     }
     for (let i = 48; i > 40; i--) {
-      this.arcada3.push(i)
+      this.arcada4.push(i)
     }
     for (let i = 31; i < 39; i++) {
-      this.arcada4.push(i)
+      this.arcada3.push(i)
     }
 
     for (let i = 55; i > 50; i--) {
