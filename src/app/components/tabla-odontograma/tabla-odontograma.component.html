@@ -4,9 +4,9 @@
         <button class="btn btn-primary" (click)="nuevoOdonto()">
             <i class="fas fa-tooth"></i>&nbsp;Nuevo odontograma
         </button>
-      </div>
+    </div>
+    
     <table mat-table [dataSource]="dataSource">
-
         <ng-container matColumnDef="id">
             <th mat-header-cell *matHeaderCellDef> Id </th>
             <td mat-cell *matCellDef="let element"> {{element.id}} </td>

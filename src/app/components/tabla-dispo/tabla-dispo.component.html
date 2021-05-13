@@ -1,10 +1,14 @@
+<div class="contenedor table-responsive contenido">
+
 <div class="row p-3">
-  <h2>
-    <small class="text-muted">&nbsp;Disponibilidad</small>
-  </h2>
-  <button class="btn btn-primary" style="font-weight: 600; margin-left:81%;"(click)="Adddialog()">
-    <i class="fas fa-calendar-plus"></i>&nbsp;Crear Disponibilida
+
+  <h2><small>&nbsp; Disponibilidad</small></h2>
+
+  <button class="botonDispo btn btn-primary"
+    (click)="Adddialog()">
+    <i class="fas fa-calendar-plus"></i>&nbsp; Crear Disponibilida
   </button>
+
 </div>
 
 <div class="mat-elevation-z8 animated fadeInDown">
@@ -63,4 +67,5 @@
 </table>
 
 <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>
 </div>

@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { CitasComponent } from './components/citas/citas.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
@@ -63,7 +64,11 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 //Provaiders
 import localeEsCO from "@angular/common/locales/es-CO";
-import { DashboardPipe } from './pages/dashboard.pipe';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+import { LayoutModule } from '@angular/cdk/layout';
 registerLocaleData(localeEsCO,'es-CO')
 
 @NgModule({
@@ -93,16 +98,15 @@ registerLocaleData(localeEsCO,'es-CO')
     AddDialogComponent,
     UserCreateComponent,
     UserUpdateComponent,
-    AddDialogComponent, 
-    DetalleHistorialComponent, 
-    TablaPacientesComponent, 
-    PacientesComponent, 
-    DetallePacienteComponent, 
-    TablaOdontogramaComponent, 
+    AddDialogComponent,
+    DetalleHistorialComponent,
+    TablaPacientesComponent,
+    PacientesComponent,
+    DetallePacienteComponent,
+    TablaOdontogramaComponent,
     DiagnosticoComponent,
-    DetalleHistorialComponent, 
-    DashboardPipe
-
+    DetalleHistorialComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -127,13 +131,13 @@ registerLocaleData(localeEsCO,'es-CO')
     NgxMatDatetimePickerModule,
     NgxMatTimepickerModule,
     NgxMatNativeDateModule,
-<<<<<<< HEAD
     MatButtonToggleModule,
-
-=======
-    MatTableExporterModule
-    
->>>>>>> cdda81e84dec4c0bc7d4ab0d3bdc91b07f5ab68d
+    MatTableExporterModule,
+    MatGridListModule,
+    MatCardModule,
+    MatMenuModule,
+    MatIconModule,
+    LayoutModule
   ],
 
   providers: [

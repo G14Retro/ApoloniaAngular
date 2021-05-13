@@ -1,7 +1,8 @@
 <div mat-dialog-title>Crear Usuario</div>
 <div mat-dialog-content>
     <form [formGroup]="userForm">
-        <mat-form-field class="p-2">
+
+        <mat-form-field class="p-2" appearance="outline">
             <mat-label>Tipo de documento</mat-label>
             <mat-select formControlName="tipo_documento" required>
                 <mat-option>-----</mat-option>
@@ -12,27 +13,65 @@
             <mat-error *ngIf="userForm.get('tipo_documento').hasError('required')">Por favor seleccione una opción</mat-error>
         </mat-form-field>
 
-        <mat-form-field class="p-2">
+
+        <mat-form-field class="p-2" appearance="outline">
             <mat-label>Número de documento</mat-label>
             <input type="text" matInput formControlName="numero_documento" required>
             <mat-error *ngIf="userForm.get('numero_documento').hasError('required')">Por favor seleccione una opción</mat-error>
         </mat-form-field>
-        <mat-form-field class="p-2">
+
+        <mat-form-field class="p-2" appearance="outline">
+          <mat-label>Tipo de usuario</mat-label>
+          <mat-select formControlName="tipo_usuario" required>
+              <mat-option>-----</mat-option>
+              <mat-option *ngFor="let tipo  of tipo_usuario" [value]="tipo.id_tipo">
+                  {{tipo.nombre_tipo_usuario | titlecase}}
+              </mat-option>
+          </mat-select>
+          <mat-error *ngIf="userForm.get('tipo_usuario').hasError('required')">Por favor seleccione una opción</mat-error>
+      </mat-form-field>
+      <br>
+        <mat-form-field class="p-2" appearance="outline">
             <mat-label>Nombres</mat-label>
             <input type="text" matInput formControlName="nombre" required>
             <mat-error *ngIf="userForm.get('nombre').hasError('required')">Por favor seleccione una opción</mat-error>
         </mat-form-field>
-        <mat-form-field class="p-2">
+
+
+        <mat-form-field class="p-2" appearance="outline">
             <mat-label>Apellidos</mat-label>
             <input type="text" matInput formControlName="apellido" required>
             <mat-error *ngIf="userForm.get('apellido').hasError('required')">Por favor seleccione una opción</mat-error>
         </mat-form-field>
-        <mat-form-field class="p-2">
+
+        <mat-form-field class="p-2" appearance="outline">
+          <mat-label>Genero</mat-label>
+          <mat-select formControlName="genero" required>
+              <mat-option>-----</mat-option>
+              <mat-option value='masculino'>Masculino</mat-option>
+              <mat-option value='femenino'>Femenino</mat-option>
+          </mat-select>
+          <mat-error *ngIf="userForm.get('genero').hasError('required')">Por favor seleccione una opción</mat-error>
+      </mat-form-field>
+
+
+        <mat-form-field class="p-2" appearance="outline">
+          <mat-label>Fecha de nacimiento</mat-label>
+          <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" formControlName='fecha_nacimiento'>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+          <mat-error *ngIf="userForm.get('fecha_nacimiento').hasError('required')">Por favor ingrese una fecha</mat-error>
+      </mat-form-field>
+
+
+        <mat-form-field class="p-2" appearance="outline">
             <mat-label>Dirección</mat-label>
             <input type="text" matInput formControlName="direccion" required>
             <mat-error *ngIf="userForm.get('tipo_documento').hasError('required')">Por favor seleccione una opción</mat-error>
         </mat-form-field>
-        <mat-form-field class="p-2">
+
+
+        <mat-form-field class="p-2" appearance="outline">
             <mat-label>Ciudad</mat-label>
                 <mat-select formControlName="ciudad" required>
                     <mat-option>-----</mat-option>
@@ -42,33 +81,23 @@
             </mat-select>
             <mat-error *ngIf="userForm.get('ciudad').hasError('required')">Por favor seleccione una opción</mat-error>
         </mat-form-field>
-        <mat-form-field class="p-2">
+
+
+        <mat-form-field class="p-2" appearance="outline">
             <mat-label>Telefono</mat-label>
             <input type="text" matInput formControlName="telefono" required>
             <mat-error *ngIf="userForm.get('telefono').hasError('required')">Por favor seleccione una opción</mat-error>
         </mat-form-field>
-        <mat-form-field class="p-2">
+
+
+        <mat-form-field class="p-2" appearance="outline">
             <mat-label>Correo</mat-label>
             <input type="text" matInput formControlName="correo" required>
             <mat-error *ngIf="userForm.get('correo').hasError('required')">Por favor seleccione una opción</mat-error>
         </mat-form-field>
-        <mat-form-field class="p-2">
-            <mat-label>Genero</mat-label>
-            <mat-select formControlName="genero" required>
-                <mat-option>-----</mat-option>
-                <mat-option value='masculino'>Masculino</mat-option>
-                <mat-option value='femenino'>Femenino</mat-option>
-            </mat-select>
-            <mat-error *ngIf="userForm.get('genero').hasError('required')">Por favor seleccione una opción</mat-error>
-        </mat-form-field>
-        <mat-form-field class="p-2">
-            <mat-label>Fecha de nacimiento</mat-label>
-            <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" formControlName='fecha_nacimiento'>
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
-            <mat-error *ngIf="userForm.get('fecha_nacimiento').hasError('required')">Por favor ingrese una fecha</mat-error>
-        </mat-form-field>
-        <mat-form-field class="p-2">
+
+
+        <mat-form-field class="p-2" appearance="outline">
             <mat-label>Estado</mat-label>
             <mat-select formControlName="estado" required>
                 <mat-option>-----</mat-option>
@@ -78,27 +107,18 @@
             </mat-select>
             <mat-error *ngIf="userForm.get('estado').hasError('required')">Por favor seleccione una opción</mat-error>
         </mat-form-field>
-        <mat-form-field class="p-2">
-            <mat-label>Tipo de usuario</mat-label>
-            <mat-select formControlName="tipo_usuario" required>
-                <mat-option>-----</mat-option>
-                <mat-option *ngFor="let tipo  of tipo_usuario" [value]="tipo.id_tipo">
-                    {{tipo.nombre_tipo_usuario | titlecase}}
-                </mat-option>
-            </mat-select>
-            <mat-error *ngIf="userForm.get('tipo_usuario').hasError('required')">Por favor seleccione una opción</mat-error>
-        </mat-form-field>
-        <mat-form-field class="p-2">
+
+
+        <mat-form-field class="p-2" appearance="outline">
             <mat-label>Contraseña</mat-label>
             <input type="password" matInput formControlName="password" required>
             <mat-error *ngIf="userForm.get('password').hasError('required')">Por favor seleccione una opción</mat-error>
         </mat-form-field>
 
-
     </form>
-    <button type="submit" class="btn btn-primary mr-3" (click)="crearUsuario()">Guardar</button>
-    <button [routerLink]="['/admin/usuarios']" class="btn btn-secondary mr-3">Regresar</button>
 
+    <button [routerLink]="['/admin/usuarios']" class="btn btn-secondary mr-3">Regresar</button>
+    <button type="submit" class="btn btn-primary mr-3" (click)="crearUsuario()">Guardar</button>
 </div>
 
 

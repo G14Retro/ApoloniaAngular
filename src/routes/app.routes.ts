@@ -1,6 +1,7 @@
 import { Routes } from "@angular/router";
 import { CitasComponent } from 'src/app/components/citas/citas.component';
 import { HomeComponent } from 'src/app/components/home/home.component';
+import { DashboardComponent } from 'src/app/components/dashboard/dashboard.component';
 import { LoginComponent } from 'src/app/components/login/login.component';
 import { RegisterComponent } from 'src/app/components/register/register.component';
 import { AccessGuard } from 'src/app/guards/access.guard';
@@ -25,6 +26,7 @@ import { DetallePacienteComponent } from "src/app/pages/pacientes/detalle-pacien
 import { DiagnosticoComponent } from "src/app/pages/diagnostico/diagnostico.component";
 
 export const ROUTES:Routes = [
+    {path:'dashboard',component: DashboardComponent,canActivate:[AccessGuard],data:{breadcrumb: 'dashboard'}},
     {path:'home',component: HomeComponent,canActivate:[AccessGuard],data:{breadcrumb: 'Home'}},
     {path: 'register', component: RegisterComponent, canActivate: [LoginGuard]},
     {path: 'login', component:LoginComponent, canActivate: [LoginGuard]},
