@@ -1,30 +1,36 @@
 <div class="container">
     <div mat-dialog-title class="animated fadeInDown">Detalle de la cita</div>
 
-<div mat-dialog-content class="animated fadeInDown">
+<div mat-dialog-content class="animated fadeInDown" class="row g-4">
     <form [formGroup]="dispoForm">
-        <mat-form-field class="p-2">
+
+        <mat-form-field class="p-2"appearance="outline" >
             <mat-label>Especialista</mat-label>
             <input type="text" matInput formControlName="especialista" required>
         </mat-form-field>
-        <mat-form-field class="p-2">
+
+        <mat-form-field class="p-2" appearance="outline">
             <mat-label>Tipo de consulta</mat-label>
             <input type="text" matInput formControlName="tipo_consulta" required>
         </mat-form-field>
-        <mat-form-field class="p-2">
+      <br>
+        <mat-form-field class="p-2" appearance="outline">
             <mat-label>Consultorio</mat-label>
             <input type="text" matInput formControlName="consultorio" required>
         </mat-form-field>
-        <mat-form-field class="p-2">
+
+        <mat-form-field class="p-2" appearance="outline">
             <mat-label>Hora inicio de la cita</mat-label>
             <input type="text" matInput formControlName="inicio_cita" required>
         </mat-form-field>
-        <mat-form-field class="p-2">
+
+        <mat-form-field class="p-2" appearance="outline">
             <mat-label>Hora final de la cita</mat-label>
             <input type="text" matInput formControlName="fin_cita" required>
         </mat-form-field>
     </form>
-    <button type="submit" mat-raised-button class="btn-warning" (click)="cancelarCita()">Cancelar cita</button>
-    <button [routerLink]="['/paciente/historial']" mat-raised-button class=" btn-secondary ml-3">Regresar</button>
+
+    <button [routerLink]="['/paciente/historial']" mat-raised-button class="btnRegresar float-right">Regresar</button>
+    <button type="submit" mat-raised-button class="btnCancelar btn-secondary mr-3 float-right" (click)="cancelarCita()">Cancelar cita</button>
 </div>
 </div>

@@ -860,12 +860,14 @@ h5 {
 }
 .nav > li > a {
   /*color: #a7b1c2;*/
-  color: #293846; /********* CÓDIGO APOLONIA *********/
-  font-weight: 600;
+  color: #999c9e; /********* CÓDIGO APOLONIA *********/
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
   padding: 14px 20px 14px 25px;
   display: block;
   font-size:14px; /********* CÓDIGO APOLONIA *********/
 }
+
 .nav.metismenu > li {
   display: block;
   width: 100%;
@@ -886,7 +888,9 @@ h5 {
 .navbar-default .nav > li > a:focus {
   background-color: #33C8FA;
   color: white;
+  border-radius: 25px 0 0 25px;
 }
+
 .nav .open > a,
 .nav .open > a:hover,
 .nav .open > a:focus {
@@ -1030,10 +1034,12 @@ h5 {
 ul.nav-second-level {
   background: #33C8FA;
 }
+
 .nav > li.active {
-  border-left: 4px solid #33C8FA;
+  border-left: 4px solid #fff;
   background: #fff;
 }
+
 .nav.nav-second-level > li.active {
   border: none;
 }
@@ -1303,7 +1309,7 @@ body.canvas-menu .logo-element {
 }
 body.mini-navbar .nav-header {
   padding: 0;
-  background-color: #1ab394;
+  background-color: #ffffff;
 }
 body.canvas-menu .nav-header {
   padding: 33px 25px;
@@ -5764,7 +5770,7 @@ body.mini-navbar.fixed-sidebar .logo-element {
 /* DASBOARD */
 .dashboard-header {
   border-top: 0;
-  padding: 20px 20px 20px 20px;
+  padding: 10px 20px 20px 20px;
 }
 .dashboard-header h2 {
   margin-top: 10px;

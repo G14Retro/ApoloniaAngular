@@ -14,7 +14,7 @@
               <input type="text" class="form-control" formControlName="numero_documento">
             </div>
           </div>
-        <div class="form-row">
+        <div class="form-row ">
           <div class="form-group col-md-6">
             <label>Nombres</label>
             <input type="text" class="form-control" formControlName="nombre"
@@ -27,33 +27,34 @@
           </div>
         </div>
     </form>
-    <form [formGroup]="antecedenteForm">
-        <div class="form-group">
+
+    <form [formGroup]="antecedenteForm" class="row g-2">
+        <div class="form-group col-md-6" >
             <label>Alergías</label>
             <textarea class="form-control" rows="3" formControlName="alergias"
             [value]="antecedenteForm.get('alergias').value| uppercase"></textarea>
         </div>
-        <div class="form-group">
+        <div class="form-group col-md-6" >
             <label>Enfermedades</label>
             <textarea class="form-control" rows="3" formControlName="enfermedades"
             [value]="antecedenteForm.get('enfermedades').value| uppercase"></textarea>
         </div>
-        <div class="form-group">
+        <div class="form-group col-md-6">
             <label>Enfermedades Familiares</label>
             <textarea class="form-control" rows="3" formControlName="enfermedades_familiares"
             [value]="antecedenteForm.get('enfermedades_familiares').value| uppercase"></textarea>
         </div>
-        <div class="form-group">
+        <div class="form-group col-md-6">
             <label>Cirugías</label>
             <textarea class="form-control" rows="3" formControlName="cirugias"
             [value]="antecedenteForm.get('cirugias').value| uppercase"></textarea>
         </div>
-        <div class="form-group">
+        <div class="form-group col-md-6">
             <label>Medicamentos</label>
             <textarea class="form-control" rows="3" formControlName="medicamentos"
             [value]="antecedenteForm.get('medicamentos').value| uppercase"></textarea>
         </div>
-        <div class="form-group">
+        <div class="form-group col-md-6">
             <label>Otros</label>
             <textarea class="form-control" rows="3" formControlName="otros"
             [value]="antecedenteForm.get('otros').value| uppercase"></textarea>
@@ -64,4 +65,5 @@
         <button type="button" class="btn btn-primary float-right" (click)="guardarAntecedente()">Guardar</button>
         <button type="button" class="btn btn-secondary mr-3 float-right" [routerLink]="['/doctor/pacientes']">Cancelar</button>
       </div>
+      <br><br>
 </div>

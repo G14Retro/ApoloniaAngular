@@ -1,23 +1,14 @@
 <app-loading *ngIf="loading"></app-loading>
-<<<<<<< HEAD
-=======
-<button [routerLink]="['/admin/usuarios/crear']" class="btn btn-primary" style="margin-bottom: 16px;"><i class="fas fa-user"></i> Crear Usuario</button>
-<button class="btn btn-outline-info" style="margin-bottom: 16px;"   (click)="exporter.exportTable('csv')"><i class="fas fa-user"></i> Exportar a CSV</button>
->>>>>>> 75e0399ae551f52db810f84da9c82ef819f5769d
 
-<h2><small class="text-muted">&nbsp; Usuario</small></h2>
-
-<div class="container-boton  d-grid gap-2 d-md-flex justify-content-md-end mb-5%">
-  <button [routerLink]="['/admin/crear']" class=" boton-Crear btn btn-primary btn-lg me-md-2">
-  <i class="fas fa-user"></i> Crear Usuario
+  <button  [routerLink]="['/admin/usuarios/crear']"
+    class="btnCrear btn btn-primary">
+    <i class="fas fa-user"></i> Crear Usuario
   </button>
-
-  <button class="btn btn-secondary btn-lg "
-  (click)="exporter.exportTable('csv')">
-  <i class="fas fa-file-csv"></i> Exportar a CSV
+  &nbsp;
+  <button class="btn btn-outline-info btnExportar"
+    (click)="exporter.exportTable('csv')">
+    <i class="fas fa-file-csv"></i> Exportar a CSV
   </button>
-</div>
-
 
 <div class="mat-elevation-z8 animated fadeInDown">
     <mat-form-field class="p-3"style="font-weight: 600; margin-left:85%; font-size:13px;">
@@ -77,11 +68,7 @@
         <ng-container matColumnDef="Acciones">
             <th mat-header-cell *matHeaderCellDef> Acciones </th>
             <td mat-cell *matCellDef="let element">
-<<<<<<< HEAD
-                <button  mat-icon-button class="acciones btn btn-primary" [routerLink]="['/admin/update/'+element.id]">
-=======
                 <button mat-icon-button class="btn-primary" [routerLink]="['/admin/usuarios/update/'+element.id]">
->>>>>>> 75e0399ae551f52db810f84da9c82ef819f5769d
                   <i class="fas fa-pen-alt"></i>
                 </button>
             </td>

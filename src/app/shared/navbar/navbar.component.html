@@ -15,46 +15,55 @@
                 </div>
             </li>
 
-            <!--
-            <li routerLinkActive='active'>
-              <a class="nav-link" [routerLink]="['/home']"><i class="fa fa-home"></i> <span class="nav-label"> Inicio</span></a>
-            </li>
-            -->
 
+            <li routerLinkActive='active'>
+              <a class="nav-link" [routerLink]="['/home']"><i class="ico fas fa-tachometer-alt"></i>
+                <span class="navText nav-label"> Inicio</span></a>
+            </li>
+            <!--
             <li routerLinkActive='active'>
               <a class="nav-link" [routerLink]="['/dashboard']"><i class="fas fa-tachometer-alt"></i> <span class="nav-label"> Dashboard</span></a>
             </li>
+            -->
             <li routerLinkActive="active" *ngIf="admin">
-                <a [routerLink]="['/admin/usuarios']"><i class="fas fa-user"></i> <span class="nav-label"> Usuarios</span></a>
+                <a [routerLink]="['/admin/usuarios']"><i class="navIco fas fa-user"></i>
+                  <span class="navText nav-label"> Usuarios</span></a>
             </li>
             <li routerLinkActive="active" *ngIf="admin">
-                <a [routerLink]="['/admin/agenda']"><i class="fa fa-book"></i> <span class="nav-label"> Agenda</span></a>
+                <a [routerLink]="['/admin/agenda']"><i class="navIco fa fa-book"></i>
+                  <span class="navText nav-label"> Agenda</span></a>
             </li>
-
             <li routerLinkActive='active' *ngIf="paciente">
-                <a class="nav-link" [routerLink]="['/paciente/citas']"><i class="fa fa-calendar"></i> <span class="nav-label"> Citas</span></a>
+                <a class="nav-link" [routerLink]="['/paciente/citas']"><i class="navIco fa fa-calendar"></i>
+                  <span class="navText nav-label"> Citas</span></a>
             </li>
 
             <!--CÓDIGO JD-->
             <li routerLinkActive='active' *ngIf="recepcionistapc">
-                <a class="nav-link" [routerLink]="['/recepcion/calendar']"><i class="fas fa-calendar-alt"></i> <span class="nav-label"> Calendario</span></a>
+                <a class="nav-link" [routerLink]="['/recepcion/calendar']"><i class="navIco fas fa-calendar-alt"></i>
+                  <span class="navText nav-label"> Calendario</span></a>
             </li>
             <li routerLinkActive='active' *ngIf="recepcionistapc">
-                <a class="nav-link" [routerLink]="['/recepcion/dispo']"><i class="fas fa-clock"></i> <span class="nav-label"> Disponibilidad</span></a>
+                <a class="nav-link" [routerLink]="['/recepcion/dispo']"><i class="navIco fas fa-clock"></i>
+                  <span class="navText nav-label"> Disponibilidad</span></a>
             </li>
             <!-- END CÓDIGO JD-->
 
             <li routerLinkActive='active' *ngIf="doctoropc">
-                <a class="nav-link" [routerLink]="['/doctor/agenda']"><i class="fas fa-calendar-alt"></i> <span class="nav-label"> Citas Asignadas</span></a>
+                <a class="nav-link" [routerLink]="['/doctor/agenda']"><i class="navIco fas fa-calendar-alt"></i>
+                  <span class="navText nav-label"> Citas Asignadas</span></a>
             </li>
             <li routerLinkActive='active' *ngIf="doctoropc">
-                <a class="nav-link" [routerLink]="['/doctor/pacientes']"><i class="fas fa-hospital-user"></i><span class="nav-label"> Pacientes</span></a>
+                <a class="nav-link" [routerLink]="['/doctor/pacientes']"><i class="navIco fas fa-hospital-user"></i>
+                  <span class="navText nav-label"> Pacientes</span></a>
             </li>
             <li routerLinkActive='active' *ngIf="paciente">
-                <a class="nav-link" [routerLink]="['/paciente/historial']"><i class="fa fa-book"></i> <span class="nav-label"> Historial clinico</span></a>
+                <a class="nav-link" [routerLink]="['/paciente/historial']"><i class="navIco fa fa-book"></i>
+                  <span class="navText nav-label"> Historial clinico</span></a>
             </li>
             <li routerLinkActive='active'>
-                <a (click)="logout()" href="#"><i class="fa fa-power-off"></i> <span class="nav-label"> Cerrar Sesión</span></a>
+                <a (click)="logout()" href="#"> <i class="fa fa-power-off"></i>
+                  <span class="navText nav-label"> Cerrar Sesión</span></a>
             </li>
         </ul>
 

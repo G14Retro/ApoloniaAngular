@@ -1,11 +1,10 @@
 <div mat-dialog-title
-style="color: #888888; font-weight: 600; font-family: 'Poppins', sans-serif;"> Editar Disponibilidad
+style="color: #888888; font-weight: 600; font-family: 'Poppins', sans-serif;">Editar Disponibilidad
 </div>
-
 <div mat-dialog-content>
 
     <form [formGroup]="dispoGroup">
-        <mat-form-field class="p-2">
+        <mat-form-field class="col-md-6 .ms-auto" appearance="outline">
             <mat-label>Especialista</mat-label>
             <mat-select formControlName="id_persona" required>
                 <mat-option>-----</mat-option>
@@ -18,45 +17,7 @@ style="color: #888888; font-weight: 600; font-family: 'Poppins', sans-serif;"> E
                 </mat-error>
         </mat-form-field>
 
-        <mat-form-field class="p-2">
-          <mat-label>Hora de Inicio</mat-label>
-          <input matInput [ngxMatDatetimePicker]="picker"
-            [min]="minDate" [max]="maxDate" formControlName="horaInicio">
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <ngx-mat-datetime-picker #picker [showSpinners]="showSpinners" [showSeconds]="showSeconds" [stepHour]="stepHour"
-            [stepMinute]="stepMinute" [stepSecond]="stepSecond" [touchUi]="touchUi" [color]="color"
-            [enableMeridian]="enableMeridian">
-            <!-- Custom icon or text of Apply icon -->
-            <ng-template>
-              <!-- <mat-icon>star</mat-icon> -->
-              <span>OK</span>
-            </ng-template>
-          </ngx-mat-datetime-picker>
-          <mat-error *ngIf="dispoGroup.get('horaInicio').hasError('required')">
-            Por favor revise la hora de inicio
-          </mat-error>
-        </mat-form-field>
-
-        <mat-form-field class="p-2">
-          <mat-label>Hora Fin</mat-label>
-          <input matInput [ngxMatDatetimePicker]="picker2"
-            [min]="minDate" [max]="maxDate" formControlName="horaFinal">
-          <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-          <ngx-mat-datetime-picker #picker2 [showSpinners]="showSpinners" [showSeconds]="showSeconds" [stepHour]="stepHour"
-            [stepMinute]="stepMinute" [stepSecond]="stepSecond" [touchUi]="touchUi" [color]="color"
-            [enableMeridian]="enableMeridian">
-            <!-- Custom icon or text of Apply icon -->
-            <ng-template>
-              <!-- <mat-icon>star</mat-icon> -->
-              <span>OK</span>
-            </ng-template>
-          </ngx-mat-datetime-picker>
-          <mat-error *ngIf="dispoGroup.get('horaFinal').hasError('required')">
-            Por favor revise la hora de final
-          </mat-error>
-        </mat-form-field>
-
-        <mat-form-field class="p-2">
+        <mat-form-field class="col-md-6 .ms-auto" appearance="outline">
           <mat-label>Consulta</mat-label>
           <mat-select formControlName="tipo_consulta" required>
               <mat-option>-----</mat-option>
@@ -69,7 +30,9 @@ style="color: #888888; font-weight: 600; font-family: 'Poppins', sans-serif;"> E
               </mat-error>
         </mat-form-field>
 
-      <mat-form-field class="p-2">
+
+
+      <mat-form-field class="col-md-6 .ms-auto" appearance="outline">
           <mat-label>Consultorios</mat-label>
           <mat-select formControlName="consultorio" required>
               <mat-option>-----</mat-option>
@@ -82,7 +45,7 @@ style="color: #888888; font-weight: 600; font-family: 'Poppins', sans-serif;"> E
               </mat-error>
       </mat-form-field>
 
-      <mat-form-field class="p-2">
+      <mat-form-field class="col-md-6 .ms-auto" appearance="outline">
         <mat-label>Disponibilidad</mat-label>
         <mat-select formControlName="estado" required>
             <mat-option>-----</mat-option>
@@ -94,10 +57,48 @@ style="color: #888888; font-weight: 600; font-family: 'Poppins', sans-serif;"> E
               Por favor seleccione un estado
           </mat-error>
       </mat-form-field>
+
+      <mat-form-field class="col-md-6 .ms-auto" appearance="outline">
+        <mat-label>Hora de Inicio</mat-label>
+        <input matInput [ngxMatDatetimePicker]="picker"
+          [min]="minDate" [max]="maxDate" formControlName="horaInicio">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <ngx-mat-datetime-picker #picker [showSpinners]="showSpinners" [showSeconds]="showSeconds" [stepHour]="stepHour"
+          [stepMinute]="stepMinute" [stepSecond]="stepSecond" [touchUi]="touchUi" [color]="color"
+          [enableMeridian]="enableMeridian">
+          <!-- Custom icon or text of Apply icon -->
+          <ng-template>
+            <!-- <mat-icon>star</mat-icon> -->
+            <span>OK</span>
+          </ng-template>
+        </ngx-mat-datetime-picker>
+        <mat-error *ngIf="dispoGroup.get('horaInicio').hasError('required')">
+          Por favor revise la hora de inicio
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="col-md-6 .ms-auto" appearance="outline">
+        <mat-label>Hora Fin</mat-label>
+        <input matInput [ngxMatDatetimePicker]="picker2"
+          [min]="minDate" [max]="maxDate" formControlName="horaFinal">
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <ngx-mat-datetime-picker #picker2 [showSpinners]="showSpinners" [showSeconds]="showSeconds" [stepHour]="stepHour"
+          [stepMinute]="stepMinute" [stepSecond]="stepSecond" [touchUi]="touchUi" [color]="color"
+          [enableMeridian]="enableMeridian">
+          <!-- Custom icon or text of Apply icon -->
+          <ng-template>
+            <!-- <mat-icon>star</mat-icon> -->
+            <span>OK</span>
+          </ng-template>
+        </ngx-mat-datetime-picker>
+        <mat-error *ngIf="dispoGroup.get('horaFinal').hasError('required')">
+          Por favor revise la hora de final
+        </mat-error>
+      </mat-form-field>
     </form>
 
 </div>
 <div mat-dialog-actions>
-  <button mat-button class="btn btn-secondary" (click)="cerrar()">Cancelar</button>
-  <button [disabled]="!dispoGroup.valid" mat-button class="btn btn-primary mr-2" (click)="guardar()">Guardar</button>
+  <button mat-button class="btnCancelar btn-secondary" (click)="cerrar()">Cancelar</button>
+  <button [disabled]="!dispoGroup.valid" mat-button class="btnGuardar mr-2" (click)="guardar()">Guardar</button>
 </div>

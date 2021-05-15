@@ -10,7 +10,7 @@ table {
     color:#888888;
     font-size: 16px;
     font-weight: 500;
-    text-align: center;
+
   }
   td{
     color:#555555;
@@ -52,7 +52,7 @@ h2 small{
 
 /********** ESTILOS BOTON CREAR DISPONIBILIDAD *********/
 .botonDispo{
-  background-image: linear-gradient(to right, #33C8FA 0px #1FA2FF  51%, #33C8FA  100%);
+  background-image: linear-gradient(to right, #33C8FA 0%, #33C8FA  51%, #33C8FA  100%);
   font-size: large;
   font-family: 'Poppins', sans-serif;
   margin-left:75%;
@@ -62,7 +62,7 @@ h2 small{
   cursor: pointer;
   box-shadow: 0 0 20px #eee;
   transition: 0.5s;
-  background-size: 300% auto;
+
 }
 .botonDispo:hover{
   background-position: right center; /* change the direction of the change here */

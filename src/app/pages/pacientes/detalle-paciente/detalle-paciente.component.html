@@ -5,7 +5,7 @@
             <div class="row mx-lg-n5">
                 <mat-form-field class="p-2">
                     <mat-label>Tipo de documento</mat-label>
-                    <input type="text" matInput formControlName="tipo_documento" 
+                    <input type="text" matInput formControlName="tipo_documento"
                     [value]="pacienteGroup.get('tipo_documento').value| titlecase">
                 </mat-form-field>
                 <mat-form-field class="p-2">
@@ -16,12 +16,12 @@
             <div class="row">
                 <mat-form-field class="p-2">
                     <mat-label>Nombres</mat-label>
-                    <input type="text" matInput formControlName="nombre" 
+                    <input type="text" matInput formControlName="nombre"
                     [value]="pacienteGroup.get('nombre').value| titlecase">
                 </mat-form-field>
                 <mat-form-field class="p-2">
                     <mat-label>Apellidos</mat-label>
-                    <input type="text" matInput formControlName="apellido" 
+                    <input type="text" matInput formControlName="apellido"
                     [value]="pacienteGroup.get('apellido').value| titlecase">
                 </mat-form-field>
             </div>
@@ -32,7 +32,7 @@
                 </mat-form-field>
                 <mat-form-field class="p-2">
                     <mat-label>Ciudad</mat-label>
-                    <input type="text" matInput formControlName="ciudad" 
+                    <input type="text" matInput formControlName="ciudad"
                     [value]="pacienteGroup.get('ciudad').value| titlecase">
                 </mat-form-field>
             </div>
@@ -43,13 +43,15 @@
                     </mat-form-field>
                     <mat-form-field class="p-2">
                         <mat-label>Correo</mat-label>
-                        <input type="text" matInput formControlName="correo" 
+                        <input type="text" matInput formControlName="correo"
                         [value]="pacienteGroup.get('correo').value| titlecase">
                     </mat-form-field>
             </div>
         </form>
-        <button mat-raised-button class="btn-primary mr-2" focusable="false" [routerLink]="['/doctor/pacientes']">
+        <button mat-raised-button class="btn-primary mr-2 float-right" focusable="false" [routerLink]="['/doctor/pacientes']">
             Regresar
         </button>
+        <br><br>
     </div>
 </div>
+

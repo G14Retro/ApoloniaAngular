@@ -7,8 +7,7 @@ import { CitasService } from 'src/app/services/citas.service';
 @Component({
   selector: 'app-historial',
   templateUrl: './historial.component.html',
-  styles: ['table {width:100%;}'
-  ]
+  styleUrls: ['./historial.component.css']
 })
 export class HistorialComponent implements OnInit, AfterViewInit {
   columns:string[]=['fecha_inicio','fecha_fin','estado','fecha_asignacion','acciones'];
