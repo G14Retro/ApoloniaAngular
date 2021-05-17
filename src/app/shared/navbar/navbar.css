@@ -1,0 +1,12 @@
+.navIco:hover{
+  color:#fff;
+}
+
+
+.navText{
+  color:#999c9e !important;
+  font-family: 'Poppins', sans-serif;
+}
+.navText:hover{
+  color:#fff !;
+}

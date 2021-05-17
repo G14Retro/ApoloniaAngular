@@ -1,83 +1,142 @@
-<header class="contenedor text-center text-white">
-    <div class="contenedor-content">
-      <div class="contenedor-home">
-        <h1 class="contenedor-caja mb-0">Apolonia</h1>
-        <!-- <a href="#" class="btn btn-primary btn-xl rounded-pill mt-5">Learn More</a> -->
+<!-- AQUI TENEMOS TODAS LAS CARDS -->
+
+<div class="container-fluid" style="padding:2px;">
+  <h2><small>&nbsp; Dashboard</small></h2>
+
+<!-- CARDS HEADER -->
+<div class="row container">
+  <div class="col-xl-4 col-lg-6">
+    <div class="contenedor card card-stats">
+      <div class="card-body">
+        <div class="row">
+          <div class="col">
+            <h5 class="card-title text-uppercase  mb-0">citas asignadas</h5>
+            <span class="h2 font-weight-bold mb-0">350,897</span>
+          </div>
+          <div class="col-auto">
+            <div class="icon icon-shape ">
+              <i class="fas fa-calendar-alt"></i>
+            </div>
+          </div>
+        </div>
+          <hr>
+          <div class="stats">
+            <i class="fas fa-calendar-alt"></i> Citas asignadas
+          </div>
       </div>
     </div>
-    <div class="bg-circle-1 bg-circle"></div>
-    <div class="bg-circle-2 bg-circle"></div>
-    <div class="bg-circle-3 bg-circle"></div>
-    <div class="bg-circle-4 bg-circle"></div>
-  </header>
+  </div>
 
-  <section>
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-6 order-lg-2">
-          <div class="p-5">
-            <img class="img-fluid rounded-circle" src="img/01.jpg" alt="">
+  <div class="col-xl-4 col-lg-6">
+    <div class="contenedor card card-stats mb-4 mb-xl-0">
+      <div class="card-body">
+        <div class="row">
+          <div class="col">
+            <h5 class="card-title text-uppercase mb-0">Usuarios activos</h5>
+            <span class="h2 font-weight-bold mb-0">2,356</span>
+          </div>
+          <div class="col-auto">
+            <div class="icon icon-shape">
+              <i class="fas fa-users"></i>
+            </div>
           </div>
         </div>
-
-        <div class="col-lg-6 order-lg-1">
-          <div class="p-5">
-            <h2 class="display-4">Express HD...</h2>
-            <p>Este procedimiento es realizado en clínica por nuestros profesionales, utilizando la más alta tecnología de cámara luz LED, que en combinación con los agentes blanqueadores elimina el efecto de las manchas en una sola sesión sin dañar el esmalte dental.</p>
+        <hr>
+          <div class="stats">
+            <i class="fas fa-users"></i> Calendario
           </div>
-        </div>
       </div>
     </div>
-  </section>
+  </div>
 
-  <section>
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-6">
-          <div class="p-5">
-            <img class="img-fluid rounded-circle" src="img/02.jpg" alt="">
+  <div class="col-xl-4 col-lg-6">
+    <div class="contenedor card card-stats mb-4 mb-xl-0">
+      <div class="card-body">
+        <div class="row">
+          <div class="col">
+            <h5 class="card-title text-uppercase mb-0">Disponibilidad</h5>
+            <span class="h2 font-weight-bold mb-0">924</span>
+          </div>
+          <div class="col-auto">
+            <div class="icon icon-shap">
+              <i class="fas fa-clock"></i>
+            </div>
           </div>
         </div>
-        <div class="col-lg-6">
-          <div class="p-5">
-            <h2 class="display-4">White Extreme</h2>
-            <p>Este procedimiento combina las dos técnicas de blanqueamiento:
-                En consultorio y casero. 
-                Este tipo de blanqueamiento debe realizarse únicamente en clínicas dentales certificada y bajo la supervisión de un especialista para evitar posibles daños en las encías de no realizarse este tratamiento de la forma correcta.</p>
+        <hr>
+          <div class="stats">
+            <i class="fas fa-clock"></i> Disponibilidad
           </div>
-        </div>
       </div>
     </div>
-  </section>
+  </div>
+</div>
+<!-- END CARDS HEADER -->
 
-  <section>
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-6 order-lg-2">
-          <div class="p-5">
-            <img class="img-fluid rounded-circle" src="img/risa01.jpg" alt="">
-          </div>
+
+<mat-grid-tile *ngFor="let dispo of dispo | async" [colspan]="dispo.cols" [rowspan]="dispo.rows">
+  <mat-card class="dashboard-card">
+    <mat-card-header>
+      <mat-card-title>
+        {{dispo.title}}
+      </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content class="table-responsive dashboard-card-content">
+      <app-tabla-dispo></app-tabla-dispo>
+    </mat-card-content>
+  </mat-card>
+</mat-grid-tile>
+<!-- END CARDS DISPONIBILIDAD -->
+
+<mat-grid-list cols="2" rowHeight="350px">
+
+  <!--CARDS DISPONIBILIDAD -->
+  <mat-grid-tile *ngFor="let dispo of dispo | async" [colspan]="dispo.cols" [rowspan]="dispo.rows" >
+    <mat-card class="dashboard-card">
+      <mat-card-header>
+        <mat-card-title>
+          {{dispo.title}}
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="table-responsive dashboard-card-content">
+        <app-tabla-dispo></app-tabla-dispo>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+  <!-- END CARDS DISPONIBILIDAD -->
+
+  <!--CARDS CALENDARIO  -->
+  <mat-grid-tile *ngFor="let cards of cards | async" [colspan]="cards.cols" [rowspan]="cards.rows" >
+    <mat-card class="dashboard-card">
+      <mat-card-header class="card1">
+        <mat-card-title class="card1">
+          {{cards.title}}
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="table-responsive dashboard-card-content">
+        <app-calendar></app-calendar>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+  <!-- END CARDS CALENDARIO -->
+
+  <!--CARDS PERSONAL -->
+  <mat-grid-tile  *ngFor="let personal of personal | async" [colspan]="personal.cols" [rowspan]="personal.rows">
+    <mat-card class="dashboard-card">
+      <mat-card-header>
+        <mat-card-title>
+          {{personal.title}}
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="table-responsive dashboard-card-content">
+        <div>
+          <h2><small class="text-muted">&nbsp; Personal</small></h2>
         </div>
-        <div class="col-lg-6 order-lg-1">
-          <div class="p-5">
-            <h2 class="display-4">Ultra blanco</h2>
-            <p>Es un tratamiento que inicia con las recomendaciones de nuestros profesionales en clínica y el paciente lo finaliza en casa. Este blanqueamiento se realiza a través de cubetas plásticas en las cuales se coloca un gel blanqueador a baja concentración y en tan solo unos días se pueden ver resultados sorprendentes.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+  <!-- END CARDS PERSONAL -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-  
+</mat-grid-list>
+</div>

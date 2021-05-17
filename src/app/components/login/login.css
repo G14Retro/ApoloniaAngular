@@ -7,6 +7,7 @@
 body .contenedor-login{
   width: 100%;
   height: 100%;
+  font-family: 'Poppins', sans-serif;
   background-size:contain;
   background: url(./../../../assets/img/banner1.jpg);
   background-repeat: no-repeat;
@@ -108,9 +109,9 @@ body .contenedor{
   width: 100%;
   height: 50px;
   font-size: 1rem;
-  font-weight: 400;
+  font-weight: 300;
   line-height: 1.5;
-  font-family: inherit;
+  font-family: 'Poppins', sans-serif;
   color: #444444 !important;
   border: 1px solid #33C8FA !important;
   background: rgba(255, 255, 255, 0.08);
@@ -123,19 +124,29 @@ body .contenedor{
   display: block;
 }
 
-/********* ESTILO BOTON INICIAR SESIÓN*********/
+/********* ESTILO BOTON INGRESAR *********/
 .btn-iniciarsesion{
   cursor: pointer;
-  background-color: #1686FA;
+  background-image: linear-gradient(to right, #33C8FA 0%, #1FA2FF  40%, #33C8FA  100%);
   color: #ffffff;
   border-radius:13px;
   border: none;
   font-size: 20px;
-  font-weight: 900;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
   display: block;
   padding: 6px 12px;
   margin: 50px 0 30px 0;
   width: 100%;
+  
+  box-shadow: 0 0 20px rgb(255, 255, 255);
+  transition: 0.9s;
+  background-size: 400% auto;
+}
+.btn-iniciarsesion:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: rgb(255, 255, 255);
+  text-decoration: none;
 }
 
 /********** ESTILO RECUPERAR CONTRASEÑA *********/
@@ -161,14 +172,15 @@ body .contenedor{
   width: 70%;
   margin: 30px 60px;
   padding: 9px 12px;
+  font-family: 'Poppins', sans-serif;
   display: block;
   text-align: center;
   cursor: pointer;
-  color: #008cff !important;
+  color: #33C8FA !important;
   text-decoration: none;
   border: none;
   font-size: 19px;
-  font-weight: 600;
+  font-weight: 500;
   display: block;
 
 }

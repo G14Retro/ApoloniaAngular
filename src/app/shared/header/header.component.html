@@ -5,12 +5,13 @@
     </div>
         <ul class="nav navbar-top-links navbar-right">
             <li style="padding: 20px">
-                <span class="m-r-sm text-muted welcome-message">Bienvenido a Apolonia</span>
+                <span class="m-r-sm text-muted welcome-message">{{rol | titlecase}}</span>
             </li>
-            
+
             <li>
                 <a (click)="logout()" href="#">
-                    <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+                  <i class="fas fa-power-off"
+                    style="color:#33C8FA "></i> Cerrar Sesión
                 </a>
             </li>
         </ul>

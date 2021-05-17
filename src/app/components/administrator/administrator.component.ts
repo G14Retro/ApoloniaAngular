@@ -2,7 +2,7 @@ import {AdministratorService} from 'src/app/services/administrator.service';
 import { Component, OnInit, ViewChild,AfterViewInit } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import {MatTableExporterModule} from 'mat-table-exporter';
+import { MatTableExporterModule } from 'mat-table-exporter';
 
 
 @Component({

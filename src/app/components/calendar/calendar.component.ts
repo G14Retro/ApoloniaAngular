@@ -29,7 +29,7 @@ L10n.load({
             "day": "Día",
             "week": "Semana",
             "workWeek": "Semana laboral",
-            "month": "Mes",            
+            "month": "Mes",
             "agenda": "Agenda",
             "weekAgenda": "Agenda semanal",
             "workWeekAgenda": "Agenda de la semana laboral",
@@ -131,13 +131,13 @@ L10n.load({
         "today": "Hoy"
     },
     }
-}); 
+});
 
 setCulture('es-CO');
 
 
 @Component({
-    selector: 'app-root',
+    selector: 'app-calendar',
     templateUrl: 'calendar.component.html',
     providers: [DayService, WeekService, WorkWeekService, MonthService, AgendaService, ResizeService, DragAndDropService]
 })
@@ -161,6 +161,6 @@ export class CalendarComponent implements OnInit {
     }
 
 ngOnInit():void{
-    
+
     }
 }

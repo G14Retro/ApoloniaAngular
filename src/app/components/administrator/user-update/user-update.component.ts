@@ -27,12 +27,12 @@ export class UserUpdateComponent implements OnInit {
 
   startDate = new Date(1990, 0, 1);
 
-  constructor(private administratorService:AdministratorService, 
+  constructor(private administratorService:AdministratorService,
     private ruta:ActivatedRoute,
     private formBuilder: FormBuilder,
     private router: Router,
     )
-     { 
+    {
       const currentYear = new Date().getFullYear();
       this.minDate = new Date(currentYear-31,0,1)
       this.maxDate = new Date(currentYear-1,11,31)
@@ -60,7 +60,7 @@ export class UserUpdateComponent implements OnInit {
       this.buscarUser();
 
   }
-  
+
   buscarUser(){
     this.ruta.params.subscribe(params =>{
       this.idUpdate=params['id'];
@@ -97,9 +97,9 @@ export class UserUpdateComponent implements OnInit {
     this.administratorService.listarTusuario().subscribe((resp:any)=>{
       this.tipo_usuario = resp;
     })
-    
+
   }
-  
+
   updateUser(){
     this.datos=this.userForm.value;
     this.datos.fecha_nacimiento = moment(this.userForm.value.fecha_nacimiento).format("YYYY-MM-DD");
@@ -111,13 +111,13 @@ export class UserUpdateComponent implements OnInit {
       'success'
     )
     this.router.navigateByUrl('/admin/usuarios');
-    
+
   },
   err=>{
     console.log(err);
   }
   );
-  
+
 }
 validPassword():boolean
   {
@@ -139,8 +139,8 @@ validPassword():boolean
       }
     }
   }
-    
+
   }
-    
+
 
 

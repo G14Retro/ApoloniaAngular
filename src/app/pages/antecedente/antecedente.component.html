@@ -7,7 +7,7 @@
             <div class="form-group col-md-6">
               <label>Tipo de Identificación</label>
               <input type="text" class="form-control" formControlName="tipo_documento"
-              [value]="personalForm.get('tipo_documento').value| titlecase">
+              [value]="personalForm.get('tipo_documento').value| uppercase">
             </div>
             <div class="form-group col-md-6">
               <label>Número de Identificación</label>
@@ -18,42 +18,51 @@
           <div class="form-group col-md-6">
             <label>Nombres</label>
             <input type="text" class="form-control" formControlName="nombre"
-            [value]="personalForm.get('nombre').value| titlecase">
+            [value]="personalForm.get('nombre').value| uppercase">
           </div>
           <div class="form-group col-md-6">
             <label>Apellidos</label>
             <input type="text" class="form-control" formControlName="apellido"
-            [value]="personalForm.get('apellido').value| titlecase">
+            [value]="personalForm.get('apellido').value| uppercase">
           </div>
         </div>
     </form>
     <form [formGroup]="antecedenteForm">
+      <input type="hidden" formControlName="cita">
         <div class="form-group">
             <label>Alergías</label>
             <textarea class="form-control" rows="3" formControlName="alergias"
-            [value]="antecedenteForm.get('alergias').value| titlecase"></textarea>
+            [value]="antecedenteForm.get('alergias').value| uppercase"></textarea>
         </div>
         <div class="form-group">
             <label>Enfermedades</label>
-            <textarea class="form-control" rows="3" formControlName="enfermedades"></textarea>
+            <textarea class="form-control" rows="3" formControlName="enfermedades"
+            [value]="antecedenteForm.get('enfermedades').value| uppercase"></textarea>
         </div>
         <div class="form-group">
             <label>Enfermedades Familiares</label>
-            <textarea class="form-control" rows="3" formControlName="enfermedades_familiares"></textarea>
+            <textarea class="form-control" rows="3" formControlName="enfermedades_familiares"
+            [value]="antecedenteForm.get('enfermedades_familiares').value| uppercase"></textarea>
         </div>
         <div class="form-group">
             <label>Cirugías</label>
-            <textarea class="form-control" rows="3" formControlName="cirugias"></textarea>
+            <textarea class="form-control" rows="3" formControlName="cirugias"
+            [value]="antecedenteForm.get('cirugias').value| uppercase"></textarea>
         </div>
         <div class="form-group">
             <label>Medicamentos</label>
-            <textarea class="form-control" rows="3" formControlName="medicamentos"></textarea>
+            <textarea class="form-control" rows="3" formControlName="medicamentos"
+            [value]="antecedenteForm.get('medicamentos').value| uppercase"></textarea>
         </div>
         <div class="form-group">
             <label>Otros</label>
-            <textarea class="form-control" rows="3" formControlName="otros"></textarea>
+            <textarea class="form-control" rows="3" formControlName="otros"
+            [value]="antecedenteForm.get('otros').value| uppercase"></textarea>
         </div>
       </form>
-      <button type="button" class="btn btn-primary" (click)="guardarAntecedente()">Guardar</button>
-      <button type="button" class="btn btn-secondary m-3" [routerLink]="['/doctor/agenda']">Cancelar</button>
+      <div class="">
+        <label> </label>
+        <button type="button" class="btn btn-primary float-right" (click)="guardarAntecedente()">Guardar</button>
+        <button type="button" class="btn btn-secondary mr-3 float-right" [routerLink]="['/doctor/agenda']">Cancelar</button>
+      </div>
 </div>

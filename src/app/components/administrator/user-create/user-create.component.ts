@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup,Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { userModel } from 'src/app/models/user.model';
 import {AdministratorService } from 'src/app/services/administrator.service';
 import Swal from 'sweetalert2';
@@ -14,6 +14,7 @@ import { Router } from '@angular/router';
   templateUrl: './user-create.component.html',
   styleUrls: ['./user-create.component.css']
 })
+
 export class UserCreateComponent implements OnInit {
 
   tipo_documentos:[]=[];
@@ -28,12 +29,12 @@ export class UserCreateComponent implements OnInit {
 
   startDate = new Date(1990, 0, 1);
   constructor(
-    
+
     private formBuilder: FormBuilder,
     private administratorService: AdministratorService,
     private router:Router,
-  ) { 
-    
+  ) {
+
     const currentYear = new Date().getFullYear();
     this.ciudades = CITIES;
     console.log(this.ciudades);
@@ -60,10 +61,10 @@ export class UserCreateComponent implements OnInit {
       this.verDocumento();
       this.verEstado();
       this.verTusuario();
-     
-      
+
+
   }
-  
+
   verDocumento(){
     this.administratorService.listarDocumentos().subscribe((resp:any)=>{
       this.tipo_documentos = resp;
@@ -99,10 +100,10 @@ export class UserCreateComponent implements OnInit {
       }
     }
   }
-  
-  
+
+
   crearUsuario (){
-    
+
     this.datos=this.userForm.value;
     this.datos.ciudad = this.userForm.value.ciudad['ciudad'];
     this.datos.fecha_nacimiento = moment(this.userForm.value.fecha_nacimiento).format("YYYY-MM-DD");
@@ -114,13 +115,13 @@ export class UserCreateComponent implements OnInit {
       'success'
     )
     this.router.navigateByUrl('/admin/usuarios');
-    
+
   },
   err=>{
     console.log(err);
   }
   );
-  
+
 }
 
 }

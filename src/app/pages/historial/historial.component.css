@@ -1,0 +1,48 @@
+table {
+  width:100%;
+}
+.btnVerDetalle{
+    background-image: linear-gradient(to right, #33C8FA 0%, #33C8FA  51%, #33C8FA  100%);
+    margin: 10px ;
+    padding: 2px 9px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 6px;
+    display: block;
+}
+.btnbtnVerDetalle:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+
+th{
+  color:#888888;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+}
+td{
+  color:#555555;
+  font-size: 13px;
+  font-weight: 300;
+  text-align: left;
+  margin: 0 6px 0 0;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 16%;
+}
+.mat-row:hover {
+  background-color:#6c757d15;
+
+}
+
+.colums{
+text-align: center;
+}

@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { registerLocaleData, TitleCasePipe } from '@angular/common';
-import {MatTableExporterModule} from 'mat-table-exporter';
+import { MatTableExporterModule } from 'mat-table-exporter';
 
 
 //Componentes
@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { CitasComponent } from './components/citas/citas.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
@@ -30,6 +31,12 @@ import { UserCreateComponent } from './components/administrator/user-create/user
 import { UserUpdateComponent } from './components/administrator/user-update/user-update.component';
 import { AddDialogComponent } from './components/add-dialog/add-dialog.component';
 import { DetalleHistorialComponent } from './pages/historial/detalle-historial/detalle-historial.component';
+import { TablaPacientesComponent } from './components/tabla-pacientes/tabla-pacientes.component';
+import { PacientesComponent } from './pages/pacientes/pacientes.component';
+import { DetallePacienteComponent } from './pages/pacientes/detalle-paciente/detalle-paciente.component';
+import { TablaOdontogramaComponent } from './components/tabla-odontograma/tabla-odontograma.component';
+import { DiagnosticoComponent } from './pages/diagnostico/diagnostico.component';
+import { PacienteAntecedenteComponent } from './pages/pacientes/paciente-antecedente/paciente-antecedente.component';
 
 
 // Modulos
@@ -54,6 +61,10 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { CopyPasteDirective } from './directives/copy-paste.directive';
 import { ScheduleModule,RecurrenceEditorModule } from "@syncfusion/ej2-angular-schedule";
 import { NgxMatDatetimePickerModule, NgxMatNativeDateModule, NgxMatTimepickerModule  } from "@angular-material-components/datetime-picker";
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { NgxCrumbsModule } from "ngx-crumbs";
+
 
 //Provaiders
 import localeEsCO from "@angular/common/locales/es-CO";
@@ -65,6 +76,7 @@ registerLocaleData(localeEsCO,'es-CO')
     LoginComponent,
     RegisterComponent,
     HomeComponent,
+    DashboardComponent,
     NavbarComponent,
     CitasComponent,
     HeaderComponent,
@@ -86,7 +98,15 @@ registerLocaleData(localeEsCO,'es-CO')
     AddDialogComponent,
     UserCreateComponent,
     UserUpdateComponent,
-    AddDialogComponent, DetalleHistorialComponent
+    AddDialogComponent,
+    DetalleHistorialComponent,
+    TablaPacientesComponent,
+    PacientesComponent,
+    DetallePacienteComponent,
+    TablaOdontogramaComponent,
+    DiagnosticoComponent,
+    DetalleHistorialComponent,
+    PacienteAntecedenteComponent,
   ],
   imports: [
     BrowserModule,
@@ -111,8 +131,10 @@ registerLocaleData(localeEsCO,'es-CO')
     NgxMatDatetimePickerModule,
     NgxMatTimepickerModule,
     NgxMatNativeDateModule,
-    MatTableExporterModule
-    
+    MatButtonToggleModule,
+    MatTableExporterModule,
+    MatGridListModule,
+    NgxCrumbsModule
   ],
 
   providers: [

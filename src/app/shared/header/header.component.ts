@@ -9,11 +9,43 @@ import { AppComponent } from "src/app/app.component";
   ]
 })
 export class HeaderComponent implements OnInit {
-
-  constructor(private auth:AuthService, public exp:AppComponent) { }
+  nombre:string;
+  rol:string;
+  admin:boolean = true;
+  doctoropc:boolean = true;
+  recepcionistapc: boolean = true;
+  paciente:boolean = true;
+  constructor(private auth:AuthService) {
+    this.nombre = auth.usuario.nombre + " " + auth.usuario.apellido;
+    this.rol = auth.usuario.tipoUsuario;
+  }
 
   ngOnInit(): void {
+    if (this.rol == 'administrador') {
+      this.admin = true;
+    } else {
+      this.admin = false;
+    }
+
+    if (this.rol == 'doctor') {
+      this.doctoropc = true;
+    } else {
+      this.doctoropc = false;
+    }
+
+    if(this.rol == 'recepcion'){
+      this.recepcionistapc = true;
+    }else{
+      this.recepcionistapc = false;
+    }
+
+    if (this.rol == 'paciente') {
+      this.paciente = true
+    } else {
+      this.paciente = false
+    }
   }
+
 
   logout(){
     this.auth.logout().subscribe(

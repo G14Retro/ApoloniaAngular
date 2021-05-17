@@ -21,25 +21,16 @@ export class AntecedenteComponent implements OnInit {
     private fb:FormBuilder, private route:Router) { 
     this.loading = true;
     this.datos= new antecedenteModel;
-    this.ruta.params.subscribe(params=>{
-      this.doctorService.obtenerAntecedente(params['id']).subscribe((resp:any)=>{
-        this.datos = resp;
-        this.datos.paciente = this.datos.paciente['0'];
-        this.datos.antecedente = this.datos.antecedente['0'];
-        this.personalForm.setValue(this.datos.paciente);
-        this.personalForm.disable();
-        this.loading = false;
-        this.antecedenteForm.setValue(this.datos.antecedente);
-      });
-    });
     this.createForm();
   }
 
   ngOnInit(): void {
+    this.llamarDatos();
    }
 
    createForm(){
     this.personalForm = this.fb.group({
+      id: [''],
       tipo_documento: [''],
       numero_documento:[''],
       nombre:[''],
@@ -52,7 +43,8 @@ export class AntecedenteComponent implements OnInit {
       cirugias:['',Validators.required],
       medicamentos:['',Validators.required],
       otros:['',Validators.required],
-      cita:['']
+      cita:[''],
+      paciente:[''],
     })
    }
 
@@ -65,19 +57,34 @@ export class AntecedenteComponent implements OnInit {
     Swal.showLoading();
     this.ruta.params.subscribe(params=>{
       this.antecedenteForm.controls['cita'].setValue(params['id']);
-     this.doctorService.guardarAntecedente(this.antecedenteForm).subscribe(resp=>{
+     this.doctorService.guardarAntecedente(this.antecedenteForm).subscribe((resp:any)=>{
+      this.doctorService.fichaDental = resp.ficha;
        Swal.close();
        Swal.fire (resp['message'], '', 'success');
-      this.route.navigateByUrl('/doctor/odontograma/'+params['id']);
+      this.route.navigateByUrl('/doctor/pacientes/odontograma/'+this.doctorService.fichaDental);
      });
     }, 
     (err)=>{
       Swal.fire({
         icon: 'error',
-        title: 'Error alregistrarse',
-        text: err.error.errors.correo + ', '+ err.error.errors.numero_documento,
+        title: 'Error al guardar antecedente',
+        text: err,
       })});
 
+   }
+   llamarDatos(){
+    this.ruta.params.subscribe(params=>{
+      this.doctorService.obtenerAntecedente(params['id']).subscribe((resp:any)=>{
+        this.datos = resp;
+        this.datos.paciente = this.datos.paciente['0'];
+        this.datos.antecedente = this.datos.antecedente['0'];
+        this.datos.antecedente.cita = '';
+        this.personalForm.setValue(this.datos.paciente);
+        this.personalForm.disable();
+        this.loading = false;
+        this.antecedenteForm.setValue(this.datos.antecedente);
+      });
+    });
    }
   }
 
