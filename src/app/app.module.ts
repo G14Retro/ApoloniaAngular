@@ -64,6 +64,7 @@ import { NgxMatDatetimePickerModule, NgxMatNativeDateModule, NgxMatTimepickerMod
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { NgxCrumbsModule } from "ngx-crumbs";
+import { CalendarModule } from '@syncfusion/ej2-angular-calendars';
 
 
 //Provaiders
@@ -107,6 +108,7 @@ registerLocaleData(localeEsCO,'es-CO')
     DiagnosticoComponent,
     DetalleHistorialComponent,
     PacienteAntecedenteComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -134,7 +136,8 @@ registerLocaleData(localeEsCO,'es-CO')
     MatButtonToggleModule,
     MatTableExporterModule,
     MatGridListModule,
-    NgxCrumbsModule
+    NgxCrumbsModule,
+    CalendarModule
   ],
 
   providers: [

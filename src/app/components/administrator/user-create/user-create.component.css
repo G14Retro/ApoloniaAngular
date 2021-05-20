@@ -1,199 +1,47 @@
-@media (max-width: 1024px) {
-	
-	#form_container, footer#home {
-	width:800px;
-    }
-	
+.btnContainer{
+  display: inline-flex;
 }
-@media (max-width: 991px) {
-	
-	#form_container {
-		width:auto;
-		margin-top: 0;
-	}
-	#form_container .row {
-		margin: 0;
-	}
-	footer#home {
-		width:100%;
-		padding: 0 30px;
-	}
-	#left_form {
-		text-align:left;
-		padding:30px;
-		min-height:inherit;
-    }
-	#left_form img{
-		float: left;
-		margin-right: 30px;
-    }
-	a#more_info{
-		left:auto;
-		right:30px;
-    }
-	#top-wizard {
-		margin-left: 0;
-	}
-	#wizard_container {
-		min-height:inherit;
-	}
-	#middle-wizard {
-		padding: 30px 30px 120px 30px;
-	}
-	
+/********** ESTILOS BOTON GUARDAR *********/
+.btnGuardar{
+  background-image: linear-gradient(to right, #33C8FA 0%, #33C8FA  51%, #33C8FA  100%);
+  margin-left: 10%;
+  margin-bottom: auto;
+  padding: 7px 15px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white !important;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  display: block;
+}
+.btnGuardar:hover{
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
 }
 
-/* Tablet*/
-@media (max-width: 768px) {
-	
+.btnRegresar{
+  background-image: linear-gradient(to right, #606c880f 0%, #6b3f3f61  51%, #606c880f  100%);
+  margin-left: 330%;
+  margin-top: auto;
+  padding: 7px 15px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 6px;
+  cursor: pointer;
+  border: none;
+  display: block;
 }
-
-/* Mobile Landscape */
-@media (max-width: 767px) {
-	
-	#form_container .row > [class*='col-'] {
-		padding-left: 0 !important;
-    	padding-right: 0 !important;
-	}
-	
-	h1.main_title,
-	h2.main_title {
-		font-size: 32px;
-	}
-	h1.main_title span,
-	h2.main_title span {
-		font-size: 18px;
-	}
-	p.lead.styled {
-		font-size: 16px;
-	}
-	
-	#left_form img{
-		float: none;
-		margin-right: 0;
-		width: 100px;
-		height: 100%;
-    }
-	/* Margin tools */
-	.margin_60 {
-		padding-top: 30px;
-		padding-bottom: 30px;
-	}
-	.margin_30 {
-		margin-top: 15px;
-		margin-bottom: 15px;
-	}
-	.margin_60_35 {
-		padding-top: 30px;
-		padding-bottom: 30px;
-	}
-	.add_bottom_60 {
-		margin-bottom: 30px;
-	}
-	
-	#bottom-wizard {
-	right:35px;
-}
-
-}
-
-/* Mobile Portrait */
-@media (max-width: 480px) {
-	
-	label.rating_type, .rating  {float:left; display:block;}
-	label.rating_type  {width:100%;}
-	
-	#map_contact {height: 300px;}
-}
-
-#left_form {
-	background-color: #33C8FA;
-	min-height: 460px;
-	color: #fff;
-	text-align: center;
-	border-radius:9px  0 0 9px;
-	padding: 70px 50px 30px 50px;
-	box-sizing: border-box;
-	position: relative;
-}
-
-#left_form h2 {
-	font-weight: 300;
-	color: #fff;
-	margin: 15px 0 0 0;
-	padding: 0;
-	font-size: 36px;
-	margin-bottom: 15px;
-}
-
-#left_form p {
-	font-size: 16px;
-}
-#wizard_container {
-	position: relative;
-	min-height: 450px;
-}
-
-#top-wizard {
-	margin-left: -30px;
-}
-
-.ui-widget-header {
-	background: #33C8FA;
-}
-.ui-progressbar {
-	height: 5px;
-	width: 100%;
-}
-.ui-progressbar .ui-progressbar-value {
-	height: 100%;
-	-webkit-transition: all 0.2s ease;
-	transition: all 0.2s ease;
-}
-
-#middle-wizard {
-	padding: 45px 45px 30px 15px;
-}
-
-.form-control, .single-line {
-    background-color: #fff;
-    background-image: none;
-    /* border: 1px solid #e5e6e7; */
-    border-radius: 16px;
-    color: inherit;
-    display: block;
-    padding: 6px 12px;
-    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
-    width: 100%;
-}
-
-.mat-stepper-horizontal {
-    margin-top: 8px;
-}
-
-.mat-form-field {
-    margin-top: 12px;
-}
-
-.btn-color{
-	background-color: #33C8FA;
-	color: #fff;
-	border-color: #33C8FA;
-}
-
-.btn-outline-color {
-    color: #33C8FA;
-    background-color: rgba(160, 160, 160, 0.386);
-    background-image: none;
-    border-color: #33C8FA;
-	margin-right: 6px;
-}
-.contenedor-botones1{
-/*background: crimson;*/
-margin-left: 280px;
-}
-
-.width-45 {
-	width: 45%;
-	margin-right: 12px;
+.btnRegresar:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
 }
