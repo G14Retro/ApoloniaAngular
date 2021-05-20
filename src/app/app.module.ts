@@ -64,11 +64,17 @@ import { NgxMatDatetimePickerModule, NgxMatNativeDateModule, NgxMatTimepickerMod
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { NgxCrumbsModule } from "ngx-crumbs";
+<<<<<<< HEAD
 import { CalendarModule } from '@syncfusion/ej2-angular-calendars';
+=======
+import {MatListModule} from '@angular/material/list';
+import {MatExpansionModule} from '@angular/material/expansion';
+>>>>>>> e0c265ba68c09586816e125a0cd915c1f143451b
 
 
 //Provaiders
 import localeEsCO from "@angular/common/locales/es-CO";
+import { SuperficieComponent } from './pages/diagnostico/superficie/superficie.component';
 registerLocaleData(localeEsCO,'es-CO')
 
 @NgModule({
@@ -108,7 +114,11 @@ registerLocaleData(localeEsCO,'es-CO')
     DiagnosticoComponent,
     DetalleHistorialComponent,
     PacienteAntecedenteComponent,
+<<<<<<< HEAD
 
+=======
+    SuperficieComponent,
+>>>>>>> e0c265ba68c09586816e125a0cd915c1f143451b
   ],
   imports: [
     BrowserModule,
@@ -137,7 +147,12 @@ registerLocaleData(localeEsCO,'es-CO')
     MatTableExporterModule,
     MatGridListModule,
     NgxCrumbsModule,
+<<<<<<< HEAD
     CalendarModule
+=======
+    MatListModule,
+    MatExpansionModule
+>>>>>>> e0c265ba68c09586816e125a0cd915c1f143451b
   ],
 
   providers: [

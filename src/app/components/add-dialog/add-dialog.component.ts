@@ -72,7 +72,6 @@ export class AddDialogComponent implements OnInit {
   }
 
   this.AdddialogRef.close(this.recepcionista.crearDisponibilidad(this.dispoGroup.value).subscribe((resp:any)=>{
-    console.log(resp)
     Swal.fire({
       allowOutsideClick: false,
       icon:'info',
@@ -81,7 +80,7 @@ export class AddDialogComponent implements OnInit {
     Swal.fire();
       Swal.close();
       Swal.fire ('Disponibilidad', 'Creada Correctamente', 'success');
-      this.route.navigateByUrl('/dispo');
+      this.route.navigateByUrl('/recepcion/dispo');
     },
     ));
   }
