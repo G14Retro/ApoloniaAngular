@@ -10,7 +10,7 @@ import { AuthService } from './auth.service';
   providedIn: 'root'
 })
 export class DoctorService {
-  fichaDental:String;
+  odonto:String;
   usuario:userModel;
   url:string = 'http://localhost:8000/api/apolonia/';
   constructor(private http:HttpClient, private auth:AuthService) { }
@@ -129,5 +129,43 @@ export class DoctorService {
       ...datos.value
     });
     return this.http.post(this.url+'guardarAntecedenteId',data,{headers});
+  }
+
+  getDientes(){
+    const  headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'X-Requested-With': 'XMLHttpRequest',
+      'Authorization': 'Bearer ' + this.auth.usuario.token
+    });
+    return this.http.get(this.url+'getDientes',{headers});
+  }
+
+  getSintomas(){
+    const  headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'X-Requested-With': 'XMLHttpRequest',
+      'Authorization': 'Bearer ' + this.auth.usuario.token
+    });
+    return this.http.get(this.url+'getSintomas',{headers});
+  }
+
+  getTratamientos(){
+    const  headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'X-Requested-With': 'XMLHttpRequest',
+      'Authorization': 'Bearer ' + this.auth.usuario.token
+    });
+    return this.http.get(this.url+'getTratamientos',{headers});
+  }
+  guardarDiagnostico(datos:FormGroup){
+    const  headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'X-Requested-With': 'XMLHttpRequest',
+      'Authorization': 'Bearer ' + this.auth.usuario.token
+    });
+    const data = ({
+      ...datos
+    });
+    return this.http.post(this.url+'guardarDiagnostico',data,{headers});
   }
 }
