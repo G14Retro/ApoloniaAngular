@@ -13,7 +13,7 @@ export class SuperficieComponent implements OnInit {
     {valor: 'V', nombre: 'Vestibular'},
     {valor: 'P', nombre: 'Palatina'},
     {valor: 'O', nombre: 'Oclusal'},
-    {valor: 'ausente', nombre: 'Ausente'},
+    {valor: 'AUSENTE', nombre: 'Ausente'},
   ];
   @ViewChild('superficieL') superficieL;
   constructor(public dialogRef: MatDialogRef<SuperficieComponent>,

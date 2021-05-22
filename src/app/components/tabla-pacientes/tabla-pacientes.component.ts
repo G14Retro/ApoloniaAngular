@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { DoctorService } from 'src/app/services/doctor.service';
+import { TablaDiagnosticoComponent } from '../tabla-diagnostico/tabla-diagnostico.component';
 import { TablaOdontogramaComponent } from '../tabla-odontograma/tabla-odontograma.component';
 
 @Component({
@@ -24,6 +25,7 @@ export class TablaPacientesComponent implements OnInit,AfterViewInit {
   ngAfterViewInit():void{
     this.dataSource.paginator = this.paginator;
     this.paginator._intl.itemsPerPageLabel="Registros por página";
+    this.filtrarPaciente();
   }
 
   llenarTabla(){
@@ -34,6 +36,14 @@ export class TablaPacientesComponent implements OnInit,AfterViewInit {
     })
   }
 
+  filtrarPaciente(){
+    let paciente = sessionStorage.getItem('paciente');
+    if (paciente != null) {
+      this.applyFilter(paciente);
+      sessionStorage.removeItem('paciente');
+    }
+  }
+
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
@@ -42,6 +52,13 @@ export class TablaPacientesComponent implements OnInit,AfterViewInit {
     const dialogRef = this.dialog.open(TablaOdontogramaComponent,{
       width:'800px',
       data:{id}
+    })
+  }
+
+  diagnosticoDialog(id:string){
+    const dialogRef = this.dialog.open(TablaDiagnosticoComponent,{
+      width: '800px',
+      data: {id}
     })
   }
 }

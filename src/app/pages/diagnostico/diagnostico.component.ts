@@ -1,8 +1,10 @@
-import { Component, OnChanges, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CurrencyPipe } from '@angular/common';
+import { Component, DoCheck, OnInit } from '@angular/core';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DoctorService } from 'src/app/services/doctor.service';
+import Swal from 'sweetalert2';
 import { SuperficieComponent } from './superficie/superficie.component';
 
 @Component({
@@ -10,7 +12,7 @@ import { SuperficieComponent } from './superficie/superficie.component';
   templateUrl: './diagnostico.component.html',
   styleUrls: ['./diagnostico.component.css']
 })
-export class DiagnosticoComponent implements OnInit, OnChanges {
+export class DiagnosticoComponent implements OnInit, DoCheck {
   diagnosticoForm:FormGroup;
   odontoID:String;
   dientes:[] = [];
@@ -18,9 +20,9 @@ export class DiagnosticoComponent implements OnInit, OnChanges {
   tratamientos:[] = [];
   abierto:boolean = false;
   seleccion:String;
-  total = 0;
+  total:number;
   constructor(private fb:FormBuilder, private ruta:ActivatedRoute, private doctor:DoctorService,
-              private dialog:MatDialog) { }
+              private dialog:MatDialog, private moneda:CurrencyPipe, private router:Router) { }
 
   ngOnInit(): void {
     this.ruta.params.subscribe(params=>{
@@ -32,7 +34,7 @@ export class DiagnosticoComponent implements OnInit, OnChanges {
     this.createForm();
   }
 
-  ngOnChanges(){
+  ngDoCheck(){
     this.valorTotal();
   }
 
@@ -41,8 +43,8 @@ export class DiagnosticoComponent implements OnInit, OnChanges {
       diagnostico: this.fb.array([this.fb.group({
         odontograma:[this.odontoID,Validators.required],
         diente:['',Validators.required],
-        superficie:['',Validators.required],
-        sintomas:[''],
+        superficie: {value:'', disabled: true},
+        sintomas:['',Validators.required],
         observacion:['',Validators.required],
         tratamiento:['',Validators.required],
         valor_tratamiento:['',Validators.required],
@@ -95,7 +97,7 @@ export class DiagnosticoComponent implements OnInit, OnChanges {
     diagnostico.push(this.fb.group({
       odontograma:[this.odontoID,Validators.required],
         diente:['',Validators.required],
-        superficie:[''],
+        superficie:{value:'', disabled: true},
         sintomas:['',Validators.required],
         observacion:['',Validators.required],
         tratamiento:['',Validators.required],
@@ -112,17 +114,49 @@ export class DiagnosticoComponent implements OnInit, OnChanges {
     const diagnostico = <FormArray>this.diagnosticoForm.controls['diagnostico'];
     diagnostico.controls.forEach(control=>{
       control.get('superficie').setValue(control.get('superficie').value.toString())
+      control.get('superficie').enable()
     })
-
-    this.doctor.guardarDiagnostico(diagnostico.value).subscribe((resp:any)=>{
-      console.log(resp);
-    },(err:any)=>{
-      console.log(err);
-    });
+    if (diagnostico.invalid) {
+      return
+    }
+    Swal.fire({
+      title:'¿Desea guardar el diagnostico?',
+      icon:'warning',
+      showCancelButton:true, 
+      confirmButtonText: `Guardar`,
+      cancelButtonText: `Cancelar`,
+    }).then((result)=>{
+      if (result.isConfirmed) {
+        Swal.fire({
+          allowOutsideClick: false,
+          icon:'info',
+          title: 'Espere por favor...'
+        });
+        Swal.showLoading();
+        this.doctor.guardarDiagnostico(diagnostico.value).subscribe((resp:any)=>{
+          Swal.close();
+          Swal.fire ('Guardado', resp.message, 'success');
+          this.router.navigateByUrl('/doctor/pacientes/odontograma/'+this.odontoID);
+        },(err:any)=>{
+          Swal.fire({
+            icon: 'error',
+            title: 'Error al cancelar',
+            text: err.error.message,
+          })
+        });
+      }
+    })
   }
 
-valorTotal(){
-  console.log("Pasando total");
-}
+  valorTotal(){
+    this.total = 0;
+    const diagnostico = <FormArray>this.diagnosticoForm.controls['diagnostico'];
+    diagnostico.controls.forEach(control=>{
+      this.total = this.total + Number(control.get('valor_tratamiento').value)
+    })
+    this.diagnosticoForm.controls.valor_total.disable();
+    this.diagnosticoForm.controls.valor_total.setValue(this.moneda.transform(this.total));
+  }
 
+  
 }
