@@ -143,7 +143,7 @@ registerLocaleData(localeEsCO,'es-CO')
     MatTableExporterModule,
     MatGridListModule,
     NgxCrumbsModule,
-    CalendarModule
+    CalendarModule,
     MatListModule,
     MatExpansionModule,
     MatTooltipModule,
