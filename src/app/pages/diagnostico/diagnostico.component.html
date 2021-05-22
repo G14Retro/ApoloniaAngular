@@ -1,1 +1,67 @@
-<p>diagnostico works!</p>
+<div class="container-md">
+    <div class="form-group p-3">
+        <button class="btn btn-info float-right" (click)="agregarRegistro()">
+            <i class="fas fa-plus"></i> Agregar
+        </button>
+    </div>
+    <form [formGroup]="diagnosticoForm">
+        <div formArrayName="diagnostico" *ngFor="let item of getDiagnosticos.controls; let i = index">
+            <div [formGroupName]="i">
+                <mat-form-field class="peque">
+                    <mat-label>Diente</mat-label>
+                    <mat-select formControlName="diente" required>
+                        <mat-option>-----</mat-option>
+                        <mat-option *ngFor="let diente of dientes" [value]="diente.numero">
+                            {{diente.numero}}
+                    </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Superficie</mat-label>
+                    <input matInput formControlName="superficie" (click)="openSuperficie(i)">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Sintomas</mat-label>
+                    <mat-select formControlName="sintomas" required>
+                        <mat-option>-----</mat-option>
+                        <mat-option *ngFor="let sintoma of sintomas" [value]="sintoma.id">
+                            {{sintoma.nombre_sintoma}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Observación</mat-label>
+                    <textarea formControlName="observacion" matInput></textarea>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Tratamiento</mat-label>
+                    <mat-select formControlName="tratamiento" required>
+                        <mat-option>-----</mat-option>
+                        <mat-option *ngFor="let tratamiento of tratamientos" [value]="tratamiento.id" (click)="valor(tratamiento.valor_tratamiento,i)">
+                            {{tratamiento.nombre_tratamiento}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Valor del tratamiento</mat-label>
+                    <input matInput type="number" formControlName="valor_tratamiento">
+                </mat-form-field>
+                    <button mat-mini-fab color="warn" (click)="removerRegistro(i)">
+                        <i class="fas fa-minus"></i>
+                    </button>
+            </div>
+        </div>
+        <div>
+            <mat-form-field class="float-right valor">
+                <mat-label>Total</mat-label>
+                <input matInput type="number" formControlName="valor_total">
+            </mat-form-field>
+            <br>
+            <br>
+            <br>
+        </div>
+        <div class="form-group p-3">
+            <button mat-button class="btn-primary float-right" (click)="guardar()">Guardar</button>
+        </div>
+    </form>
+</div>

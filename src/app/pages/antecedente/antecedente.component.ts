@@ -17,6 +17,7 @@ export class AntecedenteComponent implements OnInit {
   personalForm:FormGroup;
   antecedenteForm:FormGroup;
   loading:boolean;
+  cita:String;
   constructor(private doctorService:DoctorService, private ruta:ActivatedRoute, 
     private fb:FormBuilder, private route:Router) { 
     this.loading = true;
@@ -58,10 +59,10 @@ export class AntecedenteComponent implements OnInit {
     this.ruta.params.subscribe(params=>{
       this.antecedenteForm.controls['cita'].setValue(params['id']);
      this.doctorService.guardarAntecedente(this.antecedenteForm).subscribe((resp:any)=>{
-      this.doctorService.fichaDental = resp.ficha;
+      this.doctorService.odonto = resp.odonto;
        Swal.close();
        Swal.fire (resp['message'], '', 'success');
-      this.route.navigateByUrl('/doctor/pacientes/odontograma/'+this.doctorService.fichaDental);
+      this.route.navigateByUrl('/doctor/pacientes/diagnostico/'+this.doctorService.odonto);
      });
     }, 
     (err)=>{
@@ -75,10 +76,10 @@ export class AntecedenteComponent implements OnInit {
    llamarDatos(){
     this.ruta.params.subscribe(params=>{
       this.doctorService.obtenerAntecedente(params['id']).subscribe((resp:any)=>{
+        console.log(resp);
         this.datos = resp;
         this.datos.paciente = this.datos.paciente['0'];
         this.datos.antecedente = this.datos.antecedente['0'];
-        this.datos.antecedente.cita = '';
         this.personalForm.setValue(this.datos.paciente);
         this.personalForm.disable();
         this.loading = false;

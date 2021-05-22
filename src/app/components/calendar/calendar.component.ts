@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { zooEventsData } from '../calendar/data';
-import { extend } from '@syncfusion/ej2-base';
-import {
-    EventSettingsModel, View, EventRenderedArgs, DayService, WeekService, WorkWeekService, MonthService, AgendaService, ResizeService, DragAndDropService
-} from '@syncfusion/ej2-angular-schedule';
+//import { zooEventsData } from './datasource';
+//import { extend } from '@syncfusion/ej2-base';
+import { EventSettingsModel, View, EventRenderedArgs, DayService, WeekService, WorkWeekService, MonthService, AgendaService, ResizeService, DragAndDropService } from '@syncfusion/ej2-angular-schedule';
+import { scheduleData } from './datasource';
 
 
 
@@ -66,8 +65,8 @@ L10n.load({
             "location": "Consultorio",
             "description": "Descripción",
             "timezone": "Zona horaria",
-            "startTimezone": "Zona horaria inicial",
-            "endTimezone": "Zona horaria final",
+            "startTimezone": "Hora Inicial",
+            "endTimezone": "Hora Final",
             "repeat": "Doctor",
             "saveButton": "Guardar",
             "cancelButton": "Cancelar",
@@ -135,18 +134,30 @@ L10n.load({
 
 setCulture('es-CO');
 
-
 @Component({
     selector: 'app-calendar',
     templateUrl: 'calendar.component.html',
-    providers: [DayService, WeekService, WorkWeekService, MonthService, AgendaService, ResizeService, DragAndDropService]
+    styleUrls: ['calendar.component.css'],
+    providers: [ DayService, WeekService, WorkWeekService, MonthService, AgendaService, ResizeService, DragAndDropService]
 })
 export class CalendarComponent implements OnInit {
-    public data: Object[] = <Object[]>extend([], zooEventsData, null, true);
+    //public data: Object[] = <Object[]>extend([], scheduleData, null, true);
     public dateFormat: string = "yyyy/MM/dd";
     public selectedDate: Date = new Date();
-    public eventSettings: EventSettingsModel = { dataSource: this.data };
+    //public eventSettings: EventSettingsModel = { dataSource: this.data };
     public currentView: View = 'Week';
+    public showQuickInfo: Boolean = false;
+    public eventSettings: EventSettingsModel = {
+      dataSource: scheduleData,
+      fields: {
+          id: 'Id',
+          subject: { name: 'Subject', title: 'Especialista' },
+          location: { name: 'Location', title: 'Consultorio'},
+          description: { name: 'Description', title: 'Descripción' },
+          startTime: { name: 'StartTime', title: 'Hora Inicio' },
+          endTime: { name: 'EndTime', title: 'Hora Fin'  }
+      }
+  };
 
     oneventRendered(args: EventRenderedArgs): void {
         let categoryColor: string = args.data.CategoryColor as string;
@@ -161,6 +172,5 @@ export class CalendarComponent implements OnInit {
     }
 
 ngOnInit():void{
-
     }
 }

@@ -3,21 +3,20 @@
         <ul class="nav metismenu" id="side-menu">
             <li class="nav-header">
                 <div class="dropdown profile-element">
-                    <img alt="image" height="45" style="margin:-25px 0 0 -10px;  padding-bottom: 5px;"
-                    src="/assets/img/small-profile2.png" [routerLink]="['/home']">
-                    <a data-toggle="dropdown" class="dropdown-toggle" href="#" >
+                    <img alt="image" height="45" style="margin:-25px 0 0 -10px;  padding-bottom: 5px;" src="/assets/img/small-profile2.png" [routerLink]="['/home']">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                         <span class="block m-t-xs font-bold">{{nombre | titlecase}}</span>
                         <span class="text-muted text-xs block">{{rol | titlecase}} </span>
                     </a>
                 </div>
                 <div class="logo-element">
-                <img src="../../../favicon.ico" width="50" height="45" alt="image" class="rounded-circle">
+                    <img src="../../../favicon.ico" width="50" height="45" alt="image" class="rounded-circle">
                 </div>
             </li>
 
 
             <li routerLinkActive='active'>
-              <a class="nav-link" [routerLink]="['/home']"><i class="ico fas fa-tachometer-alt"></i>
+                <a class="nav-link" [routerLink]="['/home']"><i class="ico fas fa-tachometer-alt"></i>
                 <span class="navText nav-label"> Inicio</span></a>
             </li>
             <!--
@@ -32,6 +31,14 @@
             <li routerLinkActive="active" *ngIf="admin">
                 <a [routerLink]="['/admin/agenda']"><i class="navIco fa fa-book"></i>
                   <span class="navText nav-label"> Agenda</span></a>
+            </li>
+            <li routerLinkActive="active" *ngIf="admin">
+                <a [routerLink]="['/admin/sintomas']"><i class="navIco fa fa-book"></i>
+                <span class="navText nav-label"> Sintomas</span></a>
+            </li>
+            <li routerLinkActive="active" *ngIf="admin">
+                <a [routerLink]="['/admin/tratamientos']"><i class="navIco fa fa-book"></i>
+              <span class="navText nav-label"> Tratamientos</span></a>
             </li>
             <li routerLinkActive='active' *ngIf="paciente">
                 <a class="nav-link" [routerLink]="['/paciente/citas']"><i class="navIco fa fa-calendar"></i>
@@ -63,7 +70,7 @@
             </li>
             <li routerLinkActive='active'>
                 <a (click)="logout()" href="#"> <i class="fa fa-power-off"></i>
-                  <span class="navText nav-label"> Cerrar Sesión</span></a>
+                    <span class="navText nav-label"> Cerrar Sesión</span></a>
             </li>
         </ul>
 

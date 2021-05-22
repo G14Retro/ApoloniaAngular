@@ -101,7 +101,6 @@ export class UserCreateComponent implements OnInit {
     }
   }
 
-
   crearUsuario (){
 
     this.datos=this.userForm.value;
@@ -109,6 +108,7 @@ export class UserCreateComponent implements OnInit {
     this.datos.fecha_nacimiento = moment(this.userForm.value.fecha_nacimiento).format("YYYY-MM-DD");
     this.administratorService.crearUsuario(this.datos).subscribe(resp=>{
     console.log(this.userForm.value.ciudad['ciudad'])
+    console.log(resp)
     Swal.fire(
       'En hora buena',
       'Usuario creado correctamente!',
