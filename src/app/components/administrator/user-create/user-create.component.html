@@ -1,4 +1,4 @@
-<div mat-dialog-title>Crear Usuario</div>
+<div mat-dialog-title><h2>Crear Usuario</h2></div>
 <div mat-dialog-content>
     <form [formGroup]="userForm">
 
@@ -115,9 +115,11 @@
         </mat-form-field>
 
     </form>
+    <div class="btnContainer">
+      <button [routerLink]="['/admin/usuarios']" class="btnRegresar btn-secondary">Regresar</button>
+      <button type="submit" class="btnGuardar" (click)="crearUsuario()">Guardar</button>
+    </div>
 
-    <button [routerLink]="['/admin/usuarios']" class="btn btn-secondary mr-3">Regresar</button>
-    <button type="submit" class="btn btn-primary mr-3" (click)="crearUsuario()">Guardar</button>
 </div>
 
 

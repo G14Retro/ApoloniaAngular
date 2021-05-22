@@ -64,6 +64,7 @@ import { NgxMatDatetimePickerModule, NgxMatNativeDateModule, NgxMatTimepickerMod
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { NgxCrumbsModule } from "ngx-crumbs";
+import { CalendarModule } from '@syncfusion/ej2-angular-calendars';
 import {MatListModule} from '@angular/material/list';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatTooltipModule} from '@angular/material/tooltip';
@@ -142,9 +143,11 @@ registerLocaleData(localeEsCO,'es-CO')
     MatTableExporterModule,
     MatGridListModule,
     NgxCrumbsModule,
+    CalendarModule
     MatListModule,
     MatExpansionModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatExpansionModule
   ],
 
   providers: [
