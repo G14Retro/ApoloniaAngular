@@ -1,6 +1,6 @@
 <div class="container-md">
     <div class="form-group p-3">
-        <button class="btn btn-info float-right" (click)="agregarRegistro()">
+        <button class="btn btn-info float-right">
             <i class="fas fa-plus"></i> Agregar
         </button>
     </div>
@@ -49,7 +49,7 @@
                     <mat-label>Valor del tratamiento</mat-label>
                     <input matInput type="number" formControlName="valor_tratamiento">
                 </mat-form-field>
-                    <button mat-mini-fab color="warn" (click)="removerRegistro(i)">
+                    <button mat-mini-fab color="warn">
                         <i class="fas fa-minus"></i>
                     </button>
             </div>
@@ -65,7 +65,7 @@
             <br>
         </div>
         <div class="form-group p-3">
-            <button mat-button class="btn-primary float-right" (click)="guardar()">Guardar</button>
+            <button mat-button class="btn-primary float-right" >Guardar</button>
         </div>
     </form>
 </div>
