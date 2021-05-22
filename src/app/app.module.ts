@@ -37,6 +37,8 @@ import { TablaOdontogramaComponent } from './components/tabla-odontograma/tabla-
 import { DiagnosticoComponent } from './pages/diagnostico/diagnostico.component';
 import { PacienteAntecedenteComponent } from './pages/pacientes/paciente-antecedente/paciente-antecedente.component';
 import { SuperficieComponent } from './pages/diagnostico/superficie/superficie.component';
+import { TablaDiagnosticoComponent } from './components/tabla-diagnostico/tabla-diagnostico.component';
+import { EditarDiagnosticoComponent } from './components/tabla-diagnostico/editar-diagnostico/editar-diagnostico.component';
 
 
 // Modulos
@@ -70,10 +72,9 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatTooltipModule} from '@angular/material/tooltip';
 
 
+
 //Provaiders
 import localeEsCO from "@angular/common/locales/es-CO";
-import { TablaDiagnosticoComponent } from './components/tabla-diagnostico/tabla-diagnostico.component';
-import { EditarDiagnosticoComponent } from './components/tabla-diagnostico/editar-diagnostico/editar-diagnostico.component';
 registerLocaleData(localeEsCO,'es-CO')
 
 @NgModule({
