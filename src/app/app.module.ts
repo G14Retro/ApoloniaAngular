@@ -12,7 +12,6 @@ import { HomeComponent } from './components/home/home.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { CitasComponent } from './components/citas/citas.component';
-import { CalendarComponent } from './components/calendar/calendar.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { ConfirmacionComponent } from './components/citas/confirmacion/confirmacion.component';
 import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
@@ -64,17 +63,16 @@ import { NgxMatDatetimePickerModule, NgxMatNativeDateModule, NgxMatTimepickerMod
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { NgxCrumbsModule } from "ngx-crumbs";
-<<<<<<< HEAD
-import { CalendarModule } from '@syncfusion/ej2-angular-calendars';
-=======
 import {MatListModule} from '@angular/material/list';
 import {MatExpansionModule} from '@angular/material/expansion';
->>>>>>> e0c265ba68c09586816e125a0cd915c1f143451b
 
 
 //Provaiders
 import localeEsCO from "@angular/common/locales/es-CO";
 import { SuperficieComponent } from './pages/diagnostico/superficie/superficie.component';
+import { TablaCitasComponent } from './components/tabla-citas/tabla-citas.component';
+import { CrearCitaComponent } from './components/tabla-citas/crear-cita/crear-cita.component';
+import { EditarCitaComponent } from './components/tabla-citas/editar-cita/editar-cita.component';
 registerLocaleData(localeEsCO,'es-CO')
 
 @NgModule({
@@ -94,7 +92,6 @@ registerLocaleData(localeEsCO,'es-CO')
     AntecedenteComponent,
     LoadingComponent,
     OdontogramaComponent,
-    CalendarComponent,
     CopyPasteDirective,
     BreadcrumbComponent,
     CanvasOdontogramaComponent,
@@ -114,11 +111,10 @@ registerLocaleData(localeEsCO,'es-CO')
     DiagnosticoComponent,
     DetalleHistorialComponent,
     PacienteAntecedenteComponent,
-<<<<<<< HEAD
-
-=======
     SuperficieComponent,
->>>>>>> e0c265ba68c09586816e125a0cd915c1f143451b
+    TablaCitasComponent,
+    CrearCitaComponent,
+    EditarCitaComponent
   ],
   imports: [
     BrowserModule,
@@ -147,12 +143,8 @@ registerLocaleData(localeEsCO,'es-CO')
     MatTableExporterModule,
     MatGridListModule,
     NgxCrumbsModule,
-<<<<<<< HEAD
-    CalendarModule
-=======
     MatListModule,
     MatExpansionModule
->>>>>>> e0c265ba68c09586816e125a0cd915c1f143451b
   ],
 
   providers: [

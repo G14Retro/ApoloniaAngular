@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, DoCheck } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ThemePalette } from '@angular/material/core';
@@ -18,7 +18,7 @@ import Swal from 'sweetalert2';
   templateUrl: './edit-dialog.component.html',
   styleUrls: ['./edit-dialog.component.css']
 })
-export class EditDialogComponent implements OnInit {
+export class EditDialogComponent implements OnInit, DoCheck {
   dispoGroup: FormGroup;
   medicos:[]=[];
   consultorio:[]=[];
@@ -37,6 +37,7 @@ export class EditDialogComponent implements OnInit {
   public stepHour = 1;
   public stepMinute = 1;
   public stepSecond = 1;
+  horaInicio:boolean;
   public color: ThemePalette = 'primary';
   startDate = new Date(now());
   public dateControlMinMax = new FormControl(new Date());
@@ -55,6 +56,11 @@ export class EditDialogComponent implements OnInit {
     this.verConsultas();
     this.verDisponibilidades();
     this.buscarDispo();
+  }
+
+  ngDoCheck(){
+    this.validacionHora();
+    console.log(this.horaInicio);
   }
 
   cerrar():void{
@@ -121,5 +127,16 @@ export class EditDialogComponent implements OnInit {
       tipo_consulta:['',Validators.required],
       consultorio:['',Validators.required],
     })
+  }
+
+  validacionHora(){
+    var valiHoraInicio = this.dispoGroup.get('horaInicio').value;
+    var fechaactual = moment().format();
+
+    if (valiHoraInicio < fechaactual){
+      this.horaInicio = true;
+    }else{
+      this.horaInicio = false;
+    }
   }
 }

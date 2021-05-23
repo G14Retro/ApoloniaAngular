@@ -72,7 +72,7 @@ style="color: #888888; font-weight: 600; font-family: 'Poppins', sans-serif;">Ed
             <span>OK</span>
           </ng-template>
         </ngx-mat-datetime-picker>
-        <mat-error *ngIf="dispoGroup.get('horaInicio').hasError('required')">
+        <mat-error *ngIf="horaInicio">
           Por favor revise la hora de inicio
         </mat-error>
       </mat-form-field>

@@ -32,13 +32,17 @@ export class TablaDispoComponent implements OnInit, AfterViewInit {
 
   }
 
+  ngOnInit(){
+    this.cargarTabla();
+  }
+
   ngAfterViewInit(){
     this.dataSource.paginator = this.paginator;
     this.paginator._intl.itemsPerPageLabel="Registros por página";
   }
 
-  ngOnInit(){
-    this.cargarTabla();
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
   destroy(id:string){
@@ -84,7 +88,5 @@ export class TablaDispoComponent implements OnInit, AfterViewInit {
       this.cargarTabla();
     })
   }
-  applyFilter(filterValue: string) {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-  }
+
 }

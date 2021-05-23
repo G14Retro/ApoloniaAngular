@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import { createDispoModel } from '../models/createDispo.model';
 import { dispoModel } from '../models/dispo.model';
 import { AuthService } from './auth.service';
+import { citaModel } from '../models/cita.model';
 
 
 @Injectable({
@@ -98,4 +99,45 @@ export class RecepcionistaService {
       })
       return this.http.delete(environment.apiEndpoint+'destroy/'+id,{headers});
   }
+
+
+    cita(create:citaModel){
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'X-Requested-With': 'XMLHttpRequest',
+      'Authorization': 'Bearer '+ this.auth.usuario.token
+      });
+      const data = {
+        ...create
+      };
+      return this.http.post(environment.apiEndpoint+'cita',data,{headers});
+  }
+
+  leerCitas(){
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'X-Requested-With': 'XMLHttpRequest',
+      'Authorization': 'Bearer '+ this.auth.usuario.token
+      });
+      return this.http.get(environment.apiEndpoint+'cita',{headers})
+  }
+
+  public getDispo(){
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'X-Requested-With': 'XMLHttpRequest',
+      'Authorization': 'Bearer '+ this.auth.usuario.token
+      })
+      return this.http.get(environment.apiEndpoint+'getDispo',{headers});
+  }
+
+  public tipoConsulta(){
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'X-Requested-With': 'XMLHttpRequest',
+      'Authorization': 'Bearer '+ this.auth.usuario.token
+      })
+      return this.http.get(environment.apiEndpoint+'tipoConsulta',{headers});
+  }
+
 }
