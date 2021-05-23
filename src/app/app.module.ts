@@ -71,10 +71,10 @@ import {MatListModule} from '@angular/material/list';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatTooltipModule} from '@angular/material/tooltip';
 
-
-
 //Provaiders
 import localeEsCO from "@angular/common/locales/es-CO";
+import { ListarTratamientoComponent } from './components/administrator/listar-tratamiento/listar-tratamiento.component';
+import { ListarSintomasComponent } from './components/administrator/listar-sintomas/listar-sintomas.component';
 registerLocaleData(localeEsCO,'es-CO')
 
 @NgModule({
@@ -114,8 +114,11 @@ registerLocaleData(localeEsCO,'es-CO')
     DetalleHistorialComponent,
     PacienteAntecedenteComponent,
     SuperficieComponent,
+    ListarTratamientoComponent,
+    ListarSintomasComponent,
     TablaDiagnosticoComponent,
     EditarDiagnosticoComponent,
+
   ],
   imports: [
     BrowserModule,
