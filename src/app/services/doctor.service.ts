@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormArray, FormGroup } from '@angular/forms';
 import { map } from 'rxjs/operators';
 import { odontoModel } from '../models/odontograma.model';
 import { userModel } from '../models/user.model';
@@ -177,6 +177,29 @@ export class DoctorService {
     });
 
     return this.http.post(this.url+'nuevoDiagnostico',data,{headers});
+  }
+
+
+  getDiagnosticoId(id:string){
+    const  headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'X-Requested-With': 'XMLHttpRequest',
+      'Authorization': 'Bearer ' + this.auth.usuario.token
+    });
+    return this.http.get(this.url+'diagnosticoId/'+id,{headers});
+  }
+
+
+  editDiagnostico(diagnostico:FormArray){
+    const  headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'X-Requested-With': 'XMLHttpRequest',
+      'Authorization': 'Bearer ' + this.auth.usuario.token
+    });
+    const data = ({
+      ...diagnostico.value
+    })
+    return this.http.post(this.url+'editDiagnostico',data,{headers});
   }
 
 }
