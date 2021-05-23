@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { odontoModel } from 'src/app/models/odontograma.model';
 import { DoctorService } from 'src/app/services/doctor.service';
@@ -11,8 +12,10 @@ import { DoctorService } from 'src/app/services/doctor.service';
 export class CanvasOdontogramaComponent implements OnInit,AfterViewInit {
   fillColor:String = 'white';
   fill;
+  item:number;
   odontograma:odontoModel;
-  nativo:any;
+  diagnosticos:[] = [];
+  superficie:String;
   arcada1:number[]=[];
   arcada2:number[]=[];
   arcada3:number[]=[];
@@ -21,68 +24,66 @@ export class CanvasOdontogramaComponent implements OnInit,AfterViewInit {
   temporal2:number[] =[];
   temporal3:number[] =[];
   temporal4:number[] =[];
-  temporales:boolean = false;
+  temporales:boolean = true;
+  odontoID:String;
+  loading:boolean = false;
+  dienteForm:FormGroup;
+  sano:boolean;
   @ViewChild('odontograma') odonto:ElementRef<HTMLElement>;
   @ViewChild('comentario') comentario:ElementRef<HTMLTextAreaElement>;
   @HostListener('document:click',['$event']) 
   mouseClick = (e:any)=>{
     if (e.target.parentNode.nodeName === 'svg') {
-      this.changeColor(e.toElement);
+      this.getDiente(e.target.parentNode.id);
     }
   }
   public context:CanvasRenderingContext2D;
-  constructor(private ruta:ActivatedRoute, private doctor:DoctorService, private router:Router) {
-
+  constructor(private ruta:ActivatedRoute, private doctor:DoctorService, private router:Router,
+              private fb:FormBuilder) {
+    ruta.params.subscribe(params=>{
+      this.odontoID = params['id'];
+    })
   }
 
   ngOnInit(): void {
     this.odontograma = new odontoModel();
     this.pintarOdontograma();
+    this.greateDienteForm();
   }
   
   ngAfterViewInit():void{
-    sessionStorage.setItem('html',this.odonto.nativeElement.innerHTML);
-    console.log(this.odonto);
-    this.odonto.nativeElement.children.namedItem('arcada1').children.item(0).children.namedItem('18').children.namedItem('ausente').attributes.getNamedItem('stroke').value="black";
+    this.cargarOdonto();
   }
 
-  changeColor(lado:SVGElement) {
-    this.fill = this.fillColor
-    lado.attributes.setNamedItem(lado.attributes.getNamedItem('fill')).value = this.fill;
-  }
 
-  amarillo(){
-    this.fillColor ='yellow'
-  }
+  ausente(arcada:string,item:number,diente:string){
+    this.odonto.nativeElement
+    .children.namedItem(arcada)
+    .children.item(item)
+    .children.namedItem(diente)
+    .children.namedItem('ausente').attributes.getNamedItem('stroke').value = "black";
 
-  rojo(){
-    this.fillColor ='red'
-  }
+    this.odonto.nativeElement
+    .children.namedItem(arcada)
+    .children.item(item)
+    .children.namedItem(diente)
+    .children.namedItem('ausente').attributes.getNamedItem('stroke-width').value = "4";
 
-  blanco(){
-    this.fillColor ='white'
-  }
+    this.odonto.nativeElement
+    .children.namedItem(arcada)
+    .children.item(item)
+    .children.namedItem(diente)
+    .children.namedItem('ausente1').attributes.getNamedItem('stroke').value = "black";
 
-  ausente(){
-
-  }
-
-  borrarTodo(){
-    this.odonto.nativeElement.innerHTML = sessionStorage.getItem('html');
+    this.odonto.nativeElement
+    .children.namedItem(arcada)
+    .children.item(item)
+    .children.namedItem(diente)
+    .children.namedItem('ausente1').attributes.getNamedItem('stroke-width').value = "4";
   }
 
   guardarOdonto(){
-    this.ruta.params.subscribe(params=>{
-      this.odontograma.odontograma = this.odonto.nativeElement.innerHTML;
-      this.odontograma.ficha = params['id'];
-      this.odontograma.comentario = this.comentario.nativeElement.value;
-      this.doctor.guardarOdonto(this.odontograma).subscribe(resp=>{
-        this.router.navigateByUrl('/doctor/pacientes/diagnostico/'+resp)
-      },err=>{
-        console.log(err);
-      })
-    })
-
+    
   }
   pintarOdontograma(){
     for (let i = 18; i > 10; i--) {
@@ -115,27 +116,63 @@ export class CanvasOdontogramaComponent implements OnInit,AfterViewInit {
     }
   }
 
-  verTemporales(){
-    this.temporales = true;
+  cargarOdonto(){
+    this.loading = true;
+    this.doctor.cargarOdonto(this.odontoID).subscribe((resp:any)=>{   
+      this.diagnosticos = resp;
+      this.diagnosticos.forEach(diagnostico=>{
+        this.item = 0;
+        this.superficie = diagnostico['superficie'];
+        if (Number(diagnostico['diente'])>=51 && Number(diagnostico['diente'])<=65) {
+          this.item=1;
+        }
+
+        if (Number(diagnostico['diente'])>=71 && Number(diagnostico['diente'])<=85) {
+          this.item=0;
+        }
+
+        if (Number(diagnostico['diente'])>=11 && Number(diagnostico['diente'])<=28) {
+          this.item=0;
+        }
+
+        if (Number(diagnostico['diente'])>=31 && Number(diagnostico['diente'])<=48) {
+          this.item=1;
+        }
+
+        if (this.superficie == 'AUSENTE') {
+          this.ausente(diagnostico['arcada'],this.item,diagnostico['diente']);
+        }else{
+         this.superficie.split(',').forEach(lado=>{
+            this.odonto.nativeElement
+            .children.namedItem(diagnostico['arcada'])
+            .children.item(this.item)
+            .children.namedItem(diagnostico['diente'])
+            .children.namedItem(lado).attributes.getNamedItem('fill').value = diagnostico['color'];
+          })
+        }
+
+      });
+      this.loading = false;
+    })
   }
 
-  quitarTemporales(){
-    this.temporales = false;
+  greateDienteForm(){
+    this.dienteForm = this.fb.group({
+      diente: {value:'',disabled:true},
+      sintoma: {value:'',disabled:true},
+      observacion: {value:'',disabled:true},
+      tratamiento: {value:'',disabled:true}
+    });
   }
-  nuevoOdonto(){
-    this.pintarOdontograma();
-  }
-  cargarOdonto(){
-    this.ruta.params.subscribe(params=>{
-      this.doctor.getOdonto(params['id']).subscribe((resp:any)=>{
-        console.log(resp);
-        if (resp==null) {
-          this.odonto.nativeElement.innerHTML = sessionStorage.getItem('html');
-        } else {
-          this.odonto.nativeElement.innerHTML = resp[0].odontograma;
-          this.comentario.nativeElement.value = resp[0].comentario;
-        }
-      })
-    })
+
+  getDiente(diente:string){
+    this.doctor.getDiente(this.odontoID,diente).subscribe((resp:any[])=>{
+      if (resp.length == 0) {
+        this.sano = true;
+      }else{
+        this.sano = false;
+        this.dienteForm.setValue(resp[0]);
+      }
+    });
   }
 }

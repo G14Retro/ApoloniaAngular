@@ -33,11 +33,7 @@ export class TablaOdontogramaComponent implements OnInit,AfterViewInit {
       this.loading = false;
     })
   }
-  nuevoOdonto(){
-    this.dialogRef.close(this.doctor.nuevaFicha(this.data.id).subscribe((resp:any)=>{
-      this.router.navigateByUrl('/doctor/pacientes/odontograma/'+resp.ficha);
-    }));
-  }
+
   verOdonto(id:String){
     this.dialogRef.close(this.router.navigateByUrl('/doctor/pacientes/odontograma/'+id));
   }

@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormArray, FormGroup } from '@angular/forms';
 import { map } from 'rxjs/operators';
 import { odontoModel } from '../models/odontograma.model';
 import { userModel } from '../models/user.model';
@@ -28,29 +28,14 @@ export class DoctorService {
   return this.http.post(this.url+'pacienteMedico',dato,{headers});
   }
 
-  obtenerAntecedente(id:String){
+
+  asistencia(id:string){
     const  headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'X-Requested-With': 'XMLHttpRequest',
       'Authorization': 'Bearer ' + this.auth.usuario.token
     });
-    const dato = ({
-      'id_paciente':id.toString()
-  });
-  return this.http.post(this.url+'verAntecedentes',dato,{headers});
-  }
-
-  guardarAntecedente(data:FormGroup){
-    const  headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'X-Requested-With': 'XMLHttpRequest',
-      'Authorization': 'Bearer ' + this.auth.usuario.token
-    });
-
-    const datos =({
-    ...data.value
-    });
-    return this.http.post(this.url+'guardarAntecedente',datos,{headers});
+    return this.http.put(this.url + 'asistencia/'+id,'',{headers});
   }
 
   getPacientes(){
@@ -91,24 +76,14 @@ export class DoctorService {
     })
     return this.http.post(this.url+'guardarOdonto',data,{headers});
   }
-  nuevaFicha(id:String){
+
+  cargarOdonto(id:String){
     const  headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'X-Requested-With': 'XMLHttpRequest',
       'Authorization': 'Bearer ' + this.auth.usuario.token
     });
-    const data = ({
-      id: id
-    })
-    return this.http.post(this.url+'nuevaFicha',data,{headers});
-  }
-  getOdonto(id:String){
-    const  headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'X-Requested-With': 'XMLHttpRequest',
-      'Authorization': 'Bearer ' + this.auth.usuario.token
-    });
-    return this.http.get(this.url+'obtenerOdonto/'+id,{headers});
+    return this.http.get(this.url+'cargarOdonto/'+id,{headers});
   }
 
   getAntecedenteId(id:String){
@@ -168,4 +143,63 @@ export class DoctorService {
     });
     return this.http.post(this.url+'guardarDiagnostico',data,{headers});
   }
+
+  getDiente(odonto:String,diente:string){
+    const  headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'X-Requested-With': 'XMLHttpRequest',
+      'Authorization': 'Bearer ' + this.auth.usuario.token
+    });
+    const data = ({
+      odontograma: odonto,
+      diente: diente
+    });
+    return this.http.post(this.url+'getDiente',data,{headers});
+  }
+
+  getDiagnosticos(id:string){
+    const  headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'X-Requested-With': 'XMLHttpRequest',
+      'Authorization': 'Bearer ' + this.auth.usuario.token
+    });
+    return this.http.get(this.url + 'getDiagnosticos/'+id,{headers});
+  }
+
+  nuevoDiagnostico(id_paciente:string){
+    const  headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'X-Requested-With': 'XMLHttpRequest',
+      'Authorization': 'Bearer ' + this.auth.usuario.token
+    });
+    const data = ({
+      id: id_paciente
+    });
+
+    return this.http.post(this.url+'nuevoDiagnostico',data,{headers});
+  }
+
+
+  getDiagnosticoId(id:string){
+    const  headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'X-Requested-With': 'XMLHttpRequest',
+      'Authorization': 'Bearer ' + this.auth.usuario.token
+    });
+    return this.http.get(this.url+'diagnosticoId/'+id,{headers});
+  }
+
+
+  editDiagnostico(diagnostico:FormArray){
+    const  headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'X-Requested-With': 'XMLHttpRequest',
+      'Authorization': 'Bearer ' + this.auth.usuario.token
+    });
+    const data = ({
+      ...diagnostico.value
+    })
+    return this.http.post(this.url+'editDiagnostico',data,{headers});
+  }
+
 }

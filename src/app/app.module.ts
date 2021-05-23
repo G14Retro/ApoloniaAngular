@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, LOCALE_ID } from '@angular/core';
-import { registerLocaleData, TitleCasePipe } from '@angular/common';
+import { NgModule, LOCALE_ID, DEFAULT_CURRENCY_CODE } from '@angular/core';
+import { registerLocaleData, TitleCasePipe, CurrencyPipe } from '@angular/common';
 import { MatTableExporterModule } from 'mat-table-exporter';
 
 
@@ -18,7 +18,6 @@ import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.componen
 import { HistorialComponent } from './pages/historial/historial.component';
 import { UsuarioComponent } from './pages/usuario/usuario.component';
 import { CitasMedicoComponent } from './pages/citas-medico/citas-medico.component';
-import { AntecedenteComponent } from './pages/antecedente/antecedente.component';
 import { LoadingComponent } from './components/loading/loading.component';
 import { OdontogramaComponent } from './pages/odontograma/odontograma.component';
 import { CanvasOdontogramaComponent } from './components/canvas-odontograma/canvas-odontograma.component';
@@ -36,6 +35,9 @@ import { DetallePacienteComponent } from './pages/pacientes/detalle-paciente/det
 import { TablaOdontogramaComponent } from './components/tabla-odontograma/tabla-odontograma.component';
 import { DiagnosticoComponent } from './pages/diagnostico/diagnostico.component';
 import { PacienteAntecedenteComponent } from './pages/pacientes/paciente-antecedente/paciente-antecedente.component';
+import { SuperficieComponent } from './pages/diagnostico/superficie/superficie.component';
+import { TablaDiagnosticoComponent } from './components/tabla-diagnostico/tabla-diagnostico.component';
+import { EditarDiagnosticoComponent } from './components/tabla-diagnostico/editar-diagnostico/editar-diagnostico.component';
 
 
 // Modulos
@@ -63,6 +65,7 @@ import { NgxMatDatetimePickerModule, NgxMatNativeDateModule, NgxMatTimepickerMod
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { NgxCrumbsModule } from "ngx-crumbs";
+<<<<<<< HEAD
 import {MatListModule} from '@angular/material/list';
 import {MatExpansionModule} from '@angular/material/expansion';
 
@@ -73,6 +76,17 @@ import { SuperficieComponent } from './pages/diagnostico/superficie/superficie.c
 import { TablaCitasComponent } from './components/tabla-citas/tabla-citas.component';
 import { CrearCitaComponent } from './components/tabla-citas/crear-cita/crear-cita.component';
 import { EditarCitaComponent } from './components/tabla-citas/editar-cita/editar-cita.component';
+=======
+import { CalendarModule } from '@syncfusion/ej2-angular-calendars';
+import {MatListModule} from '@angular/material/list';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatTooltipModule} from '@angular/material/tooltip';
+
+//Provaiders
+import localeEsCO from "@angular/common/locales/es-CO";
+import { ListarTratamientoComponent } from './components/administrator/listar-tratamiento/listar-tratamiento.component';
+import { ListarSintomasComponent } from './components/administrator/listar-sintomas/listar-sintomas.component';
+>>>>>>> 2dc8d8c1c98021496ad4078a7a469a6c026ed6a7
 registerLocaleData(localeEsCO,'es-CO')
 
 @NgModule({
@@ -89,7 +103,6 @@ registerLocaleData(localeEsCO,'es-CO')
     HistorialComponent,
     UsuarioComponent,
     CitasMedicoComponent,
-    AntecedenteComponent,
     LoadingComponent,
     OdontogramaComponent,
     CopyPasteDirective,
@@ -112,9 +125,17 @@ registerLocaleData(localeEsCO,'es-CO')
     DetalleHistorialComponent,
     PacienteAntecedenteComponent,
     SuperficieComponent,
+<<<<<<< HEAD
     TablaCitasComponent,
     CrearCitaComponent,
     EditarCitaComponent
+=======
+    ListarTratamientoComponent,
+    ListarSintomasComponent,
+    TablaDiagnosticoComponent,
+    EditarDiagnosticoComponent,
+
+>>>>>>> 2dc8d8c1c98021496ad4078a7a469a6c026ed6a7
   ],
   imports: [
     BrowserModule,
@@ -143,7 +164,13 @@ registerLocaleData(localeEsCO,'es-CO')
     MatTableExporterModule,
     MatGridListModule,
     NgxCrumbsModule,
+<<<<<<< HEAD
+=======
+    CalendarModule,
+>>>>>>> 2dc8d8c1c98021496ad4078a7a469a6c026ed6a7
     MatListModule,
+    MatExpansionModule,
+    MatTooltipModule,
     MatExpansionModule
   ],
 
@@ -151,10 +178,12 @@ registerLocaleData(localeEsCO,'es-CO')
     AgendaService, DayService, WeekService, WorkWeekService, MonthService,
     TitleCasePipe,
     AuthService,
+    CurrencyPipe,
     {provide: MAT_DATE_LOCALE,
     useValue: 'es-CO'},
     {provide: LOCALE_ID,
-    useValue: 'es-CO'}
+    useValue: 'es-CO'},
+    {provide: DEFAULT_CURRENCY_CODE, useValue: 'COP' }
   ],
   bootstrap: [AppComponent],
 

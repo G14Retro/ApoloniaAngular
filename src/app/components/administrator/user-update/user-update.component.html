@@ -21,16 +21,16 @@
         </mat-form-field>
 
         <mat-form-field class="p-2" appearance="outline">
-          <mat-label>Tipo de usuario</mat-label>
-          <mat-select formControlName="tipo_usuario" required>
-              <mat-option>-----</mat-option>
-              <mat-option *ngFor="let tipo  of tipo_usuario" [value]="tipo.id_tipo">
-                  {{tipo.nombre_tipo_usuario | titlecase}}
-              </mat-option>
-          </mat-select>
-          <mat-error *ngIf="userForm.get('tipo_usuario').hasError('required')">Por favor seleccione una opción</mat-error>
-      </mat-form-field>
-      <br>
+            <mat-label>Tipo de usuario</mat-label>
+            <mat-select formControlName="tipo_usuario" required>
+                <mat-option>-----</mat-option>
+                <mat-option *ngFor="let tipo  of tipo_usuario" [value]="tipo.id_tipo">
+                    {{tipo.nombre_tipo_usuario | titlecase}}
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="userForm.get('tipo_usuario').hasError('required')">Por favor seleccione una opción</mat-error>
+        </mat-form-field>
+        <br>
         <mat-form-field class="p-2" appearance="outline">
             <mat-label>Nombres</mat-label>
             <input type="text" matInput formControlName="nombre" required>
@@ -44,14 +44,14 @@
         </mat-form-field>
 
         <mat-form-field class="p-2" appearance="outline">
-          <mat-label>Genero</mat-label>
-          <mat-select formControlName="genero" required>
-              <mat-option>-----</mat-option>
-              <mat-option value='masculino'>Masculino</mat-option>
-              <mat-option value='femenino'>Femenino</mat-option>
-          </mat-select>
-          <mat-error *ngIf="userForm.get('genero').hasError('required')">Por favor seleccione una opción</mat-error>
-      </mat-form-field>
+            <mat-label>Genero</mat-label>
+            <mat-select formControlName="genero" required>
+                <mat-option>-----</mat-option>
+                <mat-option value='masculino'>Masculino</mat-option>
+                <mat-option value='femenino'>Femenino</mat-option>
+            </mat-select>
+            <mat-error *ngIf="userForm.get('genero').hasError('required')">Por favor seleccione una opción</mat-error>
+        </mat-form-field>
 
         <mat-form-field class="p-2" appearance="outline">
             <mat-label>Dirección</mat-label>
@@ -107,10 +107,16 @@
 
 
     </form>
+<<<<<<< HEAD
+
+    <button type="submit" class="btn btn-primary mr-3" style="border-radius: 6px;" (click)="updateUser()">Guardar</button>
+    <button type="button" [routerLink]="['/admin/usuarios']" class="btn btn-secondary mr-3" style="border-radius: 6px;">Regresar</button>
+=======
     <div class="btnContainer">
       <button type="button" [routerLink]="['/admin/usuarios']" class="btnRegresar btn-secondary" style="border-radius: 6px;">Reresar</button>
       <button type="submit" class="btnGuardar" style="border-radius: 6px;" (click)="updateUser()">Guardar</button>
     </div>
+>>>>>>> 6befac7f75429fa96a517138618958e7d9c6e124
 
 
 </div>
