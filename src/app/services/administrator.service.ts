@@ -63,7 +63,7 @@ export class AdministratorService {
       'X-Requested-With': 'XMLHttpRequest',
       'Authorization': 'Bearer '+ this.auth.usuario.token
     });
-    return this.http.post(environment.apiEndpoint+'buscarUsuario',id,{headers});
+    return this.http.get(environment.apiEndpoint+'buscarUsuario/'+id,{headers});
   }
   public updateUser(id:string, data:any){
     const headers = new HttpHeaders({

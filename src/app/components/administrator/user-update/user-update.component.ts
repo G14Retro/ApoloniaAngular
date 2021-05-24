@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./user-update.component.css']
 })
 export class UserUpdateComponent implements OnInit {
-  tipo_documento:[]=[];
+  tipo_documentos:[]=[];
   generos:[]=[];
   estado: []=[];
   tipo_usuario: []=[];
@@ -64,20 +64,21 @@ export class UserUpdateComponent implements OnInit {
   buscarUser(){
     this.ruta.params.subscribe(params =>{
       this.idUpdate=params['id'];
-      this.administratorService.buscarUser(params['id']).subscribe((resp:any)=>{
+      this.administratorService.buscarUser(params['id']).subscribe((resp:any[])=>{
+        console.log(resp);
         this.userForm.setValue({
-          tipo_documento: resp['0'].tipo_documento,
-          numero_documento: resp['0'].numero_documento,
-          nombre: resp['0'].nombre,
-          apellido: resp['0'].apellido,
-          direccion: resp['0'].direccion,
-          ciudad: resp['0'].ciudad,
-          telefono: resp['0'].telefono,
-          correo: resp['0'].correo,
-          genero: resp['0'].genero,
-          fecha_nacimiento: resp['0'].fecha_nacimiento,
-          estado: resp['0'].estado,
-          tipo_usuario: resp['0'].tipo_usuario,
+          tipo_documento: resp['tipo_documento'],
+          numero_documento: resp['numero_documento'],
+          nombre: resp['nombre'],
+          apellido: resp['apellido'],
+          direccion: resp['direccion'],
+          ciudad: resp['ciudad'],
+          telefono: resp['telefono'],
+          correo: resp['correo'],
+          genero: resp['genero'],
+          fecha_nacimiento: resp['fecha_nacimiento'],
+          estado: resp['estado'],
+          tipo_usuario: resp['tipo_usuario'],
           password: '',
         });
       })
@@ -85,7 +86,7 @@ export class UserUpdateComponent implements OnInit {
   }
   verDocumento(){
     this.administratorService.listarDocumentos().subscribe((resp:any)=>{
-      this.tipo_documento = resp;
+      this.tipo_documentos = resp;
     })
   }
   verEstado(){
