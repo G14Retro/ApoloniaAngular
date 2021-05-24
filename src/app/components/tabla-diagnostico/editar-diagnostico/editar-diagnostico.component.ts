@@ -1,24 +1,26 @@
 import { CurrencyPipe } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, DoCheck, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SuperficieComponent } from 'src/app/pages/diagnostico/superficie/superficie.component';
 import { DoctorService } from 'src/app/services/doctor.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-editar-diagnostico',
   templateUrl: './editar-diagnostico.component.html',
   styleUrls: ['./editar-diagnostico.component.css']
 })
-export class EditarDiagnosticoComponent implements OnInit {
+export class EditarDiagnosticoComponent implements OnInit, DoCheck {
   diagnosticoForm:FormGroup;
   odontoID:string;
   dientes:[] = [];
   sintomas:[] = [];
   tratamientos:[] = [];
+  loading:boolean = false;
   constructor(private fb:FormBuilder, private moneda:CurrencyPipe, private dialog:MatDialog,
-              private doctor:DoctorService,private ruta:ActivatedRoute) { }
+              private doctor:DoctorService,private ruta:ActivatedRoute,private router:Router) { }
   total:number;
   ngOnInit(): void {
     this.ruta.params.subscribe(params=>{
@@ -28,14 +30,20 @@ export class EditarDiagnosticoComponent implements OnInit {
     this.getSintomas();
     this.getTratamientos();
     this.createForm();
+    this.getDiagnostico();
   }
 
+  ngDoCheck(){
+    this.valorTotal();
+  }
 
   createForm(){
     this.diagnosticoForm = this.fb.group({
       diagnostico: this.fb.array([this.fb.group({
+        id:'',
+        odontograma: this.odontoID,
         diente:'',
-        superficie:{valude:'',disabled: true},
+        superficie: {value:'', disabled: true},
         sintomas: '',
         observacion: '',
         tratamiento: '',
@@ -94,5 +102,60 @@ export class EditarDiagnosticoComponent implements OnInit {
     })
   }
 
+  getDiagnostico(){
+    this.loading = true;
+    const diagnostico = <FormArray>this.diagnosticoForm.controls['diagnostico'];
+    this.doctor.getDiagnosticoId(this.odontoID).subscribe((resp:any[])=>{
+      for (let index = 0; index < resp.length -1; index++) {
+        diagnostico.push(this.fb.group({
+          id:'',
+        odontograma: this.odontoID,
+        diente:'',
+        superficie: {value:'', disabled: true},
+        sintomas: '',
+        observacion: '',
+        tratamiento: '',
+        valor_tratamiento:''
+        }))
+      }
+     diagnostico.setValue(resp);
+     this.loading = false;
+    })
+  }
+
+guardar(){
+  const diagnostico = <FormArray>this.diagnosticoForm.controls['diagnostico'];
+  diagnostico.controls.forEach(control=>{
+    control.get('superficie').setValue(control.get('superficie').value.toString())
+    control.get('superficie').enable()
+  });
+  Swal.fire({
+    title:'¿Desea guardar el diagnostico?',
+    icon:'warning',
+    showCancelButton:true, 
+    confirmButtonText: `Guardar`,
+    cancelButtonText: `Cancelar`,
+  }).then((result)=>{
+    if (result.isConfirmed) {
+      Swal.fire({
+        allowOutsideClick: false,
+        icon:'info',
+        title: 'Espere por favor...'
+      });
+      Swal.showLoading();
+      this.doctor.editDiagnostico(diagnostico).subscribe((resp:any)=>{
+        Swal.close();
+          Swal.fire ('Guardado', resp.message, 'success');
+          this.router.navigateByUrl('/doctor/pacientes/odontograma/'+this.odontoID);
+        },(err:any)=>{
+          Swal.fire({
+            icon: 'error',
+            title: 'Error al cancelar',
+            text: err.error.message,
+          })
+      });
+    }
+  })
+}
 
 }

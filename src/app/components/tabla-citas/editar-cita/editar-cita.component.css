@@ -1,0 +1,40 @@
+.btnGuardar{
+  background-image: linear-gradient(to right, #33C8FA 0%, #33C8FA  51%, #33C8FA  100%);
+  margin: 10px;
+  margin-left: 70%;
+  padding: 3px 25px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white !important;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 6px;
+  display: block;
+}
+.btnRegresar:hover {
+   background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+
+.btnCancelar{
+  background-image: linear-gradient(to right, #606c880f 0%, #3f4c6b61  51%, #606c880f  100%);
+  margin: 10px;
+  margin-left: 48%;
+  padding: 3px 9px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 6px;
+  display: block;
+}
+.btnCancelar:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}

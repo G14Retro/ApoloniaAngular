@@ -123,11 +123,23 @@ export class CanvasOdontogramaComponent implements OnInit,AfterViewInit {
       this.diagnosticos.forEach(diagnostico=>{
         this.item = 0;
         this.superficie = diagnostico['superficie'];
-        if (Number(diagnostico['diente'])>=51) {
+        if (Number(diagnostico['diente'])>=51 && Number(diagnostico['diente'])<=65) {
           this.item=1;
         }
+
+        if (Number(diagnostico['diente'])>=71 && Number(diagnostico['diente'])<=85) {
+          this.item=0;
+        }
+
+        if (Number(diagnostico['diente'])>=11 && Number(diagnostico['diente'])<=28) {
+          this.item=0;
+        }
+
+        if (Number(diagnostico['diente'])>=31 && Number(diagnostico['diente'])<=48) {
+          this.item=1;
+        }
+
         if (this.superficie == 'AUSENTE') {
-          console.log("El ausente");
           this.ausente(diagnostico['arcada'],this.item,diagnostico['diente']);
         }else{
          this.superficie.split(',').forEach(lado=>{

@@ -42,7 +42,7 @@ export class CrearTratamientoComponent implements OnInit {
       'Tratamiento creado correctamente!',
       'success'
     )
-    this.router.navigateByUrl('/admin/tratamiento');
+    this.router.navigateByUrl('/admin/tratamientos');
 
   },
   err=>{

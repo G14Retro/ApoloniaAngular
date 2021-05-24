@@ -106,7 +106,7 @@
   </mat-grid-tile>
   <!-- END CARDS DISPONIBILIDAD -->
 
-  <!--CARDS CALENDARIO  -->
+  <!-- CARDS CALENDARIO
   <mat-grid-tile *ngFor="let cards of cards | async" [colspan]="cards.cols" [rowspan]="cards.rows" >
     <mat-card class="dashboard-card">
       <mat-card-header class="card1">
@@ -115,13 +115,12 @@
         </mat-card-title>
       </mat-card-header>
       <mat-card-content class="table-responsive dashboard-card-content">
-        <app-calendar></app-calendar>
       </mat-card-content>
     </mat-card>
   </mat-grid-tile>
-  <!-- END CARDS CALENDARIO -->
+  END CARDS CALENDARIO -->
 
-  <!--CARDS PERSONAL -->
+  <!--CARDS PERSONAL
   <mat-grid-tile  *ngFor="let personal of personal | async" [colspan]="personal.cols" [rowspan]="personal.rows">
     <mat-card class="dashboard-card">
       <mat-card-header>
@@ -136,7 +135,7 @@
       </mat-card-content>
     </mat-card>
   </mat-grid-tile>
-  <!-- END CARDS PERSONAL -->
+   END CARDS PERSONAL -->
 
 </mat-grid-list>
 </div>

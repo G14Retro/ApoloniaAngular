@@ -12,7 +12,6 @@ import { HomeComponent } from './components/home/home.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { CitasComponent } from './components/citas/citas.component';
-import { CalendarComponent } from './components/calendar/calendar.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { ConfirmacionComponent } from './components/citas/confirmacion/confirmacion.component';
 import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
@@ -42,6 +41,12 @@ import { EditarDiagnosticoComponent } from './components/tabla-diagnostico/edita
 import { ListarTratamientoComponent } from './components/administrator/listar-tratamiento/listar-tratamiento.component';
 import { ListarSintomasComponent } from './components/administrator/listar-sintomas/listar-sintomas.component';
 import { CrearSintomasComponent } from './components/administrator/listar-sintomas/crear-sintomas/crear-sintomas.component';
+import { TablaCitasComponent } from './components/tabla-citas/tabla-citas.component';
+import { CrearCitaComponent } from './components/tabla-citas/crear-cita/crear-cita.component';
+import { EditarCitaComponent } from './components/tabla-citas/editar-cita/editar-cita.component';
+
+
+
 
 
 // Modulos
@@ -69,16 +74,19 @@ import { NgxMatDatetimePickerModule, NgxMatNativeDateModule, NgxMatTimepickerMod
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { NgxCrumbsModule } from "ngx-crumbs";
-import { CalendarModule } from '@syncfusion/ej2-angular-calendars';
 import {MatListModule} from '@angular/material/list';
 import {MatExpansionModule} from '@angular/material/expansion';
+
+
+//Provaiders
+import { CalendarModule } from '@syncfusion/ej2-angular-calendars';
 import {MatTooltipModule} from '@angular/material/tooltip';
 
 //Provaiders
 import localeEsCO from "@angular/common/locales/es-CO";
 import { ActualizarSintomasComponent } from './components/administrator/listar-sintomas/actualizar-sintomas/actualizar-sintomas.component';
-import { CrearTratamientoComponent } from './components/administrator/listar-tratamiento/crear-tratamiento/crear-tratamiento.component';
 import { ActualizarTratamientoComponent } from './components/administrator/listar-tratamiento/actualizar-tratamiento/actualizar-tratamiento.component';
+import { CrearTratamientoComponent } from './components/administrator/listar-tratamiento/crear-tratamiento/crear-tratamiento.component';
 registerLocaleData(localeEsCO,'es-CO')
 
 @NgModule({
@@ -97,7 +105,6 @@ registerLocaleData(localeEsCO,'es-CO')
     CitasMedicoComponent,
     LoadingComponent,
     OdontogramaComponent,
-    CalendarComponent,
     CopyPasteDirective,
     BreadcrumbComponent,
     CanvasOdontogramaComponent,
@@ -126,6 +133,10 @@ registerLocaleData(localeEsCO,'es-CO')
     ActualizarSintomasComponent,
     CrearTratamientoComponent,
     ActualizarTratamientoComponent,
+    TablaCitasComponent,
+    CrearCitaComponent,
+    EditarCitaComponent
+
 
   ],
   imports: [
@@ -155,13 +166,8 @@ registerLocaleData(localeEsCO,'es-CO')
     MatTableExporterModule,
     MatGridListModule,
     NgxCrumbsModule,
-    CalendarModule,
-    MatListModule,
-    MatExpansionModule,
-    MatTooltipModule,
-    MatExpansionModule
+    MatListModule
   ],
-
   providers: [
     AgendaService, DayService, WeekService, WorkWeekService, MonthService,
     TitleCasePipe,
