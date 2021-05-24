@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./user-update.component.css']
 })
 export class UserUpdateComponent implements OnInit {
-  tipo_documentos:[]=[];
+  tipo_documento:[]=[];
   generos:[]=[];
   estado: []=[];
   tipo_usuario: []=[];
@@ -85,7 +85,7 @@ export class UserUpdateComponent implements OnInit {
   }
   verDocumento(){
     this.administratorService.listarDocumentos().subscribe((resp:any)=>{
-      this.tipo_documentos = resp;
+      this.tipo_documento = resp;
     })
   }
   verEstado(){

@@ -93,6 +93,7 @@ public listarTratamientos(){
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'X-Requested-With': 'XMLHttpRequest',
+      'Authorization': 'Bearer '+ this.auth.usuario.token
       })
       const tratamiento=({
         ...data
@@ -101,16 +102,17 @@ public listarTratamientos(){
       return this.http.post(environment.apiEndpoint+'crearTratamiento',tratamiento,{headers});
     
   }
-  public crearSintoma(data:symptomModel){
+  public crearSintomas(data:symptomModel){
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'X-Requested-With': 'XMLHttpRequest',
+      'Authorization': 'Bearer '+ this.auth.usuario.token
       })
       const sintoma=({
         ...data
       })
       console.log(sintoma);
-      return this.http.post(environment.apiEndpoint+'crearSintoma',sintoma,{headers});
+      return this.http.post(environment.apiEndpoint+'crearSintomas',sintoma,{headers});
   }
   public actualizarTratamiento(id:string, data:any){
     const headers = new HttpHeaders({

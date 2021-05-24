@@ -7,8 +7,8 @@
             <mat-label>Tipo de documento</mat-label>
             <mat-select formControlName="tipo_documento" required>
                 <mat-option>-----</mat-option>
-                <mat-option *ngFor="let tipo of tipo_documentos" [value]="tipo.documento">
-                    {{tipo.nombre_documento | titlecase}}
+                <mat-option *ngFor="let tipo of tipo_documento" [value]="tipo.documento">
+                    {{tipo.tipo_documento | titlecase}}
                 </mat-option>
             </mat-select>
             <mat-error *ngIf="userForm.get('tipo_documento').hasError('required')">Por favor seleccione una opción</mat-error>
@@ -107,16 +107,12 @@
 
 
     </form>
-<<<<<<< HEAD
 
-    <button type="submit" class="btn btn-primary mr-3" style="border-radius: 6px;" (click)="updateUser()">Guardar</button>
-    <button type="button" [routerLink]="['/admin/usuarios']" class="btn btn-secondary mr-3" style="border-radius: 6px;">Regresar</button>
-=======
     <div class="btnContainer">
-      <button type="button" [routerLink]="['/admin/usuarios']" class="btnRegresar btn-secondary" style="border-radius: 6px;">Reresar</button>
-      <button type="submit" class="btnGuardar" style="border-radius: 6px;" (click)="updateUser()">Guardar</button>
+        <button type="button" [routerLink]="['/admin/usuarios']" class="btnRegresar btn-secondary" style="border-radius: 6px;">Reresar</button>
+        <button type="submit" class="btnGuardar" style="border-radius: 6px;" (click)="updateUser()">Guardar</button>
     </div>
->>>>>>> 6befac7f75429fa96a517138618958e7d9c6e124
+
 
 
 </div>
