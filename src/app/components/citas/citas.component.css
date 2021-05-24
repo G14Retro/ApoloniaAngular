@@ -6,18 +6,19 @@ th{
   color:#888888;
   font-size: 16px;
   font-weight: 500;
-  text-align: center !important;
+  text-align: center;
 }
 td{
   color:#555555;
   font-size: 13px;
   font-weight: 300;
-  text-align: center;
+  text-align: left;
+  margin: 0 6px 0 0;
 }
 
 .mat-form-field {
   font-size: 14px;
-
+  width: 16%;
 }
 .mat-row:hover {
   background-color:#6c757d15;

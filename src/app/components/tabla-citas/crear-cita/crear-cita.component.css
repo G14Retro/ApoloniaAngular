@@ -46,7 +46,9 @@ text-decoration: none;
 .btnBuscar{
   background-image: linear-gradient(to right, #33C8FA 0%, #33C8FA  51%, #33C8FA  100%);
   text-align: center;
-  margin-left: 10%;
+  margin: 5px;
+  margin-left: 6%;
+  padding: 3px 9px;
   text-transform: uppercase;
   transition: 0.5s;
   background-size: 200% auto;

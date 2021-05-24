@@ -3,7 +3,7 @@
     <mat-form-field class="p-3" style="font-weight: 600; margin-left:79%; font-size:13px;">
         <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Buscador">
       </mat-form-field>
-    <table mat-table [dataSource]="dataSource">
+    <table mat-table [dataSource]="dataSource" class="table table-bordered table-hover">
 
         <ng-container matColumnDef="nombre_paciente">
             <th mat-header-cell *matHeaderCellDef> Nombres </th>

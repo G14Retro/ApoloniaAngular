@@ -29,15 +29,15 @@
                   <span class="navText nav-label"> Usuarios</span></a>
             </li>
             <li routerLinkActive="active" *ngIf="admin">
-                <a [routerLink]="['/recepcion/calendario']"><i class="navIco fa fa-book"></i>
+                <a [routerLink]="['/admin/citas']"><i class="navIco fa fa-book"></i>
                   <span class="navText nav-label"> Agenda</span></a>
             </li>
             <li routerLinkActive="active" *ngIf="admin">
-                <a [routerLink]="['/admin/sintomas']"><i class="navIco fa fa-book"></i>
+                <a [routerLink]="['/admin/sintomas']"><i class="fas fa-teeth"></i>
                 <span class="navText nav-label"> Sintomas</span></a>
             </li>
             <li routerLinkActive="active" *ngIf="admin">
-                <a [routerLink]="['/admin/tratamientos']"><i class="navIco fa fa-book"></i>
+                <a [routerLink]="['/admin/tratamientos']"><i class="fas fa-hand-holding-medical"></i>
               <span class="navText nav-label"> Tratamientos</span></a>
             </li>
             <li routerLinkActive='active' *ngIf="paciente">

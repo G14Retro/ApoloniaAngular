@@ -11,26 +11,27 @@ import { CrearSintomasComponent } from 'src/app/components/administrator/listar-
 import { ActualizarSintomasComponent } from 'src/app/components/administrator/listar-sintomas/actualizar-sintomas/actualizar-sintomas.component';
 import { CrearTratamientoComponent } from 'src/app/components/administrator/listar-tratamiento/crear-tratamiento/crear-tratamiento.component';
 import { ActualizarTratamientoComponent } from 'src/app/components/administrator/listar-tratamiento/actualizar-tratamiento/actualizar-tratamiento.component';
+import { TablaCitasComponent } from 'src/app/components/tabla-citas/tabla-citas.component';
+import { RecepcionGuard } from 'src/app/guards/recepcion.guard';
 
 
 export const ADMIN_ROUTES: Routes = [
     {path:'',component:HomeComponent,canActivate:[AccessGuard]},
+    {path: 'citas', component:TablaCitasComponent,canActivate:[AccessGuard,AdminGuard],data:{crumb:'Citas'}},
 
     {path: 'tratamientos', data:{crumb:'Tratamientos'},children:[
-        {path:'',component:ListarTratamientoComponent,canActivate:[AccessGuard,AdminGuard]},   
+        {path:'',component:ListarTratamientoComponent,canActivate:[AccessGuard,AdminGuard]},
         {path: 'crear', component:CrearTratamientoComponent,canActivate:[AccessGuard,AdminGuard],data:{crumb:'Crear'}},
         {path: 'tratamientos', component:ListarTratamientoComponent,canActivate:[AccessGuard,AdminGuard],data:{crumb:'Tratamientos'}},
         {path: 'actualizar/:id', component:ActualizarTratamientoComponent,canActivate:[AccessGuard,AdminGuard],data:{crumb:'Actualizar'}},
+    ]},
 
-        
-    ]},   
-    
     {path: 'sintomas', data:{crumb:'Sintomas'},children:[
-        {path:'',component:ListarSintomasComponent,canActivate:[AccessGuard,AdminGuard]},   
+        {path:'',component:ListarSintomasComponent,canActivate:[AccessGuard,AdminGuard]},
         {path: 'crear', component:CrearSintomasComponent,canActivate:[AccessGuard,AdminGuard],data:{crumb:'Crear'}},
         {path: 'sintomas', component:ListarSintomasComponent,canActivate:[AccessGuard,AdminGuard],data:{crumb:'Sintomas'}},
         {path: 'actualizar/:id', component:ActualizarSintomasComponent,canActivate:[AccessGuard,AdminGuard],data:{crumb:'Actualizar'}},
-    ]},   
+    ]},
     {path: 'usuarios', data:{crumb:'Usuarios'},children:[
         {path:'',component:AdministratorComponent,canActivate:[AccessGuard,AdminGuard]},
         {path: 'crear', component:UserCreateComponent,canActivate:[AccessGuard,AdminGuard],data:{crumb:'Crear'}},

@@ -10,9 +10,8 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-citas',
   templateUrl: './citas.component.html',
-  styles: [
-    'table {width:100%;}'
-  ]
+  styleUrls: ['./citas.component.css']
+
 })
 
 export class CitasComponent implements OnInit, AfterViewInit {

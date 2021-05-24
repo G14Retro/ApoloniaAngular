@@ -9,12 +9,11 @@ th {
     text-align: center !important;
 }
 
-td {
-    color: #555555;
-    font-size: 13px;
-    font-weight: 300;
-    text-align: left;
-    margin: 0 6px 0 0;
+td{
+  color:#555555;
+  font-size: 13px;
+  font-weight: 300;
+  text-align: center;
 }
 
 .mat-form-field {
@@ -30,6 +29,13 @@ td {
     text-align: center;
 }
 
+.destroy{
+  color: #dc3545;
+}
+.edit{
+  color:#33C8FA;
+}
+
 .mat-row:hover {
     background-color: #12283c15;
 }
@@ -39,10 +45,10 @@ td {
     align-content: center !important;
 }
 
-.btnCrear {
+.btnCrearTratamiento {
     background-image: linear-gradient(to right, #33C8FA 0%, #33C8FA 51%, #33C8FA 100%);
     font-size: large;
-    margin-left: 60%;
+    margin-left: 73%;
     margin-bottom: 3%;
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
@@ -56,7 +62,7 @@ td {
     cursor: pointer;
 }
 
-.btnCrear:hover {
+.btnCrearTratamiento:hover {
     background-position: right center;
     /* change the direction of the change here */
     color: #fff;

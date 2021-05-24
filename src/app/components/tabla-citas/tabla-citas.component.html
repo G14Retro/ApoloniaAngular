@@ -1,19 +1,19 @@
 <div class="contenedor table-responsive contenido">
   <div class="row p-3">
-    <h2><small>&nbsp; Cita</small></h2>
-    <button class="botonDispo btn btn-primary" (click)="Adddialog()">
-      <i class="fas fa-calendar-plus"></i>&nbsp; Cita
+    <h2><small>&nbsp; Agenda de Citas</small></h2>
+    <button class="botonCita btn btn-primary" (click)="Adddialog()">
+      <i class="fas fa-calendar-plus"></i>&nbsp; Crear Cita
     </button>
   </div>
 
-  <div class="mat-elevation-z8 animated fadeInDown">
-  <mat-form-field class="p-3" style="font-weight: 600; margin-left:81%; font-size:13px;">
+<div class="mat-elevation-z8 animated fadeInDown">
+  <mat-form-field class="p-2" style="font-weight: 600; margin-left:83%; font-size:13px;">
     <input matInput (keyup)="applyFilter($event.target.value)"
     placeholder="Buscador">
   </mat-form-field>
 
-  <table mat-table [dataSource]="dataSource">
 
+  <table mat-table [dataSource]="dataSource">
 
     <!-- Position Column -->
     <ng-container matColumnDef="medico">
@@ -43,7 +43,6 @@
       <td class="contenedorBtn" mat-cell *matCellDef="let element">
         <button  mat-icon-button   class="edit" (click)="dialog(element.id)" focusable="false"><i class="fas fa-pen-alt"></i>
         </button>
-
       </td>
       </ng-container>
 

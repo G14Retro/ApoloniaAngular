@@ -5,7 +5,7 @@ style="color: #888888; font-weight: 600; font-family: 'Poppins', sans-serif;"> C
 <div mat-dialog-content>
   <form [formGroup]="citaGroup">
 
-        <mat-form-field class="col-md-6 .ms-auto"     appearance="outline">
+        <mat-form-field class="col-md-6 .sm-auto" appearance="outline">
           <mat-label>Consulta</mat-label>
           <mat-select formControlName="consulta" required>
               <mat-option>-----</mat-option>
@@ -18,7 +18,7 @@ style="color: #888888; font-weight: 600; font-family: 'Poppins', sans-serif;"> C
               </mat-error>
         </mat-form-field>
 
-        <mat-form-field class="col-md-6 .ms-auto" appearance="outline">
+        <mat-form-field class="col-md-6 .sm-auto" appearance="outline">
           <mat-label>Fecha Inicio</mat-label>
           <mat-select>
           <mat-option>-----</mat-option>
@@ -29,15 +29,15 @@ style="color: #888888; font-weight: 600; font-family: 'Poppins', sans-serif;"> C
           </mat-error>
       </mat-form-field>
 
-      <mat-form-field class="col-md-6 .ms-auto" appearance="outline">
+      <mat-form-field class="col-md-6 .sm-auto" appearance="outline">
         <mat-label>Documento</mat-label>
         <input type="text" matInput formControlName="numero_documento" required>
         <mat-error *ngIf="citaGroup.get('numero_documento').hasError('required')">Por favor ingrese nombre del paciente</mat-error>
       </mat-form-field>
 
-      <button  mat-button  class="btnBuscar"  (click)="buscarDocumento()">Buscar</button>
+      <button  mat-button  class="btnBuscar"  (click)="buscarDocumento()"><i class="fas fa-search"></i>&nbsp;Buscar Documento</button>
 
-      <mat-form-field class="col-md-6 .ms-auto" appearance="outline">
+      <mat-form-field class="col-md-6 .sm-auto" appearance="outline">
         <mat-label>Paciente</mat-label>
         <input type="text" matInput formControlName="pacientes" required>
         <mat-error *ngIf="citaGroup.get('pacientes').hasError('required')">Por favor ingrese nombre del paciente</mat-error>

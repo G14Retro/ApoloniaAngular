@@ -175,6 +175,5 @@ registerLocaleData(localeEsCO,'es-CO')
     {provide: DEFAULT_CURRENCY_CODE, useValue: 'COP' }
   ],
   bootstrap: [AppComponent],
-
 })
 export class AppModule { }

@@ -50,8 +50,8 @@ export class UserUpdateComponent implements OnInit {
         estado: '',
         tipo_usuario: '',
         password:''
-     })
-    }
+    })
+  }
 
   ngOnInit(): void {
     this.verDocumento();
@@ -104,7 +104,7 @@ export class UserUpdateComponent implements OnInit {
   updateUser(){
     this.datos=this.userForm.value;
     this.datos.fecha_nacimiento = moment(this.userForm.value.fecha_nacimiento).format("YYYY-MM-DD");
-  this.administratorService.updateUser(this.idUpdate,this.datos).subscribe(resp=>{
+    this.administratorService.updateUser(this.idUpdate,this.datos).subscribe(resp=>{
     console.log(resp)
     Swal.fire(
       'En hora buena',
@@ -112,7 +112,6 @@ export class UserUpdateComponent implements OnInit {
       'success'
     )
     this.router.navigateByUrl('/admin/usuarios');
-
   },
   err=>{
     console.log(err);
