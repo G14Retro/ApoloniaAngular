@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject, TRANSLATIONS } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ThemePalette } from '@angular/material/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -6,14 +6,11 @@ import { Router } from '@angular/router';
 
 import { now } from 'moment';
 import { RecepcionistaService } from 'src/app/services/recepcionista.service';
-import { AuthService } from 'src/app/services/auth.service';
-import { TablaCitasComponent } from '../tabla-citas.component'
 import { createDispoModel } from 'src/app/models/createDispo.model';
-import { citaModel } from 'src/app/models/cita.model';
 
 import * as moment from 'moment';
 import Swal from 'sweetalert2';
-import { from } from 'rxjs';
+import { citaModel } from 'src/app/models/cita.model';
 
 @Component({
   selector: 'app-crear-cita',
@@ -21,13 +18,14 @@ import { from } from 'rxjs';
   styleUrls: ['./crear-cita.component.css']
 })
 export class CrearCitaComponent implements OnInit {
-  cita:createDispoModel;
   citaGroup: FormGroup;
   paciente:[]=[];
   numero_documento:[]=[];
   estado:[]=[];
   consultas:[]=[];
-  fechaInicio:[]=[];
+  fechas:[]=[];
+  loading:boolean = false;
+  cita:citaModel;
   //DateTime Picker
 
   public date: moment.Moment;
@@ -53,12 +51,11 @@ export class CrearCitaComponent implements OnInit {
   }
 
   ngOnInit(){
-    this.formDispo();
-    this.getDispo();
+    this.cita = new citaModel();
+    this.formCita();
     //this.tipoConsulta();
     this.verConsultas();
     this.verPacientes();
-    this.buscarDocumento();
   }
 
   cerrar():void{
@@ -66,13 +63,14 @@ export class CrearCitaComponent implements OnInit {
   }
 
   guardar(){
-  this.citaGroup.value.horaInicio = moment(this.citaGroup.value.fechaInicio).format("YYYY-MM-DD,hh:mm:ss");
+    this.cita.disponibilidad = this.citaGroup.get('fechaInicio').value;
+    this.cita.id_persona = this.citaGroup.get('id_persona').value;
+
   if(this.citaGroup.invalid){
-    alert("campo imcompleto");
     return;
   }
 
-  this.AdddialogRef.close(this.recepcionista.cita(this.citaGroup.value).subscribe((resp:any)=>{
+  this.AdddialogRef.close(this.recepcionista.guardarCita(this.cita).subscribe((resp:any)=>{
     Swal.fire({
       allowOutsideClick: false,
       icon:'info',
@@ -80,21 +78,17 @@ export class CrearCitaComponent implements OnInit {
     });
     Swal.fire();
       Swal.close();
-      Swal.fire ('Disponibilidad', 'Creada Correctamente', 'success');
-      this.route.navigateByUrl('/recepcion/cita');
+      Swal.fire ('Guardado', resp.message, 'success');
+      this.route.navigateByUrl('/recepcion/citas');
     },
     ));
   }
 
-  getDispo(){
-    this.recepcionista.getDispo().subscribe((resp:any)=>{
-      console.log(resp);
-    })
-    }
-
     verConsultas(){
+      this.loading = true;
       this.recepcionista.listarConsultas().subscribe((resp:any)=>{
         this.consultas = resp;
+        this.loading = false;
       })
     }
 
@@ -104,20 +98,28 @@ export class CrearCitaComponent implements OnInit {
     })
   }
 
-  buscarDocumento(){
-    this.recepcionista.listarDocumentos().subscribe((resp:any)=>{
-    this.numero_documento = resp;
-  })
-}
+  buscarPaciente(){
+    this.recepcionista.buscarPaciente(this.citaGroup.get('numero_documento').value).subscribe((resp:any)=>{
+      this.citaGroup.get('id_persona').setValue(resp['0'].id);
+      this.citaGroup.get('nombre').setValue(resp['0'].nombre);
+      this.citaGroup.get('apellido').setValue(resp['0'].apellido);
+    })
+  }
 
-  formDispo(){
-    this.cita = new createDispoModel;
+  formCita(){
     this.citaGroup = this.fb.group({
-      pacientes:['', [Validators.required]],
-      numero_documento:['', [Validators.required]],
       consulta:['',[Validators.required]],
       fechaInicio:['',[Validators.required]],
-      estado:['',[Validators.required]],
+      numero_documento:['', [Validators.required]],
+      nombre:{value:'',disabled:true},
+      apellido:{value:'',disabled:true},
+      id_persona:'',
     });
+  }
+
+  llamarFechas(id:string){
+    this.recepcionista.llamarFechas(id).subscribe((resp:any)=>{
+      this.fechas = resp
+    })
   }
 }

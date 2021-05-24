@@ -44,6 +44,9 @@ import { CrearSintomasComponent } from './components/administrator/listar-sintom
 import { TablaCitasComponent } from './components/tabla-citas/tabla-citas.component';
 import { CrearCitaComponent } from './components/tabla-citas/crear-cita/crear-cita.component';
 import { EditarCitaComponent } from './components/tabla-citas/editar-cita/editar-cita.component';
+import { ActualizarSintomasComponent } from './components/administrator/listar-sintomas/actualizar-sintomas/actualizar-sintomas.component';
+import { ActualizarTratamientoComponent } from './components/administrator/listar-tratamiento/actualizar-tratamiento/actualizar-tratamiento.component';
+import { CrearTratamientoComponent } from './components/administrator/listar-tratamiento/crear-tratamiento/crear-tratamiento.component';
 
 
 // Modulos
@@ -75,12 +78,10 @@ import { CalendarModule } from '@syncfusion/ej2-angular-calendars';
 import { MatListModule} from '@angular/material/list';
 import { MatExpansionModule} from '@angular/material/expansion';
 import { MatTooltipModule} from '@angular/material/tooltip';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 //Provaiders
 import localeEsCO from "@angular/common/locales/es-CO";
-import { ActualizarSintomasComponent } from './components/administrator/listar-sintomas/actualizar-sintomas/actualizar-sintomas.component';
-import { ActualizarTratamientoComponent } from './components/administrator/listar-tratamiento/actualizar-tratamiento/actualizar-tratamiento.component';
-import { CrearTratamientoComponent } from './components/administrator/listar-tratamiento/crear-tratamiento/crear-tratamiento.component';
 registerLocaleData(localeEsCO,'es-CO')
 
 @NgModule({
@@ -161,7 +162,8 @@ registerLocaleData(localeEsCO,'es-CO')
     CalendarModule,
     MatListModule,
     MatExpansionModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatProgressSpinnerModule,
   ],
   providers: [
     AgendaService, DayService, WeekService, WorkWeekService, MonthService,

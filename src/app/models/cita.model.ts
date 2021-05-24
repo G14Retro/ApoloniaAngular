@@ -1,8 +1,8 @@
 export class citaModel {
   id?:string;
-  fechaIni:string;
-  nMedico:string;
-  aMedico:string;
-  estado:string;
-  especialidad:string;
+  estado?:string;
+  disponibilidad:string;
+  id_persona:string;
+  nombre?:string;
+  apellido?:string;
 }

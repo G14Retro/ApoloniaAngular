@@ -5,13 +5,19 @@ style="color: #888888; font-weight: 600; font-family: 'Poppins', sans-serif;"> C
 <div mat-dialog-content>
   <form [formGroup]="citaGroup">
 
+<<<<<<< HEAD
         <mat-form-field class="col-md-6 .sm-auto" appearance="outline">
+=======
+        <mat-form-field class="col-md-6 .ms-auto" appearance="outline">
+>>>>>>> 2494be25417f7fbe71c7d6e5cdc029fd44a75889
           <mat-label>Consulta</mat-label>
           <mat-select formControlName="consulta" required>
               <mat-option>-----</mat-option>
-              <mat-option *ngFor="let consulta of consultas" [value]="consulta.id_consulta">
+              <mat-option *ngFor="let consulta of consultas" [value]="consulta.id_consulta"
+              (click)="llamarFechas(consulta.id_consulta)">
                   {{consulta.nombre_consulta | titlecase}}
               </mat-option>
+              <mat-spinner *ngIf="loading"></mat-spinner>
               </mat-select>
               <mat-error *ngIf="citaGroup.get('consulta').hasError('required')">
                 Por favor seleccione una consulta
@@ -20,15 +26,18 @@ style="color: #888888; font-weight: 600; font-family: 'Poppins', sans-serif;"> C
 
         <mat-form-field class="col-md-6 .sm-auto" appearance="outline">
           <mat-label>Fecha Inicio</mat-label>
-          <mat-select>
+          <mat-select formControlName="fechaInicio">
           <mat-option>-----</mat-option>
-          <input type="text" matInput formControlName="fechaInicio" required>
+          <mat-option *ngFor="let fecha of fechas" [value]="fecha.id">
+                  {{fecha.horaInicio | date:'EEEE d MMMM, y, h:mm a'}}
+              </mat-option>
           </mat-select>
           <mat-error *ngIf="citaGroup.get('fechaInicio').hasError('required')">
-            Por favor ingrese fecha inicio
+            Por favor seleccione una opción
           </mat-error>
       </mat-form-field>
 
+<<<<<<< HEAD
       <mat-form-field class="col-md-6 .sm-auto" appearance="outline">
         <mat-label>Documento</mat-label>
         <input type="text" matInput formControlName="numero_documento" required>
@@ -42,11 +51,30 @@ style="color: #888888; font-weight: 600; font-family: 'Poppins', sans-serif;"> C
         <input type="text" matInput formControlName="pacientes" required>
         <mat-error *ngIf="citaGroup.get('pacientes').hasError('required')">Por favor ingrese nombre del paciente</mat-error>
     </mat-form-field>
+=======
+      <mat-form-field class="col-md-6 .ms-auto" appearance="outline">
+        <mat-label>Número de documento</mat-label>
+        <input type="number" matInput formControlName="numero_documento" required>
+        <mat-error *ngIf="citaGroup.get('numero_documento').hasError('required')">Por favor ingrese un número de documento</mat-error>
+      </mat-form-field>
+      <button mat-icon-button class="btn-primary" (click)="buscarPaciente()"><i class="fas fa-search"></i></button>
+
+      <mat-form-field class="col-md-6 .ms-auto" appearance="outline">
+        <mat-label>Nombres</mat-label>
+        <input type="text" matInput formControlName="nombre"
+        [value]="citaGroup.get('nombre').value| titlecase">
+      </mat-form-field>
+      <mat-form-field class="col-md-6 .ms-auto" appearance="outline">
+        <mat-label>Apellidos</mat-label>
+        <input type="text" matInput formControlName="apellido"
+        [value]="citaGroup.get('apellido').value| titlecase">
+      </mat-form-field>
+>>>>>>> 2494be25417f7fbe71c7d6e5cdc029fd44a75889
   </form>
 </div>
 
 <div mat-dialog-actions>
   <button mat-button class="btnCancelar btn-secondary" (click)="cerrar()">Cancelar</button>
-  <button [disabled]="!citaGroup.valid" mat-button  class="btnGuardar"  (click)="guardar()">Guardar</button>
+  <button mat-button  class="btnGuardar"  (click)="guardar()">Guardar</button>
 </div>
 

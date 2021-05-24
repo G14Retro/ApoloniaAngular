@@ -65,7 +65,6 @@ export class UserUpdateComponent implements OnInit {
     this.ruta.params.subscribe(params =>{
       this.idUpdate=params['id'];
       this.administratorService.buscarUser(params['id']).subscribe((resp:any[])=>{
-        console.log(resp);
         this.userForm.setValue({
           tipo_documento: resp['tipo_documento'],
           numero_documento: resp['numero_documento'],

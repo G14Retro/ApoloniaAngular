@@ -5,62 +5,33 @@ style="color: #888888; font-weight: 600; font-family: 'Poppins', sans-serif;">Ed
 
     <form [formGroup]="citaGroup">
         <mat-form-field class="col-md-6 .ms-auto" appearance="outline">
-            <mat-label>Especialista</mat-label>
-            <mat-select formControlName="medico" required>
+            <mat-label>Estado de la cita</mat-label>
+            <mat-select formControlName="estado" required>
                 <mat-option>-----</mat-option>
-                <mat-option *ngFor="let medico of medicos" [value]="medico.id">
-                    {{medico.nombre+" "+medico.apellido | titlecase}}
+                <mat-option *ngFor="let estado of estados" [value]="estado.id">
+                    {{estado.id}}
                 </mat-option>
                 </mat-select>
-                <mat-error *ngIf="citaGroup.get('medico').hasError('required')">
-                  Por favor seleccione un
+                <mat-error *ngIf="citaGroup.get('estado').hasError('required')">
+                  Por favor seleccione una opción
                 </mat-error>
         </mat-form-field>
-
         <mat-form-field class="col-md-6 .ms-auto" appearance="outline">
-          <mat-label>Consulta</mat-label>
-          <mat-select formControlName="consulta" required>
+          <mat-label>Fecha Cita</mat-label>
+          <mat-select formControlName="disponibilidad" required>
               <mat-option>-----</mat-option>
-              <mat-option *ngFor="let consulta of consultas" [value]="consulta.id_consulta">
-                  {{consulta.nombre_consulta | titlecase}}
-              </mat-option>
-              </mat-select>
-              <mat-error *ngIf="citaGroup.get('consulta').hasError('required')">
-                Por favor seleccione una consulta
-              </mat-error>
-        </mat-form-field>
-
-        <mat-form-field class="col-md-6 .ms-auto" appearance="outline">
-          <mat-label>estado</mat-label>
-          <mat-select formControlName="estado" required>
-              <mat-option>-----</mat-option>
-              <mat-option *ngFor="let estado of estado" [value]="estado.idEstado">
-                  {{disponibilidad.nombreEstado | titlecase}}
+              <mat-option *ngFor="let disponibilidad of disponibilidades" [value]="disponibilidad.id">
+                  {{disponibilidad.hora_inicio | date:'EEEE d MMMM, y, h:mm a'}}
               </mat-option>
               </mat-select>
               <mat-error *ngIf="citaGroup.get('estado').hasError('required')">
-                  Por favor seleccione un estado
+                Por favor seleccione una opción
               </mat-error>
-      </mat-form-field>
-
-      <mat-form-field class="col-md-6 .ms-auto" appearance="outline">
-        <mat-label>Fecha Inicio</mat-label>
-        <input matInput [ngxMatDatetimePicker]="picker"
-            [min]="minDate" [max]="maxDate" formControlName="fechaInicio">
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <ngx-mat-datetime-picker #picker [showSpinners]="showSpinners" [showSeconds]="showSeconds" [stepHour]="stepHour"
-            [stepMinute]="stepMinute" [stepSecond]="stepSecond" [touchUi]="touchUi" [color]="color"
-            [enableMeridian]="enableMeridian">
-            <!-- Custom icon or text of Apply icon -->
-        <ng-template>
-            <!-- <mat-icon>star</mat-icon> -->
-            <span>OK</span>
-        </ng-template>
-        </ngx-mat-datetime-picker>
-        <mat-error *ngIf="citaGroup.get('fechaInicio').hasError('required')">
-          Por favor seleccione una hora de inicio
-        </mat-error>
-    </mat-form-field>
+        </mat-form-field>
+        <mat-form-field class="col-md-6 .ms-auto" appearance="outline">
+          <mat-label>Paciente</mat-label>
+          <input type="text" matInput value="{{cita.nombre+ ' '+cita.apellido | titlecase}}">
+        </mat-form-field>  
   </form>
 
 </div>

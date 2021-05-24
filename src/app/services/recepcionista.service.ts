@@ -100,19 +100,6 @@ export class RecepcionistaService {
       return this.http.delete(environment.apiEndpoint+'destroy/'+id,{headers});
   }
 
-
-    cita(create:citaModel){
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'X-Requested-With': 'XMLHttpRequest',
-      'Authorization': 'Bearer '+ this.auth.usuario.token
-      });
-      const data = {
-        ...create
-      };
-      return this.http.post(environment.apiEndpoint+'cita',data,{headers});
-  }
-
   leerCitas(){
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -151,12 +138,54 @@ export class RecepcionistaService {
       return this.http.get(environment.apiEndpoint+'verPacientes',{headers});
   }
 
-  public listarDocumentos(){
+  public llamarFechas(id:string){
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'X-Requested-With': 'XMLHttpRequest',
       'Authorization': 'Bearer '+ this.auth.usuario.token
     });
-    return this.http.get(environment.apiEndpoint+'buscarDocumento',{headers});
+    return this.http.get(environment.apiEndpoint+'llamarFechas/'+id,{headers});
+  }
+
+  public buscarPaciente(id:string){
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'X-Requested-With': 'XMLHttpRequest',
+      'Authorization': 'Bearer '+ this.auth.usuario.token
+    });
+    return this.http.get(environment.apiEndpoint+'buscarPaciente/'+id,{headers});
+  }
+
+  public guardarCita(cita:citaModel){
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'X-Requested-With': 'XMLHttpRequest',
+      'Authorization': 'Bearer '+ this.auth.usuario.token
+    });
+    const data = ({
+      ...cita
+    });
+
+    return this.http.post(environment.apiEndpoint+'guardarCita',data,{headers});
+  }
+
+  verEstadoCita(){
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'X-Requested-With': 'XMLHttpRequest',
+      'Authorization': 'Bearer '+ this.auth.usuario.token
+    });
+
+    return this.http.get(environment.apiEndpoint+'estadoCitas',{headers});
+  }
+
+  buscarCitaId(id:string){
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'X-Requested-With': 'XMLHttpRequest',
+      'Authorization': 'Bearer '+ this.auth.usuario.token
+    });
+
+    return this.http.get(environment.apiEndpoint+'buscarCitaId/'+id,{headers});
   }
 }
