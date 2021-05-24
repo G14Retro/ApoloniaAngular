@@ -1,0 +1,25 @@
+<div mat-dialog-title>
+    <h2>Crear Sintoma</h2>
+</div>
+<div mat-dialog-content>
+    <form [formGroup]="symptomForm">
+
+        <mat-form-field class="p-2" appearance="outline">
+            <mat-label>Nombre sintoma</mat-label>
+            <input type="text" matInput formControlName="nombre_sintoma" required>
+            <mat-error *ngIf="symptomForm.get('nombre_sintoma').hasError('required')">Por favor seleccione una opción</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="p-2" appearance="outline">
+            <mat-label>Color del sintoma</mat-label>
+            <input type="text" matInput formControlName="color" required>
+            <mat-error *ngIf="symptomForm.get('color').hasError('required')">Por favor seleccione una opción</mat-error>
+        </mat-form-field>
+
+    </form>
+    <div class="btnContainer">
+        <button [routerLink]="['/admin/sintomas']" class="btnRegresar btn-secondary">Regresar</button>
+        <button type="submit" class="btnGuardar" (click)="crearSintomas()">Guardar</button>
+    </div>
+
+</div>

@@ -38,6 +38,9 @@ import { PacienteAntecedenteComponent } from './pages/pacientes/paciente-anteced
 import { SuperficieComponent } from './pages/diagnostico/superficie/superficie.component';
 import { TablaDiagnosticoComponent } from './components/tabla-diagnostico/tabla-diagnostico.component';
 import { EditarDiagnosticoComponent } from './components/tabla-diagnostico/editar-diagnostico/editar-diagnostico.component';
+import { ListarTratamientoComponent } from './components/administrator/listar-tratamiento/listar-tratamiento.component';
+import { ListarSintomasComponent } from './components/administrator/listar-sintomas/listar-sintomas.component';
+import { CrearSintomasComponent } from './components/administrator/listar-sintomas/crear-sintomas/crear-sintomas.component';
 import { TablaCitasComponent } from './components/tabla-citas/tabla-citas.component';
 import { CrearCitaComponent } from './components/tabla-citas/crear-cita/crear-cita.component';
 import { EditarCitaComponent } from './components/tabla-citas/editar-cita/editar-cita.component';
@@ -75,8 +78,9 @@ import { MatTooltipModule} from '@angular/material/tooltip';
 
 //Provaiders
 import localeEsCO from "@angular/common/locales/es-CO";
-import { ListarTratamientoComponent } from './components/administrator/listar-tratamiento/listar-tratamiento.component';
-import { ListarSintomasComponent } from './components/administrator/listar-sintomas/listar-sintomas.component';
+import { ActualizarSintomasComponent } from './components/administrator/listar-sintomas/actualizar-sintomas/actualizar-sintomas.component';
+import { ActualizarTratamientoComponent } from './components/administrator/listar-tratamiento/actualizar-tratamiento/actualizar-tratamiento.component';
+import { CrearTratamientoComponent } from './components/administrator/listar-tratamiento/crear-tratamiento/crear-tratamiento.component';
 registerLocaleData(localeEsCO,'es-CO')
 
 @NgModule({
@@ -119,6 +123,10 @@ registerLocaleData(localeEsCO,'es-CO')
     ListarSintomasComponent,
     TablaDiagnosticoComponent,
     EditarDiagnosticoComponent,
+    CrearSintomasComponent,
+    ActualizarSintomasComponent,
+    CrearTratamientoComponent,
+    ActualizarTratamientoComponent,
     TablaCitasComponent,
     CrearCitaComponent,
     EditarCitaComponent
@@ -153,10 +161,8 @@ registerLocaleData(localeEsCO,'es-CO')
     CalendarModule,
     MatListModule,
     MatExpansionModule,
-    MatTooltipModule,
-    MatExpansionModule
+    MatTooltipModule
   ],
-
   providers: [
     AgendaService, DayService, WeekService, WorkWeekService, MonthService,
     TitleCasePipe,

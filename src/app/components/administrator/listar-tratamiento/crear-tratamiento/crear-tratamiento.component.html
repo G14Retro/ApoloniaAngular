@@ -1,0 +1,25 @@
+<div mat-dialog-title>
+    <h2>Crear tratamiento</h2>
+</div>
+<div mat-dialog-content>
+    <form [formGroup]="treatmentForm">
+
+        <mat-form-field class="p-2" appearance="outline">
+            <mat-label>Nombre tratamiento</mat-label>
+            <input type="text" matInput formControlName="nombre_tratamiento" required>
+            <mat-error *ngIf="treatmentForm.get('nombre_tratamiento').hasError('required')">Por favor seleccione una opción</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="p-2" appearance="outline">
+            <mat-label>Valor tratamiento</mat-label>
+            <input type="text" matInput formControlName="valor_tratamiento" required>
+            <mat-error *ngIf="treatmentForm.get('valor_tratamiento').hasError('required')">Por favor seleccione una opción</mat-error>
+        </mat-form-field>
+
+    </form>
+    <div class="btnContainer">
+        <button [routerLink]="['/admin/tratamientos']" class="btnRegresar btn-secondary">Regresar</button>
+        <button type="submit" class="btnGuardar" (click)="crearTratamiento()">Guardar</button>
+    </div>
+
+</div>

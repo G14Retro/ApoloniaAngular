@@ -4,8 +4,8 @@
     <mat-form-field class="p-3" style="font-weight: 600; margin-left:85%; font-size:13px;">
         <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Buscador">
     </mat-form-field>
-    <button [routerLink]="['/admin/usuarios/crear']" class="btnCrear btn btn-primary">
-    <i class="fas fa-user"></i> Crear sintoma
+    <button [routerLink]="['/admin/tratamientos/crear']" class="btnCrear btn btn-primary">
+    <i class="fas fa-user"></i> Crear tratamiento
   </button> &nbsp;
 
     <table mat-table [dataSource]="dataSource" class="table table-bordered table-responsive" matTableExporter #exporter="matTableExporter">
@@ -22,9 +22,9 @@
         <ng-container matColumnDef="Acciones">
             <th mat-header-cell *matHeaderCellDef> Acciones </th>
             <td mat-cell *matCellDef="let element">
-                <button mat-icon-button   class="destroy" (click)="destroy(element.id)"  focusable="false"><i class="fas fa-trash-alt"></i>
+                <button mat-icon-button class="destroy" (click)="elimiarTratamiento(element.id)" focusable="false"><i class="fas fa-trash-alt"></i>
                 </button>
-                <button  mat-icon-button   class="edit" (click)="dialog(element.id)" focusable="false"><i class="fas fa-pen-alt"></i>
+                <button mat-icon-button class="edit" [routerLink]="['/admin/tratamientos/actualizar/'+element.id]"><i class="fas fa-pen-alt"></i>
                 </button>
             </td>
         </ng-container>
