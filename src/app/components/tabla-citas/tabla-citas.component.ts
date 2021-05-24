@@ -1,8 +1,8 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { RecepcionistaService } from 'src/app/services/recepcionista.service';
+import { MatDialog } from '@angular/material/dialog';
 import Swal from 'sweetalert2';
 import { CrearCitaComponent } from './crear-cita/crear-cita.component';
 import { EditarCitaComponent } from './editar-cita/editar-cita.component';
@@ -24,7 +24,7 @@ export class TablaCitasComponent implements OnInit, AfterViewInit {
   ];
 
   dataSource = new MatTableDataSource();
-  @ViewChild(MatPaginator) paginator:MatPaginator;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(private recepcion:RecepcionistaService,
     private dialogo:MatDialog){
@@ -84,4 +84,5 @@ export class TablaCitasComponent implements OnInit, AfterViewInit {
       this.llenarTablacitas();
     })
   }
+
 }

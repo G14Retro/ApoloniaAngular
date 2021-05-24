@@ -38,6 +38,9 @@ import { PacienteAntecedenteComponent } from './pages/pacientes/paciente-anteced
 import { SuperficieComponent } from './pages/diagnostico/superficie/superficie.component';
 import { TablaDiagnosticoComponent } from './components/tabla-diagnostico/tabla-diagnostico.component';
 import { EditarDiagnosticoComponent } from './components/tabla-diagnostico/editar-diagnostico/editar-diagnostico.component';
+import { TablaCitasComponent } from './components/tabla-citas/tabla-citas.component';
+import { CrearCitaComponent } from './components/tabla-citas/crear-cita/crear-cita.component';
+import { EditarCitaComponent } from './components/tabla-citas/editar-cita/editar-cita.component';
 
 
 // Modulos
@@ -62,31 +65,18 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { CopyPasteDirective } from './directives/copy-paste.directive';
 import { ScheduleModule,RecurrenceEditorModule } from "@syncfusion/ej2-angular-schedule";
 import { NgxMatDatetimePickerModule, NgxMatNativeDateModule, NgxMatTimepickerModule  } from "@angular-material-components/datetime-picker";
-import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { MatButtonToggleModule} from '@angular/material/button-toggle';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { NgxCrumbsModule } from "ngx-crumbs";
-<<<<<<< HEAD
-import {MatListModule} from '@angular/material/list';
-import {MatExpansionModule} from '@angular/material/expansion';
-
-
-//Provaiders
-import localeEsCO from "@angular/common/locales/es-CO";
-import { SuperficieComponent } from './pages/diagnostico/superficie/superficie.component';
-import { TablaCitasComponent } from './components/tabla-citas/tabla-citas.component';
-import { CrearCitaComponent } from './components/tabla-citas/crear-cita/crear-cita.component';
-import { EditarCitaComponent } from './components/tabla-citas/editar-cita/editar-cita.component';
-=======
 import { CalendarModule } from '@syncfusion/ej2-angular-calendars';
-import {MatListModule} from '@angular/material/list';
-import {MatExpansionModule} from '@angular/material/expansion';
-import {MatTooltipModule} from '@angular/material/tooltip';
+import { MatListModule} from '@angular/material/list';
+import { MatExpansionModule} from '@angular/material/expansion';
+import { MatTooltipModule} from '@angular/material/tooltip';
 
 //Provaiders
 import localeEsCO from "@angular/common/locales/es-CO";
 import { ListarTratamientoComponent } from './components/administrator/listar-tratamiento/listar-tratamiento.component';
 import { ListarSintomasComponent } from './components/administrator/listar-sintomas/listar-sintomas.component';
->>>>>>> 2dc8d8c1c98021496ad4078a7a469a6c026ed6a7
 registerLocaleData(localeEsCO,'es-CO')
 
 @NgModule({
@@ -125,17 +115,13 @@ registerLocaleData(localeEsCO,'es-CO')
     DetalleHistorialComponent,
     PacienteAntecedenteComponent,
     SuperficieComponent,
-<<<<<<< HEAD
-    TablaCitasComponent,
-    CrearCitaComponent,
-    EditarCitaComponent
-=======
     ListarTratamientoComponent,
     ListarSintomasComponent,
     TablaDiagnosticoComponent,
     EditarDiagnosticoComponent,
-
->>>>>>> 2dc8d8c1c98021496ad4078a7a469a6c026ed6a7
+    TablaCitasComponent,
+    CrearCitaComponent,
+    EditarCitaComponent
   ],
   imports: [
     BrowserModule,
@@ -164,10 +150,7 @@ registerLocaleData(localeEsCO,'es-CO')
     MatTableExporterModule,
     MatGridListModule,
     NgxCrumbsModule,
-<<<<<<< HEAD
-=======
     CalendarModule,
->>>>>>> 2dc8d8c1c98021496ad4078a7a469a6c026ed6a7
     MatListModule,
     MatExpansionModule,
     MatTooltipModule,

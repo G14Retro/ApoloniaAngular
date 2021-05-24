@@ -1,11 +1,11 @@
 <div mat-dialog-title
-style="color: #888888; font-weight: 600; font-family: 'Poppins', sans-serif;">Cita Crear
+style="color: #888888; font-weight: 600; font-family: 'Poppins', sans-serif;"> Crear Cita
 </div>
 
 <div mat-dialog-content>
-    <form [formGroup]="citaGroup">
+  <form [formGroup]="citaGroup">
 
-        <mat-form-field class="col-md-6 .ms-auto" appearance="outline">
+        <mat-form-field class="col-md-6 .ms-auto"     appearance="outline">
           <mat-label>Consulta</mat-label>
           <mat-select formControlName="consulta" required>
               <mat-option>-----</mat-option>
@@ -16,28 +16,35 @@ style="color: #888888; font-weight: 600; font-family: 'Poppins', sans-serif;">Ci
               <mat-error *ngIf="citaGroup.get('consulta').hasError('required')">
                 Por favor seleccione una consulta
               </mat-error>
-      </mat-form-field>
+        </mat-form-field>
 
         <mat-form-field class="col-md-6 .ms-auto" appearance="outline">
           <mat-label>Fecha Inicio</mat-label>
-          <input matInput [ngxMatDatetimePicker]="picker"
-              [min]="minDate" [max]="maxDate" formControlName="fechaInicio">
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <ngx-mat-datetime-picker #picker [showSpinners]="showSpinners" [showSeconds]="showSeconds" [stepHour]="stepHour"
-              [stepMinute]="stepMinute" [stepSecond]="stepSecond" [touchUi]="touchUi" [color]="color"
-              [enableMeridian]="enableMeridian">
-              <!-- Custom icon or text of Apply icon -->
-          <ng-template>
-              <!-- <mat-icon>star</mat-icon> -->
-              <span>OK</span>
-          </ng-template>
-          </ngx-mat-datetime-picker>
+          <mat-select>
+          <mat-option>-----</mat-option>
+          <input type="text" matInput formControlName="fechaInicio" required>
+          </mat-select>
           <mat-error *ngIf="citaGroup.get('fechaInicio').hasError('required')">
-            Por favor seleccione una hora de inicio
+            Por favor ingrese fecha inicio
           </mat-error>
       </mat-form-field>
-    </form>
+
+      <mat-form-field class="col-md-6 .ms-auto" appearance="outline">
+        <mat-label>Documento</mat-label>
+        <input type="text" matInput formControlName="numero_documento" required>
+        <mat-error *ngIf="citaGroup.get('numero_documento').hasError('required')">Por favor ingrese nombre del paciente</mat-error>
+      </mat-form-field>
+
+      <button  mat-button  class="btnBuscar"  (click)="buscarDocumento()">Buscar</button>
+
+      <mat-form-field class="col-md-6 .ms-auto" appearance="outline">
+        <mat-label>Paciente</mat-label>
+        <input type="text" matInput formControlName="pacientes" required>
+        <mat-error *ngIf="citaGroup.get('pacientes').hasError('required')">Por favor ingrese nombre del paciente</mat-error>
+    </mat-form-field>
+  </form>
 </div>
+
 <div mat-dialog-actions>
   <button mat-button class="btnCancelar btn-secondary" (click)="cerrar()">Cancelar</button>
   <button [disabled]="!citaGroup.valid" mat-button  class="btnGuardar"  (click)="guardar()">Guardar</button>

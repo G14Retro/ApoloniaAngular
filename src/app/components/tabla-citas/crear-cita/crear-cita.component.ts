@@ -23,9 +23,11 @@ import { from } from 'rxjs';
 export class CrearCitaComponent implements OnInit {
   cita:createDispoModel;
   citaGroup: FormGroup;
-  medicos:[]=[];
+  paciente:[]=[];
+  numero_documento:[]=[];
   estado:[]=[];
   consultas:[]=[];
+  fechaInicio:[]=[];
   //DateTime Picker
 
   public date: moment.Moment;
@@ -55,6 +57,8 @@ export class CrearCitaComponent implements OnInit {
     this.getDispo();
     //this.tipoConsulta();
     this.verConsultas();
+    this.verPacientes();
+    this.buscarDocumento();
   }
 
   cerrar():void{
@@ -82,16 +86,6 @@ export class CrearCitaComponent implements OnInit {
     ));
   }
 
-  formDispo(){
-    this.cita = new createDispoModel;
-    this.citaGroup = this.fb.group({
-      medico:['', [Validators.required]],
-      consulta:['',[Validators.required]],
-      fechaInicio:['',[Validators.required]],
-      estado:['',[Validators.required]],
-    });
-  }
-
   getDispo(){
     this.recepcionista.getDispo().subscribe((resp:any)=>{
       console.log(resp);
@@ -103,4 +97,27 @@ export class CrearCitaComponent implements OnInit {
         this.consultas = resp;
       })
     }
+
+    verPacientes(){
+      this.recepcionista.listarPacientes().subscribe((resp:any)=>{
+        this.paciente = resp;
+    })
   }
+
+  buscarDocumento(){
+    this.recepcionista.listarDocumentos().subscribe((resp:any)=>{
+    this.numero_documento = resp;
+  })
+}
+
+  formDispo(){
+    this.cita = new createDispoModel;
+    this.citaGroup = this.fb.group({
+      pacientes:['', [Validators.required]],
+      numero_documento:['', [Validators.required]],
+      consulta:['',[Validators.required]],
+      fechaInicio:['',[Validators.required]],
+      estado:['',[Validators.required]],
+    });
+  }
+}
