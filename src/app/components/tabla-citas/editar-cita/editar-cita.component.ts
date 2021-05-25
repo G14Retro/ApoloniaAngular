@@ -20,6 +20,7 @@ export class EditarCitaComponent implements OnInit {
   citaGroup: FormGroup;
   estados:[]=[];
   disponibilidades:[]=[];
+  loading:boolean = false;
   //DateTime Picker
   public date: moment.Moment;
   public disabled = false;
@@ -45,9 +46,11 @@ export class EditarCitaComponent implements OnInit {
 
   ngOnInit(): void {
     this.cita = new citaModel();
+    this.cita.nombre = '';
+    this.cita.apellido = '';
     this.verEstados();
     this.verDisponibilidad();
-    this.formDispo();
+    this.formCita();
     this.buscarCitaId();
   }
 
@@ -56,11 +59,25 @@ export class EditarCitaComponent implements OnInit {
   }
 
   guardar(){
-    console.log(this.citaGroup.value);
+    if (this.citaGroup.invalid) {
+      return
+    }
+    this.dialogRef.close(
+      this.recepcionista.editarCita(this.data.id,this.citaGroup).subscribe((resp:any)=>{
+        Swal.fire({
+          allowOutsideClick: false,
+          icon:'info',
+          title: 'Espere por favor...'
+        });
+        Swal.fire();
+          Swal.close();
+          Swal.fire ('Guardado', resp.message, 'success');
+      })
+    );
   }
 
 
-  formDispo(){
+  formCita(){
     this.citaGroup = this.fb.group({
       estado:['', [Validators.required]],
       disponibilidad: ['', [Validators.required]],
@@ -70,7 +87,6 @@ export class EditarCitaComponent implements OnInit {
 
   verEstados(){
     this.recepcionista.verEstadoCita().subscribe((resp:any)=>{
-      console.log(resp);
       this.estados = resp
     })
   }
@@ -82,12 +98,13 @@ export class EditarCitaComponent implements OnInit {
   }
 
   buscarCitaId(){
+    this.loading = true
     this.recepcionista.buscarCitaId(this.data.id).subscribe((resp:any)=>{
      this.cita = resp[0];
      this.citaGroup.get('estado').setValue(this.cita.estado);
      this.citaGroup.get('disponibilidad').setValue(this.cita.disponibilidad);
      this.citaGroup.get('id_persona').setValue(this.cita.id_persona);
-     console.log(this.citaGroup.value);
+     this.loading = false;
     })
   }
 

@@ -2,14 +2,14 @@
 style="color: #888888; font-weight: 600; font-family: 'Poppins', sans-serif;">Editar Cita
 </div>
 <div mat-dialog-content>
-
+<app-loading *ngIf="loading"></app-loading>
     <form [formGroup]="citaGroup">
         <mat-form-field class="col-md-6 .ms-auto" appearance="outline">
             <mat-label>Estado de la cita</mat-label>
             <mat-select formControlName="estado" required>
                 <mat-option>-----</mat-option>
                 <mat-option *ngFor="let estado of estados" [value]="estado.id">
-                    {{estado.id}}
+                    {{estado.estado_cita | titlecase}}
                 </mat-option>
                 </mat-select>
                 <mat-error *ngIf="citaGroup.get('estado').hasError('required')">
@@ -30,7 +30,7 @@ style="color: #888888; font-weight: 600; font-family: 'Poppins', sans-serif;">Ed
         </mat-form-field>
         <mat-form-field class="col-md-6 .ms-auto" appearance="outline">
           <mat-label>Paciente</mat-label>
-          <input type="text" matInput value="{{cita.nombre+ ' '+cita.apellido | titlecase}}">
+          <input type="text" matInput value="{{cita.nombre+ ' '+cita.apellido | titlecase}}" disabled>
         </mat-form-field>  
   </form>
 

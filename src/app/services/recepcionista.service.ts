@@ -6,6 +6,7 @@ import { createDispoModel } from '../models/createDispo.model';
 import { dispoModel } from '../models/dispo.model';
 import { AuthService } from './auth.service';
 import { citaModel } from '../models/cita.model';
+import { FormGroup } from '@angular/forms';
 
 
 @Injectable({
@@ -187,5 +188,19 @@ export class RecepcionistaService {
     });
 
     return this.http.get(environment.apiEndpoint+'buscarCitaId/'+id,{headers});
+  }
+
+  editarCita(id:string, datos:FormGroup){
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'X-Requested-With': 'XMLHttpRequest',
+      'Authorization': 'Bearer '+ this.auth.usuario.token
+    });
+
+    const data = ({
+      ...datos.value
+    });
+
+    return this.http.put(environment.apiEndpoint + 'editarCita/'+id,data,{headers});
   }
 }
