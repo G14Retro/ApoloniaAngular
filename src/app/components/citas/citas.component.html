@@ -2,7 +2,7 @@
     <mat-form-field class="p-3" style="font-weight: 600; margin-left:79%; font-size:13px;">
         <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Buscador">
     </mat-form-field>
-    <table mat-table [dataSource]="dataSource" class="table caption-top table-responsive table-bordered">
+    <table mat-table [dataSource]="dataSource" class="table caption-top table-bordered">
 
         <ng-container matColumnDef="fechaIni">
             <th mat-header-cell *matHeaderCellDef> Fecha inicio de cita </th>

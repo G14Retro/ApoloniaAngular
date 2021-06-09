@@ -1,5 +1,9 @@
 <div class="container-md">
     <app-loading *ngIf="loading"></app-loading>
+    <div mat-dialog-title>Paciente: <mat-label>{{paciente | titlecase}}</mat-label></div>
+    <br>
+    <br>
+    <br>
     <form [formGroup]="diagnosticoForm">
         <div formArrayName="diagnostico" *ngFor="let item of getDiagnosticos.controls; let i = index">
             <div [formGroupName]="i">

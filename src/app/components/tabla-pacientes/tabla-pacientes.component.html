@@ -28,7 +28,7 @@
                     <i class="fas fa-eye" style="font-size: 16px;"></i>
                 </button>
                 <button mat-raised-button matTooltip="Odontograma"
-                class="btn-info mr-2" (click)="odontoDialog(element.id)">
+                class="btn-info mr-2" (click)="odontoDialog(element.id, element.nombre, element.apellido)">
                     <i class="fas fa-tooth" style="font-size: 16px;"></i>
                 </button>
                 <button mat-raised-button class="btn btn-warning mr-2" matTooltip="Antecedentes medicos"
@@ -36,7 +36,7 @@
                   <i class="far fa-list-alt" style="font-size: 16px;"></i>
                 </button>
                 <button mat-raised-button class="btn btn-success" matTooltip="Diagnostico"
-                (click)="diagnosticoDialog(element.id)">
+                (click)="diagnosticoDialog(element.id, element.nombre, element.apellido)">
                   <i class="fas fa-stethoscope" style="font-size: 16px;"></i>
                 </button>
             </td>

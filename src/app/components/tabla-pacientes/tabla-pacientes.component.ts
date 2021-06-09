@@ -48,17 +48,19 @@ export class TablaPacientesComponent implements OnInit,AfterViewInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  odontoDialog(id:string){
+  odontoDialog(id:string, nombre:string, apellido:string){
+    let paciente = nombre + ' ' + apellido;
     const dialogRef = this.dialog.open(TablaOdontogramaComponent,{
       width:'800px',
-      data:{id}
+      data:{id,paciente}
     })
   }
 
-  diagnosticoDialog(id:string){
+  diagnosticoDialog(id:string, nombre:string, apellido:string){
+    let paciente = nombre + ' ' + apellido;
     const dialogRef = this.dialog.open(TablaDiagnosticoComponent,{
       width: '800px',
-      data: {id}
+      data: {id, paciente}
     })
   }
 }

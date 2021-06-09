@@ -10,6 +10,7 @@ import { DoctorService } from 'src/app/services/doctor.service';
   styleUrls: ['./canvas-odontograma.component.css']
 })
 export class CanvasOdontogramaComponent implements OnInit,AfterViewInit {
+  paciente:string;
   fillColor:String = 'white';
   fill;
   item:number;
@@ -49,12 +50,18 @@ export class CanvasOdontogramaComponent implements OnInit,AfterViewInit {
     this.odontograma = new odontoModel();
     this.pintarOdontograma();
     this.greateDienteForm();
+    this.getPaciente();
   }
   
   ngAfterViewInit():void{
     this.cargarOdonto();
   }
 
+  getPaciente(){
+    this.doctor.getPacienteByOdonto(this.odontoID).subscribe((resp:any[])=>{
+      this.paciente = resp[0].nombre + ' ' + resp[0].apellido;
+    })
+  }
 
   ausente(arcada:string,item:number,diente:string){
     this.odonto.nativeElement

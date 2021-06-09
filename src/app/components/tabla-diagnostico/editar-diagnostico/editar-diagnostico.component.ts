@@ -13,6 +13,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./editar-diagnostico.component.css']
 })
 export class EditarDiagnosticoComponent implements OnInit, DoCheck {
+  paciente:string;
   diagnosticoForm:FormGroup;
   odontoID:string;
   dientes:[] = [];
@@ -29,12 +30,19 @@ export class EditarDiagnosticoComponent implements OnInit, DoCheck {
     this.getDientes();
     this.getSintomas();
     this.getTratamientos();
+    this.getPaciente();
     this.createForm();
     this.getDiagnostico();
   }
 
   ngDoCheck(){
     this.valorTotal();
+  }
+
+  getPaciente(){
+    this.doctor.getPacienteByOdonto(this.odontoID).subscribe((resp:any[])=>{
+      this.paciente = resp[0].nombre + ' ' + resp[0].apellido;
+    })
   }
 
   createForm(){

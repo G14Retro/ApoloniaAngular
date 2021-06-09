@@ -13,6 +13,7 @@ import { SuperficieComponent } from './superficie/superficie.component';
   styleUrls: ['./diagnostico.component.css']
 })
 export class DiagnosticoComponent implements OnInit, DoCheck {
+  paciente:string;
   diagnosticoForm:FormGroup;
   odontoID:String;
   dientes:[] = [];
@@ -31,6 +32,7 @@ export class DiagnosticoComponent implements OnInit, DoCheck {
     this.getDientes();
     this.getSintomas();
     this.getTratamientos();
+    this.getPaciente();
     this.createForm();
   }
 
@@ -51,6 +53,12 @@ export class DiagnosticoComponent implements OnInit, DoCheck {
       })]),
       valor_total:'',
     });
+  }
+
+  getPaciente(){
+    this.doctor.getPacienteByOdonto(this.odontoID).subscribe((resp:any[])=>{
+      this.paciente = resp[0].nombre + ' ' + resp[0].apellido;
+    })
   }
 
   getDientes(){
