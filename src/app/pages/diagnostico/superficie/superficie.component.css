@@ -1,7 +1,6 @@
 .btnGuardar{
     background-image: linear-gradient(to right, #33C8FA 0%, #33C8FA  51%, #33C8FA  100%);
-    margin: 10px;
-    margin-left: 70%;
+    margin-left: 34%;
     padding: 3px 25px;
     text-align: center;
     text-transform: uppercase;
@@ -11,4 +10,8 @@
     box-shadow: 0 0 20px #eee;
     border-radius: 6px;
     display: block;
+  }
+  h3{
+    text-align: center;
+    margin: auto;
   }

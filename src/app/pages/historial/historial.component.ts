@@ -24,6 +24,10 @@ export class HistorialComponent implements OnInit, AfterViewInit {
     this.paginator._intl.itemsPerPageLabel="Registros por página";
   }
 
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
   verHistorial(){
     this.loading = true;
     this.cita.getHistorial(this.auth.usuario.id).subscribe((resp:any)=>{

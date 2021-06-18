@@ -40,7 +40,7 @@ export class TablaDiagnosticoComponent implements OnInit, AfterViewInit {
     })
   }
 
-  verDiagnostico(id:string){
+  verDiagnostico(id:String){
     this.dialogRef.close(this.router.navigateByUrl('/doctor/pacientes/editar-diagnostico/'+id))
   }
 

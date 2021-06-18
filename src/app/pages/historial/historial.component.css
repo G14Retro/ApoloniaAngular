@@ -1,6 +1,42 @@
 table {
   width:100%;
 }
+h1{
+  font-size: 30px;
+  width: 30%;
+  display: block;
+  font-size: 23px;
+  font-weight: 300;
+  padding: 20px 30px 0px 30px;
+  margin-bottom: -30px;
+}
+th{
+  background-color: #33C8FA !important;
+  color:rgb(255, 255, 255);
+  font-size: 16px;
+  font-weight: 600;
+  text-align: left;
+}
+td{
+  color:#555555;
+  font-size: 13px;
+  font-weight: 300;
+  text-align: left;
+}
+.mat-form-field {
+  font-size: 20px;
+  width: 20%;
+  display: block;
+  margin-bottom: -20px;
+  margin: -50px 30px 0px 30px;
+}
+.mat-row:hover {
+  background-color:#6c757d15;
+
+}
+.colums{
+  text-align: center;
+}
 .btnVerDetalle{
     background-image: linear-gradient(to right, #33C8FA 0%, #33C8FA  51%, #33C8FA  100%);
     margin: 10px ;
@@ -19,31 +55,4 @@ table {
     background-position: right center; /* change the direction of the change here */
     color: #fff;
     text-decoration: none;
-}
-
-th{
-  color:#888888;
-  font-size: 16px;
-  font-weight: 500;
-  text-align: center !important;
-  margin: auto !important;
-}
-td{
-  color:#555555;
-  font-size: 13px;
-  font-weight: 300;
-  text-align: center !important;
-  margin: auto !important;
-}
-.mat-form-field {
-  font-size: 14px;
-  width: 16%;
-}
-.mat-row:hover {
-  background-color:#6c757d15;
-
-}
-
-.colums{
-text-align: center;
 }

@@ -1,104 +1,169 @@
 <!-- AQUI TENEMOS TODAS LAS CARDS -->
 
 <div class="container-fluid" style="padding:2px;">
-  <h2><small>&nbsp; Dashboard</small></h2>
 
 <!-- CARDS HEADER -->
-<div class="row container">
-  <div class="col-xl-4 col-lg-6">
-    <div class="contenedor card card-stats">
-      <div class="card-body">
-        <div class="row">
-          <div class="col">
-            <h5 class="card-title text-uppercase  mb-0">citas asignadas</h5>
-            <span class="h2 font-weight-bold mb-0">350,897</span>
-          </div>
-          <div class="col-auto">
-            <div class="icon icon-shape ">
-              <i class="fas fa-calendar-alt"></i>
+  <div class="row container">
+
+<!--CARD CITAS ASIGNADAS -->
+    <div class="col-xl-4 col-lg-6">
+      <div class="contenedor card card-stats">
+        <div class="card-body">
+          <div class="row">
+            <div class="col">
+              <h5 class="card-title text-uppercase  mb-0">citas asignadas</h5>
+              <span class="h2 font-weight-bold mb-0">1</span>
+            </div>
+            <div class="col-auto">
+              <div class="icon icon-shape ">
+                <i class="fas fa-calendar-alt"></i>
+              </div>
             </div>
           </div>
+            <hr>
+            <div class="stats">
+              <i class="fas fa-calendar-alt"></i> Citas asignadas
+            </div>
         </div>
+      </div>
+    </div>
+<!--END CARD CITAS ASIGNADAS -->
+
+<!--CARD CITAS ASISTIDAS -->
+    <div class="col-xl-4 col-lg-6">
+      <div class="contenedorUsuarios card card-stats mb-4 mb-xl-0">
+        <div class="card-body">
+          <div class="row">
+            <div class="col">
+              <h5 class="card-title text-uppercase mb-0">Citas Asistidas</h5>
+              <span class="h2 font-weight-bold mb-0">8</span>
+            </div>
+            <div class="col-auto">
+              <div class="icon icon-shape">
+                <i class="fas fa-briefcase"></i>
+              </div>
+            </div>
+          </div>
           <hr>
-          <div class="stats">
-            <i class="fas fa-calendar-alt"></i> Citas asignadas
-          </div>
+            <div class="stats">
+              <i class="fas fa-briefcase"></i> Citas Asistidas
+            </div>
+        </div>
       </div>
     </div>
-  </div>
+<!--END CARD CITAS ASISTIDAS -->
 
-  <div class="col-xl-4 col-lg-6">
-    <div class="contenedor card card-stats mb-4 mb-xl-0">
-      <div class="card-body">
-        <div class="row">
-          <div class="col">
-            <h5 class="card-title text-uppercase mb-0">Usuarios activos</h5>
-            <span class="h2 font-weight-bold mb-0">2,356</span>
-          </div>
-          <div class="col-auto">
-            <div class="icon icon-shape">
-              <i class="fas fa-users"></i>
+<!--CARD CITAS ELIMINADAS -->
+    <div class="col-xl-4 col-lg-6">
+      <div class="contenedorEliminado card card-stats mb-4 mb-xl-0">
+        <div class="card-body">
+          <div class="row">
+            <div class="col">
+              <h5 class="card-title text-uppercase mb-0">Citas Eliminadas</h5>
+              <span class="h2 font-weight-bold mb-0">2</span>
+            </div>
+            <div class="col-auto">
+              <div class="icon icon-shap">
+                <i class="fas fa-times"></i>
+              </div>
             </div>
           </div>
+          <hr>
+            <div class="stats">
+              <i class="fas fa-times"></i> Citas Eliminadas
+            </div>
         </div>
-        <hr>
-          <div class="stats">
-            <i class="fas fa-users"></i> Calendario
-          </div>
       </div>
     </div>
-  </div>
+<!--END CARD CITAS ELIMINADAS -->
 
-  <div class="col-xl-4 col-lg-6">
-    <div class="contenedor card card-stats mb-4 mb-xl-0">
-      <div class="card-body">
-        <div class="row">
-          <div class="col">
-            <h5 class="card-title text-uppercase mb-0">Disponibilidad</h5>
-            <span class="h2 font-weight-bold mb-0">924</span>
-          </div>
-          <div class="col-auto">
-            <div class="icon icon-shap">
-              <i class="fas fa-clock"></i>
+<!--CARD DISPONIBILIDAD -->
+    <div class="col-xl-4 col-lg-6">
+      <div class="contenedorDispo card card-stats mb-4 mb-xl-0">
+        <div class="card-body">
+          <div class="row">
+            <div class="col">
+              <h5 class="card-title text-uppercase mb-0">Disponibilidad</h5>
+              <span class="h2 font-weight-bold mb-0">24</span>
+            </div>
+            <div class="col-auto">
+              <div class="icon icon-shap">
+                <i class="fas fa-clock"></i>
+              </div>
             </div>
           </div>
+          <hr>
+            <div class="stats">
+              <i class="fas fa-clock"></i> Disponibilidad
+            </div>
         </div>
-        <hr>
-          <div class="stats">
-            <i class="fas fa-clock"></i> Disponibilidad
-          </div>
       </div>
     </div>
+<!--END CARD DISPONIBILIDAD -->
+
+<!--CARD USUAIRIOS ACTIVOS -->
+<div class="col-xl-4 col-lg-6">
+  <div class="contenedorActivos card card-stats mb-4 mb-xl-0">
+    <div class="card-body">
+      <div class="row">
+        <div class="col">
+          <h5 class="card-title text-uppercase mb-0">Usuarios Activos</h5>
+          <span class="h2 font-weight-bold mb-0">99</span>
+        </div>
+        <div class="col-auto">
+          <div class="icon icon-shap">
+            <i class="fas fa-users"></i>
+          </div>
+        </div>
+      </div>
+      <hr>
+        <div class="stats">
+          <i class="fas fa-users"></i> Usuarios Activos
+        </div>
+    </div>
   </div>
+</div>
+<!--END CARD USUARIOS ACTIVOS -->
+
+<!--CARD USUAIRIOS INACTIVOS -->
+<div class="col-xl-4 col-lg-6">
+  <div class="contenedorInactivos card card-stats mb-4 mb-xl-0">
+    <div class="card-body">
+      <div class="row">
+        <div class="col">
+          <h5 class="card-title text-uppercase mb-0">Usuarios Inactivos</h5>
+          <span class="h2 font-weight-bold mb-0">10</span>
+        </div>
+        <div class="col-auto">
+          <div class="icon icon-shap">
+            <i class="fas fa-users-slash"></i>
+          </div>
+        </div>
+      </div>
+      <hr>
+        <div class="stats">
+          <i class="fas fa-users-slash"></i> Usuarios Inactivos
+        </div>
+    </div>
+  </div>
+</div>
+<!--END CARD USUARIOS ANACTIVOS -->
+
 </div>
 <!-- END CARDS HEADER -->
 
 
-<mat-grid-tile *ngFor="let dispo of dispo | async" [colspan]="dispo.cols" [rowspan]="dispo.rows">
-  <mat-card class="dashboard-card">
-    <mat-card-header>
-      <mat-card-title>
-        {{dispo.title}}
-      </mat-card-title>
-    </mat-card-header>
 
-    <mat-card-content class="table-responsive dashboard-card-content">
-      <app-tabla-dispo></app-tabla-dispo>
-    </mat-card-content>
-  </mat-card>
-</mat-grid-tile>
-<!-- END CARDS DISPONIBILIDAD -->
 
-<mat-grid-list cols="2" rowHeight="350px">
-
-  <!--CARDS DISPONIBILIDAD -->
-  <mat-grid-tile *ngFor="let dispo of dispo | async" [colspan]="dispo.cols" [rowspan]="dispo.rows" >
+<!-- CARDS DISPONIBILIDAD -->
+  <mat-grid-tile *ngFor="let dispo of dispo | async" [colspan]="dispo.cols" [rowspan]="dispo.rows">
     <mat-card class="dashboard-card">
       <mat-card-header>
         <mat-card-title>
           {{dispo.title}}
         </mat-card-title>
       </mat-card-header>
+
       <mat-card-content class="table-responsive dashboard-card-content">
         <app-tabla-dispo></app-tabla-dispo>
       </mat-card-content>
@@ -106,36 +171,53 @@
   </mat-grid-tile>
   <!-- END CARDS DISPONIBILIDAD -->
 
-  <!-- CARDS CALENDARIO
-  <mat-grid-tile *ngFor="let cards of cards | async" [colspan]="cards.cols" [rowspan]="cards.rows" >
-    <mat-card class="dashboard-card">
-      <mat-card-header class="card1">
-        <mat-card-title class="card1">
-          {{cards.title}}
-        </mat-card-title>
-      </mat-card-header>
-      <mat-card-content class="table-responsive dashboard-card-content">
-      </mat-card-content>
-    </mat-card>
-  </mat-grid-tile>
-  END CARDS CALENDARIO -->
+  <mat-grid-list cols="2" rowHeight="350px">
 
-  <!--CARDS PERSONAL
-  <mat-grid-tile  *ngFor="let personal of personal | async" [colspan]="personal.cols" [rowspan]="personal.rows">
-    <mat-card class="dashboard-card">
-      <mat-card-header>
-        <mat-card-title>
-          {{personal.title}}
-        </mat-card-title>
-      </mat-card-header>
-      <mat-card-content class="table-responsive dashboard-card-content">
-        <div>
-          <h2><small class="text-muted">&nbsp; Personal</small></h2>
-        </div>
-      </mat-card-content>
-    </mat-card>
-  </mat-grid-tile>
-   END CARDS PERSONAL -->
+    <!--CARDS DISPONIBILIDAD -->
+   <!--  <mat-grid-tile *ngFor="let dispo of dispo | async" [colspan]="dispo.cols" [rowspan]="dispo.rows" >
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            {{dispo.title}}
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="table-responsive dashboard-card-content">
+          <app-tabla-dispo></app-tabla-dispo>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile> -->
+    <!-- END CARDS DISPONIBILIDAD -->
 
-</mat-grid-list>
+    <!-- CARDS CALENDARIO
+    <mat-grid-tile *ngFor="let cards of cards | async" [colspan]="cards.cols" [rowspan]="cards.rows" >
+      <mat-card class="dashboard-card">
+        <mat-card-header class="card1">
+          <mat-card-title class="card1">
+            {{cards.title}}
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="table-responsive dashboard-card-content">
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+    END CARDS CALENDARIO -->
+
+    <!--CARDS PERSONAL
+    <mat-grid-tile  *ngFor="let personal of personal | async" [colspan]="personal.cols" [rowspan]="personal.rows">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            {{personal.title}}
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="table-responsive dashboard-card-content">
+          <div>
+            <h2><small class="text-muted">&nbsp; Personal</small></h2>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+    END CARDS PERSONAL -->
+
+  </mat-grid-list>
 </div>

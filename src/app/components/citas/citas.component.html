@@ -1,7 +1,11 @@
 <div class="mat-elevation-z8 animated fadeInDown">
+  <div>
+    <h1>Citas </h1>
     <mat-form-field class="p-3" style="font-weight: 600; margin-left:79%; font-size:13px;">
-        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Buscador">
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Buscador">
     </mat-form-field>
+  </div>
+
     <table mat-table [dataSource]="dataSource" class="table caption-top table-bordered">
 
         <ng-container matColumnDef="fechaIni">
@@ -32,7 +36,7 @@
         <ng-container matColumnDef="Id">
             <th mat-header-cell *matHeaderCellDef> Aciones </th>
             <td mat-cell *matCellDef="let element">
-                <button mat-raised-button class="btn-primary" focusable="false" (click)="agendar(element.Id)">
+                <button mat-raised-button class="btn btn-primary" focusable="false" (click)="agendar(element.Id)">
                     Agendar
                 </button>
             </td>

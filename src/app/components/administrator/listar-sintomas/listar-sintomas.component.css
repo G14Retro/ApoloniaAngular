@@ -1,84 +1,88 @@
 table {
-    width:100%;
+  width:100%;
+}
+h1{
+font-size: 30px;
+width: 40%;
+display: block;
+font-size: 23px;
+font-weight: 300;
+padding: 20px 30px 0px 30px;
+margin-bottom: -30px;
 }
 th{
-  color:#888888;
-  font-size: 16px;
-  font-weight: 500;
-  text-align: center !important;
+background-color: #33C8FA !important;
+color:rgb(255, 255, 255);
+font-size: 19px;
+font-weight: 600;
+text-align: center !important;
 }
 td{
-  color:#555555;
-  font-size: 13px;
-  font-weight: 300;
-  text-align: center;
+color:#555555;
+font-size: 13px;
+font-weight: 300;
+text-align: center;
 }
-
 .mat-form-field {
-  font-size: 14px;
-  width: 16%;
+font-size: 20px;
+width: 20%;
+display: block;
+margin-bottom: -20px;
+margin: -50px 30px 0px 30px;
 }
-
 .mat-row:hover {
-  background-color:#6c757d15;
+background-color:#6c757d15;
 
 }
-
 .colums{
-  text-align: center;
+text-align: center;
 }
-
 .destroy{
-  color: #dc3545;
+color: #dc3545;
 }
 .edit{
-  color:#33C8FA;
+color:#33C8FA;
 }
-
 .mat-row:hover {
-  background-color:#12283c15;
+background-color:#12283c15;
 }
-
 .contenedorBtn{
-  padding-left: 3%;
+padding-left: 3%;
 }
-
 .btnCrear{
-  background-image: linear-gradient(to right, #33C8FA 0%, #33C8FA  51%, #33C8FA  100%);
-  font-size: large;
-  margin-left: 78%;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 500;
-  border-radius: 6px;
-  text-align: center;
-  text-transform: uppercase;
-  transition: 0.5s;
-  background-size: 200% auto;
-  box-shadow: 0 0 20px #eee;
-  color: white;
-  cursor: pointer;
+background-image: linear-gradient(to right, #33C8FA 0%, #33C8FA  51%, #33C8FA  100%);
+font-size: large;
+margin-left: 78%;
+font-family: 'Poppins', sans-serif;
+font-weight: 500;
+border-radius: 6px;
+text-align: center;
+text-transform: uppercase;
+transition: 0.5s;
+background-size: 200% auto;
+box-shadow: 0 0 20px #eee;
+color: white;
+cursor: pointer;
 }
 .btnCrear:hover{
-  background-position: right center; /* change the direction of the change here */
-  color: #fff;
-  text-decoration: none;
+background-position: right center; /* change the direction of the change here */
+color: #fff;
+text-decoration: none;
 }
-
 .btnExportar{
-  font-size: large;
-  margin-bottom: 3%;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 500;
-  border-radius: 6px;
-  cursor: pointer;
-  box-shadow: 0 0 20px #eee;
-  transition: 0.5s;
-
+font-size: large;
+margin-bottom: 3%;
+font-family: 'Poppins', sans-serif;
+font-weight: 500;
+border-radius: 6px;
+cursor: pointer;
+box-shadow: 0 0 20px #eee;
+transition: 0.5s;
 }
 .btnExportar:hover{
-  background-position: right center; /* change the direction of the change here */
-  color: #fff;
-  text-decoration: none;
+background-position: right center; /* change the direction of the change here */
+color: #fff;
+text-decoration: none;
 }
 
 

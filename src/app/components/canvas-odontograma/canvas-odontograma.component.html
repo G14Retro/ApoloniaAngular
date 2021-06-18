@@ -1,7 +1,8 @@
 <div class="container">
   <div mat-dialog-title>Paciente: <mat-label>{{paciente | titlecase}}</mat-label></div>
   <app-loading *ngIf="loading"></app-loading>
-  <main id="odontograma" #odontograma class="container pt-3 animated fadeInDown">
+<main id="odontograma" #odontograma class="container pt-3 animated fadeInDown">
+
     <div id="arcada1" class="col-6 float-left">
       <div class="float-right">
         <svg height="50" width="50" id="{{diente}}" *ngFor="let diente of arcada1">
@@ -20,6 +21,7 @@
           <line x1="50" y1="10" x2="10" y2="50" stroke="" stroke-width="" id="ausente1"></line>
         </svg>
       </div>
+
       <div class="float-right animated fadeIn" *ngIf="temporales">
         <svg height="50" width="50" id="{{dientep}}" *ngFor="let dientep of temporal1">
           <text x="20" y="9" fill="black" style="font-size: 10px;">{{dientep}}</text>
@@ -38,6 +40,7 @@
         </svg>
       </div>
     </div>
+
     <div id="arcada2" class="col-6 float-right">
       <div class="float-left">
         <svg height="50" width="50" id="{{diente}}" *ngFor="let diente of arcada2">
@@ -56,6 +59,7 @@
           <line x1="50" y1="10" x2="10" y2="50" stroke="" stroke-width="" id="ausente1"></line>
         </svg>
       </div>
+
       <div class="float-left animated fadeIn" *ngIf="temporales">
         <svg height="50" width="50" id="{{diente}}" *ngFor="let diente of temporal2">
           <text x="20" y="9" fill="black" style="font-size: 10px;">{{diente}}</text>
@@ -74,6 +78,7 @@
         </svg>
       </div>
     </div>
+
     <div id="arcada4" class="col-6 float-left">
       <div class="float-right animated fadeIn" *ngIf="temporales">
         <svg height="50" width="50" id="{{diente}}" *ngFor="let diente of temporal3">
@@ -92,6 +97,7 @@
           <line x1="50" y1="10" x2="10" y2="50" stroke="" stroke-width="" id="ausente1"></line>
         </svg>
       </div>
+
       <div class="float-right">
         <svg height="50" width="50" id="{{diente}}" *ngFor="let diente of arcada4">
           <text x="20" y="9" fill="black" style="font-size: 10px;">{{diente}}</text>
@@ -110,6 +116,7 @@
         </svg>
       </div>
     </div>
+
     <div id="arcada3" class="col-6 float-right">
       <div class="float-left animated fadeIn" *ngIf="temporales">
         <svg height="50" width="50" id="{{diente}}" *ngFor="let diente of temporal4">
@@ -146,41 +153,51 @@
         </svg>
       </div>
     </div>
-  </main>
+</main>
+
   <br>
   <br>
-    <div class="form-group">
-      <label>Detalles</label>
-      <form [formGroup]="dienteForm" *ngIf="!sano">
-        <div mat-dialog-content>
-          <div>
-            <mat-form-field>
-              <mat-label>Diente</mat-label>
-              <input matInput formControlName="diente">
-            </mat-form-field>
-            <mat-form-field>
-              <mat-label>Sintoma</mat-label>
-              <input matInput formControlName="sintoma">
-            </mat-form-field>
-            <mat-form-field>
-              <mat-label>Observación</mat-label>
-              <input matInput formControlName="observacion">
-            </mat-form-field>
-            <mat-form-field>
-              <mat-label>Tratamiento</mat-label>
-              <input matInput formControlName="tratamiento">
-            </mat-form-field>
-          </div>
-        </div>
-      </form>
-      <div mat-dialog-title *ngIf="sano">
-        Diente Sano
+
+<div class="contenedor form-group">
+  <label class="detalle">Detalles</label>
+  <form [formGroup]="dienteForm" *ngIf="!sano">
+
+    <div mat-dialog-content>
+      <div>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Diente</mat-label>
+          <input matInput formControlName="diente">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Síntoma</mat-label>
+          <input matInput formControlName="sintoma">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Observación</mat-label>
+          <input matInput formControlName="observacion">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Tratamiento</mat-label>
+          <input matInput formControlName="tratamiento">
+        </mat-form-field>
+
       </div>
     </div>
-    <div class="form-group p-2">
-      <button mat-button class="btn-primary float-right" [routerLink]="['/doctor/pacientes/editar-diagnostico/'+odontoID]">
-        <i class="fas fa-edit"></i> Editar diagnostico
-      </button>
-      <button mat-button class="btn-secondary float-right mr-2" [routerLink]="['/doctor/pacientes']">Ir a pacientes</button>
-    </div>
+  </form>
+  <div mat-dialog-title *ngIf="sano">
+    Diente Sano
+  </div>
+</div>
+  <br>
+  <div class="form-group p-2">
+    <button mat-button class="btn-primary float-right" [routerLink]="['/doctor/pacientes/editar-diagnostico/'+odontoID]">
+      <i class="fas fa-edit"></i> Editar Diagnóstico
+    </button>
+    <button mat-button class="btn-secondary float-right mr-2" [routerLink]="['/doctor/pacientes']">Ir a Pacientes</button>
+  </div>
+  <br>
 </div>

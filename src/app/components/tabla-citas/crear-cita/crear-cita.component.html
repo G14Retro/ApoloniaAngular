@@ -38,7 +38,9 @@ style="color: #888888; font-weight: 600; font-family: 'Poppins', sans-serif;"> C
         <input type="number" matInput formControlName="numero_documento" required>
         <mat-error *ngIf="citaGroup.get('numero_documento').hasError('required')">Por favor ingrese un número de documento</mat-error>
       </mat-form-field>
-      <button mat-icon-button class="btn-primary" (click)="buscarPaciente()"><i class="fas fa-search"></i></button>
+
+      <button  class="btn btn-primary" (click)="buscarPaciente()"><i class="fas fa-search"></i>&nbsp;Buscar Documento
+      </button>
 
       <mat-form-field class="col-md-6 .ms-auto" appearance="outline">
         <mat-label>Nombres</mat-label>

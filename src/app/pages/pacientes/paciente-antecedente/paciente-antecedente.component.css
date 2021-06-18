@@ -14,3 +14,46 @@
     border-color: #e71d1d !important;
     border-style: inherit;
 }
+
+.btnGuardar{
+  background-image: linear-gradient(to right, #33C8FA 0%, #33C8FA 51%, #33C8FA 100%);
+  font-size: large;
+  margin-left:1%;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  border-radius: 6px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  box-shadow: 0 0 20px #eee;
+  color: white;
+  cursor: pointer;
+}
+.btnGuardar:hover{
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+.btnRegresar{
+  background-image: linear-gradient(to right, #606c880f 0%, #3f4c6b61  51%, #606c880f  100%);
+  font-size: large;
+  margin-left:69%;
+  padding-bottom: 5px;
+  font-family:'Poppins', sans-serif;
+  font-weight:500;
+  border-radius: 6px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  box-shadow: 0 0 20px #eee;
+  color: white;
+  cursor: pointer;
+}
+.btnRegresar:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}

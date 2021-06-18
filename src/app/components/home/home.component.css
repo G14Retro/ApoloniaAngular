@@ -26,7 +26,7 @@
 }
 .contenedor{
   font-family: 'Poppins', sans-serif;
-  background-image: linear-gradient(to right, #33C8FA 0%, #1FA2FF  30%, #33C8FA  100%);
+  background: #33C8FA ;
   border-radius: 13px;
   color: rgb(255, 255, 255);
   cursor: pointer;
@@ -50,4 +50,85 @@ h2 small{
   margin-bottom: 50px !important;
 }
 
+.contenedorUsuarios{
+  font-family: 'Poppins', sans-serif;
+  /*background: #FFB100;*/
+  background: #82F200;
+  border-radius: 13px;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  box-shadow: 0 0 20px rgb(255, 255, 255);
+  transition: 0.s;
+  background-size: 200% auto;
+}
+.contenedorUsuarios:hover{
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
 
+.contenedorEliminado{
+  font-family: 'Poppins', sans-serif;
+  /* background: #82F200; */
+  background: #FF5839;
+  border-radius: 13px;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  box-shadow: 0 0 20px rgb(255, 255, 255);
+  transition: 0.s;
+  background-size: 200% auto;
+}
+.contenedorEliminado:hover{
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+.contenedorDispo{
+  font-family: 'Poppins', sans-serif;
+  background: #FFB100;
+  margin-top: 16px;
+  border-radius: 13px;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  box-shadow: 0 0 20px rgb(255, 255, 255);
+  transition: 0.s;
+  background-size: 200% auto;
+}
+.contenedorDispo:hover{
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+.contenedorActivos{
+  font-family: 'Poppins', sans-serif;
+  background: #0B556D;
+  margin-top: 16px;
+  border-radius: 13px;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  box-shadow: 0 0 20px rgb(255, 255, 255);
+  transition: 0.s;
+  background-size: 200% auto;
+}
+.contenedorActivos:hover{
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+.contenedorInactivos{
+  font-family: 'Poppins', sans-serif;
+  background: #424C50;
+  margin-top: 16px;
+  border-radius: 13px;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  box-shadow: 0 0 20px rgb(255, 255, 255);
+  transition: 0.s;
+  background-size: 200% auto;
+}
+.contenedorActivos:hover{
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}

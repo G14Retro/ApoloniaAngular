@@ -1,1 +1,33 @@
-table {width:100%;}
+table {
+  width: 100%;
+}
+h1{
+  width: 30%;
+  display: block;
+  font-size: 23px;
+  font-weight: 300;
+  padding: 20px 30px 0px 30px;
+  margin-bottom: -30px;
+}
+th{
+  background-color: #33C8FA !important;
+  padding-left: 13%;
+  color:rgb(255, 255, 255);
+  font-size: 19px;
+  font-weight: 600;
+}
+td{
+  padding-left: 13%;
+  text-align: left;
+  height:10% !important;
+  color:#555555;
+  font-size: 12px;
+  font-weight: 300;
+}
+.mat-form-field {
+  font-size: 20px;
+  width: 20%;
+  display: block;
+  margin-bottom: -15px;
+  margin: -55px 30px 0px 30px;
+}

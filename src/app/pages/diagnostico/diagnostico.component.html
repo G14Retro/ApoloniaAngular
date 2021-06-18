@@ -1,16 +1,16 @@
-<div class="container-md">
+<div class="container">
     <div mat-dialog-title>Paciente: <mat-label>{{paciente | titlecase}}</mat-label></div>
     <div class="form-group p-3">
-        <button class="btn btn-info float-right" (click)="agregarRegistro()">
-            <i class="fas fa-plus"></i> Agregar
+        <button class="btn btn-info btnAgregar float-right" (click)="agregarRegistro()">
+            <i class="fas fa-plus"></i>&nbsp; Agregar Diagnostico
         </button>
     </div>
-    <br>
     <br>
     <form [formGroup]="diagnosticoForm">
         <div formArrayName="diagnostico" *ngFor="let item of getDiagnosticos.controls; let i = index">
             <div [formGroupName]="i">
-                <mat-form-field class="peque">
+
+                <mat-form-field class="col-lg-6">
                     <mat-label>Diente</mat-label>
                     <mat-select formControlName="diente" required>
                         <mat-option>-----</mat-option>
@@ -19,13 +19,15 @@
                     </mat-option>
                     </mat-select>
                 </mat-form-field>
-                <mat-form-field>
+
+                <mat-form-field class="col-lg-6">
                     <mat-label>Superficie</mat-label>
                     <input matInput formControlName="superficie" >
                 </mat-form-field>
-                <button mat-icon-button (click)="openSuperficie(i)"><i class="far fa-plus-square"></i></button>
-                <mat-form-field>
-                    <mat-label>Sintomas</mat-label>
+                <button mat-icon-button class="superficie" (click)="openSuperficie(i)"><i class="far fa-plus-square"></i></button>
+
+                <mat-form-field class="col-lg-6">
+                    <mat-label>Síntomas</mat-label>
                     <mat-select formControlName="sintomas" required>
                         <mat-option>-----</mat-option>
                         <mat-option *ngFor="let sintoma of sintomas" [value]="sintoma.id">
@@ -33,11 +35,13 @@
                         </mat-option>
                     </mat-select>
                 </mat-form-field>
-                <mat-form-field>
+                <br>
+                <mat-form-field class="col-lg-6">
                     <mat-label>Observación</mat-label>
                     <textarea formControlName="observacion" matInput></textarea>
                 </mat-form-field>
-                <mat-form-field>
+
+                <mat-form-field class="col-lg-6">
                     <mat-label>Tratamiento</mat-label>
                     <mat-select formControlName="tratamiento" required>
                         <mat-option>-----</mat-option>
@@ -46,27 +50,30 @@
                         </mat-option>
                     </mat-select>
                 </mat-form-field>
-                <mat-form-field>
+
+                <mat-form-field class="col-lg-6">
                     <mat-label>Valor del tratamiento</mat-label>
                     <input matInput type="number" formControlName="valor_tratamiento">
                 </mat-form-field>
-                    <button mat-mini-fab color="warn" (click)="removerRegistro(i)">
-                        <i class="fas fa-minus"></i>
+                    <button mat-button class="btn btn-danger" (click)="removerRegistro(i)">
+                        <i class="fas fa-minus"></i> Eliminar Diagnostico
                     </button>
+
             </div>
         </div>
         <div>
             <br>
-            <mat-form-field class="float-right valor">
+            <mat-form-field class="float-right valor" appearance="outline">
                 <mat-label>Total</mat-label>
                 <input matInput formControlName="valor_total">
             </mat-form-field>
-            <br>
-            <br>
-            <br>
+            <br><br><br><br>
         </div>
-        <div class="form-group p-3">
-            <button mat-button class="btn-primary float-right" (click)="guardar()">Guardar</button>
+        <div class="btnContainer">
+          <button mat-button type="button" [routerLink]="['/doctor/pacientes']"
+          class="btn btnRegresar btn-secondary">Regresar</button>
+
+          <button mat-button class="btn btnGuardar" (click)="guardar()">Guardar</button>
         </div>
     </form>
 </div>

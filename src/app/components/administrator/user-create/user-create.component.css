@@ -3,20 +3,19 @@
 }
 /********** ESTILOS BOTON GUARDAR *********/
 .btnGuardar{
-  background-image: linear-gradient(to right, #33C8FA 0%, #33C8FA  51%, #33C8FA  100%);
-  margin-left: 10%;
-  margin-bottom: auto;
-  padding: 7px 15px;
-  text-align: center;
-  text-transform: uppercase;
-  transition: 0.5s;
-  background-size: 200% auto;
-  color: white !important;
-  box-shadow: 0 0 20px #eee;
-  border-radius: 6px;
-  border: none;
-  cursor: pointer;
-  display: block;
+  background-image: linear-gradient(to right, #33C8FA 0%, #33C8FA 51%, #33C8FA 100%);
+    font-size: large;
+    margin-left:3%;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    border-radius: 6px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    box-shadow: 0 0 20px #eee;
+    color: white;
+    cursor: pointer;
 }
 .btnGuardar:hover{
   background-position: right center; /* change the direction of the change here */
@@ -25,20 +24,19 @@
 }
 
 .btnRegresar{
-  background-image: linear-gradient(to right, #606c880f 0%, #6b3f3f61  51%, #606c880f  100%);
-  margin-left: 330%;
-  margin-top: auto;
-  padding: 7px 15px;
+  background-image: linear-gradient(to right, #606c880f 0%, #3f4c6b61  51%, #606c880f  100%);
+  font-size: large;
+  margin-left:300%;
+  font-family:s'Poppins', sans-serif;
+  font-weight:500;
+  border-radius: 6px;
   text-align: center;
   text-transform: uppercase;
   transition: 0.5s;
   background-size: 200% auto;
-  color: white;
   box-shadow: 0 0 20px #eee;
-  border-radius: 6px;
+  color: white;
   cursor: pointer;
-  border: none;
-  display: block;
 }
 .btnRegresar:hover {
   background-position: right center; /* change the direction of the change here */

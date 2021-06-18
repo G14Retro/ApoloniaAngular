@@ -1,3 +1,6 @@
+.container{
+  font-family:'Poppins' sans-serif;
+}
 .corona
 		{
 			fill:none;
@@ -26,7 +29,7 @@
 }
 
 #arcada3{
-	border-left: 2px solid black;	
+	border-left: 2px solid black;
 	border-top: 2px solid black;
 }
 
@@ -41,7 +44,20 @@
     transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
     width: 100%;
 }
-
+.detalle{
+  font-family:'Poppins' sans-serif;
+  font-weight: 300;
+  font-size: larger;
+}
 mat-form-field{
-    margin-right: 2rem;
+  font-family:'Poppins' sans-serif;
+  margin-right: 2rem;
+}
+mat-label{
+  font-size: medium;
+  color: #767676;
+}
+.contenedor{
+  margin-top:20%;
+  margin-left:3%;
 }

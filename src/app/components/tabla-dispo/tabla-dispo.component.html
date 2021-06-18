@@ -1,6 +1,5 @@
 <div class="contenedor table-responsive contenido">
 <div class="row p-3">
-  <h2><small>&nbsp; Disponibilidad</small></h2>
   <button class="botonDispo btn btn-primary"
     (click)="Adddialog()">
     <i class="fas fa-calendar-plus"></i>&nbsp; Crear Disponibilida
@@ -8,10 +7,13 @@
 </div>
 
 <div class="mat-elevation-z8 animated fadeInDown">
-<mat-form-field class="p-3" style="font-weight: 600; margin-left:81%; font-size:13px;">
-  <input matInput (keyup)="applyFilter($event.target.value)"
-  placeholder="Buscador">
-</mat-form-field>
+  <div>
+    <h1>Disponibilidad</h1>
+    <mat-form-field class="p-2" style="font-weight: 600; margin-left:79%; font-size:16px;">
+    <input matInput (keyup)="applyFilter($event.target.value)"
+    placeholder="Buscador">
+    </mat-form-field>
+  </div>
 
 <table mat-table [dataSource]="dataSource">
   <!-- Position Column -->
@@ -53,10 +55,13 @@
   <ng-container matColumnDef="acciones">
     <th class="colums" mat-header-cell *matHeaderCellDef> Aciones</th>
     <td class="contenedorBtn" mat-cell *matCellDef="let element">
+      
       <button mat-icon-button   class="destroy" (click)="destroy(element.id)"  focusable="false"><i class="fas fa-trash-alt"></i>
       </button>
+
       <button  mat-icon-button   class="edit" (click)="dialog(element.id)" focusable="false"><i class="fas fa-pen-alt"></i>
       </button>
+
     </td>
     </ng-container>
 

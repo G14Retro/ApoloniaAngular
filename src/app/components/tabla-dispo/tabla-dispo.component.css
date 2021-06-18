@@ -3,53 +3,57 @@
   font-family: 'Poppins', sans-serif;
 }
 table {
-    width: 100%;
-  }
-
-  th{
-    color:#888888;
-    font-size: 16px;
-    font-weight: 500;
-
-  }
-  td{
-    color:#555555;
-    font-size: 13px;
-    font-weight: 300;
-    text-align: left;
-    margin: 0 6px 0 0;
-  }
-
-  .mat-form-field {
-    font-size: 14px;
-    width: 16%;
-  }
-  .mat-row:hover {
-    background-color:#6c757d15;
-
-  }
-
+  width: 100%;
+}
+h1{
+  width: 3%;
+  display: block;
+  font-size: 23px;
+  font-weight: 300;
+  padding: 20px 30px 0px 30px;
+  margin-bottom: -30px;
+}
+th{
+  background-color: #33C8FA !important;
+  padding-left: 13%;
+  color:rgb(255, 255, 255);
+  font-size: 19px;
+  font-weight: 600;
+}
+td{
+  padding-left: 13%;
+  text-align: left;
+  height:10% !important;
+  color:#555555;
+  font-size: 12px;
+  font-weight: 300;
+}
+.mat-form-field {
+  font-size: 20px;
+  width: 20%;
+  display: block;
+  margin-bottom: -15px;
+  margin: -55px 30px 0px 30px;
+}
+.mat-row:hover {
+  background-color:#6c757d15;
+}
 .colums{
   text-align: center;
 }
-
 .contenedorBtn{
   padding-left: 3%;
 }
-
 .destroy{
   color: #dc3545;
 }
-
 .edit{
   color:#33C8FA;
 }
-
 h2 small{
   font-family: 'Poppins', sans-serif;
   color: #888888 !important;
 }
-
 /********** ESTILOS BOTON CREAR DISPONIBILIDAD *********/
 .botonDispo{
   background-image: linear-gradient(to right, #33C8FA 0%, #33C8FA  51%, #33C8FA  100%);
@@ -62,7 +66,6 @@ h2 small{
   cursor: pointer;
   box-shadow: 0 0 20px #eee;
   transition: 0.5s;
-
 }
 .botonDispo:hover{
   background-position: right center; /* change the direction of the change here */

@@ -1,4 +1,5 @@
 <div mat-dialog-content>
+  <h2>Actualizar Tratamiento</h2>
     <form [formGroup]="treatmentModel">
 
         <mat-form-field class="p-2" appearance="outline">
@@ -8,7 +9,7 @@
         </mat-form-field>
 
         <mat-form-field class="p-2" appearance="outline">
-            <mat-label>Color del sintoma</mat-label>
+            <mat-label>Color del Síntoma</mat-label>
             <input type="text" matInput formControlName="valor_tratamiento" required>
             <mat-error *ngIf="treatmentModel.get('valor_tratamiento').hasError('required')">Por favor seleccione una opción</mat-error>
         </mat-form-field>
@@ -16,8 +17,8 @@
     </form>
 
     <div class="btnContainer">
-        <button type="button" [routerLink]="['/admin/tratamientos']" class="btnRegresar btn-secondary" style="border-radius: 6px;">Reresar</button>
-        <button type="submit" class="btnGuardar" style="border-radius: 6px;" (click)="actualizarTratamiento()">Guardar</button>
+        <button type="button" [routerLink]="['/admin/tratamientos']" class="btn btnRegresar btn-secondary" style="border-radius: 6px;">Regresar</button>
+        <button type="submit" class="btn btnGuardar" style="border-radius: 6px;" (click)="actualizarTratamiento()">Guardar</button>
     </div>
 
 

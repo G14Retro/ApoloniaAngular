@@ -8,11 +8,14 @@
 </div>
 
   <div class="mat-elevation-z8 animated fadeInDown">
-    <mat-form-field class="p-3" style="font-weight: 600;  margin-left:83%;   font-size:13px;">
+    <div>
+      <h1>Tratamientos</h1>
+    <mat-form-field class="p-2" style="font-weight: 600; margin-left:79%; font-size:13px;">
       <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Buscador">
     </mat-form-field>
+    </div>
 
-    <table mat-table [dataSource]="dataSource" class="table table-light table-hover" matTableExporter
+    <table mat-table [dataSource]="dataSource" matTableExporter
       #exporter="matTableExporter">
 
       <ng-container matColumnDef="nombre_tratamiento">

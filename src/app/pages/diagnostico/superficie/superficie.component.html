@@ -1,8 +1,11 @@
-<mat-selection-list #superficieL >
+<mat-selection-list #superficieL>
+  <h3>Seleccione la Superficie</h3>
+  <br>
     <mat-list-option *ngFor="let superficie of superficies" value="{{superficie.valor}}">
       {{superficie.nombre}}
     </mat-list-option>
   </mat-selection-list>
+  <br>
   <div mat-dialog-actions>
-    <button mat-button  class="btn-primary"  (click)="guardar()">Guardar</button>
+    <button mat-button  class="btn btnGuardar"  (click)="guardar()">Guardar</button>
   </div>

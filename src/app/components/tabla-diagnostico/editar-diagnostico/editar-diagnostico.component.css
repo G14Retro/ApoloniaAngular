@@ -1,15 +1,59 @@
 .mat-form-field{
-    width:15%;
+    width:23%;
     margin-right: 1rem;
 }
-
 .peque{
     width: 5% !important;
 }
 .valor{
     margin-right: 10rem !important;
 }
-
 .derecha{
     margin-right: 5rem;
+}
+.superficie{
+  color: #33C8FA;
+  font-size: larger;
+  margin-left: -4%;
+  margin-top: 3%;
+}
+.btnGuardar{
+  background-image: linear-gradient(to right, #33C8FA 0%, #33C8FA 51%, #33C8FA 100%);
+  font-size: large;
+  margin-left:1%;
+  font-family:'Poppins', sans-serif;
+  font-weight:500;
+  border-radius: 6px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  box-shadow: 0 0 20px #eee;
+  color: white;
+  cursor: pointer;
+}
+.btnGuardar:hover{
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+.btnRegresar{
+  background-image: linear-gradient(to right, #606c880f 0%, #3f4c6b61  51%, #606c880f  100%);
+  font-size: large;
+  margin-left:73%;
+  font-family:'Poppins', sans-serif;
+  font-weight:500;
+  border-radius: 6px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  box-shadow: 0 0 20px #eee;
+  color: white;
+  cursor: pointer;
+}
+.btnRegresar:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
 }

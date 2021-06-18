@@ -22,6 +22,10 @@ export class CitasMedicoComponent implements OnInit,AfterViewInit {
     this.paginator._intl.itemsPerPageLabel="Registros por página";
   }
 
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
   ngOnInit(): void {
     this.loading = true;
     this.doctor.obtenerAgenda().subscribe((resp:any)=>{
@@ -38,7 +42,7 @@ export class CitasMedicoComponent implements OnInit,AfterViewInit {
     Swal.fire({
       title:'¿Desea confirmar la asistencia del paciente?',
       icon:'warning',
-      showCancelButton:true, 
+      showCancelButton:true,
       confirmButtonText: `Confirmar`,
       cancelButtonText: `Cancelar`,
     }).then ((result)=>{
