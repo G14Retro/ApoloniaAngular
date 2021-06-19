@@ -50,7 +50,7 @@ export class UserCreateComponent implements OnInit {
       telefono: '',
       correo: '',
       genero: '',
-      fecha_nacimiento: '',
+      fecha_nacimiento: ['',Validators.required],
       estado: '',
       tipo_usuario: '',
       password:''
@@ -106,9 +106,10 @@ export class UserCreateComponent implements OnInit {
     this.datos=this.userForm.value;
     this.datos.ciudad = this.userForm.value.ciudad['ciudad'];
     this.datos.fecha_nacimiento = moment(this.userForm.value.fecha_nacimiento).format("YYYY-MM-DD");
+    if (this.userForm.invalid) {
+      return
+    }
     this.administratorService.crearUsuario(this.datos).subscribe(resp=>{
-    console.log(this.userForm.value.ciudad['ciudad'])
-    console.log(resp)
     Swal.fire(
       'En hora buena',
       'Usuario creado correctamente!',

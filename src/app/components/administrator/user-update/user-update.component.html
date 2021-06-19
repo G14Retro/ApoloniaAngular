@@ -1,8 +1,7 @@
 <div mat-dialog-title>Actuallizar usuario</div>
-
+<app-loading *ngIf="loading"></app-loading>
 <div mat-dialog-content>
     <form [formGroup]="userForm">
-
         <mat-form-field class="p-2" appearance="outline">
             <mat-label>Tipo de documento</mat-label>
             <mat-select formControlName="tipo_documento" required>
@@ -102,7 +101,7 @@
 
         <mat-form-field class="p-2" appearance="outline">
             <mat-label>Contraseña</mat-label>
-            <input type="text" matInput formControlName="password" required>
+            <input type="password" matInput formControlName="password" required>
             <mat-error *ngIf="userForm.get('password').hasError('required')">Por favor seleccione una opción</mat-error>
         </mat-form-field>
 

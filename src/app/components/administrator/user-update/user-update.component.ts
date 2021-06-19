@@ -24,7 +24,7 @@ export class UserUpdateComponent implements OnInit {
   idUpdate:string;
   minDate:Date;
   maxDate:Date;
-
+  loading:boolean = false;
   startDate = new Date(1990, 0, 1);
 
   constructor(private administratorService:AdministratorService,
@@ -64,6 +64,7 @@ export class UserUpdateComponent implements OnInit {
   buscarUser(){
     this.ruta.params.subscribe(params =>{
       this.idUpdate=params['id'];
+      this.loading = true;
       this.administratorService.buscarUser(params['id']).subscribe((resp:any[])=>{
         this.userForm.setValue({
           tipo_documento: resp['tipo_documento'],
@@ -80,6 +81,7 @@ export class UserUpdateComponent implements OnInit {
           tipo_usuario: resp['tipo_usuario'],
           password: '',
         });
+        this.loading = false;
       })
     })
   }
@@ -104,7 +106,6 @@ export class UserUpdateComponent implements OnInit {
     this.datos=this.userForm.value;
     this.datos.fecha_nacimiento = moment(this.userForm.value.fecha_nacimiento).format("YYYY-MM-DD");
     this.administratorService.updateUser(this.idUpdate,this.datos).subscribe(resp=>{
-    console.log(resp)
     Swal.fire(
       'En hora buena',
       'Usuario actualizado correctamente!',

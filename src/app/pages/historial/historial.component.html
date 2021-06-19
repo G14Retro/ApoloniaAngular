@@ -11,12 +11,12 @@
 
         <ng-container matColumnDef="fecha_inicio">
             <th mat-header-cell *matHeaderCellDef> Fecha inicio cita </th>
-            <td mat-cell *matCellDef="let element"> {{element.fecha_inicio | date:'EEEE d MMMM, y, h:mm:ss a'}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.fecha_inicio | date:"EEEE d 'de' MMMM, y, h:mm a"}} </td>
         </ng-container>
 
         <ng-container matColumnDef="fecha_fin">
             <th mat-header-cell *matHeaderCellDef> Fecha fin cita </th>
-            <td mat-cell *matCellDef="let element"> {{element.fecha_fin | date:'EEEE d MMMM, y, h:mm:ss a'}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.fecha_fin | date:"EEEE d 'de' MMMM, y, h:mm a"}} </td>
         </ng-container>
 
         <ng-container matColumnDef="estado">
