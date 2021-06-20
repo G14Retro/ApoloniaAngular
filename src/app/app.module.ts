@@ -130,7 +130,7 @@ registerLocaleData(localeEsCO,'es-CO')
     ActualizarTratamientoComponent,
     TablaCitasComponent,
     CrearCitaComponent,
-    EditarCitaComponent
+    EditarCitaComponent,
   ],
   imports: [
     BrowserModule,

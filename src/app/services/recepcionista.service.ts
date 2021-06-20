@@ -119,16 +119,6 @@ export class RecepcionistaService {
       return this.http.get(environment.apiEndpoint+'getDispo',{headers});
   }
 
-  /**
-   * public tipoConsulta(){
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'X-Requested-With': 'XMLHttpRequest',
-      'Authorization': 'Bearer '+ this.auth.usuario.token
-      })
-      return this.http.get(environment.apiEndpoint+'tipoConsulta',{headers});
-  }
-  **/
 
   public listarPacientes(){
     const headers = new HttpHeaders({
@@ -202,5 +192,14 @@ export class RecepcionistaService {
     });
 
     return this.http.put(environment.apiEndpoint + 'editarCita/'+id,data,{headers});
+  }
+
+  recepDash(){
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'X-Requested-With': 'XMLHttpRequest',
+      'Authorization': 'Bearer '+ this.auth.usuario.token
+    });
+    return this.http.get(environment.apiEndpoint+'recepDash',{headers})
   }
 }

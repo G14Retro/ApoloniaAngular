@@ -211,4 +211,13 @@ export class DoctorService {
     return this.http.post(this.url+'editDiagnostico',data,{headers});
   }
 
+  doctorDash(){
+    const  headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'X-Requested-With': 'XMLHttpRequest',
+      'Authorization': 'Bearer ' + this.auth.usuario.token
+    });
+    return this.http.get(this.url+'doctorDash/'+this.auth.usuario.id,{headers});
+  }
+
 }

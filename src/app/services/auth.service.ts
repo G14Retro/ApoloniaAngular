@@ -8,9 +8,15 @@ import { map } from "rxjs/operators";
 })
 export class AuthService {
   usuario:userModel;
+  headers;
   url:string = 'http://127.0.0.1:8000/api/apolonia/';
   constructor(private http:HttpClient) {
     this.sessionRead();
+    this.headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'X-Requested-With': 'XMLHttpRequest',
+      'Authorization' : 'Bearer '+ this.usuario.token
+    });
   }
 
   patienSave(user:userModel){

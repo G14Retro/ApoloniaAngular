@@ -6,13 +6,14 @@
   <div class="row container">
 
 <!--CARD CITAS ASIGNADAS -->
-    <div class="col-xl-4 col-lg-6">
+
+    <div class="col-xl-4 col-lg-6" [routerLink]="[rutas.asignadas]">
       <div class="contenedor card card-stats">
         <div class="card-body">
           <div class="row">
             <div class="col">
               <h5 class="card-title text-uppercase  mb-0">citas asignadas</h5>
-              <span class="h2 font-weight-bold mb-0">1</span>
+              <span class="h2 font-weight-bold mb-0">{{datos_dash['asignadas']}}</span>
             </div>
             <div class="col-auto">
               <div class="icon icon-shape ">
@@ -30,13 +31,13 @@
 <!--END CARD CITAS ASIGNADAS -->
 
 <!--CARD CITAS ASISTIDAS -->
-    <div class="col-xl-4 col-lg-6">
+    <div class="col-xl-4 col-lg-6" *ngIf="!doctor" [routerLink]="[rutas.asistidas]">
       <div class="contenedorUsuarios card card-stats mb-4 mb-xl-0">
         <div class="card-body">
           <div class="row">
             <div class="col">
               <h5 class="card-title text-uppercase mb-0">Citas Asistidas</h5>
-              <span class="h2 font-weight-bold mb-0">8</span>
+              <span class="h2 font-weight-bold mb-0">{{datos_dash['asistidas']}}</span>
             </div>
             <div class="col-auto">
               <div class="icon icon-shape">
@@ -54,13 +55,13 @@
 <!--END CARD CITAS ASISTIDAS -->
 
 <!--CARD CITAS ELIMINADAS -->
-    <div class="col-xl-4 col-lg-6">
+    <div class="col-xl-4 col-lg-6" *ngIf="!doctor" [routerLink]="[rutas.canceladas]">
       <div class="contenedorEliminado card card-stats mb-4 mb-xl-0">
         <div class="card-body">
           <div class="row">
             <div class="col">
-              <h5 class="card-title text-uppercase mb-0">Citas Eliminadas</h5>
-              <span class="h2 font-weight-bold mb-0">2</span>
+              <h5 class="card-title text-uppercase mb-0">Citas Canceladas</h5>
+              <span class="h2 font-weight-bold mb-0">{{datos_dash['canceladas']}}</span>
             </div>
             <div class="col-auto">
               <div class="icon icon-shap">
@@ -70,7 +71,7 @@
           </div>
           <hr>
             <div class="stats">
-              <i class="fas fa-times"></i> Citas Eliminadas
+              <i class="fas fa-times"></i> Citas Canceladas
             </div>
         </div>
       </div>
@@ -78,13 +79,13 @@
 <!--END CARD CITAS ELIMINADAS -->
 
 <!--CARD DISPONIBILIDAD -->
-    <div class="col-xl-4 col-lg-6">
+    <div class="col-xl-4 col-lg-6" *ngIf="recepcion || administrador" [routerLink]="[rutas.disponibilidades]">
       <div class="contenedorDispo card card-stats mb-4 mb-xl-0">
         <div class="card-body">
           <div class="row">
             <div class="col">
               <h5 class="card-title text-uppercase mb-0">Disponibilidad</h5>
-              <span class="h2 font-weight-bold mb-0">24</span>
+              <span class="h2 font-weight-bold mb-0">{{datos_dash['disponibilidades']}}</span>
             </div>
             <div class="col-auto">
               <div class="icon icon-shap">
@@ -102,13 +103,13 @@
 <!--END CARD DISPONIBILIDAD -->
 
 <!--CARD USUAIRIOS ACTIVOS -->
-<div class="col-xl-4 col-lg-6">
+<div class="col-xl-4 col-lg-6" *ngIf="administrador" [routerLink]="[rutas.activos]">
   <div class="contenedorActivos card card-stats mb-4 mb-xl-0">
     <div class="card-body">
       <div class="row">
         <div class="col">
           <h5 class="card-title text-uppercase mb-0">Usuarios Activos</h5>
-          <span class="h2 font-weight-bold mb-0">99</span>
+          <span class="h2 font-weight-bold mb-0">{{datos_dash['activos']}}</span>
         </div>
         <div class="col-auto">
           <div class="icon icon-shap">
@@ -126,13 +127,13 @@
 <!--END CARD USUARIOS ACTIVOS -->
 
 <!--CARD USUAIRIOS INACTIVOS -->
-<div class="col-xl-4 col-lg-6">
+<div class="col-xl-4 col-lg-6" *ngIf="administrador" [routerLink]="[rutas.inactivos]">
   <div class="contenedorInactivos card card-stats mb-4 mb-xl-0">
     <div class="card-body">
       <div class="row">
         <div class="col">
           <h5 class="card-title text-uppercase mb-0">Usuarios Inactivos</h5>
-          <span class="h2 font-weight-bold mb-0">10</span>
+          <span class="h2 font-weight-bold mb-0">{{datos_dash['inactivos']}}</span>
         </div>
         <div class="col-auto">
           <div class="icon icon-shap">

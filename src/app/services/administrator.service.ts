@@ -6,8 +6,6 @@ import { userModel } from '../models/user.model';
 import { treatmentModel } from '../models/treatment.model';
 import { symptomModel } from '../models/symptom.model';
 
-
-
 @Injectable({
   providedIn: 'root'
 })
@@ -161,6 +159,15 @@ public listarTratamientos(){
       'Authorization': 'Bearer '+ this.auth.usuario.token
       })
       return this.http.delete(environment.apiEndpoint+'elimiarSintoma/'+id,{headers});
+  }
+
+  adminDash(){
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'X-Requested-With': 'XMLHttpRequest',
+      'Authorization': 'Bearer '+ this.auth.usuario.token
+      });
+    return this.http.get(environment.apiEndpoint+'adminDash',{headers});
   }
 
 }
